@@ -1,9 +1,15 @@
-import React from 'react'
+import { useState } from "react";
+import MainView from "./MainView";
+import Sidenav from "./Sidenav";
 
 function Dashboard() {
+  const [activeLink, setActiveLink] = useState(0);
   return (
-    <div>Dashboard</div>
-  )
+    <div className="w-full min-h-screen relative">
+      <Sidenav activeLink={activeLink} setActiveLink={setActiveLink} />
+      <MainView activeLink={activeLink} />
+    </div>
+  );
 }
 
-export default Dashboard
+export default Dashboard;

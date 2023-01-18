@@ -6,7 +6,7 @@ import { useLocation } from "react-router-dom";
 function Layout({ children }) {
   const location = useLocation();
   return (
-    <div className="w-full h-screen border-black border-8">
+    <div className="w-full">
       {/* hide nav bar on dashboard page */}
       {location.pathname !== "/dashboard" && <Nav />}
       {children}
