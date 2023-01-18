@@ -3,30 +3,30 @@ module.exports = {
   content: ["./src/**/*.{js,jsx,ts,tsx}"],
   theme: {
     fontFamily: {
-      'Jost': ["Jost", "sans-serif"],
+      Jost: ["Jost", "sans-serif"],
     },
-    fontSize:{
-      xxs:"11px",
-      xs:"13px",
-      s:"16px",
-      sm:"19px",
-      m:"23px",
-      l:"28px",
-      xl:"33px",
-      "2xl":"40px",
-    "3xl":"48px"
+    fontSize: {
+      xxs: "11px",
+      xs: "13px",
+      s: "16px",
+      sm: "19px",
+      m: "23px",
+      l: "28px",
+      xl: "33px",
+      "2xl": "40px",
+      "3xl": "48px",
     },
-    fontWeight:{
-      regular:"400",
-      medium:"500",
-      bold:"800",
+    fontWeight: {
+      regular: "400",
+      medium: "500",
+      bold: "800",
     },
     screens: {
-      sm: '512px',
-      md: '768px',
-      lg: '1024px',
-      xl: '1280px',
-      '2xl': '1536px'
+      sm: "512px",
+      md: "768px",
+      lg: "1024px",
+      xl: "1280px",
+      "2xl": "1536px",
     },
     extend: {
       colors: {
@@ -37,6 +37,7 @@ module.exports = {
           30: "#7B7B7B",
           40: "#525252",
           50: "#313131",
+          60: "#FCFCFC",
         },
         secondary: {
           light: "#CECCD4",
