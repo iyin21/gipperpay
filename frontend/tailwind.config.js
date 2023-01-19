@@ -53,20 +53,25 @@ module.exports = {
           80: "#04000E",
         },
         Rectangle: "#FA3C12",
+        whiteText:"#FCFCFC",
         primary: {
           light: "#FED8D0",
           dark: "#320C04",
           main: "#FA3C12",
           10: "#FDBEB0",
           20: "#FC9D88",
-          30: "##FC7D61",
+          30: "#FC7D61",
           40: "#FB5D3A",
           50: "#D0320F",
           60: "#A7280C",
           70: "#7D1E09",
           80: "#531406",
+          mainGreen:"#21BF73"
         },
       },
+      margin: {
+        '25': '25%',
+      }
     },
   },
   plugins: [],
