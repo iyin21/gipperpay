@@ -3,7 +3,7 @@ import React from "react";
 //assets
 import gipperpaylogo from "../assets/gipperpaylogo.png";
 import gipperpaytext from "../assets/gipperpaytext.png";
-import downicon from "../assets/chevron-up.png";
+import { downIcon } from "../icons";
 
 import { Link } from "react-router-dom";
 
@@ -27,14 +27,14 @@ function Nav() {
           <h1 className="w-[58px] h-[23px] text-secondary-main  font-Jost font-regular font text-s leading-[23.12px] text-center mr-[5px] ">
             Products
           </h1>
-          <img src={downicon} alt="downicon" className="w-[20px] h-[20px]" />
+          <img src={downIcon} alt="downicon" className="w-[20px] h-[20px]" />
         </div>
 
         <div className="w-[135px] h-[50px]  rounded-[100px] pl-[20px] pr-[10px] pt-[10px] pb-[10px] mr-[5px] flex flex-row items-center">
           <h1 className="w-[70px] h-[23px]  text-secondary-main  mr-[5px] font-Jost font-regular font text-s leading-[23.12px] text-center not-italic ">
             Use Cases
           </h1>
-          <img src={downicon} alt="downicon" className="w-[20px] h-[20px]" />
+          <img src={downIcon} alt="downicon" className="w-[20px] h-[20px]" />
         </div>
         <div className="w-[78px]  h-[40px] pl-[15px] pr-[15px] pt-[8.5px] pb-[8.5px] mr-[5px] ">
           <h1 className="w-[48px] h-[23px] font-Jost not-italic font-regular text-s text-Rectangle">
@@ -45,13 +45,13 @@ function Nav() {
           <h1 className="w-[70px] h-[23px]  text-secondary-main  mr-[10px] font-Jost font-regular font text-s leading-[23.12px] text-center not-italic ">
             Individuals
           </h1>
-          <img src={downicon} alt="downicon" className="w-[20px] h-[20px]" />
+          <img src={downIcon} alt="downicon" className="w-[20px] h-[20px]" />
         </div>
         <div className="w-[138px] h-[50px] rounded-[100px] pl-[20px] pr-[10px] pt-[13.5px] pb-[13.5px] mr-[5px] flex flex-row items-center">
           <h1 className="w-[70px] h-[23px]  text-secondary-main  mr-[10px] font-Jost font-regular font text-s leading-[23.12px] text-center not-italic ">
             Businesses
           </h1>
-          <img src={downicon} alt="downicon" className="w-[20px] h-[20px]" />
+          <img src={downIcon} alt="downicon" className="w-[20px] h-[20px]" />
         </div>
         <div className="w-[95px]  h-[40px] pl-[15px] pr-[10px] pt-[8.5px] pb-[8.5px] ">
           <h1 className="w-[65px] h-[23px] font-Jost not-italic font-regular text-s text-Rectangle">
