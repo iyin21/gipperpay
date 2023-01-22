@@ -7,19 +7,5 @@ import BTC from "./BTC.png";
 import ETH from "./ETH.png";
 import USDT from "./USDT.png";
 import downIcon from "./chevron-down.png";
-import tron from "./tron.svg";
-import binance from "./binance.svg";
 
-export {
-  add,
-  send,
-  swap,
-  swap1,
-  giperfi,
-  ETH,
-  BTC,
-  USDT,
-  downIcon,
-  tron,
-  binance,
-};
+export { add, send, swap, swap1, giperfi, ETH, BTC, USDT, downIcon };
