@@ -1,6 +1,7 @@
 import React from "react";
 import { notification, profileSm } from "../../assets";
 import Overview from "./dashboard-components/Overview";
+import BuyandSell from "./dashboard-components/BuyandSell";
 
 function MainView({ activeLink }) {
   return (
@@ -23,6 +24,7 @@ function MainView({ activeLink }) {
         </div>
       </header>
       <div className="w-full h-4/5">{activeLink === 0 && <Overview />}</div>
+      <div className="w-full h-4/5">{activeLink === 1 && <BuyandSell />}</div>
     </div>
   );
 }
