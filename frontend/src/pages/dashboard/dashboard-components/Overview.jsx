@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { add, BTC, ETH, giperfi, send, swap, USDT } from "../../../icons";
 import { dashboardImg, gustCoin, profileBg } from "../../../assets";
 import PrimaryButton from "../../../widgets/buttons/PrimaryButton";
+import Modal from "../../../../src/widgets/Modal/Modal";
 import axios from "axios";
 function Overview() {
   // getting the values for btc usdt and eth
@@ -23,6 +24,38 @@ function Overview() {
     };
     getCoin();
   }, [btc, eth, usdt]);
+  // ------------------------------------------------------------------------------------------------
+
+  // open swap modal----------------------------------------------------------------------------------
+  const [showModal, setShowModal] = useState(false);
+
+  const button = [
+    {
+      img: swap,
+      text: "Swap",
+    },
+    {
+      img: send,
+      text: "Send",
+    },
+    {
+      img: add,
+      text: "Top Up",
+    },
+    {
+      img: giperfi,
+      text: "Stake",
+    },
+  ];
+  const handleSwapModal = (text) => {
+    if(text === 0){
+          setShowModal(true);
+    }
+    console.log(text)
+  };
+
+
+
   return (
     <div className="w-full flex   relative">
       <div className="w-4/5 h-98">
@@ -46,7 +79,7 @@ function Overview() {
                 <img src={gustCoin} className="h-5  w-5" alt="" />{" "}
                 <p className="font-medium text-s text-secondary-main">GU$T</p>
               </div>
-              <div>
+              <div className="w-[5rem] h-[3rem] pl-2">
                 <p className="text-s text-secondary-main font-medium">$ 0.00</p>
                 <p className="primary text-primary-mainGreen text-xxs">
                   +0,15%
@@ -54,31 +87,20 @@ function Overview() {
               </div>
             </div>
 
-            <div className="w-full flex justify-start gap-2 pl-2">
-              <button className="flex justify-center items-center gap-1 w-20 h-8 bg-primary-light">
-                <img src={swap} alt="" />
-                <p className="font-regular text-s text-primary-main">Swap</p>
-              </button>
-
-              <button className="flex justify-center items-center gap-1 w-20 h-8 bg-primary-light">
-                <img src={send} alt="" />
-                <p className="font-regular text-s text-primary-main">Send</p>
-              </button>
-
-              <button className="flex justify-center items-center gap-1 w-20 h-8 bg-primary-light">
-                <img src={add} alt="" />
-                <p className="font-regular text-s text-primary-main">Top up</p>
-              </button>
-
-              <button className="flex justify-center items-center gap-1 w-20 h-8 bg-primary-light">
-                <img src={giperfi} alt="" />
-                <p className="font-regular text-s text-primary-main">Stake</p>
-              </button>
+            <div className="w-full mt-3 flex justify-start gap-2 pl-2">
+              {button.map((button, i) => (
+                <button key={i} className="flex justify-center items-center gap-1 w-20 h-8 bg-primary-light" onClick={()=>handleSwapModal(i)}>
+                  <img src={button.img} alt="" />
+                  <p className="font-regular text-s text-primary-main">{button.text}</p>
+                </button>
+              ))}
             </div>
+
           </div>
+
           {/* -------------------------------------------------------- */}
           {/* other coins */}
-          <div className="w-full h-14 flex justify-between items-center p-2">
+          <div className="w-full h-14 flex mt-8 justify-between items-center p-2">
             <div className="flex items-center justify-start gap-2">
               <img src={BTC} alt="" />
               <div>
@@ -87,7 +109,7 @@ function Overview() {
               </div>
             </div>
 
-            <div>
+            <div className="w-[5rem] h-full">
               <p className="text-s font-medium text-secondary-main">${btc}</p>
               <p className="text-xs font-normal text-primary-mainGreen">+15%</p>
             </div>
@@ -102,7 +124,7 @@ function Overview() {
               </div>
             </div>
 
-            <div>
+            <div className="w-[5rem] h-full">
               <p className="text-s font-medium text-secondary-main">${eth}</p>
               <p className="text-xs font-normal text-primary-mainGreen">+15%</p>
             </div>
@@ -117,7 +139,7 @@ function Overview() {
               </div>
             </div>
 
-            <div>
+            <div className="w-[5rem] h-full">
               <p className="text-s font-medium text-secondary-main">
                 ${usdt.toFixed(2)}
               </p>
@@ -146,6 +168,7 @@ function Overview() {
           <PrimaryButton content="Payout" />
         </div>
       </div>
+      {showModal && <Modal setShowModal={setShowModal} text="Swap GU$T" />}
     </div>
   );
 }

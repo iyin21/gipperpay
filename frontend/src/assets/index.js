@@ -20,6 +20,7 @@ import profileSm from "./profileSm.png";
 import profileBg from "./profileBg.png";
 import dashboardImg from "./dashboardImg.png";
 import gustCoin from "./gustCoin.png";
+import congrats from "./congrats.svg";
 
 export {
   logo,
@@ -44,4 +45,5 @@ export {
   profileBg,
   dashboardImg,
   gustCoin,
+  congrats,
 };
