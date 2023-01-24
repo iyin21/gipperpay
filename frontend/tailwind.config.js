@@ -3,30 +3,30 @@ module.exports = {
   content: ["./src/**/*.{js,jsx,ts,tsx}"],
   theme: {
     fontFamily: {
-      'Jost': ["Jost", "sans-serif"],
+      Jost: ["Jost", "sans-serif"],
     },
-    fontSize:{
-      xxs:"11px",
-      xs:"13px",
-      s:"16px",
-      sm:"19px",
-      m:"23px",
-      l:"28px",
-      xl:"33px",
-      "2xl":"40px",
-    "3xl":"48px"
+    fontSize: {
+      xxs: "11px",
+      xs: "13px",
+      s: "16px",
+      sm: "19px",
+      m: "23px",
+      l: "28px",
+      xl: "33px",
+      "2xl": "40px",
+      "3xl": "48px",
     },
-    fontWeight:{
-      regular:"400",
-      medium:"500",
-      bold:"800",
+    fontWeight: {
+      regular: "400",
+      medium: "500",
+      bold: "800",
     },
     screens: {
-      sm: '512px',
-      md: '768px',
-      lg: '1024px',
-      xl: '1280px',
-      '2xl': '1536px'
+      sm: "512px",
+      md: "768px",
+      lg: "1024px",
+      xl: "1280px",
+      "2xl": "1536px",
     },
     extend: {
       colors: {
@@ -37,6 +37,7 @@ module.exports = {
           30: "#7B7B7B",
           40: "#525252",
           50: "#313131",
+          60: "#FCFCFC",
         },
         secondary: {
           light: "#CECCD4",
@@ -52,7 +53,7 @@ module.exports = {
           80: "#04000E",
         },
         Rectangle: "#FA3C12",
-        whiteText:"#FCFCFC",
+        whiteText: "#FCFCFC",
         primary: {
           light: "#FED8D0",
           dark: "#320C04",
@@ -65,12 +66,13 @@ module.exports = {
           60: "#A7280C",
           70: "#7D1E09",
           80: "#531406",
-          mainGreen:"#21BF73"
+          90: "#858095",
+          mainGreen: "#21BF73",
         },
       },
       margin: {
-        '25': '25%',
-      }
+        25: "25%",
+      },
     },
   },
   plugins: [],

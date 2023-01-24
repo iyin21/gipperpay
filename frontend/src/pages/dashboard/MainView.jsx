@@ -1,5 +1,6 @@
 import React from "react";
 import Overview from "./dashboard-components/Overview";
+import BuyandSell from "./dashboard-components/BuyandSell";
 
 function MainView({ activeLink }) {
   return (
