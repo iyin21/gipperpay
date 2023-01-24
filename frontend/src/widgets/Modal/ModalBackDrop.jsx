@@ -17,7 +17,7 @@ function ModalBackDrop({ children, text, setShowModal, Previous, activeForm }) {
     },
   ];
   return (
-    <div className="border-2 border-green-500 fixed overflow-y-auto left-0 top-0 w-full h-[100vh] flex bg-white-Main z-20">
+    <div className="fixed overflow-y-auto left-0 top-0 w-full h-[100vh] flex bg-white-Main z-50">
       <section className="bg-white-Main min-h-[100vh] w-[75%]">
         <header className="w-full flex justify-start pl-8 items-center gap-3 bg-whiteText h-20">
           {activeForm === 0 ? (
