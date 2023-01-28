@@ -1,7 +1,15 @@
 import React from "react";
 import { AiFillCloseCircle } from "react-icons/ai";
 import { IoMdArrowBack } from "react-icons/io";
-function ModalBackDrop({ children, text, setShowModal, Previous, activeForm }) {
+function ModalBackDrop({
+  children,
+  text,
+  setShowModal,
+  Previous,
+  activeForm,
+  step,
+  setShowSendModal
+}) {
   const steps = [
     {
       id: 1,
@@ -42,6 +50,20 @@ function ModalBackDrop({ children, text, setShowModal, Previous, activeForm }) {
                 Select Network
               </p>
             </button>
+          ) : null}
+
+          {step === 0 ? (
+            <>
+              <AiFillCloseCircle
+                cursor="pointer"
+                size="2rem"
+                color="#7B7B7B"
+                onClick={() => setShowSendModal(false)}
+              />
+              <p className="text-s font-medium text-secondary-main leading-6">
+                Send GU$T
+              </p>
+            </>
           ) : null}
         </header>
         {children}

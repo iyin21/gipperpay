@@ -2,14 +2,27 @@ import React, { useEffect, useState } from "react";
 import { add, giperfi, send, swap } from "../../../icons";
 import { dashboardImg, gustCoin, profileBg } from "../../../assets";
 import PrimaryButton from "../../../widgets/buttons/PrimaryButton";
-import Modal from "../../../../src/widgets/Modal/Modal";
+import Modal from "../../../widgets/Modal/swapcoin/Modal";
 import axios from "axios";
+import SendCoinModal from "../../../widgets/Modal/sendcoin/SendCoinModal";
+
 function Overview() {
   // getting the values for btc usdt and eth
   const [coins, setCoins] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
-  // make API call
+// coin to swap from
+  const [swappingFrom,setSwappingFrom] = useState({
+    label:"Gu$t",
+    value:'',
+    logo:gustCoin
+  })
+  // ------------------------------------//
 
+  // stable coin to swap to 
+  const [swappingTo,setSwappingTo] = useState({})
+  // ---------------------------------------//
+  
+  // make API call
   useEffect(() => {
     const getCoin = async () => {
       const response = await axios.get(
@@ -27,6 +40,7 @@ function Overview() {
 
   // open swap modal----------------------------------------------------------------------------------
   const [showModal, setShowModal] = useState(false);
+  const [showSendModal, setShowSendModal] = useState(false);
 
   const button = [
     {
@@ -46,12 +60,14 @@ function Overview() {
       text: "Stake",
     },
   ];
-  const handleSwapModal = (text) => {
-    if (text === 0) {
+  const handleModal = (i) => {
+    if (i === 0) {
       setShowModal(true);
+    }else if (i === 1) {
+      setShowSendModal(true);
     }
-    console.log(text);
   };
+
 
   return (
     <div className="w-full flex h-full">
@@ -89,7 +105,7 @@ function Overview() {
                 <button
                   key={i}
                   className="flex justify-center items-center gap-1 w-20 h-8 bg-primary-light"
-                  onClick={() => handleSwapModal(i)}
+                  onClick={() => handleModal(i)}
                 >
                   <img src={button.img} alt="" />
                   <p className="font-regular text-s text-primary-main">
@@ -106,7 +122,10 @@ function Overview() {
             <p className="flex justify-center align-center mt-44">Loading...</p>
           ) : (
             coins.map((coins, i) => (
-              <div key={i} className="w-full h-14 flex mt-8 justify-between items-center p-2">
+              <div
+                key={i}
+                className="w-full h-14 flex mt-8 justify-between items-center p-2"
+              >
                 <div className="flex items-center justify-start gap-2">
                   <img src={coins.image} height="30" width="30" alt="" />
                   <div>
@@ -121,9 +140,17 @@ function Overview() {
 
                 <div className="w-[5rem] h-full">
                   <p className="text-s font-medium text-secondary-main">
-                    $0.00
+                    ${(coins.current_price).toFixed(2)
+                      .toString()
+                      .replace(/\B(?=(\d{3})+(?!\d))/g, ",")}
                   </p>
-                  <p className={`text-xs font-normal ${coins.price_change_percentage_24h < 0 ? 'text-red-600' : "text-primary-mainGreen"} `}>
+                  <p
+                    className={`text-xs font-normal ${
+                      coins.price_change_percentage_24h < 0
+                        ? "text-red-600"
+                        : "text-primary-mainGreen"
+                    } `}
+                  >
                     {coins.price_change_percentage_24h < 0 ? "-" : "+"}
                     {coins.price_change_percentage_24h.toFixed(2)}%
                   </p>
@@ -155,7 +182,8 @@ function Overview() {
           <PrimaryButton content="Payout" />
         </div>
       </div>
-      {showModal && <Modal setShowModal={setShowModal} text="Swap GU$T" />}
+      {showModal && <Modal setShowModal={setShowModal} from={swappingFrom} setFrom={setSwappingFrom} to={swappingTo} setTo={setSwappingTo} text="Swap GU$T" />}
+      {showSendModal && <SendCoinModal setShowSendModal={setShowSendModal}/>}
     </div>
   );
 }

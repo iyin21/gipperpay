@@ -1,14 +1,15 @@
 import React from "react";
-import { congrats, gustCoin } from "../../../assets";
+import { congrats } from "../../../../assets";
 import { MdOutlineSwapHoriz } from "react-icons/md";
-import { USDT } from "../../../icons";
 import { useNavigate } from "react-router-dom";
 
-function Congrats({ setShowModal }) {
+function Congrats({ setShowModal, from, to, setFrom, setTo}) {
   const navigate = useNavigate();
   const handleFinish = () => {
     setShowModal(false);
     navigate("/dashboard");
+    setFrom({...from, value: 0})
+    setTo({})
   };
   return (
     <div className="w-[100%] fixed top-0 left-0 h-[100vh] flex justify-center backdrop-blur-sm z-20">
@@ -22,25 +23,25 @@ function Congrats({ setShowModal }) {
         <div className="flex justify-between mt-6 items-center w-full">
           <div className="flex flex-col justify-around items-center w-[50%]">
             <div className="flex gap-2">
-              <img src={gustCoin} alt="" />
+              <img src={from.logo} alt="" />
               <h2 className="text-xs leading-5 font-regular text-white-30">
-                GU$T
+                {from.label}
               </h2>
             </div>
             <p className="text-s font-medium leading-6 text-secondary-main">
-              0.00{" "}
+              {from.value}
             </p>
           </div>
           <MdOutlineSwapHoriz size="2rem" color="#7B7B7B" />
           <div className="flex flex-col justify-around items-center w-[50%]">
             <div className="flex gap-2">
-              <img src={USDT} alt="" />
+              <img src={to.image} height='20' width='20' alt="" />
               <h2 className="text-xs leading-5 font-regular text-white-30">
-                USDT
+                {(to.symbol).toUpperCase()}
               </h2>
             </div>
             <p className="text-s font-medium leading-6 text-secondary-main">
-              0.00{" "}
+              {to.current_price}
             </p>
           </div>
         </div>

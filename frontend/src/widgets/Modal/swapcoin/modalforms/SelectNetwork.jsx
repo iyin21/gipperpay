@@ -1,11 +1,19 @@
 import React, { useState } from "react";
-import { gustCoin } from "../../../assets";
-import { binance, tron, USDT } from "../../../icons";
+import { gustCoin } from "../../../../assets";
+import { binance, tron} from "../../../../icons";
 import { MdOutlineSwapHoriz } from "react-icons/md";
 
-function SwapTwo({next}) {
-  const [network, setNetwork] = useState("");
-  console.log(network);
+function SelectNetwork({next,from,to}) {
+  const [network,setNetwork] = useState('')
+  console.log(network)
+
+  const handleNext = (e) => {
+    e.preventDefault();
+    !network
+      ? alert("please select a network for this transaction")
+      : next();
+  };
+
   return (
     <div className="w-[30rem] mx-auto mt-5 h-[38.5rem] pt-11 px-24 bg-whiteText">
       <div>
@@ -20,17 +28,17 @@ function SwapTwo({next}) {
       <div className="flex justify-between mt-6 items-center w-full">
         <div className="flex justify-around items-center w-[50%]">
           <img src={gustCoin} alt="" />
-          <h2 className="text-xs leading-5 font-regular text-white-30">GU$T</h2>
+          <h2 className="text-xs leading-5 font-regular text-white-30">{from.label}</h2>
           <p className="text-s font-medium leading-6 text-secondary-main">
-            0.00{" "}
+            {from.value}{" "}
           </p>
         </div>
         <MdOutlineSwapHoriz size="1.2rem" color="#7B7B7B" />
         <div className="flex justify-around items-center w-[50%]">
-          <img src={USDT} alt="" />
-          <h2 className="text-xs leading-5 font-regular text-white-30">GU$T</h2>
+          <img src={to.image} height='20' width='20' alt="" />
+          <h2 className="text-xs leading-5 font-regular text-white-30">{to.name}</h2>
           <p className="text-s font-medium leading-6 text-secondary-main">
-            0.00{" "}
+            {to.current_price}
           </p>
         </div>
       </div>
@@ -73,7 +81,7 @@ function SwapTwo({next}) {
       <button
           type="submit"
           className="mt-10 w-20 h-12 bg-primary-main rounded-md text-whiteText text-s font-regular leading-6"
-          onClick={next}
+          onClick={handleNext}
         >
           Swap
         </button>
@@ -81,4 +89,4 @@ function SwapTwo({next}) {
   );
 }
 
-export default SwapTwo;
+export default SelectNetwork;

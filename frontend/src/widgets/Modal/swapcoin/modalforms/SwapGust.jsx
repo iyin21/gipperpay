@@ -1,20 +1,21 @@
 import React, { useState } from "react";
-import { gustCoin } from "../../../assets/index";
 import { MdSwapVert, MdOutlineSwapHoriz } from "react-icons/md";
 import { BsChevronDown } from "react-icons/bs";
 import { useEffect } from "react";
 import axios from "axios";
-function SwapOne({ next }) {
+function SwapGust({ next, from, setFrom, to, setTo }) {
+  // move to next step----------------------//
   const handleNext = (e) => {
     e.preventDefault();
-    !selected
+    !to.name
       ? alert("please select a coin you want to swap with")
       : next();
   };
+  // --------------------------------------------//
 
   const [coinList, setCoinList] = useState([]);
   const [searchVal, setSearchVal] = useState("");
-  const [selected, setSelected] = useState("");
+  // const [selected, setSelected] = useState("");
   const [img, setImg] = useState("");
   const [hide, setHide] = useState(true);
 
@@ -38,14 +39,12 @@ function SwapOne({ next }) {
     return null;
   });
 
-  const handleSelect = (val, img) => {
-    setSelected(val);
+  const handleSelect = (coin) => {
+    setTo(coin);
     setImg(img);
     setHide(true);
   };
 
-
-  console.log(selected);
   return (
     <div className="w-[30rem] mx-auto mt-5 h-[38.5rem] pt-11 px-24 bg-whiteText">
       <p className="text-s font-medium leading-6 text-secondary-main">
@@ -60,12 +59,14 @@ function SwapOne({ next }) {
           </label>
           <div className="w-[100%] h-[3.12rem] text-secondary-main flex items-center text-sm leading-7 font-medium bg-[white] border border-[#858095] rounded-md">
             <div className=" w-[5rem] h-5 flex justify-start gap-2 pl-2 items-center">
-              <img src={gustCoin} alt="" />
-              <p className="text-xs leading-4 font-regular">GU$T</p>
+              <img src={from.logo} alt="" />
+              <p className="text-xs leading-4 font-regular">{from.label}</p>
             </div>
             <input
               className="w-[90%] pl-3 text-sm text-secondary-main leading-7 placeholder:text-right placeholder:text-secondary-main"
               type="number"
+              value={from.value}
+              onChange={(e)=>setFrom({...from, value: e.target.value})}
               placeholder="0.00"
             />
           </div>
@@ -95,9 +96,9 @@ function SwapOne({ next }) {
               className="w-28 h-7 ml-2 cursor-pointer flex justify-between items-center p-1 bg-[#F7F7F7]"
               onClick={() => setHide(!hide)}
             >
-              {selected && <img src={img} height="20" width="20" alt="" />}
+              {to.name && <img src={to.image} height="20" width="20" alt="" />}
               <p className="text-xs font-regular">
-                {selected ? selected : "select"}
+                {to.name ? to.name : "select"}
               </p>
               <BsChevronDown size={10} />
             </div>
@@ -114,7 +115,7 @@ function SwapOne({ next }) {
                   <li
                     key={i}
                     className={`p-1 flex gap-2 w-full hover:bg-white-10 text-xs cursor-pointer`}
-                    onClick={() => handleSelect(coin.name, coin.image)}
+                    onClick={() => handleSelect(coin)}
                   >
                     <img src={coin.image} height="25" width="25" alt="" />
                     {coin.symbol.toUpperCase()}
@@ -126,7 +127,9 @@ function SwapOne({ next }) {
             <input
               className="w-[90%] pl-3 text-sm text-secondary-main leading-7 placeholder:text-right placeholder:text-secondary-main"
               type="number"
-              placeholder={selected}
+              placeholder={to.name}
+              value={to.current_price}
+              onChange={(e)=>setTo({...to, value: e.target.value})}
             />
           </div>
 
@@ -144,11 +147,11 @@ function SwapOne({ next }) {
             </p>
             <div className="flex justify-between items-center w-[50%]">
               <p className="text-xs font-medium leading-5 text-white-30">
-                1 GU$T
+                {from.value}
               </p>
               <MdOutlineSwapHoriz color="#7B7B7B" />
               <p className="text-xs font-medium leading-5 text-white-30">
-                NGN759
+                ${to.current_price}
               </p>
             </div>
           </div>
@@ -182,4 +185,4 @@ function SwapOne({ next }) {
   );
 }
 
-export default SwapOne;
+export default SwapGust;
