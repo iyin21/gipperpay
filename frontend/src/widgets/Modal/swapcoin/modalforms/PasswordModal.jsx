@@ -1,6 +1,8 @@
 import React, { useRef, useState } from "react";
 import { AiFillCloseCircle } from "react-icons/ai";
-function PasswordModal({ Previous, next }) {
+
+
+function PasswordModal({ Previous, next, type, previousStep, nextStep }) {
   // reference to the four input boxes
   const firstInputRef = useRef(null);
   const secondInputRef = useRef(null);
@@ -48,7 +50,7 @@ function PasswordModal({ Previous, next }) {
           className="absolute top-14 left-16"
           size="2rem"
           color="#7B7B7B"
-          onClick={Previous}
+          onClick={type ==="send" ? previousStep : Previous}
         />
         <h2 className="mt-36 text-xs leading-5 font-medium text-secondary-main text-center">
           Transaction PIN
@@ -113,7 +115,7 @@ function PasswordModal({ Previous, next }) {
         </p>
         <button
           className="w-24 h-12 mt-12 ml-36 mx-auto bg-primary-main rounded-md text-s leading-6 text-whiteText font-regular"
-          onClick={next}
+          onClick={type === 'send' ? nextStep : next}
         >
           Confirm
         </button>

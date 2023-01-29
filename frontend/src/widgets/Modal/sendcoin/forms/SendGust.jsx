@@ -1,42 +1,16 @@
 import React from "react";
 import { useState } from "react";
-import { gustCoin } from "../../../../assets";
-import { Facebook, instagram, linkedIn, Snapchat, twitter } from "../../../../icons";
 
-function SendGust({nextStep}) {
+
+function SendGust({ nextStep, setSocialPay, sendMethods, setMethod, method }) {
+
   const [active, setActive] = useState(0);
-  const [method,setMethod] = useState('')
-  console.log(method)
-  const sendMethods = [
-    {
-      logo: gustCoin,
-      label: "GU$T tag",
-    },
-    {
-      logo: twitter,
-      label: "@Twitter Username",
-    },
-    {
-      logo: instagram,
-      label: "@Instagram Username",
-    },
-    {
-      logo: linkedIn,
-      label: "@Linkedin Username",
-    },
-    {
-      logo: Snapchat,
-      label: "@Snapchat Username",
-    },
-    {
-      logo: Facebook,
-      label: "@Facebook Username",
-    },
-  ];
+  console.log(method);
 
-  const selectMethod = (i,label) => {
+  const selectMethod = (i, label) => {
     setActive(i);
-    setMethod(label)
+    setMethod(label);
+    method !== "GU$T tag" && setSocialPay(true);
   };
   return (
     <div className="w-[30rem] mx-auto mt-5 h-[38.5rem] pt-11 px-24 bg-whiteText">
@@ -52,8 +26,8 @@ function SendGust({nextStep}) {
             key={i}
             className={`w-[18.75rem] h-[2.8rem] border flex justify-between items-center ${
               active === i ? "border-primary-main" : "border-white-20"
-            } mt-[1.25rem]  py-2 px-5 cursor-pointer bg-whiteText`}
-            onClick={() => selectMethod(i,method.label)}
+            } mt-[1.25rem]  py-2 px-5 cursor-pointer bg-whiteText rounded-md`}
+            onClick={() => selectMethod(i, method)}
           >
             <div className="flex gap-1">
               <img height={20} width={20} src={method.logo} alt="" />
@@ -74,11 +48,12 @@ function SendGust({nextStep}) {
         ))}
       </div>
       <button
-          type="submit"
-          className="mt-10 w-24 h-12 bg-primary-main rounded-md text-whiteText text-s font-regular leading-6"
-        >
-          Proceed
-        </button>
+        type="submit"
+        className="mt-10 w-24 h-12 bg-primary-main rounded-md text-whiteText text-s font-regular leading-6"
+        onClick={nextStep}
+      >
+        Proceed
+      </button>
     </div>
   );
 }

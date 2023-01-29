@@ -20,6 +20,7 @@ function Modal(props) {
       Previous={Previous}
       activeForm={activeForm}
       text={props.text}
+      type='swap'
     >
       {activeForm === 0 ? (
         <SwapGust

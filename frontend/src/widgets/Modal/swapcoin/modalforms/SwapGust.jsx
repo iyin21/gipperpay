@@ -93,7 +93,7 @@ function SwapGust({ next, from, setFrom, to, setTo }) {
           </label>
           <div className="w-[100%] relative h-[3.12rem] text-secondary-main flex items-center text-sm leading-7 font-medium bg-[white] border border-[#858095] rounded-md">
             <div
-              className="w-28 h-7 ml-2 cursor-pointer flex justify-between items-center p-1 bg-[#F7F7F7]"
+              className="w-44 h-7 ml-2 cursor-pointer flex justify-between items-center p-1 bg-[#F7F7F7]"
               onClick={() => setHide(!hide)}
             >
               {to.name && <img src={to.image} height="20" width="20" alt="" />}
@@ -103,7 +103,7 @@ function SwapGust({ next, from, setFrom, to, setTo }) {
               <BsChevronDown size={10} />
             </div>
             {!hide && (
-              <ul className="w-24 h-20 border absolute bg-whiteText overflow-y-scroll overflow-x-hidden top-12 left-0">
+              <ul className="w-32 h-40 border absolute bg-whiteText overflow-y-scroll overflow-x-hidden top-12 left-0">
                 <input
                   value={searchVal}
                   onChange={(e) => setSearchVal(e.target.value)}
