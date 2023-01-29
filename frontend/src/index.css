@@ -1,3 +1,48 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer utilities {
+  .grid-32px-css {
+    grid-template-columns: repeat(
+      3,
+      226px
+    ); /* or just use 32px instead of theme('width-8') like grid-template-columns: repeat(4, 32px) */
+    grid-template-rows: repeat(2, 108px);
+  }
+  .grid-24px-css {
+    grid-template-columns: repeat(
+      2,
+      226px
+    ); /* or just use 32px instead of theme('width-8') like grid-template-columns: repeat(4, 32px) */
+    grid-template-rows: repeat(1, 108px);
+  }
+  .grid-20px-css {
+    grid-template-columns: repeat(
+      3,
+      256px
+    ); /* or just use 32px instead of theme('width-8') like grid-template-columns: repeat(4, 32px) */
+    grid-template-rows: repeat(3, 75px);
+  }
+  .grid-18px-css {
+    grid-template-columns: repeat(
+      3,
+      290px
+    ); /* or just use 32px instead of theme('width-8') like grid-template-columns: repeat(4, 32px) */
+    grid-template-rows: repeat(2, 300px);
+  }
+  .grid-16px-css {
+    grid-template-columns: repeat(
+      3,
+      300px
+    ); /* or just use 32px instead of theme('width-8') like grid-template-columns: repeat(4, 32px) */
+    grid-template-rows: repeat(1, 128px);
+  }
+  .grid-14px-css {
+    grid-template-columns: repeat(
+      2,
+      357px
+    ); /* or just use 32px instead of theme('width-8') like grid-template-columns: repeat(4, 32px) */
+    grid-template-rows: repeat(1, 562px);
+  }
+}

@@ -1,9 +1,15 @@
 /** @type {import('tailwindcss').Config} */
+
 module.exports = {
   content: ["./src/**/*.{js,jsx,ts,tsx}"],
   theme: {
     fontFamily: {
       Jost: ["Jost", "sans-serif"],
+    },
+    boxShadow: {
+      sm: "rgba(0, 0, 0, 0.1)",
+      md: "10px 8px 10px rgba(0, 0, 0, 0.05)",
+      m: "15px 15px 20px rgba(0, 0, 0, 0.05)",
     },
     fontSize: {
       xxs: "11px",
@@ -15,8 +21,10 @@ module.exports = {
       xl: "33px",
       "2xl": "40px",
       "3xl": "48px",
+      "4xl": "64px",
     },
     fontWeight: {
+      big: "700",
       regular: "400",
       medium: "500",
       bold: "800",
@@ -38,6 +46,7 @@ module.exports = {
           40: "#525252",
           50: "#313131",
           60: "#FCFCFC",
+          70: "#F7F7F7",
         },
         secondary: {
           light: "#CECCD4",
