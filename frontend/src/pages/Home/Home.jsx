@@ -34,7 +34,7 @@ function Home() {
     <div className="w-screen h-[5560px] ">
       {/**Big header */}
 
-      <div className="w-screen h-[600px] bg-white-70 flex flex-row">
+      <div className="w-screen h-[600px] bg-white-70 flex flex-row  ">
         <div className="w-[708px] h-[323px] mt-[108px] ml-[100px] ">
           <h1 className="w-[708px] h-[184px] font-Jost not-italic font-big text-4xl leading-[92px]  text-secondary-main flex  items-center  ">
             Take control of your business and payment
@@ -56,7 +56,11 @@ function Home() {
             </div>
           </div>
         </div>
-        <img src={handspics} alt="" className="object-contain" />
+        <img
+          src={handspics}
+          alt=""
+          className="object-contain lg:w-[533px] lg:h-[421px] mt-[60px] "
+        />
       </div>
 
       {/** what we offer  */}

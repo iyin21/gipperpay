@@ -5,6 +5,7 @@ import donation from "./donation.png";
 import donations from "./donations.png";
 import handspics from "./gipperpayhands.png";
 import gipperpaylogo from "./gipperpaylogo.png";
+import gipperpaytext from "./gipperpaytext.png";
 import gipperfi from "./gipperfi.png";
 import gipperfi_1 from "./gipperfi1.png";
 import overview from "./overview.png";
@@ -52,6 +53,7 @@ export {
   donations,
   handspics,
   gipperpaylogo,
+  gipperpaytext,
   gipperfi,
   gipperfi_1,
   overview,
