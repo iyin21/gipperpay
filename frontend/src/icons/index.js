@@ -17,6 +17,11 @@ import rightarrow2 from "./arrow-narrow-right2.png";
 import arrowupright from "./arrow-up-right.png";
 import mail from "./mail.png";
 import bookmark from "./bookmark1.png";
+import twitter from "./Twitter.svg";
+import Facebook from "./Facebook.svg";
+import Snapchat from "./Snapchat.svg";
+import linkedIn from "./LinkedIn.svg";
+import instagram from "./Instagram.svg";
 
 export {
   add,
@@ -38,4 +43,10 @@ export {
   arrowupright,
   mail,
   bookmark,
+  twitter,
+  Snapchat,
+  Facebook,
+  linkedIn,
+  instagram
 };
+

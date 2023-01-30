@@ -1,9 +1,9 @@
 import React, { useState } from "react";
-import ModalBackDrop from "./ModalBackDrop";
+import ModalBackDrop from "../ModalBackDrop";
 import Congrats from "./modalforms/Congrats";
-import SwapOne from "./modalforms/SwapOne";
-import SwapThree from "./modalforms/SwapThree";
-import SwapTwo from "./modalforms/SwapTwo";
+import SwapGust from "./modalforms/SwapGust";
+import PasswordModal from "./modalforms/PasswordModal";
+import SelectNetwork from "./modalforms/SelectNetwork";
 function Modal(props) {
   // a state to handle movement between different form components in the modal
   const [activeForm, setActiveForm] = useState(0);
@@ -20,15 +20,28 @@ function Modal(props) {
       Previous={Previous}
       activeForm={activeForm}
       text={props.text}
+      type='swap'
     >
       {activeForm === 0 ? (
-        <SwapOne next={next} />
+        <SwapGust
+          next={next}
+          from={props.from}
+          setFrom={props.setFrom}
+          to={props.to}
+          setTo={props.setTo}
+        />
       ) : activeForm === 1 ? (
-        <SwapTwo next={next} />
+        <SelectNetwork next={next} from={props.from} to={props.to} />
       ) : activeForm === 2 ? (
-        <SwapThree next={next} Previous={Previous} />
+        <PasswordModal next={next} Previous={Previous} />
       ) : activeForm === 3 ? (
-        <Congrats setShowModal={props.setShowModal} />
+        <Congrats
+          from={props.from}
+          to={props.to}
+          setFrom={props.setFrom}
+          setTo={props.setTo}
+          setShowModal={props.setShowModal}
+        />
       ) : null}
     </ModalBackDrop>
   );

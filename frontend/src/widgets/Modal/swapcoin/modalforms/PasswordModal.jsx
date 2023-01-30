@@ -1,12 +1,15 @@
 import React, { useRef, useState } from "react";
 import { AiFillCloseCircle } from "react-icons/ai";
-function SwapThree({ Previous, next }) {
+
+
+function PasswordModal({ Previous, next, type, previousStep, nextStep }) {
   // reference to the four input boxes
   const firstInputRef = useRef(null);
   const secondInputRef = useRef(null);
   const thirdInputRef = useRef(null);
   const fourthInputRef = useRef(null);
 
+  console.log(firstInputRef)
   //   state holding the input values
   const [pin, setPin] = useState({
     one: "",
@@ -14,6 +17,8 @@ function SwapThree({ Previous, next }) {
     three: "",
     four: "",
   });
+
+  // const [hidePassword, setHidePassword] = useState(false)
 
   //   destructuring the pin object to get it's value
   const { one, two, three, four } = pin;
@@ -24,6 +29,7 @@ function SwapThree({ Previous, next }) {
   function handleChange(e) {
     const { name, value } = e.target;
     setPin((prevPin) => ({ ...prevPin, [name]: value }));
+    // setHidePassword(true);
     // move to next input field once current field has a value
     if (firstInputRef.current.value !== "") {
       secondInputRef.current.focus();
@@ -44,7 +50,7 @@ function SwapThree({ Previous, next }) {
           className="absolute top-14 left-16"
           size="2rem"
           color="#7B7B7B"
-          onClick={Previous}
+          onClick={type ==="send" ? previousStep : Previous}
         />
         <h2 className="mt-36 text-xs leading-5 font-medium text-secondary-main text-center">
           Transaction PIN
@@ -53,9 +59,9 @@ function SwapThree({ Previous, next }) {
           Confirm with Transaction PIN
         </p>
         <div className="w-[11rem] mx-auto flex justify-between items-center mt-5">
-          <div className="w-[2.5rem] h-[2.5rem] border flex justify-center items-center p-1 border-black rounded-lg">
+          <div className={`w-[2.5rem] h-[2.5rem] border flex justify-center items-center p-1 rounded-lg ${firstInputRef.current  ? 'border-primary-main' : "border-black"}`}>
             <input
-              className="w-full text-sm h-full pl-[40%]"
+              className='w-full text-sm h-full pl-[40%]'
               value={pin.one}
               name="one"
               onChange={handleChange}
@@ -65,7 +71,7 @@ function SwapThree({ Previous, next }) {
               ref={firstInputRef}
             />
           </div>
-          <div className="w-[2.5rem] h-[2.5rem] border flex justify-center items-center p-1 border-black rounded-lg">
+          <div className={`w-[2.5rem] h-[2.5rem] border flex justify-center items-center p-1 rounded-lg ${secondInputRef.current ? 'border-primary-main' : "border-black"}`}>
             <input
               className="w-full h-full pl-[40%]"
               value={pin.two}
@@ -77,7 +83,7 @@ function SwapThree({ Previous, next }) {
               ref={secondInputRef}
             />
           </div>
-          <div className="w-[2.5rem] h-[2.5rem] border flex justify-center items-center p-1 border-black rounded-lg">
+          <div className={`w-[2.5rem] h-[2.5rem] border flex justify-center items-center p-1 rounded-lg ${thirdInputRef.current  ? 'border-primary-main' : "border-black"}`}>
             <input
               className="w-full h-full pl-[40%]"
               value={pin.three}
@@ -89,7 +95,7 @@ function SwapThree({ Previous, next }) {
               ref={thirdInputRef}
             />
           </div>
-          <div className="w-[2.5rem] h-[2.5rem] border flex justify-center items-center p-1 border-black rounded-lg">
+          <div className={`w-[2.5rem] h-[2.5rem] border flex justify-center items-center p-1 rounded-lg ${fourthInputRef.current ? 'border-primary-main' : "border-black"}`}>
             <input
               className="w-full h-full pl-[40%]"
               value={pin.four}
@@ -109,7 +115,7 @@ function SwapThree({ Previous, next }) {
         </p>
         <button
           className="w-24 h-12 mt-12 ml-36 mx-auto bg-primary-main rounded-md text-s leading-6 text-whiteText font-regular"
-          onClick={next}
+          onClick={type === 'send' ? nextStep : next}
         >
           Confirm
         </button>
@@ -118,4 +124,4 @@ function SwapThree({ Previous, next }) {
   );
 }
 
-export default SwapThree;
+export default PasswordModal;
