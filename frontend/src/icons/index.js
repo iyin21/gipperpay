@@ -22,6 +22,7 @@ import Facebook from "./Facebook.svg";
 import Snapchat from "./Snapchat.svg";
 import linkedIn from "./LinkedIn.svg";
 import instagram from "./Instagram.svg";
+import overviewIcon from "./overviewIcon.svg";
 
 export {
   add,
@@ -47,6 +48,6 @@ export {
   Snapchat,
   Facebook,
   linkedIn,
-  instagram
+  instagram,
+  overviewIcon,
 };
-

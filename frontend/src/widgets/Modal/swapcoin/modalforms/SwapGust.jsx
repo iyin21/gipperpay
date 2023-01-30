@@ -46,12 +46,11 @@ function SwapGust({ next, from, setFrom, to, setTo }) {
   };
 
   return (
-    <div className="w-[30rem] mx-auto mt-5 h-[38.5rem] pt-11 px-24 bg-whiteText">
-      <p className="text-s font-medium leading-6 text-secondary-main">
+    <div className="w-full lg:mx-auto mt-32 lg:mt-5 min-h-[38.5rem] lg:h-[38.5rem] pt-11 px-5 lg:px-24 bg-whiteText lg:w-[30rem]">
+      <p className="hidden text-s font-medium leading-6 text-secondary-main lg:block">
         Swap GU$T with Stable Coins
       </p>
-      <p className="text-">Select Stable Coin to Swap GU$T </p>
-
+      <p className="text-white-30 font-regular leading-6 text-s">Select Stable Coin to Swap GU$T </p>
       <form action="" className="h-auto">
         <div className="mt-5">
           <label className="text-xs font-medium leading-5 text-secondary-main">
@@ -63,7 +62,7 @@ function SwapGust({ next, from, setFrom, to, setTo }) {
               <p className="text-xs leading-4 font-regular">{from.label}</p>
             </div>
             <input
-              className="w-[90%] pl-3 text-sm text-secondary-main leading-7 placeholder:text-right placeholder:text-secondary-main"
+              className="w-[90%] pl-3 text-sm text-secondary-main leading-7 placeholder:text-right placeholder:text-secondary-main placeholder:pr-3"
               type="number"
               value={from.value}
               onChange={(e)=>setFrom({...from, value: e.target.value})}
@@ -103,7 +102,7 @@ function SwapGust({ next, from, setFrom, to, setTo }) {
               <BsChevronDown size={10} />
             </div>
             {!hide && (
-              <ul className="w-32 h-40 border absolute bg-whiteText overflow-y-scroll overflow-x-hidden top-12 left-0">
+              <ul className="w-32 h-40 border z-20 absolute bg-whiteText overflow-y-scroll overflow-x-hidden top-12 left-0">
                 <input
                   value={searchVal}
                   onChange={(e) => setSearchVal(e.target.value)}
@@ -125,9 +124,9 @@ function SwapGust({ next, from, setFrom, to, setTo }) {
             )}
 
             <input
-              className="w-[90%] pl-3 text-sm text-secondary-main leading-7 placeholder:text-right placeholder:text-secondary-main"
+              className="w-[90%] pl-3 text-sm text-secondary-main leading-7 placeholder:text-right placeholder:text-secondary-main placeholder:pr-3"
               type="number"
-              placeholder={to.name}
+              placeholder={to.current_price ? to.name : "0.00"}
               value={to.current_price}
               onChange={(e)=>setTo({...to, value: e.target.value})}
             />
@@ -175,7 +174,7 @@ function SwapGust({ next, from, setFrom, to, setTo }) {
 
         <button
           type="submit"
-          className="mt-10 w-20 h-12 bg-primary-main rounded-md text-whiteText text-s font-regular leading-6"
+          className="mt-10 w-full lg:w-20 h-12 bg-primary-main rounded-md text-whiteText text-s font-regular leading-6"
           onClick={handleNext}
         >
           Swap

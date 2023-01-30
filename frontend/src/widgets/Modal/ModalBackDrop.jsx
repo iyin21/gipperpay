@@ -45,8 +45,8 @@ function ModalBackDrop({
   ];
   return (
     <div className="fixed overflow-y-auto left-0 top-0 w-full h-[100vh] flex bg-white-Main z-50">
-      <section className="bg-white-Main min-h-[100vh] w-[75%]">
-        <header className="w-full flex justify-start pl-8 items-center gap-3 bg-whiteText h-20">
+      <section className="bg-white-Main min-h-[100vh] w-full lg:w-[75%]">
+        <header className="w-full fixed top-0 left-0 flex justify-start pl-8 items-center gap-3 bg-whiteText h-20 lg:relative">
           {activeForm === 0 ? (
             <>
               <AiFillCloseCircle
@@ -98,16 +98,16 @@ function ModalBackDrop({
         {children}
       </section>
       {/* side bar containing the steps */}
-      <aside className="w-[25%] h-full fixed right-0 top-0 bg-whiteText">
-        <div className="w-full mt-40 ml-6">
-          <p className="font-medium text-secondary-main text-sm leading-7 mb-6">
+      <aside className="w-full h-12 top-20 lg:w-[25%] lg:h-full fixed lg:right-0 lg:top-0 bg-whiteText">
+        <div className="flex gap-2 items-center w-full mt-0 ml-6 pt-2 lg:block lg:mt-40 lg:pt-0">
+          <p className="font-medium mb-0 text-secondary-main text-s lg:text-sm leading-7 lg:mb-6">
             Steps
           </p>
           {type === "swap" &&
             steps.map((step, i) => (
               <div
                 key={i}
-                className="w-full flex justify-start gap-2 items-center mb-8"
+                className="w-full flex justify-start gap-2 items-center mb-0 lg:mb-8"
               >
                 <div
                   className={`w-[2rem] h-[2rem] flex justify-center items-center rounded-lg text-whiteText ${
@@ -118,7 +118,7 @@ function ModalBackDrop({
                 >
                   {step.id}
                 </div>
-                <p className="text-s">{step.text}</p>
+                <p className="hidden text-s lg:block">{step.text}</p>
               </div>
             ))}
 
