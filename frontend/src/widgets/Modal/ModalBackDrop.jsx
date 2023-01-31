@@ -10,7 +10,9 @@ function ModalBackDrop({
   step,
   previousStep,
   setShowSendModal,
+  setShowTopUpModal,
   type,
+  TopUpStep,
 }) {
   const steps = [
     {
@@ -27,8 +29,6 @@ function ModalBackDrop({
     },
   ];
 
-  console.log(type);
-
   const sendSteps = [
     {
       id: 1,
@@ -41,6 +41,21 @@ function ModalBackDrop({
     {
       id: 3,
       text: "Confirm with PIN",
+    },
+  ];
+
+  const topUpSteps = [
+    {
+      id: 1,
+      text: "Enter Top up Amount",
+    },
+    {
+      id: 2,
+      text: "Select Payment Method",
+    },
+    {
+      id: 3,
+      text: "Confirm Transaction Details",
     },
   ];
   return (
@@ -138,6 +153,26 @@ function ModalBackDrop({
                   {stp.id}
                 </div>
                 <p className="text-s">{stp.text}</p>
+              </div>
+            ))}
+
+          {/* top up */}
+          {type === "topUp" &&
+            topUpSteps.map((step, i) => (
+              <div
+                key={i}
+                className="w-full flex justify-start gap-2 items-center mb-0 lg:mb-8"
+              >
+                <div
+                  className={`w-[2rem] h-[2rem] flex justify-center items-center rounded-lg text-whiteText ${
+                    i === TopUpStep
+                      ? "bg-secondary-main"
+                      : "bg-secondary-light"
+                  }`}
+                >
+                  {step.id}
+                </div>
+                <p className="hidden text-s lg:block">{step.text}</p>
               </div>
             ))}
         </div>

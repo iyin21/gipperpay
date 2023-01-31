@@ -5,6 +5,7 @@ import PrimaryButton from "../../../widgets/buttons/PrimaryButton";
 import Modal from "../../../widgets/Modal/swapcoin/Modal";
 import axios from "axios";
 import SendCoinModal from "../../../widgets/Modal/sendcoin/SendCoinModal";
+import TopUp from "../../../widgets/Modal/topUp/TopUp";
 // import Graph from "../../../widgets/graph/Graph";
 
 function Overview() {
@@ -37,11 +38,12 @@ function Overview() {
   }, []);
 
   console.log(coins);
-  // ------------------------------------------------------------------------------------------------
+  // -----------------
 
-  // open swap modal----------------------------------------------------------------------------------
+  //  modals
   const [showModal, setShowModal] = useState(false);
   const [showSendModal, setShowSendModal] = useState(false);
+  const [showTopUpModal, setShowTopUpModal] = useState(false);
 
   const button = [
     {
@@ -66,6 +68,8 @@ function Overview() {
       setShowModal(true);
     } else if (i === 1) {
       setShowSendModal(true);
+    } else if (i === 2) {
+      setShowTopUpModal(true);
     }
   };
 
@@ -205,6 +209,7 @@ function Overview() {
         />
       )}
       {showSendModal && <SendCoinModal setShowSendModal={setShowSendModal} />}
+      {showTopUpModal && <TopUp setShowTopUpModal={setShowTopUpModal}/>}
     </div>
   );
 }
