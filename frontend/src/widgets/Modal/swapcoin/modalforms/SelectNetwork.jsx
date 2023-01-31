@@ -15,8 +15,8 @@ function SelectNetwork({next,from,to}) {
   };
 
   return (
-    <div className="w-full mt-32 border-2 border-red-500 lg:w-[30rem] lg:mx-auto lg:mt-5 h-[38.5rem] pt-11 px-2 lg:px-24 bg-whiteText">
-      <div className="border border-black">
+    <div className="w-full mt-32 lg:w-[30rem] lg:mx-auto lg:mt-5 h-[38.5rem] pt-11 px-2 lg:px-24 bg-whiteText">
+      <div>
         <h2 className="hidden text-s font-medium leading-6 text-secondary-main lg:block">
           Network And Wallet Address
         </h2>
@@ -78,7 +78,7 @@ function SelectNetwork({next,from,to}) {
         </div>
       </div>
 
-      <div className=" border-t-2 bg-white-10 p-2 rounded-md mt-7">
+      <div className="lg:hidden border-t-2 bg-white-10 p-2 rounded-md mt-7">
           <div className="w-full mt-3 boder flex justify-between items-center border-black">
             <p className="text-xs font-medium leading-5 text-white-30">
               Exchange Rate
@@ -89,7 +89,7 @@ function SelectNetwork({next,from,to}) {
               </p>
               <MdOutlineSwapHoriz color="#7B7B7B" />
               <p className="text-xs font-medium leading-5 text-white-30">
-                ${to.current_price} {to.name}
+                ${(to.current_price).toFixed(2)} {to.name}
               </p>
             </div>
           </div>

@@ -23,7 +23,7 @@ function SendCongratsModal({setShowSendModal,transactionDetails}) {
           {parseInt(transactionDetails.gustAmount).toFixed(2)} GU$T{" "}
         </div>
         <p className="text-xs leading-5 text-center font-medium text-white-30 mt-2 mb-2">
-          Has Been Sent to @{transactionDetails.gustTag ? transactionDetails.gustTag : transactionDetails.recieversUsername}
+          Has Been Sent to @{transactionDetails.gustTag ? transactionDetails.gustTag : transactionDetails.reciversUserName}
         </p>
         <p className="text-xs leading-5 text-center font-medium text-white-30 mt-2 mb-2">
           Copy link to share with receiver
