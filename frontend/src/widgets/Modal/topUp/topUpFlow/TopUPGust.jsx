@@ -66,7 +66,7 @@ function TopUPGust({ nextTopUpStep }) {
               className="w-[90%] pl-3 text-sm text-secondary-main leading-7 placeholder:text-right placeholder:text-secondary-main placeholder:pr-3"
               type="number"
               placeholder="0.00"
-              value=""
+              // value=""
               //   onChange={(e)=>setTo({...to, value: e.target.value})}
             />
           </div>

@@ -13,6 +13,8 @@ function ModalBackDrop({
   setShowTopUpModal,
   type,
   TopUpStep,
+  previousTopUpStep,
+  setTopUpStep
 }) {
   const steps = [
     {
@@ -109,6 +111,40 @@ function ModalBackDrop({
               </p>
             </button>
           ) : null}
+
+          {TopUpStep === 0 ? (
+            <>
+              <AiFillCloseCircle
+                cursor="pointer"
+                size="2rem"
+                color="#7B7B7B"
+                onClick={() => setShowTopUpModal(false)}
+              />
+              <p className="text-s font-medium text-secondary-main leading-6">
+                Top Up
+              </p>
+            </>
+          ) : TopUpStep === 1 ? (
+            <button
+              className="flex items-center justify-start gap-3"
+              onClick={previousTopUpStep}
+            >
+              <IoMdArrowBack />
+              <p className="text-s font-medium text-secondary-main leading-6">
+                Payment Method
+              </p>
+            </button>
+          ) : TopUpStep === 2 ? (
+            <button
+              className="flex items-center justify-start gap-3"
+              onClick={()=>setTopUpStep(1)}
+            >
+              <IoMdArrowBack />
+              <p className="text-s font-medium text-secondary-main leading-6">
+                Credit/Debit Card Details
+              </p>
+            </button>
+          ) : null}
         </header>
         {children}
       </section>
@@ -165,9 +201,7 @@ function ModalBackDrop({
               >
                 <div
                   className={`w-[2rem] h-[2rem] flex justify-center items-center rounded-lg text-whiteText ${
-                    i === TopUpStep
-                      ? "bg-secondary-main"
-                      : "bg-secondary-light"
+                    i === TopUpStep ? "bg-secondary-main" : "bg-secondary-light"
                   }`}
                 >
                   {step.id}
