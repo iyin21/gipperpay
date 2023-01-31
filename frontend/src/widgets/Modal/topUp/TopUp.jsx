@@ -1,7 +1,6 @@
 import React from "react";
 import { useState } from "react";
-import { gustCoin } from "../../../assets";
-import { apple, banktransfer, Facebook, google, instagram, linkedIn, mastercard, Snapchat, twitter } from "../../../icons";
+import { apple, banktransfer, google, mastercard } from "../../../icons";
 import ModalBackDrop from "../ModalBackDrop";
 import EnterCardDetails from "./topUpFlow/EnterCardDetails";
 import SelectPaymentMethod from "./topUpFlow/SelectPaymentMethod";
@@ -35,6 +34,7 @@ function TopUp({ setShowTopUpModal }) {
   
     
   const [paymentMethod, setPaymentMethod] = useState(paymentMethods[0]);
+  console.log(paymentMethod)
   return (
     <ModalBackDrop type="topUp" setShowTopUpModal={setShowTopUpModal} TopUpStep={TopUpStep}>
       {
