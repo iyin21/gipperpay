@@ -1,7 +1,11 @@
 import React from "react";
 import { mastercard } from "../../../../icons";
 
-function EnterCardDetails() {
+function EnterCardDetails({nextTopUpStep}) {
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    nextTopUpStep();
+  };
   return (
     <div className="w-[30rem] mx-auto mt-5 h-[38.5rem] pt-11 px-24 bg-whiteText">
       <p className="text-sm leading-7 text-secondary-main font-medium mt-20">
@@ -68,6 +72,7 @@ function EnterCardDetails() {
         <button
           type="submit"
           className="w-[8.6rem] mt-8 text-s leading-6 text-whiteText h-11 bg-primary-main rounded-md"
+          onClick={handleSubmit}
         >
           Pay NGN0.00
         </button>

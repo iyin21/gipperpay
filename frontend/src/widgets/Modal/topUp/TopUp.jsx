@@ -2,15 +2,24 @@ import React from "react";
 import { useState } from "react";
 import { apple, banktransfer, google, mastercard } from "../../../icons";
 import ModalBackDrop from "../ModalBackDrop";
+import BankTransferDetails from "./topUpFlow/BankTransferDetails";
 import EnterCardDetails from "./topUpFlow/EnterCardDetails";
 import SelectPaymentMethod from "./topUpFlow/SelectPaymentMethod";
+import TopUpCongratsModal from "./topUpFlow/TopUpCongratsModal";
 import TopUPGust from "./topUpFlow/TopUPGust";
 
 function TopUp({ setShowTopUpModal }) {
   const [TopUpStep, setTopUpStep] = useState(0);
+
   const nextTopUpStep = () => {
     setTopUpStep(TopUpStep + 1);
   };
+
+  const previousTopUpStep = () => {
+    setTopUpStep(TopUpStep - 1);
+  };
+
+  const [bankPay, setBankPay] = useState(false);
 
   const paymentMethods = [
     {
@@ -28,20 +37,36 @@ function TopUp({ setShowTopUpModal }) {
     {
       logo: google,
       label: "Google pay",
-    }
+    },
   ];
 
-  
-    
   const [paymentMethod, setPaymentMethod] = useState(paymentMethods[0]);
-  console.log(paymentMethod)
+  console.log(paymentMethod);
   return (
-    <ModalBackDrop type="topUp" setShowTopUpModal={setShowTopUpModal} TopUpStep={TopUpStep}>
-      {
-        TopUpStep === 0 ? (<TopUPGust nextTopUpStep={nextTopUpStep}/>) : 
-        TopUpStep === 1 ? (<SelectPaymentMethod paymentMethods={paymentMethods} setPaymentMethod={setPaymentMethod} nextTopUpStep={nextTopUpStep}/>) :
-        TopUpStep === 2 ? (<EnterCardDetails  nextTopUpStep={nextTopUpStep}/>) : null
-      }
+    <ModalBackDrop
+      type="topUp"
+      setShowTopUpModal={setShowTopUpModal}
+      TopUpStep={TopUpStep}
+      previousTopUpStep={previousTopUpStep}
+      setTopUpStep={setTopUpStep}
+    >
+      {TopUpStep === 0 ? (
+        <TopUPGust nextTopUpStep={nextTopUpStep} />
+      ) : TopUpStep === 1 ? (
+        <SelectPaymentMethod
+          paymentMethods={paymentMethods}
+          paymentMethod={paymentMethod}
+          setPaymentMethod={setPaymentMethod}
+          nextTopUpStep={nextTopUpStep}
+          setBankPay={setBankPay}
+        />
+      ) : TopUpStep === 2 && !bankPay ? (
+        <EnterCardDetails nextTopUpStep={nextTopUpStep} />
+      ) : TopUpStep === 3 ? (
+        <TopUpCongratsModal setShowTopUpModal={setShowTopUpModal}  />
+      ) : bankPay ? (
+        <BankTransferDetails nextTopUpStep={nextTopUpStep} />
+      ) : null}
     </ModalBackDrop>
   );
 }

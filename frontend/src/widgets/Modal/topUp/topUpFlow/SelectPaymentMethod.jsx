@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 
-function SelectPaymentMethod({paymentMethods,setPaymentMethod,nextTopUpStep}) {
+function SelectPaymentMethod({paymentMethods,paymentMethod,setPaymentMethod,nextTopUpStep,setBankPay}) {
     const [active, setActive] = useState(0);
     console.log(paymentMethods);
   
@@ -46,7 +46,10 @@ function SelectPaymentMethod({paymentMethods,setPaymentMethod,nextTopUpStep}) {
     <button
       type="submit"
       className="mt-10 w-24 h-12 bg-primary-main rounded-md text-whiteText text-s font-regular leading-6"
-      onClick={nextTopUpStep}
+      onClick={()=>{
+        paymentMethod.label === 'Bank Transfer' && setBankPay(true)
+        nextTopUpStep()
+      }}
     >
       Proceed
     </button>

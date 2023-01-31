@@ -27,6 +27,7 @@ import apple from "./apple.svg";
 import banktransfer from "./banktransfer.svg";
 import mastercard from "./mastercard.svg";
 import google from "./google.svg";
+import rightIcon from "./rightIcon.svg";
 
 export {
   add,
@@ -58,4 +59,5 @@ export {
   google,
   mastercard,
   banktransfer,
+  rightIcon
 };
