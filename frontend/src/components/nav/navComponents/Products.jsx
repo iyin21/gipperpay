@@ -7,8 +7,8 @@ import {
   donation,
   bankPayouts,
   gipperfi_1,
-} from "../../assets/index";
-import { btcgust } from "../../icons";
+} from "../../../assets/index";
+import { btcgust } from "../../../icons/index";
 
 function Products() {
   return (

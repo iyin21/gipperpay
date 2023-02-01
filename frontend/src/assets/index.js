@@ -29,11 +29,12 @@ import dashboardImg from "./dashboardImg.png";
 import gustCoin from "./gustCoin.png";
 import gustCoin1 from "./gustCoin1.png";
 import congrats from "./congrats.svg";
+import rectangle from "./Rectangle60.svg";
+import rectanglepink from "./Rectanglepink.svg";
 import bankPayouts from "./bankPayouts.png";
 import bankPayouts2 from "./bankpayouts2.png";
 import apipic from "./apipic.png";
 import apipic2 from "./apipic2.png";
-import apipic3 from "./apipic3.png";
 import cart from "./cart.png";
 import checkout from "./checkout.png";
 import walletpic from "./walletpic.png";
@@ -44,6 +45,9 @@ import twitter from "./twitter.png";
 import linkedin from "./linkedin.png";
 import instagram from "./instagram.png";
 import forindivualspic from "./forindividuals.png";
+import iphone11 from "./iPhone11ProMaxMockup.png";
+import iphone12 from "./iPhone12GraphiteProTopViewMockup.png";
+import coinsimage from "./coinsimage.png";
 
 export {
   logo,
@@ -81,7 +85,6 @@ export {
   bankPayouts2,
   apipic,
   apipic2,
-  apipic3,
   cart,
   checkout,
   walletpic,
@@ -92,4 +95,9 @@ export {
   linkedin,
   instagram,
   forindivualspic,
+  rectangle,
+  rectanglepink,
+  iphone11,
+  iphone12,
+  coinsimage,
 };

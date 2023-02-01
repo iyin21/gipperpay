@@ -1,7 +1,7 @@
 import React, { Fragment } from "react";
 
 //assets
-import { gustCoin1, gipperfi_1 } from "../../assets/index";
+import { gustCoin1, gipperfi_1 } from "../../../assets/index";
 
 import { Menu, Transition } from "@headlessui/react";
 import { BiChevronDown } from "react-icons/bi";

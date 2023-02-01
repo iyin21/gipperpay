@@ -1,11 +1,11 @@
 import React from "react";
 
 //components
-import Products from "./Products";
-import Businesses from "./Businesses";
-import Company from "./Company";
+import Products from "../nav/navComponents/Products";
+import Businesses from "../nav/navComponents/Businesses";
+import Company from "../nav/navComponents/Company";
 
-import { BiMenuAltLeft } from "react-icons/bi";
+import { RiMenu5Line } from "react-icons/ri";
 
 //assets
 import { gipperpaylogo, gipperpaytext } from "../../assets/index";
@@ -14,7 +14,7 @@ import { Link } from "react-router-dom";
 
 function Nav() {
   return (
-    <div className="w-screen lg:h-[90px] bg-#FCFCFC flex flex-row  items-center lg:justify-around justify-between  my-[20px] ">
+    <div className="w-screen lg:h-[60px] bg-#FCFCFC flex flex-row  items-center lg:justify-around justify-between  my-[20px] ">
       <div className=" flex flex-row ml-[20px] mr-[30px] items-center ">
         <img
           src={gipperpaylogo}
@@ -47,7 +47,7 @@ function Nav() {
         </Link>
       </div>
       <div className=" lg:hidden mr-[20px] ">
-        <BiMenuAltLeft className="text-secondary-main " size="30px" />
+        <RiMenu5Line className="text-secondary-main " size="30px" />
       </div>
     </div>
   );
