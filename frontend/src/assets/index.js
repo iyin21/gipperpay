@@ -48,6 +48,7 @@ import forindivualspic from "./forindividuals.png";
 import iphone11 from "./iPhone11ProMaxMockup.png";
 import iphone12 from "./iPhone12GraphiteProTopViewMockup.png";
 import coinsimage from "./coinsimage.png";
+import stake from "./stake.svg";
 
 export {
   logo,
@@ -100,4 +101,5 @@ export {
   iphone11,
   iphone12,
   coinsimage,
+  stake,
 };

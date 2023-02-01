@@ -14,7 +14,8 @@ function ModalBackDrop({
   type,
   TopUpStep,
   previousTopUpStep,
-  setTopUpStep
+  setTopUpStep,
+  setBankPay,
 }) {
   const steps = [
     {
@@ -137,7 +138,10 @@ function ModalBackDrop({
           ) : TopUpStep === 2 ? (
             <button
               className="flex items-center justify-start gap-3"
-              onClick={()=>setTopUpStep(1)}
+              onClick={() => {
+                setTopUpStep(1);
+                setBankPay(false);
+              }}
             >
               <IoMdArrowBack />
               <p className="text-s font-medium text-secondary-main leading-6">
