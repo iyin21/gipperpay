@@ -1,12 +1,11 @@
 import React from "react";
-import { congrats } from "../../../../assets";
 import { useNavigate } from "react-router-dom";
-import {BiCopy} from 'react-icons/bi'
+import { congrats } from "../../../../assets";
 
-function SendCongratsModal({setShowSendModal,transactionDetails}) {
+function TopUpCongratsModal({ setShowTopUpModal }) {
   const navigate = useNavigate();
   const handleFinish = () => {
-    setShowSendModal(false);
+    setShowTopUpModal(false);
     navigate("/dashboard");
   };
   return (
@@ -19,22 +18,21 @@ function SendCongratsModal({setShowSendModal,transactionDetails}) {
           Success!
         </p>
         <div className="w-[8rem] h-14 rounded-xl bg-primary-light mx-auto mt-9 mb-3 text-s flex justify-center items-center font-medium text-primary-main leading-6">
-          {" "}
-          {parseInt(transactionDetails.gustAmount).toFixed(2)} GU$T{" "}
+          0.00 GU$T
         </div>
         <p className="text-xs leading-5 text-center font-medium text-white-30 mt-2 mb-2">
-          Has Been Sent to @{transactionDetails.gustTag ? transactionDetails.gustTag : transactionDetails.recieversUsername}
-        </p>
-        <p className="text-xs leading-5 text-center font-medium text-white-30 mt-2 mb-2">
-          Copy link to share with receiver
+          Has Been Received
         </p>
         {/* copy link */}
-        <button className="w-[8rem] h-11 bg-primary-main mx-auto mt-8 text-s flex justify-center items-center gap-2 font-medium text-primary-main leading-6 rounded-[5px]" onClick={handleFinish}>
-          <p className="text-s font-regular text-whiteText">Get Link</p><BiCopy size='1rem' color='white'/>
+        <button
+          className="w-[8rem] h-11 bg-primary-main mx-auto mt-8 text-s flex justify-center items-center gap-2 font-medium text-primary-main leading-6 rounded-[5px]"
+          onClick={handleFinish}
+        >
+          <p className="text-s font-regular text-whiteText">Finish</p>
         </button>
       </div>
     </div>
   );
 }
 
-export default SendCongratsModal;
+export default TopUpCongratsModal;

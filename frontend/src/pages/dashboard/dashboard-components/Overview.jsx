@@ -1,27 +1,29 @@
-import React, { useEffect, useState } from "react";
+import React, { Fragment, useEffect, useState } from "react";
 import { add, giperfi, send, swap } from "../../../icons";
 import { dashboardImg, gustCoin, profileBg } from "../../../assets";
 import PrimaryButton from "../../../widgets/buttons/PrimaryButton";
 import Modal from "../../../widgets/Modal/swapcoin/Modal";
 import axios from "axios";
 import SendCoinModal from "../../../widgets/Modal/sendcoin/SendCoinModal";
+import TopUp from "../../../widgets/Modal/topUp/TopUp";
+// import Graph from "../../../widgets/graph/Graph";
 
 function Overview() {
   // getting the values for btc usdt and eth
   const [coins, setCoins] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
-// coin to swap from
-  const [swappingFrom,setSwappingFrom] = useState({
-    label:"Gu$t",
-    value:'',
-    logo:gustCoin
-  })
+  // coin to swap from
+  const [swappingFrom, setSwappingFrom] = useState({
+    label: "Gu$t",
+    value: "",
+    logo: gustCoin,
+  });
   // ------------------------------------//
 
-  // stable coin to swap to 
-  const [swappingTo,setSwappingTo] = useState({})
+  // stable coin to swap to
+  const [swappingTo, setSwappingTo] = useState({});
   // ---------------------------------------//
-  
+
   // make API call
   useEffect(() => {
     const getCoin = async () => {
@@ -36,11 +38,12 @@ function Overview() {
   }, []);
 
   console.log(coins);
-  // ------------------------------------------------------------------------------------------------
+  // -----------------
 
-  // open swap modal----------------------------------------------------------------------------------
+  //  modals
   const [showModal, setShowModal] = useState(false);
   const [showSendModal, setShowSendModal] = useState(false);
+  const [showTopUpModal, setShowTopUpModal] = useState(false);
 
   const button = [
     {
@@ -63,28 +66,29 @@ function Overview() {
   const handleModal = (i) => {
     if (i === 0) {
       setShowModal(true);
-    }else if (i === 1) {
+    } else if (i === 1) {
       setShowSendModal(true);
+    } else if (i === 2) {
+      setShowTopUpModal(true);
     }
   };
 
-
   return (
-    <div className="w-full flex h-full">
-      <div className="w-4/5 top-0 left-0">
-        <div className="w-5/6 h-48  relative  m-auto mt-2 rounded-3xl">
+    <div className="w-full flex flex-col-reverse h-auto lg:flex-row lg:h-full">
+      <div className="w-full top-0 min-h-screen left-0 lg:w-4/5">
+        <div className="w-[90%] h-[10rem] rounded-[1.25rem]  relative  m-auto mt-2 lg:rounded-3xl lg:w-5/6 lg:h-48">
           <img
             src={dashboardImg}
             className="h-full w-full absolute top-0 left-0"
             alt=""
           />
-          <h1 className="z-10 text-whiteText text-2xl p-5 relative">
+          <h1 className="z-10 text-whiteText text-xl p-5 relative lg:text-2xl">
             Do More <br /> With{" "}
             <span className="font-regular text-primary-20">GU$T</span>
           </h1>
         </div>
 
-        <div className="w-5/6 m-auto mt-2 h-64">
+        <div className="w-5/6 m-auto mt-2 h-auto">
           {/* gust */}
           <div className="h-20 w-full">
             <div className="flex justify-between items-center px-5">
@@ -102,21 +106,25 @@ function Overview() {
 
             <div className="w-full mt-3 flex justify-start gap-2 pl-2">
               {button.map((button, i) => (
-                <button
-                  key={i}
-                  className="flex justify-center items-center gap-1 w-20 h-8 bg-primary-light"
-                  onClick={() => handleModal(i)}
-                >
-                  <img src={button.img} alt="" />
-                  <p className="font-regular text-s text-primary-main">
-                    {button.text}
-                  </p>
-                </button>
+                <Fragment 
+                key={i}>
+                  <button
+                    className="flex relative justify-center items-center gap-1 w-20 h-8 bg-primary-light"
+                    onClick={() => handleModal(i)}
+                  >
+                    <img src={button.img} alt="" />
+                    <p className="hidden font-regular text-s text-primary-main lg:block">
+                      {button.text}
+                    </p>
+                    <p className="font-regular -bottom-6 absolute text-s text-primary-main lg:hidden">
+                        {button.text}
+                    </p>
+                  </button>
+                </Fragment>
               ))}
             </div>
           </div>
 
-          {/* -------------------------------------------------------- */}
           {/* other coins */}
           {isLoading ? (
             <p className="flex justify-center align-center mt-44">Loading...</p>
@@ -124,7 +132,7 @@ function Overview() {
             coins.map((coins, i) => (
               <div
                 key={i}
-                className="w-full h-14 flex mt-8 justify-between items-center p-2"
+                className="w-full h-14 flex mt-12 justify-between items-center p-2 lg:mt-8"
               >
                 <div className="flex items-center justify-start gap-2">
                   <img src={coins.image} height="30" width="30" alt="" />
@@ -138,9 +146,13 @@ function Overview() {
                   </div>
                 </div>
 
+                {/* <Graph/> */}
+
                 <div className="w-[5rem] h-full">
                   <p className="text-s font-medium text-secondary-main">
-                    ${(coins.current_price).toFixed(2)
+                    $
+                    {coins.current_price
+                      .toFixed(2)
                       .toString()
                       .replace(/\B(?=(\d{3})+(?!\d))/g, ",")}
                   </p>
@@ -164,16 +176,20 @@ function Overview() {
 
       {/* side nav with profile */}
 
-      <div className="w-2/5 h-screen bg-white-Main p-2">
-        <div className="w-48 h-48 rounded-full m-auto mb-5">
-          <img src={profileBg} className="rounded-full" alt="" />
+      <div className="w-full h-44 bg-white-Main p-2 lg:h-screen lg:w-2/5">
+        <div className="flex justify-start gap-2 items-center lg:block">
+          <div className="w-[3.75rem] h-[3.75rem] rounded-full m-0 mb-0 lg:w-48 lg:h-48 lg:m-auto lg:mb-5 ">
+            <img src={profileBg} className=" rounded-full" alt="" />
+          </div>
+          <div>
+            <p className="text-center text-secondary-main font-medium ">
+              Mary Stansfield
+            </p>
+            <p className="text-center text-white-30 text-xs">
+              Gipper Tag: b4ytr8ue
+            </p>
+          </div>
         </div>
-        <p className="text-center text-secondary-main font-medium ">
-          Mary Stansfield
-        </p>
-        <p className="text-center text-white-30 text-xs">
-          Gipper Tag: b4ytr8ue
-        </p>
         <div className="w-full flex justify-between h-12 my-5 px-2">
           <div>
             <p className="text-s font-normal text-white-30">Total balance:</p>
@@ -182,8 +198,18 @@ function Overview() {
           <PrimaryButton content="Payout" />
         </div>
       </div>
-      {showModal && <Modal setShowModal={setShowModal} from={swappingFrom} setFrom={setSwappingFrom} to={swappingTo} setTo={setSwappingTo} text="Swap GU$T" />}
-      {showSendModal && <SendCoinModal setShowSendModal={setShowSendModal}/>}
+      {showModal && (
+        <Modal
+          setShowModal={setShowModal}
+          from={swappingFrom}
+          setFrom={setSwappingFrom}
+          to={swappingTo}
+          setTo={setSwappingTo}
+          text="Swap GU$T"
+        />
+      )}
+      {showSendModal && <SendCoinModal setShowSendModal={setShowSendModal} />}
+      {showTopUpModal && <TopUp setShowTopUpModal={setShowTopUpModal}/>}
     </div>
   );
 }

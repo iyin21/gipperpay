@@ -22,6 +22,12 @@ import Facebook from "./Facebook.svg";
 import Snapchat from "./Snapchat.svg";
 import linkedIn from "./LinkedIn.svg";
 import instagram from "./Instagram.svg";
+import overviewIcon from "./overviewIcon.svg";
+import apple from "./apple.svg";
+import banktransfer from "./banktransfer.svg";
+import mastercard from "./mastercard.svg";
+import google from "./google.svg";
+import rightIcon from "./rightIcon.svg";
 
 export {
   add,
@@ -47,6 +53,11 @@ export {
   Snapchat,
   Facebook,
   linkedIn,
-  instagram
+  instagram,
+  overviewIcon,
+  apple,
+  google,
+  mastercard,
+  banktransfer,
+  rightIcon
 };
-

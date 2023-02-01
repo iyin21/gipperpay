@@ -15,9 +15,9 @@ function SelectNetwork({next,from,to}) {
   };
 
   return (
-    <div className="w-[30rem] mx-auto mt-5 h-[38.5rem] pt-11 px-24 bg-whiteText">
+    <div className="w-full mt-32 lg:w-[30rem] lg:mx-auto lg:mt-5 h-[38.5rem] pt-11 px-2 lg:px-24 bg-whiteText">
       <div>
-        <h2 className="text-s font-medium leading-6 text-secondary-main">
+        <h2 className="hidden text-s font-medium leading-6 text-secondary-main lg:block">
           Network And Wallet Address
         </h2>
         <p className="text-xs font-regular leading-5 text-white-30">
@@ -42,7 +42,7 @@ function SelectNetwork({next,from,to}) {
           </p>
         </div>
       </div>
-      <p className="text-xs mt-6 leading-5 font-medium text-secondary-main">
+      <p className="text-s leading-6 lg:text-xs mt-6 lg:leading-5 font-medium text-secondary-main">
         Choose Network
       </p>
       <div>
@@ -78,9 +78,42 @@ function SelectNetwork({next,from,to}) {
         </div>
       </div>
 
+      <div className="lg:hidden border-t-2 bg-white-10 p-2 rounded-md mt-7">
+          <div className="w-full mt-3 boder flex justify-between items-center border-black">
+            <p className="text-xs font-medium leading-5 text-white-30">
+              Exchange Rate
+            </p>
+            <div className="flex justify-between items-center w-[50%]">
+              <p className="text-xs font-medium leading-5 text-white-30">
+                {from.value} GU$T
+              </p>
+              <MdOutlineSwapHoriz color="#7B7B7B" />
+              <p className="text-xs font-medium leading-5 text-white-30">
+                ${(to.current_price).toFixed(2)} {to.name}
+              </p>
+            </div>
+          </div>
+
+          <div className="w-full boder flex justify-between items-center border-black lg:hidden">
+            <p className="text-xs font-medium leading-5 text-white-30">Fee</p>
+            <p className="text-xs font-medium leading-5 text-white-30">
+              0 GU$T
+            </p>
+          </div>
+
+          <div className="w-full boder flex justify-between items-center border-black">
+            <p className="text-xs font-medium leading-5 text-white-30">
+              Amount you’ll reeceive
+            </p>
+            <p className="text-xs font-medium leading-5 text-white-30">
+              0.00 GU$T
+            </p>
+          </div>
+        </div>
+
       <button
           type="submit"
-          className="mt-10 w-20 h-12 bg-primary-main rounded-md text-whiteText text-s font-regular leading-6"
+          className="mt-10 w-full lg:w-20 h-12 bg-primary-main rounded-md text-whiteText text-s font-regular leading-6"
           onClick={handleNext}
         >
           Swap

@@ -67,14 +67,14 @@ function Sidenav({ activeLink, setActiveLink }) {
     },
   ];
   return (
-    <div className="w-1/5 fixed top-0 left-0 min-h-screen bg-white-Main px-8 py-5">
+    <div className="hidden w-1/5 fixed top-0 left-0 min-h-screen bg-white-Main px-8 py-5 lg:block">
       <header className="w-full h-10">
         <img src={logo} alt="" className="object-contain" />
-      </header>
+      </header> 
       <div>
         {links.map((link, i) => (
           <div
-            className={`w-full flex justify-start gap-4 py-4 cursor-pointer font-regular ${
+            className={`w-full flex justify-start gap-4 py-4 mt-8 cursor-pointer font-regular ${
               activeLink === i ? "text-red-500" : "text-white-30"
             }`}
             key={i}

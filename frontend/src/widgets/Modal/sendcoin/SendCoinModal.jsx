@@ -1,9 +1,9 @@
 import React, { useState } from "react";
 import ModalBackDrop from "../ModalBackDrop";
 import PasswordModal from "../swapcoin/modalforms/PasswordModal";
-import EnterAddress from "./forms/EnterAddress";
-import PayViaSocial from "./forms/PayViaSocial";
-import SendGust from "./forms/SendGust";
+import EnterAddress from "./sendGustFlow/EnterAddress";
+import PayViaSocial from "./sendGustFlow/PayViaSocial";
+import SendGust from "./sendGustFlow/SendGust";
 import { gustCoin } from "../../../assets";
 import {
   Facebook,
@@ -12,7 +12,7 @@ import {
   Snapchat,
   twitter,
 } from "../../../icons";
-import SendCongratsModal from "./forms/SendCongratsModal";
+import SendCongratsModal from "./sendGustFlow/SendCongratsModal";
 
 function SendCoinModal({ setShowSendModal }) {
   const [step, setStep] = useState(0);
