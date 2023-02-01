@@ -11,6 +11,18 @@ import TopUPGust from "./topUpFlow/TopUPGust";
 function TopUp({ setShowTopUpModal }) {
   const [TopUpStep, setTopUpStep] = useState(0);
 
+  // amount you wish to top up
+  const [topUpAmount, setTopUpAmount] = useState("");
+
+  const [cardDetails, setCardDetails] = useState({
+    cardNumber: "",
+    cardName: "",
+    cvv: "",
+    expiryDate: "",
+  });
+
+  console.log(cardDetails);
+
   const nextTopUpStep = () => {
     setTopUpStep(TopUpStep + 1);
   };
@@ -51,7 +63,11 @@ function TopUp({ setShowTopUpModal }) {
       setTopUpStep={setTopUpStep}
     >
       {TopUpStep === 0 ? (
-        <TopUPGust nextTopUpStep={nextTopUpStep} />
+        <TopUPGust
+          topUpAmount={topUpAmount}
+          setTopUpAmount={setTopUpAmount}
+          nextTopUpStep={nextTopUpStep}
+        />
       ) : TopUpStep === 1 ? (
         <SelectPaymentMethod
           paymentMethods={paymentMethods}
@@ -61,11 +77,16 @@ function TopUp({ setShowTopUpModal }) {
           setBankPay={setBankPay}
         />
       ) : TopUpStep === 2 && !bankPay ? (
-        <EnterCardDetails nextTopUpStep={nextTopUpStep} />
+        <EnterCardDetails
+          cardDetails={cardDetails}
+          setCardDetails={setCardDetails}
+          topUpAmount={topUpAmount}
+          nextTopUpStep={nextTopUpStep}
+        />
       ) : TopUpStep === 3 ? (
-        <TopUpCongratsModal setShowTopUpModal={setShowTopUpModal}  />
+        <TopUpCongratsModal setShowTopUpModal={setShowTopUpModal} />
       ) : bankPay ? (
-        <BankTransferDetails nextTopUpStep={nextTopUpStep} />
+        <BankTransferDetails topUpAmount={topUpAmount} nextTopUpStep={nextTopUpStep} />
       ) : null}
     </ModalBackDrop>
   );

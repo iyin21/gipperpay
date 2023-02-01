@@ -33,7 +33,7 @@ function Modal(props) {
       ) : activeForm === 1 ? (
         <SelectNetwork next={next} from={props.from} to={props.to} />
       ) : activeForm === 2 ? (
-        <PasswordModal next={next} Previous={Previous} />
+        <PasswordModal next={next} type="swap" Previous={Previous} />
       ) : activeForm === 3 ? (
         <Congrats
           from={props.from}

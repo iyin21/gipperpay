@@ -4,6 +4,13 @@ import { gustCoin } from "../../../../assets";
 function PayViaSocial({nextStep,method,transactionDetails,setTransactionDetails}) {
     const handleSubmit = (e) =>{
         e.preventDefault();
+        if(!transactionDetails.reciversUserName){
+          alert("Enter reciever's username")
+          return
+        }else if(!transactionDetails.gustAmount){
+          alert("Enter the GU$T ammount you wish to transfer")
+          return
+        }
         nextStep()
       }
   return (

@@ -179,7 +179,7 @@ function ModalBackDrop({
             sendSteps.map((stp, i) => (
               <div
                 key={i}
-                className="w-full flex justify-start gap-2 items-center mb-8"
+                className="w-full flex justify-start gap-2 items-center mb-0 lg:mb-8"
               >
                 <div
                   className={`w-[2rem] h-[2rem] flex justify-center items-center rounded-lg text-whiteText ${
@@ -188,7 +188,7 @@ function ModalBackDrop({
                 >
                   {stp.id}
                 </div>
-                <p className="text-s">{stp.text}</p>
+                <p className="hidden lg:block text-s">{stp.text}</p>
               </div>
             ))}
 
