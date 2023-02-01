@@ -4,10 +4,14 @@ import { gustCoin } from "../../../../assets";
 function EnterAddress({ nextStep, transactionDetails, setTransactionDetails }) {
   const handleSubmit = (e) => {
     e.preventDefault();
+    if(!transactionDetails.gustTag || !transactionDetails.gustAmount){
+      alert("please enter complete transaction details")
+      return
+    }
     nextStep();
   };
   return (
-    <div className="w-[30rem] mx-auto mt-5 h-[38.5rem] pt-11 px-24 bg-whiteText">
+    <div className="w-full lg:w-[30rem] mx-auto mt-5 h-[38.5rem] pt-11 px-6 lg:px-24 bg-whiteText">
       <p className="text-s font-medium leading-6 text-secondary-main">
         Choose Method to Send GU$T
       </p>

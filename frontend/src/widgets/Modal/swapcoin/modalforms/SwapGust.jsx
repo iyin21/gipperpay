@@ -7,7 +7,7 @@ function SwapGust({ next, from, setFrom, to, setTo }) {
   // move to next step----------------------//
   const handleNext = (e) => {
     e.preventDefault();
-    !to.name
+    !to.name || !from.value
       ? alert("please select a coin you want to swap with")
       : next();
   };

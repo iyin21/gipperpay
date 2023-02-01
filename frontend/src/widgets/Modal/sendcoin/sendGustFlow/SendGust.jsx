@@ -13,7 +13,7 @@ function SendGust({ nextStep, setSocialPay, sendMethods, setMethod, method }) {
     method !== "GU$T tag" && setSocialPay(true);
   };
   return (
-    <div className="w-[30rem] mx-auto mt-5 h-[38.5rem] pt-11 px-24 bg-whiteText">
+    <div className="w-full lg:w-[30rem] mx-auto mt-32 lg:mt-5 h-[38.5rem] pt-11 px-2 lg:px-24 bg-whiteText">
       <p className="text-s font-medium leading-6 text-secondary-main">
         Choose Method to Send GU$T
       </p>

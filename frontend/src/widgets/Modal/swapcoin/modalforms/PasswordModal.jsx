@@ -29,7 +29,6 @@ function PasswordModal({ Previous, next, type, previousStep, nextStep }) {
   function handleChange(e) {
     const { name, value } = e.target;
     setPin((prevPin) => ({ ...prevPin, [name]: value }));
-    // setHidePassword(true);
     // move to next input field once current field has a value
     if (firstInputRef.current.value !== "") {
       secondInputRef.current.focus();

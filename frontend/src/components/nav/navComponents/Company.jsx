@@ -1,7 +1,7 @@
 import React, { Fragment } from "react";
 
 //assets
-import { payrollpic, apipic } from "../../assets/index";
+import { payrollpic, apipic } from "../../../assets/index";
 
 import { Menu, Transition } from "@headlessui/react";
 import { BiChevronDown } from "react-icons/bi";

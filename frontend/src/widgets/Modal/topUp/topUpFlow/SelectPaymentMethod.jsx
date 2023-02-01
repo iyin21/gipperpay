@@ -9,7 +9,7 @@ function SelectPaymentMethod({paymentMethods,paymentMethod,setPaymentMethod,next
       setPaymentMethod(label);
     };
   return (
-    <div className="w-[30rem] mx-auto mt-5 h-[38.5rem] pt-11 px-24 bg-whiteText">
+    <div className="mt-36 w-full lg:w-[30rem] mx-auto lg:mt-5 h-[38.5rem] pt-11 px-3 lg:px-24 bg-whiteText">
     <p className="text-s font-medium leading-6 text-secondary-main">
       Choose Method to Send GU$T
     </p>
@@ -20,7 +20,7 @@ function SelectPaymentMethod({paymentMethods,paymentMethod,setPaymentMethod,next
       {paymentMethods.map((method, i) => (
         <div
           key={i}
-          className={`w-[18.75rem] h-[2.8rem] border flex justify-between items-center ${
+          className={`w-[18.75rem] mx-auto lg:mx-0 h-[2.8rem] border flex justify-between items-center ${
             active === i ? "border-primary-main" : "border-white-20"
           } mt-[1.25rem]  py-2 px-5 cursor-pointer bg-whiteText rounded-md`}
           onClick={() => handlePaymentMethod(i, method)}
@@ -45,7 +45,7 @@ function SelectPaymentMethod({paymentMethods,paymentMethod,setPaymentMethod,next
     </div>
     <button
       type="submit"
-      className="mt-10 w-24 h-12 bg-primary-main rounded-md text-whiteText text-s font-regular leading-6"
+      className="mt-10 w-full lg:w-24 h-12 bg-primary-main rounded-md text-whiteText text-s font-regular leading-6"
       onClick={()=>{
         paymentMethod.label === 'Bank Transfer' && setBankPay(true)
         nextTopUpStep()
