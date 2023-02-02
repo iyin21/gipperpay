@@ -3,9 +3,37 @@ import { gustCoin } from "../../../../assets";
 import { BsArrowRight } from "react-icons/bs";
 import { BiCopy } from "react-icons/bi";
 import { MdOutlineSwapHoriz } from "react-icons/md";
+import { motion } from "framer-motion";
 function BankTransferDetails({ nextTopUpStep, topUpAmount }) {
+  const dropIn = {
+    hidden: {
+      y: "-100vh",
+      opacity: 0,
+    },
+    visible: {
+      y: "0",
+      opacity: 1,
+      transition: {
+        duration: 2,
+        delay: 0.5,
+        type: "spring",
+        damping: 25,
+        stiffness: 500,
+      },
+    },
+    exit: {
+      y: "100vh",
+      opacity: 0,
+    },
+  };
   return (
-    <div className=" w-full lg:w-[30rem] mx-auto mt-11 lg:mt-5 h-[38.5rem] pt-24 px-3 lg:px-24 bg-whiteText">
+    <motion.div
+      variants={dropIn}
+      initial="hidden"
+      animate="visible"
+      exit="exit"
+      className=" w-full lg:w-[30rem] mx-auto mt-11 lg:mt-5 h-[38.5rem] pt-24 px-3 lg:px-24 bg-whiteText"
+    >
       <p className="text-sm font-medium text-secondary-main leading-8">
         Bank Transfer
       </p>
@@ -95,7 +123,7 @@ function BankTransferDetails({ nextTopUpStep, topUpAmount }) {
       >
         I Have Paid
       </button>
-    </div>
+    </motion.div>
   );
 }
 

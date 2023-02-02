@@ -1,6 +1,6 @@
 import React from "react";
 import { mastercard } from "../../../../icons";
-
+import { motion } from "framer-motion";
 function EnterCardDetails({
   nextTopUpStep,
   cardDetails,
@@ -18,8 +18,36 @@ function EnterCardDetails({
     }
     nextTopUpStep();
   };
+
+  const dropIn = {
+    hidden: {
+      y: "-100vh",
+      opacity: 0,
+    },
+    visible: {
+      y: "0",
+      opacity: 1,
+      transition: {
+        duration: 2,
+        delay: 0.5,
+        type: "spring",
+        damping: 25,
+        stiffness: 500,
+      },
+    },
+    exit: {
+      y: "100vh",
+      opacity: 0,
+    },
+  };
   return (
-    <div className="w-full lg:w-[30rem] mt-7 mx-auto lg:mt-5 h-[38.5rem] pt-11 px-3 lg:px-24 bg-whiteText">
+    <motion.div
+      variants={dropIn}
+      initial="hidden"
+      animate="visible"
+      exit="exit"
+      className="w-full lg:w-[30rem] mt-7 mx-auto lg:mt-5 h-[38.5rem] pt-11 px-3 lg:px-24 bg-whiteText"
+    >
       <p className="text-sm leading-7 text-secondary-main font-medium mt-20">
         Enter Card Details
       </p>
@@ -106,7 +134,7 @@ function EnterCardDetails({
           Pay NGN{topUpAmount.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}
         </button>
       </form>
-    </div>
+    </motion.div>
   );
 }
 

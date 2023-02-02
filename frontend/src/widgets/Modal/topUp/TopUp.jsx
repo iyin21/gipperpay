@@ -85,7 +85,7 @@ function TopUp({ setShowTopUpModal }) {
           nextTopUpStep={nextTopUpStep}
         />
       ) : TopUpStep === 3 ? (
-        <TopUpCongratsModal setShowTopUpModal={setShowTopUpModal} />
+        <TopUpCongratsModal topUpAmount={topUpAmount} setShowTopUpModal={setShowTopUpModal} />
       ) : bankPay ? (
         <BankTransferDetails topUpAmount={topUpAmount} nextTopUpStep={nextTopUpStep} />
       ) : null}

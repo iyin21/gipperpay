@@ -2,14 +2,43 @@ import React from "react";
 import { MdOutlineSwapHoriz } from "react-icons/md";
 import { BsChevronDown } from "react-icons/bs";
 import { gustCoin } from "../../../../assets";
+import { motion } from "framer-motion";
 
 function TopUPGust({ nextTopUpStep, topUpAmount, setTopUpAmount }) {
   const handleSubmit = (e) => {
     e.preventDefault();
     !topUpAmount ? alert("Please enter top up amount") : nextTopUpStep();
   };
+
+  const dropIn = {
+    hidden: {
+      y: "-100vh",
+      opacity: 0,
+    },
+    visible: {
+      y: "0",
+      opacity: 1,
+      transition: {
+        duration: 2,
+        delay: 0.5,
+        type: "spring",
+        damping: 25,
+        stiffness: 500,
+      },
+    },
+    exit: {
+      y: "100vh",
+      opacity: 0,
+    },
+  };
   return (
-    <div className="w-full lg:mx-auto mt-32 lg:mt-5 min-h-[38.5rem] lg:h-[38.5rem] pt-11 px-5 lg:px-24 bg-whiteText lg:w-[30rem]">
+    <motion.div
+      variants={dropIn}
+      initial="hidden"
+      animate="visible"
+      exit="exit"
+      className="w-full lg:mx-auto mt-32 lg:mt-5 min-h-[38.5rem] lg:h-[38.5rem] pt-11 px-5 lg:px-24 bg-whiteText lg:w-[30rem]"
+    >
       <p className="hidden text-s font-medium leading-6 text-secondary-main lg:block">
         Top - Up GU$T
       </p>
@@ -117,7 +146,7 @@ function TopUPGust({ nextTopUpStep, topUpAmount, setTopUpAmount }) {
           Buy GU$T
         </button>
       </form>
-    </div>
+    </motion.div>
   );
 }
 
