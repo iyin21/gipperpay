@@ -75,7 +75,7 @@ function Sidenav({ activeLink, setActiveLink }) {
       <div>
         {links.map((link, i) => (
           <div
-            className={`w-full flex justify-start gap-4 py-4 mt-8 cursor-pointer font-regular ${
+            className={`w-full flex justify-start gap-4 py-4 cursor-pointer font-regular ${
               activeLink === i ? "text-red-500" : "text-white-30"
             }`}
             key={i}

@@ -1,9 +1,7 @@
 import React from "react";
 import { useState } from "react";
-
-
+import { motion } from "framer-motion";
 function SendGust({ nextStep, setSocialPay, sendMethods, setMethod, method }) {
-
   const [active, setActive] = useState(0);
   console.log(method);
 
@@ -12,8 +10,37 @@ function SendGust({ nextStep, setSocialPay, sendMethods, setMethod, method }) {
     setMethod(label);
     method !== "GU$T tag" && setSocialPay(true);
   };
+
+  const dropIn = {
+    hidden: {
+      y: "-100vh",
+      opacity: 0,
+    },
+    visible: {
+      y: "0",
+      opacity: 1,
+      transition: {
+        duration: 2,
+        delay: 0.5,
+        type: "spring",
+        damping: 25,
+        stiffness: 500,
+      },
+    },
+    exit: {
+      y: "100vh",
+      opacity: 0,
+    },
+  };
+  
   return (
-    <div className="w-full lg:w-[30rem] mx-auto mt-32 lg:mt-5 h-[38.5rem] pt-11 px-2 lg:px-24 bg-whiteText">
+    <motion.div
+      variants={dropIn}
+      initial="hidden"
+      animate="visible"
+      exit="exit"
+      className="w-full lg:w-[30rem] mx-auto mt-32 lg:mt-5 h-[38.5rem] pt-11 px-2 lg:px-24 bg-whiteText"
+    >
       <p className="text-s font-medium leading-6 text-secondary-main">
         Choose Method to Send GU$T
       </p>
@@ -54,7 +81,7 @@ function SendGust({ nextStep, setSocialPay, sendMethods, setMethod, method }) {
       >
         Proceed
       </button>
-    </div>
+    </motion.div>
   );
 }
 

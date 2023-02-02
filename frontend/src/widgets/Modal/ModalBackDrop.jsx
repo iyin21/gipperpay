@@ -1,6 +1,7 @@
 import React from "react";
 import { AiFillCloseCircle } from "react-icons/ai";
 import { IoMdArrowBack } from "react-icons/io";
+import { motion } from "framer-motion";
 function ModalBackDrop({
   children,
   text,
@@ -62,7 +63,12 @@ function ModalBackDrop({
     },
   ];
   return (
-    <div className="fixed overflow-y-auto left-0 top-0 w-full h-[100vh] flex bg-white-Main z-50">
+    <motion.div
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      exit={{ opacity: 0 }}
+      className="fixed overflow-y-auto left-0 top-0 w-full h-[100vh] flex bg-white-Main z-50"
+    >
       <section className="bg-white-Main min-h-[100vh] w-full lg:w-[75%]">
         <header className="w-full fixed top-0 left-0 flex justify-start pl-8 items-center gap-3 bg-whiteText h-20 lg:relative">
           {activeForm === 0 ? (
@@ -215,7 +221,7 @@ function ModalBackDrop({
             ))}
         </div>
       </aside>
-    </div>
+    </motion.div>
   );
 }
 

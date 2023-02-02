@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { MdSwapVert, MdOutlineSwapHoriz } from "react-icons/md";
 import { BsChevronDown } from "react-icons/bs";
 import { useEffect } from "react";
+import {motion} from 'framer-motion'
 import axios from "axios";
 function SwapGust({ next, from, setFrom, to, setTo }) {
   // move to next step----------------------//
@@ -45,12 +46,41 @@ function SwapGust({ next, from, setFrom, to, setTo }) {
     setHide(true);
   };
 
+  const dropIn = {
+    hidden: {
+      y: "-100vh",
+      opacity: 0,
+    },
+    visible: {
+      y: "0",
+      opacity: 1,
+      transition: {
+        duration: 2,
+        delay:.5,
+        type: "spring",
+        damping: 25,
+        stiffness: 500,
+      },
+    },
+    exit: {
+      y: "100vh",
+      opacity: 0,
+    },
+  };
   return (
-    <div className="w-full lg:mx-auto mt-32 lg:mt-5 min-h-[38.5rem] lg:h-[38.5rem] pt-11 px-5 lg:px-24 bg-whiteText lg:w-[30rem]">
+    <motion.div
+      variants={dropIn}
+      initial="hidden"
+      animate="visible"
+      exit="exit"
+      className="w-full lg:mx-auto mt-32 lg:mt-5 min-h-[38.5rem] lg:h-[38.5rem] pt-11 px-5 lg:px-24 bg-whiteText lg:w-[30rem]"
+    >
       <p className="hidden text-s font-medium leading-6 text-secondary-main lg:block">
         Swap GU$T with Stable Coins
       </p>
-      <p className="text-white-30 font-regular leading-6 text-s">Select Stable Coin to Swap GU$T </p>
+      <p className="text-white-30 font-regular leading-6 text-s">
+        Select Stable Coin to Swap GU$T{" "}
+      </p>
       <form action="" className="h-auto">
         <div className="mt-5">
           <label className="text-xs font-medium leading-5 text-secondary-main">
@@ -65,7 +95,7 @@ function SwapGust({ next, from, setFrom, to, setTo }) {
               className="w-[90%] pl-3 text-sm text-secondary-main leading-7 placeholder:text-right placeholder:text-secondary-main placeholder:pr-3"
               type="number"
               value={from.value}
-              onChange={(e)=>setFrom({...from, value: e.target.value})}
+              onChange={(e) => setFrom({ ...from, value: e.target.value })}
               placeholder="0.00"
             />
           </div>
@@ -128,7 +158,7 @@ function SwapGust({ next, from, setFrom, to, setTo }) {
               type="number"
               placeholder={to.current_price ? to.name : "0.00"}
               value={to.current_price}
-              onChange={(e)=>setTo({...to, value: e.target.value})}
+              onChange={(e) => setTo({ ...to, value: e.target.value })}
             />
           </div>
 
@@ -180,7 +210,7 @@ function SwapGust({ next, from, setFrom, to, setTo }) {
           Swap
         </button>
       </form>
-    </div>
+    </motion.div>
   );
 }
 
