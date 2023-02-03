@@ -5,7 +5,7 @@ import { mail } from "../../../icons";
 
 function SignUp() {
   return (
-    <div className="w-[351px] h-[402px] my-[40px] mx-[20px] px-[42px] py-[65px] lg:w-[1030px] lg:h-[222px] bg-primary-light lg:my-[80px] lg:m-auto rounded-[50px] lg:flex lg:flex-row items-center lg:pl-[73px]  ">
+    <div className="w-[21.9375rem] h-[25.125rem] my-[2.5rem] mx-[1.25rem] px-[2.625rem] py-[4.0625rem] lg:w-[64.375rem] lg:h-[13.875rem] bg-primary-light lg:my-[5rem] lg:m-auto rounded-[3.125rem] lg:flex lg:flex-row items-center lg:pl-[4.5625rem]  ">
       <svg
         width="269"
         height="218"
@@ -35,23 +35,23 @@ function SignUp() {
         />
       </svg>
       <div className="relative ">
-        <h1 className="lg:w-[346px] lg:h-[59px] font-Jost not-italic font-big  text-l leading-[40px] text-secondary-main  ">
+        <h1 className="lg:w-[21.625rem] lg:h-[3.6875rem] font-Jost not-italic font-big  text-l leading-[2.5rem] text-secondary-main  ">
           Sign up for Free <br />
           Boost your Crypto Journey
         </h1>
       </div>
 
       <div className="  lg:flex lg:flex-row items-center relative    ">
-        <div className=" lg:ml-[95px] lg:w-[300px] lg:h-[50px] my-[10px] rounded-[100px] bg-white-60 flex flex-row items-center justify-center py-[10px]  ">
-          <img src={mail} alt="" className="w-[20px] h-[20px] " />
+        <div className=" lg:ml-[5.9375rem] lg:w-[18.75rem] lg:h-[3.125rem] my-[0.625rem] rounded-[6.25rem] bg-white-60 flex flex-row items-center justify-center py-[0.625rem]  ">
+          <img src={mail} alt="" className="w-[1.25rem] h-[1.25rem] " />
           <input
             type="email"
             placeholder="gipperpay@email.com"
-            className=" font-Jost not-italic font-regular text-s leading-[23px] text-white-30 ml-[10px] "
+            className=" font-Jost not-italic font-regular text-s leading-[23px] text-white-30 ml-[0.625rem] "
           />
         </div>
-        <div className="w-[143px] h-[50px] bg-primary-main rounded-[100px] pl-[45px] pt-[13.5px] ">
-          <h1 className="w-[53px] h-[23px] font-Jost not-italic font-regular text-s leading-[23px] text-white-60 text-center ">
+        <div className="w-[8.9375rem] h-[3.125rem] bg-primary-main rounded-[6.25rem] pl-[2.8125rem] pt-[0.84375rem] ">
+          <h1 className="w-[3.3125rem] h-[1.4375rem] font-Jost not-italic font-regular text-s leading-[1.4375rem] text-white-60 text-center ">
             Sign up
           </h1>
         </div>

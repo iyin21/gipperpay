@@ -12,7 +12,7 @@ import SignUp from "../Home/homeComponents/SignUp";
 
 function Home() {
   return (
-    <div className="w-screen  bg-white-70  ">
+    <div className="lg:w-screen  bg-white-70  ">
       <BigHeader />
       <WhatWeOffer />
       <ForIndividuals />
