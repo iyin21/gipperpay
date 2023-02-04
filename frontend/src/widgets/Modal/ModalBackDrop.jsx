@@ -21,6 +21,8 @@ function ModalBackDrop({
   handlePrev,
   activeModalChild,
   prevModalChild,
+  active,
+  closeSellModal,
 }) {
   const steps = [
     {
@@ -182,6 +184,18 @@ function ModalBackDrop({
               <IoMdArrowBack cursor="pointer" size="2rem" color="#7B7B7B" />
               <p className="text-s font-medium text-secondary-main leading-6">
                 Credit/Debit Card Details
+              </p>
+            </button>
+          ) : null}
+
+          {active === 1 ? (
+            <button
+              className="flex items-center justify-start gap-3"
+              onClick={closeSellModal}
+            >
+              <AiFillCloseCircle cursor="pointer" size="2rem" color="#7B7B7B" />
+              <p className="text-s font-medium text-secondary-main leading-6">
+                Buy Coin
               </p>
             </button>
           ) : null}
