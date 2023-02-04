@@ -17,6 +17,10 @@ function ModalBackDrop({
   previousTopUpStep,
   setTopUpStep,
   setBankPay,
+  // activeBuyAndsellSection,
+  handlePrev,
+  activeModalChild,
+  prevModalChild,
 }) {
   const steps = [
     {
@@ -69,8 +73,12 @@ function ModalBackDrop({
       exit={{ opacity: 0 }}
       className="fixed overflow-y-auto left-0 top-0 w-full h-[100vh] flex bg-white-Main z-50"
     >
-      <section className="bg-white-Main min-h-[100vh] w-full lg:w-[75%]">
-        <header className="w-full fixed top-0 left-0 flex justify-start pl-8 items-center gap-3 bg-whiteText h-20 lg:relative">
+      <section
+        className={`bg-white-Main min-h-[100vh] w-full lg:w-[75%] ${
+          type === "buyAndSell" && "lg:w-full"
+        }`}
+      >
+        <header className="w-full fixed z-10 top-0 left-0 flex justify-start pl-8 items-center gap-3 bg-whiteText h-20 lg:relative">
           {activeForm === 0 ? (
             <>
               <AiFillCloseCircle
@@ -155,11 +163,38 @@ function ModalBackDrop({
               </p>
             </button>
           ) : null}
+
+          {activeModalChild === 0 ? (
+            <button
+              className="flex items-center justify-start gap-3"
+              onClick={handlePrev}
+            >
+              <AiFillCloseCircle cursor="pointer" size="2rem" color="#7B7B7B" />
+              <p className="text-s font-medium text-secondary-main leading-6">
+                Payment Method
+              </p>
+            </button>
+          ) : activeModalChild === 1 ? (
+            <button
+              className="flex items-center justify-start gap-3"
+              onClick={prevModalChild}
+            >
+              <IoMdArrowBack cursor="pointer" size="2rem" color="#7B7B7B" />
+              <p className="text-s font-medium text-secondary-main leading-6">
+                Credit/Debit Card Details
+              </p>
+            </button>
+          ) : null}
         </header>
         {children}
       </section>
+
       {/* side bar containing the steps */}
-      <aside className="w-full h-12 top-20 lg:w-[25%] lg:h-full fixed lg:right-0 lg:top-0 bg-whiteText">
+      <aside
+        className={`w-full h-16 top-20 lg:w-[25%] lg:h-full fixed lg:right-0 lg:top-0 bg-whiteText ${
+          type === "buyAndSell" && "hidden"
+        }`}
+      >
         <div className="flex gap-2 items-center w-full mt-0 ml-6 pt-2 lg:block lg:mt-40 lg:pt-0">
           <p className="font-medium mb-0 text-secondary-main text-s lg:text-sm leading-7 lg:mb-6">
             Steps
@@ -210,7 +245,7 @@ function ModalBackDrop({
                 className="w-full flex justify-start gap-2 items-center mb-0 lg:mb-8"
               >
                 <div
-                  className={`w-[2rem] h-[2rem] flex justify-center items-center rounded-lg text-whiteText ${
+                  className={`w-[2rem] h-[2rem]  flex justify-center items-center rounded-lg text-whiteText ${
                     i === TopUpStep ? "bg-secondary-main" : "bg-secondary-light"
                   }`}
                 >
@@ -220,6 +255,8 @@ function ModalBackDrop({
               </div>
             ))}
         </div>
+        <div className="w-[20%] top-5 lg:hidden absolute left-[6.5rem] border border-white-30"></div>
+        <div className="w-[21%] top-5 lg:hidden absolute left-[13.1rem] border border-white-30"></div>
       </aside>
     </motion.div>
   );
