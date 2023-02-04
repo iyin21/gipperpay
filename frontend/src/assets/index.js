@@ -50,6 +50,14 @@ import iphone12 from "./iPhone12GraphiteProTopViewMockup.png";
 import coinsimage from "./coinsimage.png";
 import stake from "./stake.svg";
 import bank from "./bank.svg";
+import overviewMobile from "./overviewMobile.svg";
+import gipperfimobile from "./gipperfimobile.svg";
+import donationmobile from "./donationmobile.svg";
+import bit from "./bit.svg";
+import productsmobile from "./productmobile.svg";
+import payrollmobile from "./payrollmobile.svg";
+import transactionsmobile from "./transactionsmobile.svg";
+import settingsmobile from "./settingsmobile.svg";
 
 export {
   logo,
@@ -103,5 +111,13 @@ export {
   iphone12,
   coinsimage,
   stake,
-  bank
+  bank,
+  overviewMobile,
+  gipperfimobile,
+  donationmobile,
+  bit,
+  productsmobile,
+  settingsmobile,
+  transactionsmobile,
+  payrollmobile,
 };
