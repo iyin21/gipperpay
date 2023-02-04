@@ -2,11 +2,38 @@ import { Divider } from "antd";
 import React from "react";
 import { bank, gustCoin } from "../../../assets";
 import BuyButton from "../../../widgets/buttons/BuyButton";
-
+import { motion } from "framer-motion";
 import { swap1 } from "../../../icons";
 function SellStepThree({ nextSellStep, amountToSell, setAmountToSell }) {
+  const dropIn = {
+    hidden: {
+      y: "-100vh",
+      opacity: 0,
+    },
+    visible: {
+      y: "0",
+      opacity: 1,
+      transition: {
+        duration: 2,
+        delay: 0.5,
+        type: "spring",
+        damping: 25,
+        stiffness: 500,
+      },
+    },
+    exit: {
+      y: "100vh",
+      opacity: 0,
+    },
+  };
   return (
-    <div className="w-[31rem] px-[6.4rem] py-[6.4rem] lg:py-[3.4rem]  bg-whiteText">
+    <motion.div
+      variants={dropIn}
+      initial="hidden"
+      animate="visible"
+      exit="exit"
+      className="w-[31rem] px-[6.4rem] py-[6.4rem] lg:py-[3.4rem]  bg-whiteText"
+    >
       <div>
         <img src={bank} alt="" />
       </div>
@@ -35,7 +62,7 @@ function SellStepThree({ nextSellStep, amountToSell, setAmountToSell }) {
         Receive
       </p>
       <p className="text-secondary-main text-sm font-medium leading-7 mt-2">
-        NGN
+        ₦
         {(amountToSell * 725)
           .toFixed(2)
           .toString()
@@ -70,15 +97,15 @@ function SellStepThree({ nextSellStep, amountToSell, setAmountToSell }) {
           Amount you'll receive
         </h1>
         <h1 className=" w-[66px] h-[19px] font-Jost not-italic  font-regular text-xs leading-[19px] text-white-30 ">
-          {/* {parseInt(amountToBuy / 725)
-              .toFixed(2)
-              .toString()
-              .replace(/\B(?=(\d{3})+(?!\d))/g, ",")}{" "} */}
-          GU$T
+          ₦
+          {(amountToSell * 725)
+            .toFixed(2)
+            .toString()
+            .replace(/\B(?=(\d{3})+(?!\d))/g, ",")}
         </h1>
       </div>
       <BuyButton content="Confirm Transaction" nextSellStep={nextSellStep} />
-    </div>
+    </motion.div>
   );
 }
 

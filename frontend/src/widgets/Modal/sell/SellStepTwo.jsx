@@ -1,9 +1,51 @@
-import React from "react";
+import React, { useState } from "react";
 import { bank } from "../../../assets";
+import { motion } from "framer-motion";
 
 function SellStepTwo({ nextSellStep }) {
+  const [bankDetails, setBankDetails] = useState({
+    bankName: "",
+    acctNumber: "",
+  });
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    const { bankName, acctNumber } = bankDetails;
+    !bankName || !acctNumber
+      ? alert("please fill in correct account details")
+      : nextSellStep();
+  };
+
+  const dropIn = {
+    hidden: {
+      y: "-100vh",
+      opacity: 0,
+    },
+    visible: {
+      y: "0",
+      opacity: 1,
+      transition: {
+        duration: 2,
+        delay: 0.5,
+        type: "spring",
+        damping: 25,
+        stiffness: 500,
+      },
+    },
+    exit: {
+      y: "100vh",
+      opacity: 0,
+    },
+  };
+
   return (
-    <div className="w-[31rem] px-[6.4rem] py-[6.4rem] lg:py-[3.4rem]  bg-whiteText">
+    <motion.div
+      variants={dropIn}
+      initial="hidden"
+      animate="visible"
+      exit="exit"
+      className="w-[31rem] px-[6.4rem] py-[6.4rem] lg:py-[3.4rem]  bg-whiteText"
+    >
       <div>
         <img src={bank} alt="" />
       </div>
@@ -12,34 +54,44 @@ function SellStepTwo({ nextSellStep }) {
         Enter Bank Details
       </p>
 
-      <div className="w-[18.5rem]">
-        <label className="text-xs font-medium leading-5">Bank </label>
-        <input
-          className="w-full text-white-30 border border-secondary-20 py-[0.6rem] px-5 rounded-md"
-          type="text"
-        />
-      </div>
+      <form action="">
+        <div className="w-[18.5rem]">
+          <label className="text-xs font-medium leading-5">Bank </label>
+          <input
+            className="w-full text-white-30 border border-secondary-20 py-[0.6rem] px-5 rounded-md"
+            type="text"
+            value={bankDetails.bankName}
+            onChange={(e) =>
+              setBankDetails({ ...bankDetails, bankName: e.target.value })
+            }
+          />
+        </div>
 
-      <div className="w-[18.5rem] mt-5">
-        <label className="text-xs font-medium leading-5 ">
-          Account Number{" "}
-        </label>
-        <input
-          className="w-full text-white-30 border border-secondary-20 py-[0.6rem] px-5 rounded-md"
-          type="text"
-        />
-        <p className="text-xs font-regular text-white-30 leading-5">
-          Mary Stansfied
-        </p>
-      </div>
+        <div className="w-[18.5rem] mt-5">
+          <label className="text-xs font-medium leading-5 ">
+            Account Number{" "}
+          </label>
+          <input
+            className="w-full text-white-30 border border-secondary-20 py-[0.6rem] px-5 rounded-md"
+            type="text"
+            value={bankDetails.acctNumber}
+            onChange={(e) =>
+              setBankDetails({ ...bankDetails, acctNumber: e.target.value })
+            }
+          />
+          <p className="text-xs font-regular text-white-30 leading-5">
+            Mary Stansfied
+          </p>
+        </div>
 
-      <button
-        className="py-[0.7rem] px-5 bg-primary-main rounded-md mt-10 text-whiteText"
-        onClick={nextSellStep}
-      >
-        Proceed
-      </button>
-    </div>
+        <button
+          className="py-[0.7rem] px-5 bg-primary-main rounded-md mt-10 text-whiteText"
+          onClick={handleSubmit}
+        >
+          Proceed
+        </button>
+      </form>
+    </motion.div>
   );
 }
 

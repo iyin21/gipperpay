@@ -27,6 +27,11 @@ function BuyAndSellSection({
   const handleSell = () => {
     setSell(true);
   };
+
+  const handleBuyClick = () => {
+    !amountToBuy ? alert("Please enter the GU$T you want to buy"):
+    handleNext()
+  }
   return (
     <div className="w-full lg:w-[36rem] lg:h-[45rem]  rounded-[10px] lg:ml-[162px] lg:mr-[432px] mt-[20px] pt-[40px] pb-[71px]  lg:border-[1px] border-white-20 lg:pl-[128px] lg:pr-[128px]">
       <div className="w-[320px] h-[45px] flex flex-row items-start ">
@@ -107,7 +112,7 @@ function BuyAndSellSection({
           Recieve
         </h1>
         {active === 0 ? (
-          <h1 className="mt-[5px] w-[96px] h-[27px] font-Jost not-italic font-medium text-sm leading-[27px] text-white-30 ">
+          <h1 className="mt-[5px] w-full h-[27px] font-Jost not-italic font-medium text-sm leading-[27px] text-white-30 ">
             GU$T{" "}
             {parseInt(amountToBuy / 725)
               .toFixed(2)
@@ -115,8 +120,8 @@ function BuyAndSellSection({
               .replace(/\B(?=(\d{3})+(?!\d))/g, ",")}
           </h1>
         ) : (
-          <h1 className="mt-[5px] w-[96px] h-[27px] font-Jost not-italic font-medium text-sm leading-[27px] text-white-30 ">
-            NGN{" "}
+          <h1 className="mt-[5px] w-full h-[27px] font-Jost not-italic font-medium text-sm leading-[27px] text-white-30 ">
+            ₦{" "}
             {parseInt(amountToSell * 725)
               .toFixed(2)
               .toString()
@@ -147,22 +152,32 @@ function BuyAndSellSection({
             0 GU$T
           </h1>
         </div>
-        <div className=" w-[300px] h-[19px] mt-[10px] flex flex-row items-center justify-between ">
+        <div className="w-[300px] h-[19px] mt-[10px] flex flex-row items-center justify-between ">
           <h1 className=" w-[126px] h-[19px] font-Jost not-italic  font-regular text-xs leading-[19px] text-white-30 ">
             Amount you'll receive
           </h1>
-          <h1 className=" w-[66px] h-[19px] font-Jost not-italic  font-regular text-xs leading-[19px] text-white-30 ">
-            {parseInt(amountToBuy / 725)
-              .toFixed(2)
-              .toString()
-              .replace(/\B(?=(\d{3})+(?!\d))/g, ",")}{" "}
-            GU$T
-          </h1>
+          {active === 0 ? (
+            <h1 className=" w-[166px] h-[19px] flex justify-end items-center font-Jost not-italic  font-regular text-xs leading-[19px] text-white-30 ">
+              {parseInt(amountToBuy / 725)
+                .toFixed(2)
+                .toString()
+                .replace(/\B(?=(\d{3})+(?!\d))/g, ",")}{" "}
+              GU$T
+            </h1>
+          ) : (
+            <h1 className=" w-[166px] flex justify-end items-center h-[19px] font-Jost not-italic  font-regular text-xs leading-[19px] text-white-30 ">
+               ₦ {parseInt(amountToSell * 725)
+                .toFixed(2)
+                .toString()
+                .replace(/\B(?=(\d{3})+(?!\d))/g, ",")}{" "}
+             
+            </h1>
+          )}
         </div>
       </div>
       {active === 0 ? (
         <div className="mt-28 lg:mt-[60px] lg:ml-[60px] ">
-          <BuyButton content="Buy" handleNext={handleNext} />
+          <BuyButton content="Buy" handleBuyClick={handleBuyClick} />
         </div>
       ) : (
         <div className="mt-28 lg:mt-[60px] lg:ml-[60px] ">
