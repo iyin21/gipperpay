@@ -1,9 +1,36 @@
 import React from "react";
 import { bank } from "../../../assets";
-
+import { motion } from "framer-motion";
 function SellStepOne({ nextSellStep }) {
+  const dropIn = {
+    hidden: {
+      y: "-100vh",
+      opacity: 0,
+    },
+    visible: {
+      y: "0",
+      opacity: 1,
+      transition: {
+        duration: 2,
+        delay: 0.5,
+        type: "spring",
+        damping: 25,
+        stiffness: 500,
+      },
+    },
+    exit: {
+      y: "100vh",
+      opacity: 0,
+    },
+  };
   return (
-    <div className="w-[31rem] px-[3.4rem] lg:px-[6.4rem] py-[6.4rem] lg:py-[3.4rem] h-[27rem] bg-whiteText">
+    <motion.div
+      variants={dropIn}
+      initial="hidden"
+      animate="visible"
+      exit="exit"
+      className="w-[31rem] px-[3.4rem] lg:px-[6.4rem] py-[6.4rem] lg:py-[3.4rem] h-[27rem] bg-whiteText"
+    >
       <div>
         <img src={bank} alt="" />
       </div>
@@ -21,7 +48,7 @@ function SellStepOne({ nextSellStep }) {
       >
         Add Bank
       </button>
-    </div>
+    </motion.div>
   );
 }
 
