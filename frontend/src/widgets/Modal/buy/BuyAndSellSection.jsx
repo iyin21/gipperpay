@@ -11,7 +11,7 @@ import { AiOutlineDown } from "react-icons/ai";
 
 function BuyAndSellSection({ handleNext,setAmountToBuy,amountToBuy }) {
   return (
-    <div className="w-[36rem] h-[45rem]  rounded-[10px] ml-[162px] mr-[432px] mt-[20px] pt-[40px] pb-[71px] border-white-20 border-[1px] pl-[128px] pr-[128]">
+    <div className="w-full lg:w-[36rem] lg:h-[45rem]  rounded-[10px] lg:ml-[162px] lg:mr-[432px] mt-[20px] pt-[40px] pb-[71px]  lg:border-[1px] border-white-20 lg:pl-[128px] lg:pr-[128px]">
       <div className="w-[320px] h-[45px] flex flex-row items-start ">
         <div className="w-[150px] h-[45px] items-center justify-center  rounded-[5px] bg-primary-light mr-[20px] pt-[11px] pb-[11px] pl-[62px] pr-[62px] ">
           <h1 className="w-[26px] h-[23px] font-Jost not-italic font-medium text-s text-center leading-[23px] text-Rectangle">
@@ -98,7 +98,7 @@ function BuyAndSellSection({ handleNext,setAmountToBuy,amountToBuy }) {
           </h1>
         </div>
       </div>
-      <div className=" mt-[60px] ml-[60px] ">
+      <div className="mt-28 lg:mt-[60px] lg:ml-[60px] ">
         <BuyButton handleNext={handleNext} />
       </div>
     </div>

@@ -18,7 +18,7 @@ function BuyandSell() {
   const [amountToBuy, setAmountToBuy] = useState("");
 
   return (
-    <div>
+    <div className="p-5">
       {activeBuyAndsellSection === 0 ? (
         <BuyAndSellSection
           amountToBuy={amountToBuy}
