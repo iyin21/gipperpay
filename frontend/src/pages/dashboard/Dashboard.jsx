@@ -6,7 +6,7 @@ import Sidenav from "./Sidenav";
 function Dashboard() {
   const [activeLink, setActiveLink] = useState(0);
   return (
-    <div className="min-h-[180vh] w-full relative lg:min-h-[120vh] ">
+    <div className=" w-full relative lg:min-h-[120vh] ">
       <Header/>
       <Sidenav activeLink={activeLink} setActiveLink={setActiveLink} />
       <MainView activeLink={activeLink} />

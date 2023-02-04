@@ -39,7 +39,7 @@ function EnterAddress({ nextStep, transactionDetails, setTransactionDetails }) {
       initial="hidden"
       animate="visible"
       exit="exit"
-      className="w-full lg:w-[30rem] mx-auto mt-5 h-[38.5rem] pt-11 px-6 lg:px-24 bg-whiteText"
+      className="w-full lg:w-[30rem] mx-auto mt-36 lg:mt-0 h-[38.5rem] pt-11 px-6 lg:px-24 bg-whiteText"
     >
       <p className="text-s font-medium leading-6 text-secondary-main">
         Choose Method to Send GU$T
@@ -96,7 +96,7 @@ function EnterAddress({ nextStep, transactionDetails, setTransactionDetails }) {
 
         <button
           type="submit"
-          className="mt-10 w-24 h-12 bg-primary-main rounded-md text-whiteText text-s font-regular leading-6"
+          className="mt-10 w-[100%] lg:w-24 h-12 bg-primary-main rounded-md text-whiteText text-s font-regular leading-6"
           onClick={handleSubmit}
         >
           Send
