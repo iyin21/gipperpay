@@ -26,7 +26,7 @@ function SignUp() {
         viewBox="0 0 269 218"
         fill="none"
         xmlns="http://www.w3.org/2000/svg"
-        className="absolute z-0 left-[658px] "
+        className="absolute z-0 right-0 lg:right-[15rem]"
       >
         <path
           d="M7 44.7582C53.5493 29.947 121.681 1.17112 106.446 44.7582C91.2119 88.3452 37.8337 145.062 34.0832 164.94C29.8515 187.368 44.6626 209.796 163.575 187.368C258.705 169.425 253.711 129.675 239.323 112.043"

@@ -82,7 +82,7 @@ function WhatWeOffer() {
           </div>
           <div className="border-t-[0.125rem] border-Rectangle bg-white-60 rounded-[0.625rem] shadow-md  py-[2.5rem] pl-[1.25rem] mb-[1.25rem] ">
             <img src={cart} alt="" className="w-[3.125rem] h-[3.125rem] " />
-            <h1 className="lg:w-[8.4375rem] lg:h-[1.6875rem] font-Jost not-italic font-big text-sm leading-[1.6875rem] items-center justify-center text-secondary-main mt-[1.25rem] ">
+            <h1 className="lg:w-[10.4375rem] lg:h-[1.6875rem] font-Jost not-italic font-big text-sm leading-[1.6875rem] items-center justify-center text-secondary-main mt-[1.25rem] ">
               E-commerce store
             </h1>
             <h1 className="w-[14.3125rem] h-[7.1875rem] font-Jost not-italic font-regular text-s leading-[1.4375rem] items-center text-secondary-30 mt-[0.3125rem] ">

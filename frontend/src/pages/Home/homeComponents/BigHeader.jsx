@@ -38,11 +38,13 @@ function BigHeader() {
           className="object-contain  relative w-[33.3125rem] h-[26.3125rem] z-10"
         />
       </div>
-      <img
-        src={rectangle}
-        alt=""
-        className="absolute left-[15.3125rem] top-[29.0625rem] lg:top-[6.25rem] lg:left-[53.125rem] lg:w-[31.25rem] lg:h-[34.375rem] z-0 "
-      />
+      {/* <div className="h-[35rem] bottom-0 lg:h-full w-[32rem] lg:w-[38rem] absolute -right-[20rem] lg:right-3 lg:top-0">
+        <img
+          src={rectangle}
+          alt=""
+          className="w-full h-full object-cover lg:object-cover"
+        />
+      </div> */}
     </div>
   );
 }
