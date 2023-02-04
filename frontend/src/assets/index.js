@@ -49,6 +49,7 @@ import iphone11 from "./iPhone11ProMaxMockup.png";
 import iphone12 from "./iPhone12GraphiteProTopViewMockup.png";
 import coinsimage from "./coinsimage.png";
 import stake from "./stake.svg";
+import bank from "./bank.svg";
 
 export {
   logo,
@@ -102,4 +103,5 @@ export {
   iphone12,
   coinsimage,
   stake,
+  bank
 };

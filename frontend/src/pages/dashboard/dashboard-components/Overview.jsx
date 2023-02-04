@@ -81,7 +81,7 @@ function Overview() {
   };
 
   return (
-    <div className="w-full border-2 border-black flex flex-col-reverse h-auto lg:flex-row lg:h-full">
+    <div className="w-full flex flex-col-reverse h-auto lg:flex-row lg:h-full">
       <div className="w-full top-0 min-h-screen left-0 lg:w-4/5">
         <div className="w-[90%] h-[10rem] rounded-[1.25rem]  relative  m-auto mt-2 lg:rounded-3xl lg:w-5/6 lg:h-48">
           <img
