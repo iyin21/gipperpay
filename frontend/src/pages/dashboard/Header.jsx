@@ -26,8 +26,8 @@ function Header({ setActiveLink }) {
   };
 
   const backDrop = {
-    open: { opacity: 1 },
-    closed: { opacity: 0, transition: { delay: 0.5 } },
+    open: { opacity: 1, x:"0%" },
+    closed: { opacity: 0, x:"-100%", transition: { delay: 0.5 } },
   };
 
   const links = [
@@ -98,14 +98,17 @@ function Header({ setActiveLink }) {
       <motion.div
         animate={showMenu ? "open" : "closed"}
         variants={backDrop}
-        className="fixed top-0 left-0 w-full h-full backdrop-blur-sm z-20"
+        className={`fixed top-0 left-0 w-full h-full backdrop-blur-sm z-20`}
         onClick={() => setShowMenu(!showMenu)}
       >
+        
+      </motion.div>
+
         <motion.div
           initial={false}
           animate={showMenu ? "open" : "closed"}
           variants={variants}
-          className="fixed overflow-scroll top-0 left-0 w-[70%] h-full bg-whiteText py-11 px-[1.8rem]"
+          className="fixed overflow-scroll top-0 left-0 w-[70%] h-full bg-whiteText py-11 px-[1.8rem] z-40"
         >
           <div>
             <img src={logo} width={100} height={100} alt="" />
@@ -115,7 +118,10 @@ function Header({ setActiveLink }) {
               <li
                 key={index}
                 className="flex text-s font-regular leading-6 mt-10 gap-2"
-                onClick={()=>handleActiveLink(index)}
+                onClick={()=>{
+                  handleActiveLink(index)
+                  setShowMenu(!showMenu)
+                }}
               >
                 <img src={link.img} alt="" />
                 {link.linkTitle}
@@ -128,7 +134,6 @@ function Header({ setActiveLink }) {
 
           <AiFillCloseCircle className="absolute right-3 top-3" size='2rem' onClick={()=>setShowMenu(!showMenu)}/>
         </motion.div>
-      </motion.div>
     </header>
   );
 }
