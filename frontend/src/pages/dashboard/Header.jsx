@@ -1,8 +1,73 @@
-import React from "react";
-import { notification, profileSm } from "../../assets";
+import React, { useState } from "react";
+import {
+  bit,
+  donationmobile,
+  gipperfimobile,
+  logo,
+  notification,
+  overviewMobile,
+  payrollmobile,
+  productsmobile,
+  profileSm,
+  settingsmobile,
+  transactionsmobile,
+} from "../../assets";
 import { FiMenu } from "react-icons/fi";
 import { overviewIcon } from "../../icons";
-function Header() {
+import { motion } from "framer-motion";
+import {AiFillCloseCircle} from 'react-icons/ai'
+
+function Header({ setActiveLink }) {
+  const [showMenu, setShowMenu] = useState(false);
+
+  const variants = {
+    open: { opacity: 1, x: "0%" },
+    closed: { opacity: 0, x: "-100%", transition: { delay: 0.5 } },
+  };
+
+  const backDrop = {
+    open: { opacity: 1, x:"0%" },
+    closed: { opacity: 0, x:"-100%", transition: { delay: 0.5 } },
+  };
+
+  const links = [
+    {
+      img: overviewMobile,
+      linkTitle: "Overview",
+    },
+    {
+      img: bit,
+      linkTitle: "Buy & Sell",
+    },
+    {
+      img: gipperfimobile,
+      linkTitle: "Gipperfi",
+    },
+    {
+      img: donationmobile,
+      linkTitle: "Donations",
+    },
+    {
+      img: payrollmobile,
+      linkTitle: "Payroll",
+    },
+    {
+      img: productsmobile,
+      linkTitle: "Products",
+    },
+    {
+      img: transactionsmobile,
+      linkTitle: "Transactions",
+    },
+    {
+      img: settingsmobile,
+      linkTitle: "Settings",
+    },
+  ];
+
+  const handleActiveLink = (index) => {
+    setActiveLink(index);
+  };
   return (
     <header className="h-20 px-5 w-full z-40 bg-whiteText flex fixed top-0 right-0 items-center justify-between py-5 lg:px-10 lg:w-[80%]">
       <button className="hidden text-whiteText rounded text-s h-10 bg-secondary-main py-2.5 px-6 lg:block">
@@ -12,6 +77,7 @@ function Header() {
         <FiMenu
           size="2rem"
           className=" mr-5 lg:hidden"
+          onClick={() => setShowMenu(!showMenu)}
         />
         <img src={overviewIcon} alt="" />
         <p className="text-xs">Overview</p>
@@ -28,6 +94,46 @@ function Header() {
           </div>
         </div>
       </div>
+
+      <motion.div
+        animate={showMenu ? "open" : "closed"}
+        variants={backDrop}
+        className={`fixed top-0 left-0 w-full h-full backdrop-blur-sm z-20`}
+        onClick={() => setShowMenu(!showMenu)}
+      >
+        
+      </motion.div>
+
+        <motion.div
+          initial={false}
+          animate={showMenu ? "open" : "closed"}
+          variants={variants}
+          className="fixed overflow-scroll top-0 left-0 w-[70%] h-full bg-whiteText py-11 px-[1.8rem] z-40"
+        >
+          <div>
+            <img src={logo} width={100} height={100} alt="" />
+          </div>
+          <ul>
+            {links.map((link, index) => (
+              <li
+                key={index}
+                className="flex text-s font-regular leading-6 mt-10 gap-2"
+                onClick={()=>{
+                  handleActiveLink(index)
+                  setShowMenu(!showMenu)
+                }}
+              >
+                <img src={link.img} alt="" />
+                {link.linkTitle}
+              </li>
+            ))}
+          </ul>
+          <button className="px-[1.6rem] rounded-md py-2 bg-secondary-main mt-10 text-whiteText">
+            Send & Receive
+          </button>
+
+          <AiFillCloseCircle className="absolute right-3 top-3" size='2rem' onClick={()=>setShowMenu(!showMenu)}/>
+        </motion.div>
     </header>
   );
 }
