@@ -25,6 +25,7 @@ import transactionActive from "./transactionActive.png";
 import notification from "./notification.png";
 import profileSm from "./profileSm.png";
 import profileBg from "./profileBg.png";
+import profileComponent from "./profilecomponent.png";
 import dashboardImg from "./dashboardImg.png";
 import gustCoin from "./gustCoin.png";
 import gustCoin1 from "./gustCoin1.png";
@@ -46,8 +47,12 @@ import linkedin from "./linkedin.png";
 import instagram from "./instagram.png";
 import forindivualspic from "./forindividuals.png";
 import iphone11 from "./iPhone11ProMaxMockup.png";
+import iphone11Bent from "./iPhone11ProMax Mockup(1).png";
 import iphone12 from "./iPhone12GraphiteProTopViewMockup.png";
 import coinsimage from "./coinsimage.png";
+import Successpic from "./Success.png";
+import pricingImage1 from "./pricingImage1.png";
+import pricingImage2 from "./pricingImage2.svg";
 import stake from "./stake.svg";
 import bank from "./bank.svg";
 import overviewMobile from "./overviewMobile.svg";
@@ -87,6 +92,7 @@ export {
   notification,
   profileSm,
   profileBg,
+  profileComponent,
   dashboardImg,
   gustCoin,
   gustCoin1,
@@ -108,8 +114,12 @@ export {
   rectangle,
   rectanglepink,
   iphone11,
+  iphone11Bent,
   iphone12,
   coinsimage,
+  Successpic,
+  pricingImage1,
+  pricingImage2,
   stake,
   bank,
   overviewMobile,

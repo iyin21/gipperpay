@@ -8,48 +8,48 @@ import { bookmark, rightarrow } from "../../../icons";
 
 function ForIndividuals() {
   return (
-    <div className="lg:w-[905px] lg:h-[500px] mx-[30px] lg:ml-[267px] lg:flex lg:flex-row  items-center justify-between   ">
-      <div className=" w-[320px] h-[320px] lg:w-[486.27px] lg:h-[500px] m-auto relative  ">
+    <div className="lg:w-[56.5625rem] lg:h-[31.25rem] mx-[1.875rem] lg:ml-[14.8125rem] lg:flex lg:flex-row  items-center justify-between   ">
+      <div className=" w-[20rem] h-[20rem] lg:w-[30.391875rem] lg:h-[31.25rem] m-auto relative  ">
         <img
           src={bookmark}
           alt=""
-          className=" absolute z-10 w-[96px] h-[96px] lg:w-[147px] lg:h-[147px] "
+          className=" absolute z-10 w-[6rem] h-[6rem] lg:w-[9.1875rem] lg:h-[9.1875rem] "
         />
         <img
           src={forindivualspic}
           alt=""
-          className="absolute  top-[73px]  left-[40px] z-0 w-[250px] h-[250px] lg:w-[380px] lg:h-[380px] "
+          className="absolute  top-[4.5625rem]  left-[2.5rem] z-0 w-[15.625rem] h-[15.625rem] lg:w-[23.75rem] lg:h-[23.75rem] "
         />
       </div>
-      <div className="lg:w-[363px]  lg:h-[458px] mt-[21px] mb-[21px] ">
-        <h1 className="lg:w-[118px] lg:h-[27px] font-Jost not-italic font-regular text-sm leading-[27px] text-center items-center text-secondary-30 ">
+      <div className="lg:w-[22.6875rem]  lg:h-[28.625rem] my-[1.3125rem] ">
+        <h1 className="lg:w-[7.375rem] lg:h-[1.6875rem] font-Jost not-italic font-regular text-sm leading-[1.6875rem] text-center items-center text-secondary-30 ">
           For Individuals
         </h1>
-        <h1 className="lg:w-[76px] lg:h-[40px] font-Jost not-italic font-big text-l leading-[40px] text-center items-center text-secondary-main mt-[40px] ">
+        <h1 className="lg:w-[4.75rem] lg:h-[2.5rem] font-Jost not-italic font-big text-l leading-[2.5rem] text-center items-center text-secondary-main mt-[2.5rem] ">
           GU$T
         </h1>
-        <h1 className="lg:w-[338px] lg:h-[92px] font-Jost not-italic font-regular text-s leading-[23px]  text-secondary-30 mt-[10px] ">
+        <h1 className="lg:w-[21.125rem] lg:h-[5.75rem] font-Jost not-italic font-regular text-s leading-[1.4375rem]  text-secondary-30 mt-[0.625rem] ">
           Spend crypto and money like a social bird using gipperpay native
           token, individuals can send crypto or fiat to anyone using just their
           social media username
         </h1>
-        <div className="w-[363px] h-[119px] flex flex-row items-center mt-[40px] ">
-          <div className="w-[5px] h-[95px] bg-primary-main rounded-[10px] mr-[20px] "></div>
-          <div className="w-[338px] h-[119px] items-start ">
-            <h1 className="w-[94px] h-[40px] font-Jost not-italic font-big text-l leading-[40px] text-center items-center text-primary-main ">
+        <div className="w-[22.6875rem] h-[7.4375rem] flex flex-row items-center mt-[2.5rem] ">
+          <div className="w-[0.3125rem] h-[5.9375rem] bg-primary-main rounded-[0.625rem] mr-[1.25rem] "></div>
+          <div className="w-[21.125rem] h-[7.4375rem] items-start ">
+            <h1 className="w-[5.875rem] h-[2.5rem] font-Jost not-italic font-big text-l leading-[2.5rem] text-center items-center text-primary-main ">
               Invoice
             </h1>
-            <h1 className="w-[338px] h-[69px] font-Jost not-italic font-regular text-s leading-[23px] items-center text-secondary-30 mt-[10px]  ">
+            <h1 className="w-[21.125rem] h-[4.3125rem] font-Jost not-italic font-regular text-s leading-[1.4375rem] items-center text-secondary-30 mt-[0.625rem]  ">
               Freelancers can generate professional invoices and get paid by
               their contractors with no stress from anywhere.
             </h1>
           </div>
         </div>
-        <div className="w-[156px] h-[50px] border-[1px] border-primary-main rounded-[5px] pt-[10px] pb-[10px] pl-[25px]  mt-[40px] flex flex-row items-center">
-          <h1 className="w-[77px] h-[23px] font-Jost not-italic font-regular text-s leading-[23px] text-center items-center text-primary-main mr-[10px] ">
+        <div className="w-[9.75rem] h-[3.125rem] border-[0.0625rem] border-primary-main rounded-[0.3125rem] py-[0.625rem]  pl-[1.5625rem]  mt-[2.5rem] flex flex-row items-center">
+          <h1 className="w-[4.8125rem] h-[1.4375rem] font-Jost not-italic font-regular text-s leading-[1.4375rem] text-center items-center text-primary-main mr-[0.625rem] ">
             Get Started
           </h1>
-          <img src={rightarrow} alt="" className="w-[24px] h-[24px] " />
+          <img src={rightarrow} alt="" className="w-[1.5rem] h-[1.5rem] " />
         </div>
       </div>
     </div>
