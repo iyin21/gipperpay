@@ -5,92 +5,92 @@ import { mark } from "../../../icons";
 
 function UseCases() {
   return (
-    <div className="mx-[20px] ">
-      <h1 className=" font-Jost not-italic font-regular text-sm  leading-[27px] items-center text-center  lg:mt-[77px] ">
+    <div className=" w-full mx-[1.25rem] ">
+      <h1 className=" font-Jost not-italic font-regular text-sm  leading-[1.6875rem] items-center text-center  lg:mt-[4.8125rem] ">
         Use Cases
       </h1>
-      <h1 className=" font-Jost not-italic font-big text-l  leading-[40px] items-center  lg:mt-[20px] text-center ">
+      <h1 className=" font-Jost not-italic font-big text-l  leading-[2.5rem] items-center  lg:mt-[1.25rem] text-center ">
         Who can use Gipperpay?
       </h1>
 
-      <div className=" lg:grid lg:grid-cols-3 lg:mt-[40px] lg:mx-[120px]  ">
-        <div className="w-[400px] h-[200px] flex flex-row items-center border-l-[2px] border-primary-main rounded-[10px] my-[20px] ">
+      <div className=" lg:grid lg:grid-cols-3 lg:mt-[2.5rem] lg:mx-[7.5rem]  ">
+        <div className="w-[25rem] h-[12.5rem] flex flex-row items-center border-l-[0.125rem] border-primary-main rounded-[0.625rem] my-[1.25rem] ">
           <img
             src={mark}
             alt=""
-            className="w-[33px] h-[33px] mr-[23px] ml-[10px] "
+            className="w-[2.0625rem] h-[2.0625rem] mr-[1.4375rem] ml-[0.625rem] "
           />
           <div className="items-start ">
-            <h1 className="w-[103px] h-[27px] font-Jost font-big text-sm leading-[27px]  text-Rectangle ">
+            <h1 className="w-[6.4375rem] h-[1.6875rem] font-Jost font-big text-sm leading-[1.6875rem]  text-Rectangle ">
               Startup
             </h1>
-            <h1 className="w-[206px] h-[38px] mt-[10px] font-Jost not-italic font-regular text-xs leading-[19px]  text-secondary-main ">
+            <h1 className="w-[12.875rem] h-[2.375rem] mt-[0.625rem] font-Jost not-italic font-regular text-xs leading-[1.1875rem]  text-secondary-main ">
               High-ranked start-ups use gipperpay API to accept crypto payment,
               letting users be able to pay with crypto
             </h1>
           </div>
         </div>
-        <div className="w-[400px] h-[200px] flex flex-row items-center border-l-[2px] border-primary-main rounded-[10px] my-[20px]  ">
+        <div className="w-[25rem] h-[12.5rem] flex flex-row items-center border-l-[0.125rem] border-primary-main rounded-[0.625rem] my-[1.25rem] ">
           <img
             src={mark}
             alt=""
-            className="w-[33px] h-[33px] mr-[23px] ml-[10px] "
+            className="w-[2.0625rem] h-[2.0625rem] mr-[1.4375rem] ml-[0.625rem] "
           />
           <div className="items-start ">
-            <h1 className="w-[103px] h-[27px] font-Jost font-big text-sm leading-[27px]  text-Rectangle ">
+            <h1 className="w-[6.4375rem] h-[1.6875rem] font-Jost font-big text-sm leading-[1.6875rem]  text-Rectangle ">
               E-commerce
             </h1>
-            <h1 className="w-[206px] h-[38px] mt-[10px] font-Jost not-italic font-regular text-xs leading-[19px]  text-secondary-main ">
+            <h1 className="w-[12.875rem] h-[2.375rem] mt-[0.625rem] font-Jost not-italic font-regular text-xs leading-[1.1875rem]  text-secondary-main ">
               Put your business across borders by using our e-commerce
               storefront to sell to people around the world with ease.
             </h1>
           </div>
         </div>
-        <div className="w-[400px] h-[200px] flex flex-row items-center border-l-[2px] border-primary-main rounded-[10px] my-[20px]  ">
+        <div className="w-[25rem] h-[12.5rem] flex flex-row items-center border-l-[0.125rem] border-primary-main rounded-[0.625rem] my-[1.25rem] ">
           <img
             src={mark}
             alt=""
-            className="w-[33px] h-[33px] mr-[23px] ml-[10px] "
+            className="w-[2.0625rem] h-[2.0625rem] mr-[1.4375rem] ml-[0.625rem] "
           />
           <div className="items-start ">
-            <h1 className="w-[103px] h-[27px] font-Jost font-big text-sm leading-[27px]  text-Rectangle ">
+            <h1 className="w-[6.4375rem] h-[1.6875rem] font-Jost font-big text-sm leading-[1.6875rem]  text-Rectangle ">
               Freelancers
             </h1>
-            <h1 className="w-[206px] h-[38px] mt-[10px] font-Jost not-italic font-regular text-xs leading-[19px]  text-secondary-main ">
+            <h1 className="w-[12.875rem] h-[2.375rem] mt-[0.625rem] font-Jost not-italic font-regular text-xs leading-[1.1875rem]  text-secondary-main ">
               Receive payment in crypto for your International gigs and get
               settled in your local currency with no delay
             </h1>
           </div>
         </div>
       </div>
-      <div className=" lg:grid lg:grid-cols-2 lg:mt-[40px] lg:mx-[315px]  ">
-        <div className="w-[400px] h-[200px] flex flex-row items-center border-l-[2px] border-primary-main rounded-[10px] my-[20px]  ">
+      <div className=" lg:grid lg:grid-cols-2 lg:mt-[2.5rem] lg:mx-[19.6875rem]  ">
+        <div className="w-[25rem] h-[12.5rem] flex flex-row items-center border-l-[0.125rem] border-primary-main rounded-[0.625rem] my-[1.25rem] ">
           <img
             src={mark}
             alt=""
-            className="w-[33px] h-[33px] mr-[23px] ml-[10px] "
+            className="w-[2.0625rem] h-[2.0625rem] mr-[1.4375rem] ml-[0.625rem] "
           />
           <div className="items-start ">
-            <h1 className="w-[103px] h-[27px] font-Jost font-big text-sm leading-[27px]  text-Rectangle ">
+            <h1 className="w-[6.4375rem] h-[1.6875rem] font-Jost font-big text-sm leading-[1.6875rem]  text-Rectangle ">
               NGO/campaign
             </h1>
-            <h1 className="w-[206px] h-[38px] mt-[10px] font-Jost not-italic font-regular text-xs leading-[19px]  text-secondary-main ">
+            <h1 className="w-[12.875rem] h-[2.375rem] mt-[0.625rem] font-Jost not-italic font-regular text-xs leading-[1.1875rem]  text-secondary-main ">
               Be limitless with your fundraising, when you can raise from
               anywhere in the world in cryptocurrency
             </h1>
           </div>
         </div>
-        <div className="w-[400px] h-[200px] flex flex-row items-center border-l-[2px] border-primary-main rounded-[10px] my-[20px]  ">
+        <div className="w-[25rem] h-[12.5rem] flex flex-row items-center border-l-[0.125rem] border-primary-main rounded-[0.625rem] my-[1.25rem] ">
           <img
             src={mark}
             alt=""
-            className="w-[33px] h-[33px] mr-[23px] ml-[10px] "
+            className="w-[2.0625rem] h-[2.0625rem] mr-[1.4375rem] ml-[0.625rem] "
           />
           <div className="items-start ">
-            <h1 className="w-[203px] h-[27px] font-Jost font-big text-sm leading-[27px]  text-Rectangle ">
+            <h1 className="w-[12.6875rem] h-[1.6875rem] font-Jost font-big text-sm leading-[1.6875rem]  text-Rectangle ">
               Large organization
             </h1>
-            <h1 className="w-[206px] h-[38px] mt-[10px] font-Jost not-italic font-regular text-xs leading-[19px]  text-secondary-main ">
+            <h1 className="w-[12.875rem] h-[14.875rem] mt-[0.625rem] font-Jost not-italic font-regular text-xs leading-[1.1875rem]  text-secondary-main ">
               Easily process payroll for your employee, focus on building your
               company or organization let's focus on helping you keep employees
               happy, while you stay compliant.

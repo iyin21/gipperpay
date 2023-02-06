@@ -62,6 +62,7 @@ module.exports = {
           80: "#04000E",
         },
         Rectangle: "#FA3C12",
+        Rectangle15: "#D3F1F8",
         whiteText: "#FCFCFC",
         primary: {
           light: "#FED8D0",
