@@ -7,7 +7,7 @@ function Dashboard() {
   const [activeLink, setActiveLink] = useState(0);
   return (
     <div className=" w-full relative lg:min-h-[120vh] ">
-      <Header setActiveLink={setActiveLink}/>
+      <Header activeLink={activeLink} setActiveLink={setActiveLink}/>
       <Sidenav activeLink={activeLink} setActiveLink={setActiveLink} />
       <MainView activeLink={activeLink} />
     </div>

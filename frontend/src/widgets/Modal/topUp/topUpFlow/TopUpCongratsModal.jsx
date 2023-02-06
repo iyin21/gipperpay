@@ -46,7 +46,11 @@ function TopUpCongratsModal({ topUpAmount, setShowTopUpModal }) {
           Success!
         </p>
         <div className="w-[8rem] h-14 rounded-xl bg-primary-light mx-auto mt-9 mb-3 text-s flex justify-center items-center font-medium text-primary-main leading-6">
-          {topUpAmount.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")} GU$T
+          {(topUpAmount / 725)
+            .toFixed(2)
+            .toString()
+            .replace(/\B(?=(\d{3})+(?!\d))/g, ",")}{" "}
+          GU$T
         </div>
         <p className="text-xs leading-5 text-center font-medium text-white-30 mt-2 mb-2">
           Has Been Received
