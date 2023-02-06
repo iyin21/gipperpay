@@ -3,14 +3,12 @@ import { bank } from "../../../assets";
 import { motion } from "framer-motion";
 
 function SellStepTwo({ nextSellStep }) {
-  const [bankDetails, setBankDetails] = useState({
-    bankName: "",
-    acctNumber: "",
-  });
+  const [bankName, setbankName] = useState('');
+  const [acctNumber, setAcctNumber] = useState('')
+
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    const { bankName, acctNumber } = bankDetails;
     !bankName || !acctNumber
       ? alert("please fill in correct account details")
       : nextSellStep();
@@ -60,9 +58,9 @@ function SellStepTwo({ nextSellStep }) {
           <input
             className="w-full text-white-30 border border-secondary-20 py-[0.6rem] px-5 rounded-md"
             type="text"
-            value={bankDetails.bankName}
+            value={bankName}
             onChange={(e) =>
-              setBankDetails({ ...bankDetails, bankName: e.target.value })
+              setbankName(e.target.value)
             }
           />
         </div>
@@ -74,9 +72,9 @@ function SellStepTwo({ nextSellStep }) {
           <input
             className="w-full text-white-30 border border-secondary-20 py-[0.6rem] px-5 rounded-md"
             type="text"
-            value={bankDetails.acctNumber}
+            value={acctNumber}
             onChange={(e) =>
-              setBankDetails({ ...bankDetails, acctNumber: e.target.value })
+              setAcctNumber(e.target.value)
             }
           />
           <p className="text-xs font-regular text-white-30 leading-5">

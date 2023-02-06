@@ -58,6 +58,13 @@ import productsmobile from "./productmobile.svg";
 import payrollmobile from "./payrollmobile.svg";
 import transactionsmobile from "./transactionsmobile.svg";
 import settingsmobile from "./settingsmobile.svg";
+import earn from "./earn.svg";
+import freeze from "./freeze.svg";
+import staking from "./staking.svg";
+import payout from "./payout.svg";
+import green from "./green.svg";
+import orange from "./orange.svg";
+import blue from "./blue.svg";
 
 export {
   logo,
@@ -120,4 +127,11 @@ export {
   settingsmobile,
   transactionsmobile,
   payrollmobile,
+  earn,
+  freeze,
+  staking,
+  payout,
+  green,
+  orange,
+  blue,
 };
