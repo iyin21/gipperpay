@@ -1,21 +1,47 @@
 import React, { useState } from "react";
 import { gustCoin } from "../../../../assets";
-import { binance, tron} from "../../../../icons";
+import { binance, tron } from "../../../../icons";
 import { MdOutlineSwapHoriz } from "react-icons/md";
-
-function SelectNetwork({next,from,to}) {
-  const [network,setNetwork] = useState('')
-  console.log(network)
+import {motion } from 'framer-motion'
+function SelectNetwork({ next, from, to }) {
+  const [network, setNetwork] = useState("");
+  console.log(network);
 
   const handleNext = (e) => {
     e.preventDefault();
-    !network
-      ? alert("please select a network for this transaction")
-      : next();
+    !network ? alert("please select a network for this transaction") : next();
+  };
+
+  const dropIn = {
+    hidden: {
+      y: "-100vh",
+      opacity: 0,
+    },
+    visible: {
+      y: "0",
+      opacity: 1,
+      transition: {
+        duration: 2,
+        delay: 0.5,
+        type: "spring",
+        damping: 25,
+        stiffness: 500,
+      },
+    },
+    exit: {
+      y: "100vh",
+      opacity: 0,
+    },
   };
 
   return (
-    <div className="w-full mt-32 lg:w-[30rem] lg:mx-auto lg:mt-5 h-[38.5rem] pt-11 px-2 lg:px-24 bg-whiteText">
+    <motion.div
+      variants={dropIn}
+      initial="hidden"
+      animate="visible"
+      exit="exit"
+      className="w-full mt-32 lg:w-[30rem] lg:mx-auto lg:mt-5 h-[38.5rem] pt-11 px-2 lg:px-24 bg-whiteText"
+    >
       <div>
         <h2 className="hidden text-s font-medium leading-6 text-secondary-main lg:block">
           Network And Wallet Address
@@ -28,15 +54,19 @@ function SelectNetwork({next,from,to}) {
       <div className="flex justify-between mt-6 items-center w-full">
         <div className="flex justify-around items-center w-[50%]">
           <img src={gustCoin} alt="" />
-          <h2 className="text-xs leading-5 font-regular text-white-30">{from.label}</h2>
+          <h2 className="text-xs leading-5 font-regular text-white-30">
+            {from.label}
+          </h2>
           <p className="text-s font-medium leading-6 text-secondary-main">
             {from.value}{" "}
           </p>
         </div>
         <MdOutlineSwapHoriz size="1.2rem" color="#7B7B7B" />
         <div className="flex justify-around items-center w-[50%]">
-          <img src={to.image} height='20' width='20' alt="" />
-          <h2 className="text-xs leading-5 font-regular text-white-30">{to.name}</h2>
+          <img src={to.image} height="20" width="20" alt="" />
+          <h2 className="text-xs leading-5 font-regular text-white-30">
+            {to.name}
+          </h2>
           <p className="text-s font-medium leading-6 text-secondary-main">
             {to.current_price}
           </p>
@@ -79,46 +109,44 @@ function SelectNetwork({next,from,to}) {
       </div>
 
       <div className="lg:hidden border-t-2 bg-white-10 p-2 rounded-md mt-7">
-          <div className="w-full mt-3 boder flex justify-between items-center border-black">
+        <div className="w-full mt-3 boder flex justify-between items-center border-black">
+          <p className="text-xs font-medium leading-5 text-white-30">
+            Exchange Rate
+          </p>
+          <div className="flex justify-between items-center w-[50%]">
             <p className="text-xs font-medium leading-5 text-white-30">
-              Exchange Rate
+              {from.value} GU$T
             </p>
-            <div className="flex justify-between items-center w-[50%]">
-              <p className="text-xs font-medium leading-5 text-white-30">
-                {from.value} GU$T
-              </p>
-              <MdOutlineSwapHoriz color="#7B7B7B" />
-              <p className="text-xs font-medium leading-5 text-white-30">
-                ${(to.current_price).toFixed(2)} {to.name}
-              </p>
-            </div>
-          </div>
-
-          <div className="w-full boder flex justify-between items-center border-black lg:hidden">
-            <p className="text-xs font-medium leading-5 text-white-30">Fee</p>
+            <MdOutlineSwapHoriz color="#7B7B7B" />
             <p className="text-xs font-medium leading-5 text-white-30">
-              0 GU$T
-            </p>
-          </div>
-
-          <div className="w-full boder flex justify-between items-center border-black">
-            <p className="text-xs font-medium leading-5 text-white-30">
-              Amount you’ll reeceive
-            </p>
-            <p className="text-xs font-medium leading-5 text-white-30">
-              0.00 GU$T
+              ${to.current_price.toFixed(2)} {to.name}
             </p>
           </div>
         </div>
 
+        <div className="w-full boder flex justify-between items-center border-black lg:hidden">
+          <p className="text-xs font-medium leading-5 text-white-30">Fee</p>
+          <p className="text-xs font-medium leading-5 text-white-30">0 GU$T</p>
+        </div>
+
+        <div className="w-full boder flex justify-between items-center border-black">
+          <p className="text-xs font-medium leading-5 text-white-30">
+            Amount you’ll reeceive
+          </p>
+          <p className="text-xs font-medium leading-5 text-white-30">
+            0.00 GU$T
+          </p>
+        </div>
+      </div>
+
       <button
-          type="submit"
-          className="mt-10 w-full lg:w-20 h-12 bg-primary-main rounded-md text-whiteText text-s font-regular leading-6"
-          onClick={handleNext}
-        >
-          Swap
-        </button>
-    </div>
+        type="submit"
+        className="mt-10 w-full lg:w-20 h-12 bg-primary-main rounded-md text-whiteText text-s font-regular leading-6"
+        onClick={handleNext}
+      >
+        Swap
+      </button>
+    </motion.div>
   );
 }
 

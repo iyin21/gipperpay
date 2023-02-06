@@ -1,11 +1,11 @@
 import React from "react";
-import { mastercard } from "../../../../icons";
 import { motion } from "framer-motion";
-function EnterCardDetails({
-  nextTopUpStep,
+import { mastercard } from "../../../icons";
+function EnterCardDetailsBuy({
+  nextModalChild,
   cardDetails,
   setCardDetails,
-  topUpAmount,
+  amountToBuy,
 }) {
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -16,7 +16,7 @@ function EnterCardDetails({
       );
       return;
     }
-    nextTopUpStep();
+    nextModalChild();
   };
 
   const dropIn = {
@@ -131,11 +131,11 @@ function EnterCardDetails({
           className="w-full lg:w-[8.6rem] mt-8 text-s leading-6 text-whiteText h-11 bg-primary-main rounded-md"
           onClick={handleSubmit}
         >
-          Pay NGN{topUpAmount.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}
+          Pay NGN{amountToBuy.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}
         </button>
       </form>
     </motion.div>
   );
 }
 
-export default EnterCardDetails;
+export default EnterCardDetailsBuy;

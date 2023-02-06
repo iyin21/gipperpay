@@ -1,6 +1,6 @@
 import React, { useRef, useState } from "react";
 import { AiFillCloseCircle } from "react-icons/ai";
-
+import { motion } from "framer-motion";
 
 function PasswordModal({ Previous, next, type, previousStep, nextStep }) {
   // reference to the four input boxes
@@ -9,7 +9,7 @@ function PasswordModal({ Previous, next, type, previousStep, nextStep }) {
   const thirdInputRef = useRef(null);
   const fourthInputRef = useRef(null);
 
-  console.log(firstInputRef)
+  console.log(firstInputRef);
   //   state holding the input values
   const [pin, setPin] = useState({
     one: "",
@@ -29,7 +29,6 @@ function PasswordModal({ Previous, next, type, previousStep, nextStep }) {
   function handleChange(e) {
     const { name, value } = e.target;
     setPin((prevPin) => ({ ...prevPin, [name]: value }));
-    // setHidePassword(true);
     // move to next input field once current field has a value
     if (firstInputRef.current.value !== "") {
       secondInputRef.current.focus();
@@ -42,15 +41,43 @@ function PasswordModal({ Previous, next, type, previousStep, nextStep }) {
     }
   }
 
+  const dropIn = {
+    hidden: {
+      y: "-100vh",
+      opacity: 0,
+    },
+    visible: {
+      y: "0",
+      opacity: 1,
+      transition: {
+        duration: 2,
+        delay: 0.5,
+        type: "spring",
+        damping: 25,
+        stiffness: 500,
+      },
+    },
+    exit: {
+      y: "100vh",
+      opacity: 0,
+    },
+  };
+
   return (
-    <div className="w-[100%] fixed top-0 left-0 h-[100vh] flex justify-center items-center backdrop-blur-sm z-20">
+    <motion.div
+      variants={dropIn}
+      initial="hidden"
+      animate="visible"
+      exit="exit"
+      className="w-[100%] fixed top-0 left-0 h-[100vh] flex justify-center items-center backdrop-blur-sm z-20"
+    >
       <div className="w-[22.4rem] h-[27rem] bg-[white] relative">
         <AiFillCloseCircle
           cursor="pointer"
           className="absolute top-14 left-16"
           size="2rem"
           color="#7B7B7B"
-          onClick={type ==="send" ? previousStep : Previous}
+          onClick={type === "send" ? previousStep : Previous}
         />
         <h2 className="mt-36 text-xs leading-5 font-medium text-secondary-main text-center">
           Transaction PIN
@@ -59,9 +86,13 @@ function PasswordModal({ Previous, next, type, previousStep, nextStep }) {
           Confirm with Transaction PIN
         </p>
         <div className="w-[11rem] mx-auto flex justify-between items-center mt-5">
-          <div className={`w-[2.5rem] h-[2.5rem] border flex justify-center items-center p-1 rounded-lg ${firstInputRef.current  ? 'border-primary-main' : "border-black"}`}>
+          <div
+            className={`w-[2.5rem] h-[2.5rem] border flex justify-center items-center p-1 rounded-lg ${
+              firstInputRef.current ? "border-primary-main" : "border-black"
+            }`}
+          >
             <input
-              className='w-full text-sm h-full pl-[40%]'
+              className="w-full text-sm h-full pl-[40%]"
               value={pin.one}
               name="one"
               onChange={handleChange}
@@ -71,7 +102,11 @@ function PasswordModal({ Previous, next, type, previousStep, nextStep }) {
               ref={firstInputRef}
             />
           </div>
-          <div className={`w-[2.5rem] h-[2.5rem] border flex justify-center items-center p-1 rounded-lg ${secondInputRef.current ? 'border-primary-main' : "border-black"}`}>
+          <div
+            className={`w-[2.5rem] h-[2.5rem] border flex justify-center items-center p-1 rounded-lg ${
+              secondInputRef.current ? "border-primary-main" : "border-black"
+            }`}
+          >
             <input
               className="w-full h-full pl-[40%]"
               value={pin.two}
@@ -83,7 +118,11 @@ function PasswordModal({ Previous, next, type, previousStep, nextStep }) {
               ref={secondInputRef}
             />
           </div>
-          <div className={`w-[2.5rem] h-[2.5rem] border flex justify-center items-center p-1 rounded-lg ${thirdInputRef.current  ? 'border-primary-main' : "border-black"}`}>
+          <div
+            className={`w-[2.5rem] h-[2.5rem] border flex justify-center items-center p-1 rounded-lg ${
+              thirdInputRef.current ? "border-primary-main" : "border-black"
+            }`}
+          >
             <input
               className="w-full h-full pl-[40%]"
               value={pin.three}
@@ -95,7 +134,11 @@ function PasswordModal({ Previous, next, type, previousStep, nextStep }) {
               ref={thirdInputRef}
             />
           </div>
-          <div className={`w-[2.5rem] h-[2.5rem] border flex justify-center items-center p-1 rounded-lg ${fourthInputRef.current ? 'border-primary-main' : "border-black"}`}>
+          <div
+            className={`w-[2.5rem] h-[2.5rem] border flex justify-center items-center p-1 rounded-lg ${
+              fourthInputRef.current ? "border-primary-main" : "border-black"
+            }`}
+          >
             <input
               className="w-full h-full pl-[40%]"
               value={pin.four}
@@ -115,12 +158,12 @@ function PasswordModal({ Previous, next, type, previousStep, nextStep }) {
         </p>
         <button
           className="w-24 h-12 mt-12 ml-36 mx-auto bg-primary-main rounded-md text-s leading-6 text-whiteText font-regular"
-          onClick={type === 'send' ? nextStep : next}
+          onClick={type === "send" ? nextStep : next}
         >
           Confirm
         </button>
       </div>
-    </div>
+    </motion.div>
   );
 }
 

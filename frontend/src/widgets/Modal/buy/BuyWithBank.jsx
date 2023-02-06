@@ -1,10 +1,10 @@
 import React from "react";
-import { gustCoin } from "../../../../assets";
+import { motion } from "framer-motion";
 import { BsArrowRight } from "react-icons/bs";
 import { BiCopy } from "react-icons/bi";
 import { MdOutlineSwapHoriz } from "react-icons/md";
-import { motion } from "framer-motion";
-function BankTransferDetails({ nextTopUpStep, topUpAmount }) {
+import { gustCoin } from "../../../assets";
+function BuyWithBank({ amountToBuy, nextModalChild }) {
   const dropIn = {
     hidden: {
       y: "-100vh",
@@ -45,7 +45,7 @@ function BankTransferDetails({ nextTopUpStep, topUpAmount }) {
         Below
       </p>
       <div className="flex justify-between  p-3">
-        <p>NGN{topUpAmount.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}</p>
+        <p>NGN{amountToBuy.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}</p>
         <div className="w-5 h-5 flex items-center bg-primary-light justify-center rounded-full">
           <BsArrowRight size=".8rem" className="text-primary-main" />
         </div>
@@ -102,7 +102,7 @@ function BankTransferDetails({ nextTopUpStep, topUpAmount }) {
         <div className="w-full boder flex justify-between items-center border-black">
           <p className="text-xs font-medium leading-5 text-white-30">Fee</p>
           <p className="text-xs font-medium leading-5 text-white-30">
-            {topUpAmount.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")} NGN
+            {amountToBuy.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")} NGN
           </p>
         </div>
 
@@ -119,7 +119,7 @@ function BankTransferDetails({ nextTopUpStep, topUpAmount }) {
       <button
         type="submit"
         className="mt-10 w-full mb-11 lg:w-[7rem] h-[2.8rem] bg-primary-main rounded-md text-whiteText text-s font-regular leading-6"
-        onClick={nextTopUpStep}
+        onClick={nextModalChild}
       >
         I Have Paid
       </button>
@@ -127,4 +127,4 @@ function BankTransferDetails({ nextTopUpStep, topUpAmount }) {
   );
 }
 
-export default BankTransferDetails;
+export default BuyWithBank;

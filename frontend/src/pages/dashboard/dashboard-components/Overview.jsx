@@ -6,6 +6,8 @@ import Modal from "../../../widgets/Modal/swapcoin/Modal";
 import axios from "axios";
 import SendCoinModal from "../../../widgets/Modal/sendcoin/SendCoinModal";
 import TopUp from "../../../widgets/Modal/topUp/TopUp";
+import { AnimatePresence } from "framer-motion";
+import Stake from "../../../widgets/Modal/stake/Stake";
 // import Graph from "../../../widgets/graph/Graph";
 
 function Overview() {
@@ -44,7 +46,10 @@ function Overview() {
   const [showModal, setShowModal] = useState(false);
   const [showSendModal, setShowSendModal] = useState(false);
   const [showTopUpModal, setShowTopUpModal] = useState(false);
-
+  // stake modals
+  const [showStakeModal, setShowStakeModal] = useState(false);
+  const openModal = () => setShowStakeModal(true);
+  const close = () => setShowStakeModal(false);
   const button = [
     {
       img: swap,
@@ -70,6 +75,8 @@ function Overview() {
       setShowSendModal(true);
     } else if (i === 2) {
       setShowTopUpModal(true);
+    } else if (i === 3) {
+      openModal();
     }
   };
 
@@ -106,8 +113,7 @@ function Overview() {
 
             <div className="w-full mt-3 flex justify-start gap-2 pl-2">
               {button.map((button, i) => (
-                <Fragment 
-                key={i}>
+                <Fragment key={i}>
                   <button
                     className="flex relative justify-center items-center gap-1 w-20 h-8 bg-primary-light"
                     onClick={() => handleModal(i)}
@@ -117,7 +123,7 @@ function Overview() {
                       {button.text}
                     </p>
                     <p className="font-regular -bottom-6 absolute text-s text-primary-main lg:hidden">
-                        {button.text}
+                      {button.text}
                     </p>
                   </button>
                 </Fragment>
@@ -209,7 +215,15 @@ function Overview() {
         />
       )}
       {showSendModal && <SendCoinModal setShowSendModal={setShowSendModal} />}
-      {showTopUpModal && <TopUp setShowTopUpModal={setShowTopUpModal}/>}
+      {showTopUpModal && <TopUp setShowTopUpModal={setShowTopUpModal} />}
+      <AnimatePresence
+        initial={false}
+        // exitBeforeEnter={true}
+        mode="wait"
+        onExitComplete={() => null}
+      >
+        {showStakeModal && <Stake handleClose={close} />}
+      </AnimatePresence>
     </div>
   );
 }

@@ -53,6 +53,16 @@ import coinsimage from "./coinsimage.png";
 import Successpic from "./Success.png";
 import pricingImage1 from "./pricingImage1.png";
 import pricingImage2 from "./pricingImage2.svg";
+import stake from "./stake.svg";
+import bank from "./bank.svg";
+import overviewMobile from "./overviewMobile.svg";
+import gipperfimobile from "./gipperfimobile.svg";
+import donationmobile from "./donationmobile.svg";
+import bit from "./bit.svg";
+import productsmobile from "./productmobile.svg";
+import payrollmobile from "./payrollmobile.svg";
+import transactionsmobile from "./transactionsmobile.svg";
+import settingsmobile from "./settingsmobile.svg";
 
 export {
   logo,
@@ -110,4 +120,14 @@ export {
   Successpic,
   pricingImage1,
   pricingImage2,
+  stake,
+  bank,
+  overviewMobile,
+  gipperfimobile,
+  donationmobile,
+  bit,
+  productsmobile,
+  settingsmobile,
+  transactionsmobile,
+  payrollmobile,
 };
