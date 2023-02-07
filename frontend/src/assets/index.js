@@ -70,6 +70,16 @@ import payout from "./payout.svg";
 import green from "./green.svg";
 import orange from "./orange.svg";
 import blue from "./blue.svg";
+import Rectanglewaitlist from "./Rectanglewaitlist.svg";
+import Rectanglelight from "./Rectanglelight.svg";
+import contact from "./contact.svg";
+import mail from "./mail.svg";
+import whocan1 from "./whocan1.svg";
+import whocan2 from "./whocan2.svg";
+import Rectanglewhocan from "./Rectanglewhocan.svg";
+import checkwhocan from "./checkwhocan.svg";
+import finance from "./finance.svg";
+import ecommerce from "./ecommerce.svg";
 
 export {
   logo,
@@ -144,4 +154,14 @@ export {
   green,
   orange,
   blue,
+  Rectanglewaitlist,
+  Rectanglelight,
+  contact,
+  mail,
+  whocan1,
+  whocan2,
+  Rectanglewhocan,
+  checkwhocan,
+  finance,
+  ecommerce,
 };
