@@ -29,17 +29,17 @@ function HeroSection({ handleSubmit }) {
     },
   };
 
-  const [user,setUser] = useState({
-    name:"",
-    email:""
-  })
+  const [user, setUser] = useState({
+    name: "",
+    email: "",
+  });
 
-  const submit =()=>{
-    const {name,email} = user
-    !name || !email ? alert("Please enter your details") : handleSubmit()
-  }
+  const submit = () => {
+    const { name, email } = user;
+    !name || !email ? alert("Please enter your details") : handleSubmit();
+  };
   return (
-    <div className="w-full mt-24 relative py-[7.1rem] h-[37.5rem] bg-[#F7F7F7]">
+    <div className="w-full mt-14 relative py-[7.1rem] h-[37.5rem] bg-[#F7F7F7]">
       <motion.h2
         variants={textVariants}
         animate="show"
@@ -52,7 +52,7 @@ function HeroSection({ handleSubmit }) {
         variants={textVariants}
         animate="show"
         initial="hide"
-        className="w-full flex justify-center mt-10"
+        className="w-full flex justify-center mt-10 relative z-10"
       >
         <p className="text-sm leading-[27px] w-[35rem] font-regular text-white-30 text-center">
           Allow your business to accept payment online and offline, build
@@ -76,7 +76,7 @@ function HeroSection({ handleSubmit }) {
             name=""
             id=""
             value={user.name}
-            onChange={(e)=>setUser({...user,name:e.target.value})}
+            onChange={(e) => setUser({ ...user, name: e.target.value })}
             placeholder="Full Name"
             className="h-full w-full py-[1.1rem] pl-3 bg-transparent placeholder:text-white-30 "
           />
@@ -91,7 +91,7 @@ function HeroSection({ handleSubmit }) {
             name=""
             id=""
             value={user.email}
-            onChange={(e)=>setUser({...user,email:e.target.value})}
+            onChange={(e) => setUser({ ...user, email: e.target.value })}
             placeholder="Email Address"
             className="h-full w-full py-[1.1rem] pl-3 bg-transparent placeholder:text-white-30 "
           />
@@ -119,7 +119,7 @@ function HeroSection({ handleSubmit }) {
         variants={rectangleVariants}
         animate="show"
         initial="hide"
-        className="absolute w-36 h-28 bottom-40 -right-0 lg:block lg:h-full lg:w-[30rem] lg:-right-[17%] lg:top-0"
+        className="absolute w-36 h-28 bottom-52 -right-0 lg:block lg:h-full lg:w-[30rem] lg:-right-[17%] lg:top-0"
       >
         <img src={Rectanglelight} alt="" />
       </motion.div>

@@ -58,12 +58,10 @@ function WhatWeOffer() {
   const containerVariants = {
     hide: {
       opacity: 0,
-      y: "30%",
     },
     show: {
       opacity: 1,
-      y: "0%",
-      transition: { delay: .5, duration: 1.8, type: "spring", stiffness: 120 },
+      transition: { delay: 0.5, duration: 1.8, type: "spring", stiffness: 120 },
     },
   };
 
@@ -80,16 +78,14 @@ function WhatWeOffer() {
         What we offer
       </motion.p>
 
-      <motion.div
-        viewport={{ once: true }}
-        initial="hide"
-        whileInView="show"
-        ref={scrollRef}
-        variants={containerVariants}
-        className="flex flex-wrap justify-center gap-[3.75rem] pb-[12rem]"
-      >
+      <div className="flex flex-wrap justify-center gap-[3.75rem] pb-[12rem]">
         {data.map((data, index) => (
-          <div
+          <motion.div
+            viewport={{ once: true }}
+            initial="hide"
+            whileInView="show"
+            ref={scrollRef}
+            variants={containerVariants}
             key={index}
             className="w-[18.1rem] py-10 px-5 h-[18.75rem] border-t-2 border-primary-main rounded-xl shadow-[10px_8px_10px_rgba(0,0,0,0.05)]"
           >
@@ -103,9 +99,9 @@ function WhatWeOffer() {
             <p className="text-secondary-30 text-s leading-6 font-regular mt-5">
               {data.desc}
             </p>
-          </div>
+          </motion.div>
         ))}
-      </motion.div>
+      </div>
     </div>
   );
 }

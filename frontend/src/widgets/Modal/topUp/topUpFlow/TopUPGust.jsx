@@ -106,7 +106,7 @@ function TopUPGust({ nextTopUpStep, topUpAmount, setTopUpAmount }) {
 
           <div>
             <p className="text-xs mt-1 font-regular leading-4 text-white-30">
-              You will Receive: {(topUpAmount/725).toFixed(2)} GU$T
+              You will Receive: {(topUpAmount / 725).toFixed(2)} GU$T
             </p>
           </div>
         </div>
@@ -134,7 +134,9 @@ function TopUPGust({ nextTopUpStep, topUpAmount, setTopUpAmount }) {
             <p className="text-xs font-medium leading-5 text-white-30">
               Amount you’ll reeceive
             </p>
-            <p className="text-xs font-medium leading-5 text-white-30">{(topUpAmount/725).toFixed(2)} GU$T</p>
+            <p className="text-xs font-medium leading-5 text-white-30">
+              {(topUpAmount / 725).toFixed(2)} GU$T
+            </p>
           </div>
         </div>
 

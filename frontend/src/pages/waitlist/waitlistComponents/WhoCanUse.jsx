@@ -125,16 +125,17 @@ function WhoCanUse() {
           {/*  */}
         </div>
 
-        <motion.div
-          variants={textVariants}
-          viewport={{ once: true }}
-          initial="hide"
-          whileInView="show"
-          ref={scrollRef}
-          className="w-full mt-20 lg:mt-0 lg:w-[26%]"
-        >
+        <div className="w-full mt-20 lg:mt-0 lg:w-[26%]">
           {data.map((data, index) => (
-            <div key={index} className="flex items-center gap-3 mb-[4.25rem]">
+            <motion.div
+              variants={textVariants}
+              viewport={{ once: true }}
+              initial="hide"
+              whileInView="show"
+              ref={scrollRef}
+              key={index}
+              className="flex items-center gap-3 mb-[4.25rem]"
+            >
               <div>
                 <img src={data.img} alt="" />
               </div>
@@ -146,9 +147,9 @@ function WhoCanUse() {
                   {data.desc}
                 </p>
               </div>
-            </div>
+            </motion.div>
           ))}
-        </motion.div>
+        </div>
       </div>
 
       <div className="w-full mt-[6.8rem] block lg:flex items-center justify-center flex-row-reverse gap-[4.25rem]">
@@ -177,7 +178,7 @@ function WhoCanUse() {
           {/*  */}
         </div>
 
-        <motion.div
+        <div
           variants={textVariants}
           viewport={{ once: true }}
           initial="hide"
@@ -186,7 +187,15 @@ function WhoCanUse() {
           className="w-full mt-20 lg:mt-0 lg:w-[26%]"
         >
           {data2.map((data, index) => (
-            <div key={index} className="flex items-center gap-3 mb-[4.25rem]">
+            <motion.div
+              key={index}
+              variants={textVariants}
+              viewport={{ once: true }}
+              initial="hide"
+              whileInView="show"
+              ref={scrollRef}
+              className="flex items-center gap-3 mb-[4.25rem]"
+            >
               <div>
                 <img src={data.img} alt="" />
               </div>
@@ -198,9 +207,9 @@ function WhoCanUse() {
                   {data.desc}
                 </p>
               </div>
-            </div>
+            </motion.div>
           ))}
-        </motion.div>
+        </div>
       </div>
     </div>
   );
