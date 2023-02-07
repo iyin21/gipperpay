@@ -1,8 +1,8 @@
-import React from "react";
+import React, { useState } from "react";
 import { contact, Rectanglelight, Rectanglewaitlist } from "../../../assets";
 import { motion } from "framer-motion";
 
-function HeroSection() {
+function HeroSection({ handleSubmit }) {
   const rectangleVariants = {
     hide: { opacity: 0 },
     show: {
@@ -29,13 +29,22 @@ function HeroSection() {
     },
   };
 
+  const [user,setUser] = useState({
+    name:"",
+    email:""
+  })
+
+  const submit =()=>{
+    const {name,email} = user
+    !name || !email ? alert("Please enter your details") : handleSubmit()
+  }
   return (
-    <div className="w-full relative py-[7.1rem] h-[37.5rem] bg-[#F7F7F7]">
+    <div className="w-full mt-24 relative py-[7.1rem] h-[37.5rem] bg-[#F7F7F7]">
       <motion.h2
         variants={textVariants}
         animate="show"
         initial="hide"
-        className="text-3xl font-big leading-[69px] flex justify-center text-secondary-main"
+        className="text-2xl relative z-10 lg:text-3xl w-full font-big leading-[69px] flex justify-center text-secondary-main"
       >
         Join the Waitlist
       </motion.h2>
@@ -55,10 +64,10 @@ function HeroSection() {
         variants={formVariants}
         animate="show"
         initial="hide"
-        className="w-[50%] mt-10 ml-[25%] flex flex-col items-center justify-center"
+        className="w-full relative z-10 lg:w-[50%] mt-10 mx-auto px-2 lg:px-0 flex flex-col items-center justify-center"
         action=""
       >
-        <div className="flex items-center bg-[#FCFCFC] w-[21.8rem] shadow-[0px_1px_2px_rgba(16,24,40,0.05)] pl-6 rounded-md">
+        <div className="flex items-center bg-[#FCFCFC] w-full lg:w-[21.8rem] shadow-[0px_1px_2px_rgba(16,24,40,0.05)] pl-6 rounded-md">
           <div>
             <img src={contact} alt="" />
           </div>
@@ -66,12 +75,14 @@ function HeroSection() {
             type="text"
             name=""
             id=""
+            value={user.name}
+            onChange={(e)=>setUser({...user,name:e.target.value})}
             placeholder="Full Name"
             className="h-full w-full py-[1.1rem] pl-3 bg-transparent placeholder:text-white-30 "
           />
         </div>
 
-        <div className="flex mt-[0.6rem] items-center bg-[#FCFCFC] w-[21.8rem] shadow-[0px_1px_2px_rgba(16,24,40,0.05)] pl-6 rounded-md">
+        <div className="flex mt-[0.6rem] items-center bg-[#FCFCFC] w-full lg:w-[21.8rem] shadow-[0px_1px_2px_rgba(16,24,40,0.05)] pl-6 rounded-md">
           <div>
             <img src={contact} alt="" />
           </div>
@@ -79,12 +90,17 @@ function HeroSection() {
             type="text"
             name=""
             id=""
+            value={user.email}
+            onChange={(e)=>setUser({...user,email:e.target.value})}
             placeholder="Email Address"
             className="h-full w-full py-[1.1rem] pl-3 bg-transparent placeholder:text-white-30 "
           />
         </div>
 
-        <button className="px-[8.5rem] py-[0.9rem] mt-[0.6rem] bg-primary-main text-s text-whiteText rounded-md shadow-[0px_1px_2px_rgba(16,24,40,0.05)] leading-6">
+        <button
+          className="w-full lg:px-[8.5rem] py-[0.9rem] mt-[0.6rem] bg-primary-main text-s text-whiteText rounded-md shadow-[0px_1px_2px_rgba(16,24,40,0.05)] leading-6"
+          onClick={submit}
+        >
           Join Waitlist
         </button>
       </motion.form>
@@ -94,7 +110,7 @@ function HeroSection() {
         variants={rectangleVariants}
         animate="show"
         initial="hide"
-        className="absolute h-full w-[30rem] -left-5 top-0"
+        className="absolute w-36 h-5 -top-10 -left-16 lg:h-full lg:w-[30rem] lg:-left-5 lg:top-0"
       >
         <img src={Rectanglewaitlist} alt="" />
       </motion.div>
@@ -103,7 +119,7 @@ function HeroSection() {
         variants={rectangleVariants}
         animate="show"
         initial="hide"
-        className="absolute h-full w-[30rem] -right-[17%] top-0"
+        className="absolute w-36 h-28 bottom-40 -right-0 lg:block lg:h-full lg:w-[30rem] lg:-right-[17%] lg:top-0"
       >
         <img src={Rectanglelight} alt="" />
       </motion.div>

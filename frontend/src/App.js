@@ -6,6 +6,7 @@ import Dashboard from "./pages/dashboard/Dashboard";
 import ProductsCheckout from "./pages/ProductsCheckout/ProductsCheckout";
 import Pricing from "./pages/Pricing/Pricing";
 import WaitList from "./pages/waitlist/WaitList"
+import WaitListSuccess from "./pages/waitlist/WaitListSuccess";
 function App() {
   return (
     <div className="font-Jost overflow-hidden">
