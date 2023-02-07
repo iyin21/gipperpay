@@ -25,6 +25,7 @@ import transactionActive from "./transactionActive.png";
 import notification from "./notification.png";
 import profileSm from "./profileSm.png";
 import profileBg from "./profileBg.png";
+import profileComponent from "./profilecomponent.png";
 import dashboardImg from "./dashboardImg.png";
 import gustCoin from "./gustCoin.png";
 import gustCoin1 from "./gustCoin1.png";
@@ -46,8 +47,12 @@ import linkedin from "./linkedin.png";
 import instagram from "./instagram.png";
 import forindivualspic from "./forindividuals.png";
 import iphone11 from "./iPhone11ProMaxMockup.png";
+import iphone11Bent from "./iPhone11ProMax Mockup(1).png";
 import iphone12 from "./iPhone12GraphiteProTopViewMockup.png";
 import coinsimage from "./coinsimage.png";
+import Successpic from "./Success.png";
+import pricingImage1 from "./pricingImage1.png";
+import pricingImage2 from "./pricingImage2.svg";
 import stake from "./stake.svg";
 import bank from "./bank.svg";
 import overviewMobile from "./overviewMobile.svg";
@@ -58,6 +63,23 @@ import productsmobile from "./productmobile.svg";
 import payrollmobile from "./payrollmobile.svg";
 import transactionsmobile from "./transactionsmobile.svg";
 import settingsmobile from "./settingsmobile.svg";
+import earn from "./earn.svg";
+import freeze from "./freeze.svg";
+import staking from "./staking.svg";
+import payout from "./payout.svg";
+import green from "./green.svg";
+import orange from "./orange.svg";
+import blue from "./blue.svg";
+import Rectanglewaitlist from "./Rectanglewaitlist.svg";
+import Rectanglelight from "./Rectanglelight.svg";
+import contact from "./contact.svg";
+import mail from "./mail.svg";
+import whocan1 from "./whocan1.svg";
+import whocan2 from "./whocan2.svg";
+import Rectanglewhocan from "./Rectanglewhocan.svg";
+import checkwhocan from "./checkwhocan.svg";
+import finance from "./finance.svg";
+import ecommerce from "./ecommerce.svg";
 
 export {
   logo,
@@ -87,6 +109,7 @@ export {
   notification,
   profileSm,
   profileBg,
+  profileComponent,
   dashboardImg,
   gustCoin,
   gustCoin1,
@@ -108,8 +131,12 @@ export {
   rectangle,
   rectanglepink,
   iphone11,
+  iphone11Bent,
   iphone12,
   coinsimage,
+  Successpic,
+  pricingImage1,
+  pricingImage2,
   stake,
   bank,
   overviewMobile,
@@ -120,4 +147,21 @@ export {
   settingsmobile,
   transactionsmobile,
   payrollmobile,
+  earn,
+  freeze,
+  staking,
+  payout,
+  green,
+  orange,
+  blue,
+  Rectanglewaitlist,
+  Rectanglelight,
+  contact,
+  mail,
+  whocan1,
+  whocan2,
+  Rectanglewhocan,
+  checkwhocan,
+  finance,
+  ecommerce,
 };
