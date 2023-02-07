@@ -98,7 +98,7 @@ function HeroSection({ handleSubmit }) {
         </div>
 
         <button
-          className="w-full lg:px-[8.5rem] py-[0.9rem] mt-[0.6rem] bg-primary-main text-s text-whiteText rounded-md shadow-[0px_1px_2px_rgba(16,24,40,0.05)] leading-6"
+          className="w-full lg:w-[21.8rem]  py-[0.9rem] mt-[0.6rem] bg-primary-main text-s text-whiteText rounded-md shadow-[0px_1px_2px_rgba(16,24,40,0.05)] leading-6"
           onClick={submit}
         >
           Join Waitlist
