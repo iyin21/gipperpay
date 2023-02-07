@@ -2,7 +2,7 @@ import React from "react";
 import { AiFillCloseCircle, AiOutlineDown } from "react-icons/ai";
 import { motion } from "framer-motion";
 import GipperfiModalBackdrop from "./GipperfiModalBackdrop";
-import { earn, gipperfi, gustCoin } from "../../assets";
+import { earn, gustCoin } from "../../assets";
 import { USDT } from "../../icons";
 function GipperfiModal({ handleClose }) {
   const dropIn = {
