@@ -8,7 +8,7 @@ import { bookmark, rightarrow } from "../../../icons";
 
 function ForIndividuals() {
   return (
-    <div className="lg:w-[56.5625rem] lg:h-[31.25rem] mx-[1.875rem] lg:ml-[14.8125rem] lg:flex lg:flex-row  items-center justify-between   ">
+    <div className="lg:w-[56.5625rem]  lg:h-[31.25rem] mx-[1.875rem] lg:m-auto p-[0.625rem] lg:flex lg:flex-row  items-center justify-between   ">
       <div className=" w-[20rem] h-[20rem] lg:w-[30.391875rem] lg:h-[31.25rem] m-auto relative  ">
         <img
           src={bookmark}
@@ -33,13 +33,13 @@ function ForIndividuals() {
           token, individuals can send crypto or fiat to anyone using just their
           social media username
         </h1>
-        <div className="w-[22.6875rem] h-[7.4375rem] flex flex-row items-center mt-[2.5rem] ">
+        <div className="lg:w-[22.6875rem] lg:h-[7.4375rem] flex flex-row items-center mt-[2.5rem] ">
           <div className="w-[0.3125rem] h-[5.9375rem] bg-primary-main rounded-[0.625rem] mr-[1.25rem] "></div>
           <div className="w-[21.125rem] h-[7.4375rem] items-start ">
             <h1 className="w-[5.875rem] h-[2.5rem] font-Jost not-italic font-big text-l leading-[2.5rem] text-center items-center text-primary-main ">
               Invoice
             </h1>
-            <h1 className="w-[21.125rem] h-[4.3125rem] font-Jost not-italic font-regular text-s leading-[1.4375rem] items-center text-secondary-30 mt-[0.625rem]  ">
+            <h1 className="lg:w-[21.125rem] lg:h-[4.3125rem] font-Jost not-italic font-regular text-s leading-[1.4375rem] items-center text-secondary-30 mt-[0.625rem]  ">
               Freelancers can generate professional invoices and get paid by
               their contractors with no stress from anywhere.
             </h1>

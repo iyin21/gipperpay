@@ -5,11 +5,11 @@ import { rightarrow } from "../../../icons";
 
 function ForBusinesses() {
   return (
-    <div className=" w-full mx-[1.0625rem] ">
-      <h1 className=" lg:mt-[6.25rem]   lg:ml-[14.4375rem] font-Jost not-italic font-regular text-sm leading-[1.6875rem]  items-center text-secondary-30 ">
+    <div className=" lg:w-[54.25rem] lg:m-auto p-[1.25rem] lg:p-[0]  ">
+      <h1 className=" lg:mt-[6.25rem]   font-Jost not-italic font-regular text-sm leading-[1.6875rem]  items-center text-secondary-30 ">
         For Businesses
       </h1>
-      <div className="  lg:w-[60rem] lg:ml-[14.4375rem]  lg:mt-[3rem] lg:flex lg:flex-row justify-between ">
+      <div className="  lg:w-[60rem]  lg:mt-[3rem] lg:flex lg:flex-row ">
         <div className="  mt-[1.25rem] ">
           <div className="flex flex-row items-start ">
             <div className="w-[0.3125rem] h-[5.9375rem] rounded-[0.625rem] bg-primary-main mr-[1.25rem] "></div>
@@ -79,7 +79,7 @@ function ForBusinesses() {
         <img
           src={iphone11}
           alt=""
-          className="w-[14.1875rem] h-[26.6875rem] mt-[3.375rem] ml-[5.125rem] object-contain "
+          className="w-[14.1875rem] h-[26.6875rem] mt-[3.375rem] ml-[5.125rem] lg:mt-[0] object-contain "
         />
       </div>
     </div>

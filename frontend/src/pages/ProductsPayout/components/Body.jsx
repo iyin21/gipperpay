@@ -1,0 +1,73 @@
+import React from "react";
+
+import Card from "./Card";
+
+import {
+  productsPayrollPic1,
+  productsPayrollPic2,
+  productsPayrollPic3,
+  productsPayrollPic4,
+} from "../../../assets";
+
+const data = [
+  {
+    id: 1,
+    text1: "Instant access to funds",
+    text2: "Accept your funds anytime, we Don't lock up your Money",
+    image: productsPayrollPic3,
+  },
+  {
+    id: 2,
+    text1: "Deposit direct to your wallet on payday",
+    text2:
+      "Connect wallet of your choice for direct deposit on payday. No manual withdrawal required",
+    image: productsPayrollPic4,
+  },
+];
+
+function Body() {
+  return (
+    <div className=" w-full ">
+      {/**Automate payroll */}
+      <div className=" lg:w-[48.875rem] lg:h-[16.0625rem] lg:flex lg:flex-row lg:m-auto lg:mt-[6.25rem] ">
+        <div className=" lg:w-[25.125rem] lg:h-[16.0625rem] ">
+          <img src={productsPayrollPic1} alt="" />
+        </div>
+        <div className="lg:my-[5.375rem] lg:ml-[5.4375rem]  items-center ">
+          <h1 className=" font-Jost font-big text-m leading-[2.0625rem] text-primary-main ">
+            Automate your payroll
+          </h1>
+          <h1 className=" lg:w-[18.5rem] font-Jost font-medium text-s leading-[1.4375rem] text-secondary-main mt-[0.3125rem] ">
+            Easily pay employees anywhere, anywhere in the world
+          </h1>
+        </div>
+      </div>
+      {/**Automate payroll */}
+      {/**maintain value */}
+      <div className=" lg:w-[48.875rem] lg:h-[21rem] lg:flex lg:flex-row-reverse lg:m-auto lg:mt-[6.25rem] ">
+        <div className=" lg:w-[25.125rem] lg:h-[16.0625rem] ">
+          <img src={productsPayrollPic2} alt="" />
+        </div>
+        <div className="lg:my-[5.375rem] lg:mr-[5.4375rem]  items-center ">
+          <h1 className=" font-Jost font-big text-m leading-[2.0625rem] text-primary-main ">
+            Maintain the Value of your Fund
+          </h1>
+          <h1 className=" lg:w-[18.5rem] font-Jost font-medium text-s leading-[1.4375rem] text-secondary-main mt-[0.3125rem] ">
+            We maintain your funds in stablecoins so you never have to worry
+            about depreciation.
+          </h1>
+        </div>
+      </div>
+      {/**maintain value */}
+      {/**Instant access to funds  */}
+      <div className=" lg:w-[52rem] lg:h-[26.4375rem]  lg:mt-[6.25rem] lg:m-auto lg:grid lg:grid-cols-2 ">
+        {data.map((item) => (
+          <Card item={item} />
+        ))}
+      </div>
+      {/**Instant access to funds  */}
+    </div>
+  );
+}
+
+export default Body;

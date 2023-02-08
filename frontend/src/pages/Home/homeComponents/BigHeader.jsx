@@ -6,8 +6,8 @@ import { handspics, rectangle } from "../../../assets/index";
 
 function BigHeader() {
   return (
-    <div className="w-screen flex flex-col lg:flex-row py-[0.625rem] px-[1.15625rem] items-center lg:pt-[5.5625rem]  ">
-      <div className="  lg:ml-[6.25rem]   ">
+    <div className=" flex flex-col  lg:flex-row py-[0.625rem] px-[1.15625rem] items-center lg:pt-[5.5625rem] relative ">
+      <div className="  lg:m-auto ">
         <h1 className=" font-Jost not-italic font-big text-2xl mr-[2.5rem]  lg:pt-[3.0625rem] lg:w-[44.25rem] lg:text-4xl lg:leading-[5.75rem]  text-secondary-main flex  items-center  ">
           Take control of your business and payment
         </h1>
@@ -38,13 +38,13 @@ function BigHeader() {
           className="object-contain  relative w-[33.3125rem] h-[26.3125rem] z-10"
         />
       </div>
-      {/* <div className="h-[35rem] bottom-0 lg:h-full w-[32rem] lg:w-[38rem] absolute -right-[20rem] lg:right-3 lg:top-0">
+      <div className=" w-[24rem] h-[27rem] bottom-0 lg:h-[32rem]  lg:w-[36rem] absolute  -right-[15rem] lg:right-3 lg:top-[0rem]">
         <img
           src={rectangle}
           alt=""
           className="w-full h-full object-cover lg:object-cover"
         />
-      </div> */}
+      </div>
     </div>
   );
 }

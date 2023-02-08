@@ -12,18 +12,18 @@ import {
 
 function WhatWeOffer() {
   return (
-    <div>
-      <div className=" w-full lg:mt-[3.75rem] mt-[2.5rem] lg:mx-[31.1125rem]  relative z-10 ">
-        <h1 className=" lg:w-[23.625rem] lg:h-[5rem] text-secondary-main text-center items-center font-Jost font-big not-italic text-l leading-[2.5rem] ml-[2.0625rem] ">
+    <div className=" w-full h-full px-[0.625rem] relative ">
+      <div className="  justify-center  lg:w-[34.75rem] lg:h-[9.625rem] lg:mt-[3.75rem] mt-[2.5rem]  lg:m-auto  relative z-10 ">
+        <h1 className=" lg:w-[23.625rem] lg:h-[5rem] text-secondary-main text-center items-center font-Jost font-big not-italic text-l leading-[2.5rem] lg:m-auto ">
           A fully compliant collection of payment Tools
         </h1>
-        <h1 className="lg:w-[27.75rem] lg:h-[2.875rem] font-Jost not-italic text-s leading-[1.4375rem] text-secondary-30 text-center  mt-[1.25rem] ">
+        <h1 className="lg:w-[27.75rem] lg:h-[2.875rem] font-Jost not-italic text-s leading-[1.4375rem] text-secondary-30 text-center  mt-[1.25rem] lg:m-auto ">
           Building a business can be inflexible, we believe getting paid should
           be flexible
         </h1>
       </div>
-      <div className="lg:w-[61.875rem] lg:h-[43.75rem] lg:my-[3.75rem] lg:ml-[11rem] mx-[3.0625rem] my-[2.5rem] relative z-10 ">
-        <h1 className="lg:w-[11.6875rem] lg:h-[2.5rem] lg:ml-[2.5625rem] lg:mb-[1.25rem] mb-[1.25rem] font-Jost not-italic font-big text-l leading-[2.5rem]  items-center text-secondary-main text-center ">
+      <div className="  lg:w-[61.875rem]  lg:my-[3.75rem] lg:m-auto mx-[3.0625rem] my-[2.5rem] relative z-10 ">
+        <h1 className="lg:w-[11.6875rem] lg:h-[2.5rem] lg:m-auto lg:mb-[1.25rem] mb-[1.25rem] font-Jost not-italic font-big text-l leading-[2.5rem]  items-center text-secondary-main text-center ">
           What we offer
         </h1>
         <div className="lg:w-[61.875rem] lg:h-[40rem] lg:grid lg:grid-18px-css  lg:gap-x-[3.75rem] lg:gap-y-[2.5rem] rounded-[0.625rem] ">
@@ -106,7 +106,7 @@ function WhatWeOffer() {
           </div>
         </div>
       </div>
-      <div className=" absolute z-0 top-[44.6875rem] left-[71.5rem] ">
+      <div className=" hidden lg:flex absolute lg:z-0 lg:top-[0] lg:left-[71.5rem] ">
         <img src={rectanglepink} alt="" />
       </div>
     </div>

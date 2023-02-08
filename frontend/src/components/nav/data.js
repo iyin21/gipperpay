@@ -1,0 +1,70 @@
+import {
+  gustCoin1,
+  payrollpic,
+  donation,
+  gipperfi_1,
+  checkout,
+  walletpic,
+  cart,
+} from "../../assets/index";
+
+import { mark } from "../../icons";
+
+export const PRODUCTS = [
+  {
+    name: "Payroll",
+    image: payrollpic,
+    link: "#/",
+  },
+  {
+    name: "Gipperfi",
+    image: gipperfi_1,
+    link: "#/",
+  },
+  {
+    name: "Checkout",
+    image: checkout,
+    link: "/products/checkout",
+  },
+  {
+    name: "Donation Link",
+    image: donation,
+    link: "#/",
+  },
+  {
+    name: "GU$T",
+    image: gustCoin1,
+    link: "#/",
+  },
+];
+
+export const BUSINESSES = [
+  {
+    name: "Business wallet",
+    image: walletpic,
+    link: "#/",
+  },
+  {
+    name: "E-commerce store",
+    image: cart,
+    link: "#/",
+  },
+];
+
+export const COMPANY = [
+  {
+    name: "About Gipperpay",
+    icon: mark,
+    link: "#/",
+  },
+  {
+    name: "Contact Us",
+    icon: mark,
+    link: "#/",
+  },
+  {
+    name: "Blog",
+    icon: mark,
+    link: "#/",
+  },
+];

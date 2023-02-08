@@ -49,6 +49,7 @@ import forindivualspic from "./forindividuals.png";
 import iphone11 from "./iPhone11ProMaxMockup.png";
 import iphone11Bent from "./iPhone11ProMax Mockup(1).png";
 import iphone12 from "./iPhone12GraphiteProTopViewMockup.png";
+import iphone13RightView from "./iPhone13ProMockupRightView.png";
 import coinsimage from "./coinsimage.png";
 import Successpic from "./Success.png";
 import pricingImage1 from "./pricingImage1.png";
@@ -70,6 +71,10 @@ import payout from "./payout.svg";
 import green from "./green.svg";
 import orange from "./orange.svg";
 import blue from "./blue.svg";
+import productsPayrollPic1 from "./productsPayrollPic1.png";
+import productsPayrollPic2 from "./productsPayrollPic2.png";
+import productsPayrollPic3 from "./productsPayrollPic3.png";
+import productsPayrollPic4 from "./productsPayrollPic4.png";
 
 export {
   logo,
@@ -123,6 +128,7 @@ export {
   iphone11,
   iphone11Bent,
   iphone12,
+  iphone13RightView,
   coinsimage,
   Successpic,
   pricingImage1,
@@ -144,4 +150,8 @@ export {
   green,
   orange,
   blue,
+  productsPayrollPic1,
+  productsPayrollPic2,
+  productsPayrollPic3,
+  productsPayrollPic4,
 };

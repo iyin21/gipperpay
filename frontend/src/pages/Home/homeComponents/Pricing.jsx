@@ -8,7 +8,7 @@ import { rightarrow } from "../../../icons";
 
 function Pricing() {
   return (
-    <div className=" w-full lg:flex lg:flex-row lg:mt-[6.25rem] lg:mx-[10rem] mx-[1.25rem] ">
+    <div className=" lg:w-[62.3125rem] lg:m-auto  lg:flex lg:flex-row lg:mt-[6.25rem]  p-[1.25rem] lg:p-[0]  ">
       <img
         src={coinsimage}
         alt=""
@@ -26,7 +26,7 @@ function Pricing() {
           pricing
         </h1>
         <div className="w-[9.8125rem] h-[3.125rem] border-[0.0625rem] border-Rectangle rounded-[6.25rem] py-[0.625rem]  pl-[1.5625rem]  mt-[1.25rem] lg:ml-[21.1875rem] flex flex-row items-center">
-          <h1 className="w-[4.875rem] h-[1.4375rem] font-Jost not-italic font-regular text-s leading-[1.6875rem] text-center items-center text-Rectangle mr-[0.625rem] ">
+          <h1 className="w-[4.875rem] h-[1.4375rem] font-Jost not-italic font-regular text-s  leading-[1.6875rem] text-center items-center text-Rectangle mr-[0.625rem] ">
             See Pricing
           </h1>
           <img src={rightarrow} alt="" className="w-[1.5rem] h-[1.5rem] " />

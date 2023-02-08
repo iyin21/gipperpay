@@ -17,7 +17,7 @@ function ProductsCheckout() {
         </h1>
       </div>
       {/**grid box */}
-      <div className="  lg:m-auto mt-[1.25rem] lg:mt-[5rem] lg:w-[59.375rem] lg:h-[21.875rem] lg:grid lg:grid-cols-3 ">
+      <div className=" pl-[2.25rem] lg:pl-[0] lg:m-auto mt-[1.25rem] lg:mt-[5rem] lg:w-[59.375rem] lg:h-[21.875rem] lg:grid lg:grid-cols-3 ">
         <div className=" w-[18.125rem] h-[18.75rem] border-t-[0.125rem] border-Rectangle bg-white-60 rounded-[0.625rem] shadow-md  py-[0.9375rem] pl-[1.25rem] mb-[1.25rem] ">
           <img
             src={walletpic}
