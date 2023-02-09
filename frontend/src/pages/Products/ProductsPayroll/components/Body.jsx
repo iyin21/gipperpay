@@ -67,7 +67,7 @@ function Body() {
       </div>
       {/**maintain value */}
       {/**Instant access to funds  */}
-      <div className=" lg:w-[52rem] lg:h-[26.4375rem]  lg:mt-[6.25rem] lg:m-auto lg:grid lg:grid-cols-2 ">
+      <div className=" lg:w-[52rem] lg:h-[26.4375rem]  lg:my-[6.25rem] lg:m-auto lg:grid lg:grid-cols-2 ">
         {data.map((item) => (
           <Card item={item} />
         ))}

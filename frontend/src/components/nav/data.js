@@ -19,7 +19,7 @@ export const PRODUCTS = [
   {
     name: "Gipperfi",
     image: gipperfi_1,
-    link: "#/",
+    link: "/products/gipperfi",
   },
   {
     name: "Checkout",

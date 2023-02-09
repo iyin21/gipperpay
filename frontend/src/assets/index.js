@@ -51,6 +51,7 @@ import iphone11Bent from "./iPhone11ProMax Mockup(1).png";
 import iphone12 from "./iPhone12GraphiteProTopViewMockup.png";
 import iphone12Half from "./iPhone12GraphiteProTopHalfView.png";
 import iphone13RightView from "./iPhone13ProMockupRightView.png";
+import iphoneAndMacbook from "./iphone&Macbook.png";
 import coinsimage from "./coinsimage.png";
 import Successpic from "./Success.png";
 import pricingImage1 from "./pricingImage1.png";
@@ -78,6 +79,12 @@ import productsPayrollPic3 from "./productsPayrollPic3.png";
 import productsPayrollPic4 from "./productsPayrollPic4.png";
 import productsPayrollPic5 from "./productsPayrollPic5.png";
 import productsPayrollPic6 from "./productsPayrollPic6.png";
+import productsGipperfipic1 from "./productsGipperfipic1.png";
+import productsGipperfipic2 from "./productsGipperfipic2.png";
+import productsGipperfipic3 from "./productsGipperfipic3.png";
+import productsGipperfipic4 from "./productsGipperfipic4.png";
+import productsGipperfipic5 from "./productsGipperfipic5.png";
+import productsGipperfipic6 from "./productsGipperfipic6.png";
 
 export {
   logo,
@@ -133,6 +140,7 @@ export {
   iphone12,
   iphone12Half,
   iphone13RightView,
+  iphoneAndMacbook,
   coinsimage,
   Successpic,
   pricingImage1,
@@ -160,4 +168,10 @@ export {
   productsPayrollPic4,
   productsPayrollPic5,
   productsPayrollPic6,
+  productsGipperfipic1,
+  productsGipperfipic2,
+  productsGipperfipic3,
+  productsGipperfipic4,
+  productsGipperfipic5,
+  productsGipperfipic6,
 };
