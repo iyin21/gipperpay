@@ -95,10 +95,10 @@ function Overview() {
           </h1>
         </div>
 
-        <div className="w-5/6 m-auto mt-2 h-auto">
+        <div className="w-[90%] m-auto mt-2 h-auto">
           {/* gust */}
           <div className="h-20 w-full">
-            <div className="flex justify-between items-center px-5">
+            <div className="flex justify-between items-center lg:px-5">
               <div className="flex justify-center gap-2">
                 <img src={gustCoin} className="h-5  w-5" alt="" />{" "}
                 <p className="font-medium text-s text-secondary-main">GU$T</p>
@@ -111,7 +111,7 @@ function Overview() {
               </div>
             </div>
 
-            <div className="w-full mt-3 flex justify-start gap-2 pl-2">
+            <div className="w-full mt-3 flex justify-start gap-2 lg:pl-2">
               {button.map((button, i) => (
                 <Fragment key={i}>
                   <button
@@ -182,7 +182,7 @@ function Overview() {
 
       {/* side nav with profile */}
 
-      <div className="w-full h-44 bg-white-Main p-2 lg:h-screen lg:w-2/5">
+      <div className="w-[90%] mx-auto h-44 bg-white-Main p-2 lg:h-screen lg:w-2/5">
         <div className="flex justify-start gap-2 items-center lg:block">
           <div className="w-[3.75rem] h-[3.75rem] rounded-full m-0 mb-0 lg:w-48 lg:h-48 lg:m-auto lg:mb-5 ">
             <img src={profileBg} className=" rounded-full" alt="" />

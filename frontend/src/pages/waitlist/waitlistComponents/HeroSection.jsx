@@ -1,8 +1,9 @@
 import React, { useState } from "react";
-import { contact, Rectanglelight, Rectanglewaitlist } from "../../../assets";
+import { contact, mail, Rectanglelight, Rectanglewaitlist } from "../../../assets";
 import { motion } from "framer-motion";
+import axios from "axios";
 
-function HeroSection({ handleSubmit }) {
+function HeroSection() {
   const rectangleVariants = {
     hide: { opacity: 0 },
     show: {
@@ -34,10 +35,20 @@ function HeroSection({ handleSubmit }) {
     email: "",
   });
 
-  const submit = () => {
-    const { name, email } = user;
-    !name || !email ? alert("Please enter your details") : handleSubmit();
-  };
+  const submit = async (e) => {
+    e.preventDefault();
+    const {name, email} = user
+    try {
+      const response = await axios.post('http://localhost:8000/waitlist/create', {
+        name,
+        email,
+      });
+
+      console.log(response.data);
+    } catch (error) {
+      console.error(error);
+    }
+      };
   return (
     <div className="w-full mt-14 relative py-[7.1rem] h-[37.5rem] bg-[#F7F7F7]">
       <motion.h2
@@ -64,7 +75,7 @@ function HeroSection({ handleSubmit }) {
         variants={formVariants}
         animate="show"
         initial="hide"
-        className="w-full relative z-10 lg:w-[50%] mt-10 mx-auto px-2 lg:px-0 flex flex-col items-center justify-center"
+        className="w-full relative z-10 md:w-[80%] lg:w-[50%] mt-10 mx-auto px-2 lg:px-0 flex flex-col items-center justify-center"
         action=""
       >
         <div className="flex items-center bg-[#FCFCFC] w-full lg:w-[21.8rem] shadow-[0px_1px_2px_rgba(16,24,40,0.05)] pl-6 rounded-md">
@@ -84,7 +95,7 @@ function HeroSection({ handleSubmit }) {
 
         <div className="flex mt-[0.6rem] items-center bg-[#FCFCFC] w-full lg:w-[21.8rem] shadow-[0px_1px_2px_rgba(16,24,40,0.05)] pl-6 rounded-md">
           <div>
-            <img src={contact} alt="" />
+            <img src={mail} alt="" />
           </div>
           <input
             type="text"

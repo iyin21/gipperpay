@@ -11,7 +11,7 @@ function WaitList() {
     setIsSuccess(true);
   };
   return (
-    <div className="px-2 lg:px-0 w-full !overflow-hidden border-2 border-black">
+    <div className="px-2 lg:px-0 w-full !overflow-hidden">
       {isSuccess ? (
         <WaitListSuccess />
       ) : (

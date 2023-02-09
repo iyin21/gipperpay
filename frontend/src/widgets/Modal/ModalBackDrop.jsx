@@ -269,8 +269,8 @@ function ModalBackDrop({
               </div>
             ))}
         </div>
-        <div className="w-[20%] top-5 lg:hidden absolute left-[6.5rem] border border-white-30"></div>
-        <div className="w-[21%] top-5 lg:hidden absolute left-[13.1rem] border border-white-30"></div>
+        {/* <div className="w-[19%] top-5 lg:hidden absolute left-[32%] border border-white-30"></div> */}
+        <div className="w-[63%] -z-20 -mt-5 md:w-[63%] lg:hidden  md:left-[12%] ml-[23%] border border-white-30"></div>
       </aside>
     </motion.div>
   );

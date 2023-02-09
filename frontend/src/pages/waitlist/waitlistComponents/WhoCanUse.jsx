@@ -100,7 +100,7 @@ function WhoCanUse() {
         Who can use Gipperpay?
       </motion.h2>
       <div className="w-full items-center block lg:flex justify-center gap-[4.25rem]">
-        <div className="relative">
+        <div className="relative md:flex justify-center">
           <motion.img
             viewport={{ once: true }}
             initial="hide"
@@ -125,7 +125,7 @@ function WhoCanUse() {
           {/*  */}
         </div>
 
-        <div className="w-full mt-20 lg:mt-0 lg:w-[26%]">
+        <div className="w-full mt-20 lg:mt-0 lg:w-[26%] md:px-8 lg:px-0">
           {data.map((data, index) => (
             <motion.div
               variants={textVariants}
@@ -153,7 +153,7 @@ function WhoCanUse() {
       </div>
 
       <div className="w-full mt-[6.8rem] block lg:flex items-center justify-center flex-row-reverse gap-[4.25rem]">
-        <div className="relative">
+        <div className="relative md:flex justify-center">
           <motion.img
             viewport={{ once: true }}
             initial="hide"
@@ -194,7 +194,7 @@ function WhoCanUse() {
               initial="hide"
               whileInView="show"
               ref={scrollRef}
-              className="flex items-center gap-3 mb-[4.25rem]"
+              className="flex items-center gap-3 mb-[4.25rem] md:px-8 lg:px-0"
             >
               <div>
                 <img src={data.img} alt="" />
