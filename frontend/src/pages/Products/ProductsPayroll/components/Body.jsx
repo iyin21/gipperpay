@@ -7,7 +7,7 @@ import {
   productsPayrollPic2,
   productsPayrollPic3,
   productsPayrollPic4,
-} from "../../../assets";
+} from "../../../../assets/index";
 
 const data = [
   {
@@ -15,13 +15,20 @@ const data = [
     text1: "Instant access to funds",
     text2: "Accept your funds anytime, we Don't lock up your Money",
     image: productsPayrollPic3,
+    bg: "bg-primary-light",
+    border: "border-primary-10",
+    textColor: "text-secondary-main",
+    svg: "#FEE6E1",
   },
   {
-    id: 2,
     text1: "Deposit direct to your wallet on payday",
     text2:
       "Connect wallet of your choice for direct deposit on payday. No manual withdrawal required",
     image: productsPayrollPic4,
+    bg: "bg-white-70",
+    border: "border-secondary-10",
+    textColor: "text-secondary-main",
+    svg: "#F0EFEF",
   },
 ];
 

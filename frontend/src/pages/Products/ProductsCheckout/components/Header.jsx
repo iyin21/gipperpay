@@ -1,7 +1,7 @@
 import React from "react";
 import { BsDot } from "react-icons/bs";
 import { BiRightArrowAlt } from "react-icons/bi";
-import { iphone11Bent, rectangle } from "../../../assets";
+import { iphone11Bent, rectangle } from "../../../../assets/index";
 
 function Header() {
   return (
@@ -26,7 +26,7 @@ function Header() {
           <BiRightArrowAlt />
         </buton>
       </div>
-      <div className=" mt-[2.25rem] lg:mt-[0]  relative z-10 lg:h-[30.375rem] lg:w-[54.875rem]">
+      <div className=" mt-[2.25rem]  lg:mt-[0]  relative z-10 lg:h-[30.375rem] lg:w-[54.875rem]">
         <img
           src={iphone11Bent}
           alt=""

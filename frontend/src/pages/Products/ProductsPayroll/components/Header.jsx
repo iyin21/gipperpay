@@ -1,7 +1,7 @@
 import React from "react";
 import { BsDot } from "react-icons/bs";
 import { BiRightArrowAlt } from "react-icons/bi";
-import { iphone13RightView, rectangle } from "../../../assets";
+import { iphone13RightView, rectangle } from "../../../../assets/index";
 
 function Header() {
   return (

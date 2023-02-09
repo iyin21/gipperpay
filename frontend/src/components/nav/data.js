@@ -14,7 +14,7 @@ export const PRODUCTS = [
   {
     name: "Payroll",
     image: payrollpic,
-    link: "#/",
+    link: "/products/payroll",
   },
   {
     name: "Gipperfi",
@@ -29,7 +29,7 @@ export const PRODUCTS = [
   {
     name: "Donation Link",
     image: donation,
-    link: "#/",
+    link: "/products/donation",
   },
   {
     name: "GU$T",

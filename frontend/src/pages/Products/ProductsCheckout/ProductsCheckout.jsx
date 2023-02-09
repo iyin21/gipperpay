@@ -1,11 +1,11 @@
 import React from "react";
 import Header from "./components/Header";
-import { walletpic, profileComponent, Successpic } from "../../assets";
+import { walletpic, profileComponent, Successpic } from "../../../assets/index";
 import { BiRightArrowAlt } from "react-icons/bi";
 
 function ProductsCheckout() {
   return (
-    <div className=" w-full h-full p-[1.5625rem]  bg-white-70 ">
+    <div className=" w-full h-full p-[1.5625rem] lg:p-[0] bg-white-70 ">
       <Header />
       <div className="w-full text-center">
         <h1 className="  mt-[6.25rem] font-Jost font-big not-italic text-l leading-[2.5rem] text-secondary-main  ">

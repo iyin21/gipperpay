@@ -2,7 +2,7 @@ import React from "react";
 import Body from "./components/Body";
 import Header from "./components/Header";
 
-function ProductsPayout() {
+function ProductsPayroll() {
   return (
     <div className=" w-full h-full p-[1.5625rem]  bg-white-70 ">
       <Header />
@@ -11,4 +11,4 @@ function ProductsPayout() {
   );
 }
 
-export default ProductsPayout;
+export default ProductsPayroll;
