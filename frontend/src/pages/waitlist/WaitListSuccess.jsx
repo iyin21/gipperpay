@@ -3,13 +3,13 @@ import { useLocation } from 'react-router-dom';
 import Header from './waitlistComponents/Header'
 import JoinCommunity from './waitlistComponents/JoinCommunity'
 
-function WaitListSuccess() {
+function WaitListSuccess({registered}) {
     const location = useLocation();
     console.log(location)
   return (
     <div>
         <Header/>
-        <JoinCommunity/>
+        <JoinCommunity registered={registered}/>
     </div>
   )
 }

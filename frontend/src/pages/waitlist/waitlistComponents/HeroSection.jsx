@@ -1,9 +1,16 @@
 import React, { useState } from "react";
-import { contact, mail, Rectanglelight, Rectanglewaitlist } from "../../../assets";
+import {
+  contact,
+  mail,
+  Rectanglelight,
+  Rectanglewaitlist,
+} from "../../../assets";
 import { motion } from "framer-motion";
 import axios from "axios";
+import { toast } from "react-hot-toast";
+import { useNavigate } from "react-router-dom";
 
-function HeroSection() {
+function HeroSection({setIsRegistered}) {
   const rectangleVariants = {
     hide: { opacity: 0 },
     show: {
@@ -35,20 +42,36 @@ function HeroSection() {
     email: "",
   });
 
+  const navigate = useNavigate()
+
+  const [loading, setLoading] = useState(false);
+
   const submit = async (e) => {
     e.preventDefault();
-    const {name, email} = user
+    const { name, email } = user;
+    !name || !email ? toast.error("please fill in your name and email address") : 
+    setLoading(true);
     try {
-      const response = await axios.post('http://localhost:8000/waitlist/create', {
-        name,
-        email,
-      });
-
-      console.log(response.data);
+      const response = await axios.post(
+        "http://localhost:8000/waitlist/create",
+        {
+          name,
+          email,
+        }
+      );
+      if (response.status === 201) {
+        toast.success("You've been successfully added to our waitlist");
+        setIsRegistered(true)
+        navigate('/waitlist/community')
+      }
     } catch (error) {
-      console.error(error);
+      if (error.response.status === 405) {
+        toast.error("You already have been included in waitlist");
+      }
+    } finally {
+      setLoading(false);
     }
-      };
+  };
   return (
     <div className="w-full mt-14 relative py-[7.1rem] h-[37.5rem] bg-[#F7F7F7]">
       <motion.h2
@@ -112,7 +135,7 @@ function HeroSection() {
           className="w-full lg:w-[21.8rem]  py-[0.9rem] mt-[0.6rem] bg-primary-main text-s text-whiteText rounded-md shadow-[0px_1px_2px_rgba(16,24,40,0.05)] leading-6"
           onClick={submit}
         >
-          Join Waitlist
+          {loading ? "Loading..." : "Join Waitlist"}
         </button>
       </motion.form>
 
