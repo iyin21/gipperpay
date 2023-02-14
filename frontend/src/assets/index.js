@@ -76,6 +76,18 @@ import payout from "./payout.svg";
 import green from "./green.svg";
 import orange from "./orange.svg";
 import blue from "./blue.svg";
+
+import Rectanglewaitlist from "./Rectanglewaitlist.svg";
+import Rectanglelight from "./Rectanglelight.svg";
+import contact from "./contact.svg";
+import mail from "./mail.svg";
+import whocan1 from "./whocan1.svg";
+import whocan2 from "./whocan2.svg";
+import Rectanglewhocan from "./Rectanglewhocan.svg";
+import checkwhocan from "./checkwhocan.svg";
+import finance from "./finance.svg";
+import ecommerce from "./ecommerce.svg";
+
 import productsPayrollPic1 from "./productsPayrollPic1.png";
 import productsPayrollPic2 from "./productsPayrollPic2.png";
 import productsPayrollPic3 from "./productsPayrollPic3.png";
@@ -89,6 +101,7 @@ import productsGipperfipic4 from "./productsGipperfipic4.png";
 import productsGipperfipic5 from "./productsGipperfipic5.png";
 import productsGipperfipic6 from "./productsGipperfipic6.png";
 import plantPic from "./plantPic.png";
+
 
 export {
   logo,
@@ -169,6 +182,18 @@ export {
   green,
   orange,
   blue,
+
+  Rectanglewaitlist,
+  Rectanglelight,
+  contact,
+  mail,
+  whocan1,
+  whocan2,
+  Rectanglewhocan,
+  checkwhocan,
+  finance,
+  ecommerce,
+
   productsPayrollPic1,
   productsPayrollPic2,
   productsPayrollPic3,
@@ -182,4 +207,5 @@ export {
   productsGipperfipic5,
   productsGipperfipic6,
   plantPic,
+  
 };

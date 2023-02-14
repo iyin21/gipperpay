@@ -12,6 +12,7 @@ import {
 } from "../../../assets";
 import { giperfi, USDT } from "../../../icons";
 import GipperfiModal from "../../../widgets/gipperfiModal/GipperfiModal";
+import GipperfiMobileModal from '../../../widgets/gipperfiModal/GipperfiMobileModal'
 
 function Gipperffi() {
   const GipperfiData = [
@@ -60,8 +61,13 @@ function Gipperffi() {
   ];
 
   const [showGiperfiModal, setShowGiperfiModal] = useState(false);
+  const [showGiperfiMobileModal, setShowGiperfiMobileModal] = useState(false)
   const openModal = () => setShowGiperfiModal(true);
   const closeModal = () => setShowGiperfiModal(false);
+
+  const handleGipperfiMobileModal = (type) =>{
+    type === "open" ? setShowGiperfiMobileModal(true) : setShowGiperfiMobileModal(false)
+  }
   return (
     <div className="relative w-full p-[1.25rem]">
       {GipperfiData.map((data, index) => (
@@ -101,12 +107,23 @@ function Gipperffi() {
             </div>
           </div>
           <div className="w-full flex justify-end">
+            {/* visible on desktop, hidden on mobile */}
             <button
-              className="px-[0.6rem] py-[0.3rem] rounded-md bg-primary-light text-s leading-6 font-400 mt-[1.63rem] text-primary-main"
+              className="hidden lg:block px-[0.6rem] py-[0.3rem] rounded-md bg-primary-light text-s leading-6 font-400 mt-[1.63rem] text-primary-main"
               onClick={openModal}
             >
               {index === 0 ? "Fund Package" : index === 1 ? "Stake" : "Freeze"}
             </button>
+            {/* -------------------------------------- */}
+
+            {/* visible on mobile hidden on desktop */}
+            <button
+              className="block lg:hidden px-[0.6rem] py-[0.3rem] rounded-md bg-primary-light text-s leading-6 font-400 mt-[1.63rem] text-primary-main"
+              onClick={()=>handleGipperfiMobileModal("open")}
+            >
+              {index === 0 ? "Fund Package" : index === 1 ? "Stake" : "Freeze"}
+            </button>
+            {/* -------------------------------------- */}
           </div>
         </div>
       ))}
@@ -198,6 +215,7 @@ function Gipperffi() {
         onExitComplete={() => null}
       >
         {showGiperfiModal && <GipperfiModal handleClose={closeModal} />}
+        {showGiperfiMobileModal && <GipperfiMobileModal handleClose={closeModal} />}
       </AnimatePresence>
     </div>
   );

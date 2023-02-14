@@ -8,7 +8,7 @@ function Layout({ children }) {
   return (
     <div className="w-full">
       {/* hide nav bar on dashboard page */}
-      {location.pathname !== "/dashboard" && <Nav />}
+      {(location.pathname !== ("/waitlist") && location.pathname !== ("/dashboard") )  && <Nav />}
       {children}
       {/* hide footer bar on dashboard page */}
       {location.pathname !== "/dashboard" && <Footer />}

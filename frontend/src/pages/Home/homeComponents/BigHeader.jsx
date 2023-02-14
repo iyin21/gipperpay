@@ -2,7 +2,7 @@ import React from "react";
 import { questionmark } from "../../../icons";
 
 //assets
-import { handspics, rectangle } from "../../../assets/index";
+import { handspics } from "../../../assets/index";
 
 function BigHeader() {
   return (

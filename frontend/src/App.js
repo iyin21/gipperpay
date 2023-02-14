@@ -9,11 +9,17 @@ import ProductsDonation from "./pages/Products/ProductsDonation/ProductsDonation
 import ProductsGipperfi from "./pages/Products/ProductsGipperfi/ProductsGipperfi";
 import ProductsGUST from "./pages/Products/ProductsGUST/ProductsGUST";
 import Pricing from "./pages/Pricing/Pricing";
+import WaitList from "./pages/waitlist/WaitList"
+import { Toaster } from "react-hot-toast";
+import WaitListSuccess from "./pages/waitlist/WaitListSuccess";
+import { useState } from "react";
 
 function App() {
+  const [registered, setIsRegistered] = useState(false);
   return (
     <div className="font-Jost overflow-hidden">
       <Router>
+      <Toaster/>
         <Layout>
           <Routes>
             <Route path="/" element={<Home />} />
@@ -24,6 +30,8 @@ function App() {
             <Route path="/products/gipperfi" element={<ProductsGipperfi />} />
             <Route path="/products/GUST" element={<ProductsGUST />} />
             <Route path="/pricing" element={<Pricing />} />
+            <Route path="/waitlist" element={<WaitList setIsRegistered={setIsRegistered} />} />
+            <Route path="/waitlist/community" element={<WaitListSuccess registered={registered} />} />
           </Routes>
         </Layout>
       </Router>
