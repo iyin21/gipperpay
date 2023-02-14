@@ -29,6 +29,8 @@ import profileComponent from "./profilecomponent.png";
 import dashboardImg from "./dashboardImg.png";
 import gustCoin from "./gustCoin.png";
 import gustCoin1 from "./gustCoin1.png";
+import gustCoinBig from "./gustCoinBig.png";
+import gustCoinMed from "./gustCoinMed.png";
 import congrats from "./congrats.svg";
 import rectangle from "./Rectangle60.svg";
 import rectanglepink from "./Rectanglepink.svg";
@@ -52,6 +54,7 @@ import iphone12 from "./iPhone12GraphiteProTopViewMockup.png";
 import iphone12Half from "./iPhone12GraphiteProTopHalfView.png";
 import iphone13RightView from "./iPhone13ProMockupRightView.png";
 import iphoneAndMacbook from "./iphone&Macbook.png";
+import SpaceBlackiPhone14 from "./SpaceBlackiPhone14ProMockup.png";
 import coinsimage from "./coinsimage.png";
 import Successpic from "./Success.png";
 import pricingImage1 from "./pricingImage1.png";
@@ -85,6 +88,7 @@ import productsGipperfipic3 from "./productsGipperfipic3.png";
 import productsGipperfipic4 from "./productsGipperfipic4.png";
 import productsGipperfipic5 from "./productsGipperfipic5.png";
 import productsGipperfipic6 from "./productsGipperfipic6.png";
+import plantPic from "./plantPic.png";
 
 export {
   logo,
@@ -118,6 +122,8 @@ export {
   dashboardImg,
   gustCoin,
   gustCoin1,
+  gustCoinBig,
+  gustCoinMed,
   congrats,
   bankPayouts,
   bankPayouts2,
@@ -141,6 +147,7 @@ export {
   iphone12Half,
   iphone13RightView,
   iphoneAndMacbook,
+  SpaceBlackiPhone14,
   coinsimage,
   Successpic,
   pricingImage1,
@@ -174,4 +181,5 @@ export {
   productsGipperfipic4,
   productsGipperfipic5,
   productsGipperfipic6,
+  plantPic,
 };

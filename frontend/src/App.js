@@ -7,6 +7,7 @@ import ProductsCheckout from "./pages/Products/ProductsCheckout/ProductsCheckout
 import ProductsPayroll from "./pages/Products/ProductsPayroll/ProductsPayroll";
 import ProductsDonation from "./pages/Products/ProductsDonation/ProductsDonation";
 import ProductsGipperfi from "./pages/Products/ProductsGipperfi/ProductsGipperfi";
+import ProductsGUST from "./pages/Products/ProductsGUST/ProductsGUST";
 import Pricing from "./pages/Pricing/Pricing";
 
 function App() {
@@ -21,6 +22,7 @@ function App() {
             <Route path="/products/payroll" element={<ProductsPayroll />} />
             <Route path="/products/donation" element={<ProductsDonation />} />
             <Route path="/products/gipperfi" element={<ProductsGipperfi />} />
+            <Route path="/products/GUST" element={<ProductsGUST />} />
             <Route path="/pricing" element={<Pricing />} />
           </Routes>
         </Layout>

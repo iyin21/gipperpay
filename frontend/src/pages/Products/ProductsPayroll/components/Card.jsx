@@ -44,7 +44,11 @@ const Card = ({ item }) => {
         className={` lg:w-[14.4375rem] lg:h-[14.4375rem] 
            ${item.border} border-[1rem] rounded-[8.25rem] absolute top-0 left-[4.0625rem] `}
       >
-        <img src={item.image} alt="" className=" lg:w-full lg:h-full " />
+        <img
+          src={item.image}
+          alt=""
+          className=" lg:w-full lg:h-full object-contain "
+        />
       </div>
     </div>
   );

@@ -34,7 +34,7 @@ export const PRODUCTS = [
   {
     name: "GU$T",
     image: gustCoin1,
-    link: "#/",
+    link: "/products/GUST",
   },
 ];
 
