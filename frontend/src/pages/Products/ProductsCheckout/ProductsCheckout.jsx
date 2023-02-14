@@ -1,11 +1,11 @@
 import React from "react";
 import Header from "./components/Header";
-import { walletpic, profileComponent, Successpic } from "../../assets";
+import { walletpic, profileComponent, Successpic } from "../../../assets/index";
 import { BiRightArrowAlt } from "react-icons/bi";
 
 function ProductsCheckout() {
   return (
-    <div className=" w-full h-full p-[1.5625rem]  bg-white-70 ">
+    <div className=" w-full h-full p-[1.5625rem] lg:p-[0] bg-white-70 ">
       <Header />
       <div className="w-full text-center">
         <h1 className="  mt-[6.25rem] font-Jost font-big not-italic text-l leading-[2.5rem] text-secondary-main  ">
@@ -17,7 +17,7 @@ function ProductsCheckout() {
         </h1>
       </div>
       {/**grid box */}
-      <div className="  lg:m-auto mt-[1.25rem] lg:mt-[5rem] lg:w-[59.375rem] lg:h-[21.875rem] lg:grid lg:grid-cols-3 ">
+      <div className=" pl-[2.25rem] lg:pl-[0] lg:m-auto mt-[1.25rem] lg:mt-[5rem] lg:w-[59.375rem] lg:h-[21.875rem] lg:grid lg:grid-cols-3 ">
         <div className=" w-[18.125rem] h-[18.75rem] border-t-[0.125rem] border-Rectangle bg-white-60 rounded-[0.625rem] shadow-md  py-[0.9375rem] pl-[1.25rem] mb-[1.25rem] ">
           <img
             src={walletpic}

@@ -29,6 +29,8 @@ import profileComponent from "./profilecomponent.png";
 import dashboardImg from "./dashboardImg.png";
 import gustCoin from "./gustCoin.png";
 import gustCoin1 from "./gustCoin1.png";
+import gustCoinBig from "./gustCoinBig.png";
+import gustCoinMed from "./gustCoinMed.png";
 import congrats from "./congrats.svg";
 import rectangle from "./Rectangle60.svg";
 import rectanglepink from "./Rectanglepink.svg";
@@ -49,6 +51,10 @@ import forindivualspic from "./forindividuals.png";
 import iphone11 from "./iPhone11ProMaxMockup.png";
 import iphone11Bent from "./iPhone11ProMax Mockup(1).png";
 import iphone12 from "./iPhone12GraphiteProTopViewMockup.png";
+import iphone12Half from "./iPhone12GraphiteProTopHalfView.png";
+import iphone13RightView from "./iPhone13ProMockupRightView.png";
+import iphoneAndMacbook from "./iphone&Macbook.png";
+import SpaceBlackiPhone14 from "./SpaceBlackiPhone14ProMockup.png";
 import coinsimage from "./coinsimage.png";
 import Successpic from "./Success.png";
 import pricingImage1 from "./pricingImage1.png";
@@ -70,6 +76,7 @@ import payout from "./payout.svg";
 import green from "./green.svg";
 import orange from "./orange.svg";
 import blue from "./blue.svg";
+
 import Rectanglewaitlist from "./Rectanglewaitlist.svg";
 import Rectanglelight from "./Rectanglelight.svg";
 import contact from "./contact.svg";
@@ -80,6 +87,21 @@ import Rectanglewhocan from "./Rectanglewhocan.svg";
 import checkwhocan from "./checkwhocan.svg";
 import finance from "./finance.svg";
 import ecommerce from "./ecommerce.svg";
+
+import productsPayrollPic1 from "./productsPayrollPic1.png";
+import productsPayrollPic2 from "./productsPayrollPic2.png";
+import productsPayrollPic3 from "./productsPayrollPic3.png";
+import productsPayrollPic4 from "./productsPayrollPic4.png";
+import productsPayrollPic5 from "./productsPayrollPic5.png";
+import productsPayrollPic6 from "./productsPayrollPic6.png";
+import productsGipperfipic1 from "./productsGipperfipic1.png";
+import productsGipperfipic2 from "./productsGipperfipic2.png";
+import productsGipperfipic3 from "./productsGipperfipic3.png";
+import productsGipperfipic4 from "./productsGipperfipic4.png";
+import productsGipperfipic5 from "./productsGipperfipic5.png";
+import productsGipperfipic6 from "./productsGipperfipic6.png";
+import plantPic from "./plantPic.png";
+
 
 export {
   logo,
@@ -113,6 +135,8 @@ export {
   dashboardImg,
   gustCoin,
   gustCoin1,
+  gustCoinBig,
+  gustCoinMed,
   congrats,
   bankPayouts,
   bankPayouts2,
@@ -133,6 +157,10 @@ export {
   iphone11,
   iphone11Bent,
   iphone12,
+  iphone12Half,
+  iphone13RightView,
+  iphoneAndMacbook,
+  SpaceBlackiPhone14,
   coinsimage,
   Successpic,
   pricingImage1,
@@ -154,6 +182,7 @@ export {
   green,
   orange,
   blue,
+
   Rectanglewaitlist,
   Rectanglelight,
   contact,
@@ -164,4 +193,19 @@ export {
   checkwhocan,
   finance,
   ecommerce,
+
+  productsPayrollPic1,
+  productsPayrollPic2,
+  productsPayrollPic3,
+  productsPayrollPic4,
+  productsPayrollPic5,
+  productsPayrollPic6,
+  productsGipperfipic1,
+  productsGipperfipic2,
+  productsGipperfipic3,
+  productsGipperfipic4,
+  productsGipperfipic5,
+  productsGipperfipic6,
+  plantPic,
+  
 };

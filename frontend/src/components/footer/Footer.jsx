@@ -7,7 +7,7 @@ import { Divider } from "antd";
 
 function Footer() {
   return (
-    <footer className=" w-full bg-secondary-main text-white-60 ">
+    <footer className=" w-full h-full bg-secondary-main text-white-60 ">
       <div className=" lg:mx-[6.4375rem]  lg:flex lg:flex-col px-[2.5rem] pt-[4.0625rem]  ">
         <img
           src={logo2}

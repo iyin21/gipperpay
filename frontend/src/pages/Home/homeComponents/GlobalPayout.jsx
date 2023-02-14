@@ -4,7 +4,7 @@ import { iphone12 } from "../../../assets";
 
 function GlobalPayout() {
   return (
-    <div className=" lg:flex lg:flex-row-reverse my-[4.125rem] mx-[3.125rem] lg:mt-[6.25rem] items-center justify-center ">
+    <div className="  lg:flex lg:flex-row-reverse my-[4.125rem] mx-[3.125rem] lg:mt-[6.25rem] items-center justify-center ">
       <div>
         <div className=" lg:grid lg:grid-cols-2 lg:gap-[1.25rem] lg:w-[37.5rem] ">
           <div className=" w-[18.125rem] h-[18.75rem] border-t-[0.125rem] border-Rectangle bg-white-60 rounded-[0.625rem] shadow-md px-[1.25rem] py-[2.5rem] mb-[1.25rem] lg:mb-[0rem]  ">
