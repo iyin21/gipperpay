@@ -39,11 +39,11 @@ function BigHeader() {
         />
       </div>
       <div className=" w-[24rem] h-[27rem] bottom-0 lg:h-[32rem]  lg:w-[36rem] absolute  -right-[15rem] lg:right-3 lg:top-[0rem]">
-        <img
-          src={rectangle}
+        {/* <img
+          src={}
           alt=""
           className="w-full h-full object-cover lg:object-cover"
-        />
+        /> */}
       </div>
     </div>
   );
