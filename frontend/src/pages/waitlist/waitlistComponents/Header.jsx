@@ -10,12 +10,6 @@ function Header() {
           <img src={logo} alt="" />
         </Link>
       </div>
-
-      <Link to="/waitlist/community">
-        <button className="hidden lg:block px-6 rounded-md text-whiteText py-[0.5rem] bg-primary-main text-s leading-6 font-medium">
-          Join Our Community
-        </button>
-      </Link>
     </div>
   );
 }
