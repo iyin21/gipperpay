@@ -1,14 +1,9 @@
 import React, { Fragment } from "react";
 import { Menu, Transition } from "@headlessui/react";
 import { BiChevronDown } from "react-icons/bi";
-import {
-  gustCoin1,
-  payrollpic,
-  donation,
-  bankPayouts,
-  gipperfi_1,
-} from "../../../assets/index";
-import { btcgust } from "../../../icons/index";
+
+import { PRODUCTS } from "../data";
+import { Link } from "react-router-dom";
 
 function Products() {
   return (
@@ -31,85 +26,26 @@ function Products() {
           leaveFrom="transform opacity-100 scale-100"
           leaveTo="transform opacity-0 scale-95"
         >
-          <Menu.Items className="absolute inset-[5.625rem] left-[12.625rem] shadow-sm ">
-            <div className="w-[895px] h-[372px] bg-whiteText pt-[58px] pb-[58px] pl-[51px] pr-[51px] ">
-              <div className=" w-[55.9375rem] h-[16rem]  grid grid-32px-css gap-[2.5rem] ">
-                <div className="flex  flex-col items-start">
-                  <div className="w-[10rem] h-[3.125rem] flex flex-row items-center ">
+          <Menu.Items
+            as="div"
+            className="absolute inset-[5.625rem] w-[55.9375rem] h-[16rem]  left-[12.625rem] shadow-sm  bg-whiteText  grid grid-cols-3 gap-[2.5rem] px-[7.5625rem]  py-[3.9688rem] "
+          >
+            {PRODUCTS.map((item, index) => (
+              <Link to={item.link}>
+                <Menu.Item as="div" className="flex flex-col items-start  ">
+                  <div className="w-[15.625rem] h-[3.125rem] flex flex-row items-center ">
                     <img
-                      src={btcgust}
+                      src={item.image}
                       alt=""
                       className="w-[2.3725rem] h-[1.875rem] mr-[1.25rem] "
                     />
-                    <h1 className="w-[5.625rem] h-[1.6875rem] font-Jost not-italic font-big text-sm leading-[1.4375rem]  text-secondary-main">
-                      Buy/Sell
+                    <h1 className="w-[7.6875rem] h-[1.6875rem] font-Jost not-italic font-big text-sm leading-[1.6875rem]  text-secondary-main  hover:text-Rectangle  ">
+                      {item.name}
                     </h1>
                   </div>
-                  <h1 className=" w-[14.125rem] h-[2.375rem] font-Jost not-italic font-regular text-xs leading-[1.1875rem] text-secondary-30 ">
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit
-                  </h1>
-                </div>
-                <div className="flex  flex-col items-start">
-                  <div className="w-[10rem] h-[3.125rem] flex flex-row items-center ">
-                    <img src={payrollpic} alt="" className=" mr-[1.25rem] " />
-                    <h1 className="w-[5.625rem] h-[1.6875rem] font-Jost not-italic font-big text-sm leading-[1.4375rem]  text-secondary-main">
-                      Payroll
-                    </h1>
-                  </div>
-                  <h1 className=" w-[14.125rem] h-[2.375rem] font-Jost not-italic font-regular text-xs leading-[1.1875rem] text-secondary-30 ">
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit
-                  </h1>
-                </div>
-                <div className="flex  flex-col items-start">
-                  <div className="w-[10rem] h-[3.125rem] flex flex-row items-center ">
-                    <img src={gipperfi_1} alt="" className=" mr-[1.25rem]  " />
-                    <h1 className="w-[5.625rem] h-[1.6875rem] font-Jost not-italic font-big text-sm leading-[1.4375rem]  text-secondary-main">
-                      Gipperfi
-                    </h1>
-                  </div>
-                  <h1 className=" w-[14.125rem] h-[2.375rem] font-Jost not-italic font-regular text-xs leading-[1.1875rem] text-secondary-30 ">
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit
-                  </h1>
-                </div>
-                <div className="flex  flex-col items-start">
-                  <div className="w-[10rem] h-[3.125rem] flex flex-row items-center ">
-                    <img src={gustCoin1} alt="" className=" mr-[1.25rem] " />
-                    <h1 className="w-[5.625rem] h-[1.6875rem] font-Jost not-italic font-big text-sm leading-[1.4375rem]  text-secondary-main">
-                      GU$T
-                    </h1>
-                  </div>
-                  <h1 className=" w-[14.125rem] h-[2.375rem] font-Jost not-italic font-regular text-xs leading-[1.1875rem] text-secondary-30 ">
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit
-                  </h1>
-                </div>
-                <div className="flex  flex-col items-start">
-                  <div className="w-[15rem] h-[3.125rem] flex flex-row items-center ">
-                    <img src={donation} alt="" className=" mr-[1.25rem]" />
-                    <h1 className="w-[10.6875rem] h-[1.6875rem] font-Jost not-italic font-big text-sm leading-[1.4375rem]  text-secondary-main ">
-                      Donation Link
-                    </h1>
-                  </div>
-                  <h1 className=" w-[14.125rem] h-[2.375rem] font-Jost not-italic font-regular text-xs leading-[1.1875rem] text-secondary-30 ">
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit
-                  </h1>
-                </div>
-                <div className="flex  flex-col items-start">
-                  <div className="w-[10rem] h-[3.125rem] flex flex-row items-center ">
-                    <img
-                      src={bankPayouts}
-                      alt=""
-                      className="w-[3.125rem] h-[3.125rem] mr-[1.25rem] "
-                    />
-                    <h1 className="w-[5.625rem] h-[1.6875rem] font-Jost not-italic font-big text-sm leading-[1.4375rem]  text-secondary-main">
-                      Payouts
-                    </h1>
-                  </div>
-                  <h1 className=" w-[14.125rem] h-[2.375rem] font-Jost not-italic font-regular text-xs leading-[1.1875rem] text-secondary-30 ">
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit
-                  </h1>
-                </div>
-              </div>
-            </div>
+                </Menu.Item>
+              </Link>
+            ))}
           </Menu.Items>
         </Transition>
       </Menu>

@@ -1,31 +1,37 @@
-import React from "react";
+import React, { useState } from "react";
 
 //components
 import Products from "../nav/navComponents/Products";
 import Businesses from "../nav/navComponents/Businesses";
 import Company from "../nav/navComponents/Company";
-
-import { RiMenu5Line } from "react-icons/ri";
-
-//assets
-import { gipperpaylogo, gipperpaytext } from "../../assets/index";
-
+import MobileView from "./navComponents/MobileView";
 import { Link } from "react-router-dom";
 
+//assets
+import { RiMenu5Line } from "react-icons/ri";
+import { MdOutlineCancel } from "react-icons/md";
+import { logo } from "../../assets/index";
+
 function Nav() {
+  const [isMenuOpen, setisMenuOpen] = useState(false);
+
+  const openMenu = () => setisMenuOpen(!isMenuOpen);
+
   return (
-    <div className="w-screen lg:h-[3.75rem] bg-#FCFCFC flex flex-row  items-center lg:justify-around justify-between  my-[1.25rem] ">
-      <div className=" flex flex-row ml-[1.25rem] mr-[1.875rem] items-center ">
+    <div className="w-screen lg:h-[3.75rem] bg-#FCFCFC lg:flex lg:flex-row  items-center lg:justify-around  my-[1.25rem] ">
+      <div className=" flex flex-row ml-[1.25rem] mr-[1.875rem] items-center justify-between ">
         <img
-          src={gipperpaylogo}
+          src={logo}
           alt="gipperpaylogo"
-          className=" mr-[0.625rem] w-[1.25rem] h-[1.25rem] lg:w-[2.5rem] lg:h-[2.5rem] "
+          className=" w-[6.375rem] h-[1.25rem] lg:w-[12.75rem] lg:h-[2.5rem] "
         />
-        <img
-          src={gipperpaytext}
-          alt="gipperpaytext"
-          className=" h-[1.25rem] lg:h-[1.875rem]  "
-        />
+        <div className=" lg:hidden " onClick={openMenu}>
+          {!isMenuOpen ? (
+            <RiMenu5Line className="text-secondary-main " size="1.575rem" />
+          ) : (
+            <MdOutlineCancel className="text-white-30 " size="1.575rem" />
+          )}
+        </div>
       </div>
       <div className=" hidden lg:flex flex-row ">
         <Products />
@@ -46,8 +52,11 @@ function Nav() {
           </div>
         </Link>
       </div>
-      <div className=" lg:hidden mr-[1.25rem] ">
-        <RiMenu5Line className="text-secondary-main " size="1.875rem" />
+
+      <div
+        className={!isMenuOpen ? "hidden" : "w-full  lg:hidden  p-[1.25rem] "}
+      >
+        <MobileView />
       </div>
     </div>
   );
