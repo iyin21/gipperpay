@@ -80,6 +80,7 @@ import Rectanglewhocan from "./Rectanglewhocan.svg";
 import checkwhocan from "./checkwhocan.svg";
 import finance from "./finance.svg";
 import ecommerce from "./ecommerce.svg";
+import cryptoWallet from "./cryptoWallet.svg";
 
 export {
   logo,
@@ -164,4 +165,5 @@ export {
   checkwhocan,
   finance,
   ecommerce,
+  cryptoWallet,
 };

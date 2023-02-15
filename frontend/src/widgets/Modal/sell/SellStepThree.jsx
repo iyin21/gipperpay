@@ -32,7 +32,7 @@ function SellStepThree({ nextSellStep, amountToSell, setAmountToSell }) {
       initial="hidden"
       animate="visible"
       exit="exit"
-      className="w-[31rem] px-[6.4rem] py-[6.4rem] lg:py-[3.4rem]  bg-whiteText"
+      className="w-full border-black border lg:w-[31rem] px-[.5rem] py-[6.4rem] lg:py-[3.4rem]  bg-whiteText"
     >
       <div>
         <img src={bank} alt="" />
@@ -42,7 +42,7 @@ function SellStepThree({ nextSellStep, amountToSell, setAmountToSell }) {
         Confirmation
       </p>
 
-      <div className="w-[18.5rem] mt-10">
+      <div className="w-full lg:w-[18.5rem] mt-10">
         <label className="text-xs font-medium leading-5">Send</label>
         <div className="flex gap-2 items-center w-full">
           <div>
@@ -70,12 +70,12 @@ function SellStepThree({ nextSellStep, amountToSell, setAmountToSell }) {
       </p>
 
       <Divider className="border-white-30 mt-[40px] " dashed />
-      <div className=" w-[300px] h-[20px] flex flex-row justify-between items-center mt-[10px] ">
-        <h1 className=" w-[80px] h-[19px] font-Jost not-italic font-regular text-xs leading-[19px] text-white-30 ">
+      <div className="w-full lg:w-[300px] h-[20px] flex flex-row justify-between items-center mt-[10px] ">
+        <h1 className="w-[50%] lg:w-[80px] h-[19px] font-Jost not-italic font-regular text-xs leading-[19px] text-white-30 ">
           Exchange Rate
         </h1>
         <div className=" flex flex-row items-center ">
-          <h1 className="w-[44px] h-[19px] font-Jost not-italic font-regular text-xs leading-[19px] text-white-30 mr-[5px] ">
+          <h1 className="w-[50%] lg:w-[44px] h-[19px] font-Jost not-italic font-regular text-xs leading-[19px] text-white-30 mr-[5px] ">
             1 GU$T
           </h1>
           <img src={swap1} alt="" className="mr-[5px]" />
@@ -84,7 +84,7 @@ function SellStepThree({ nextSellStep, amountToSell, setAmountToSell }) {
           </h1>
         </div>
       </div>
-      <div className=" w-[300px] h-[19px] mt-[10px] flex flex-row items-center justify-between ">
+      <div className="w-full lg:w-[300px] h-[19px] mt-[10px] flex flex-row items-center justify-between ">
         <h1 className=" w-[20px] h-[19px] font-Jost not-italic  font-regular text-xs leading-[19px] text-white-30 ">
           Fee
         </h1>
@@ -92,11 +92,11 @@ function SellStepThree({ nextSellStep, amountToSell, setAmountToSell }) {
           0 GU$T
         </h1>
       </div>
-      <div className=" w-[300px] h-[19px] mt-[10px] mb-12 flex flex-row items-center justify-between ">
-        <h1 className=" w-[126px] h-[19px] font-Jost not-italic  font-regular text-xs leading-[19px] text-white-30 ">
+      <div className="w-full lg:w-[300px] h-[19px] mt-[10px] mb-12 flex flex-row items-center justify-between ">
+        <h1 className="w-[85%] lg:w-[126px] h-[19px] font-Jost not-italic  font-regular text-xs leading-[19px] text-white-30 ">
           Amount you'll receive
         </h1>
-        <h1 className=" w-[66px] h-[19px] font-Jost not-italic  font-regular text-xs leading-[19px] text-white-30 ">
+        <h1 className="w-[15%] lg:w-[66px] h-[19px] font-Jost not-italic  font-regular text-xs leading-[19px] text-white-30 ">
           ₦
           {(amountToSell * 725)
             .toFixed(2)

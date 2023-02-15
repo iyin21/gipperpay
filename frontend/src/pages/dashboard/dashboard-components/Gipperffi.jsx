@@ -12,7 +12,7 @@ import {
 } from "../../../assets";
 import { giperfi, USDT } from "../../../icons";
 import GipperfiModal from "../../../widgets/gipperfiModal/GipperfiModal";
-import GipperfiMobileModal from '../../../widgets/gipperfiModal/GipperfiMobileModal'
+import MobileModal from '../../../widgets/gipperfiModal/MobileModal'
 
 function Gipperffi() {
   const GipperfiData = [
@@ -64,7 +64,7 @@ function Gipperffi() {
   const [showGiperfiMobileModal, setShowGiperfiMobileModal] = useState(false)
   const openModal = () => setShowGiperfiModal(true);
   const closeModal = () => setShowGiperfiModal(false);
-
+  const [type,setType] = useState('')
   const handleGipperfiMobileModal = (type) =>{
     type === "open" ? setShowGiperfiMobileModal(true) : setShowGiperfiMobileModal(false)
   }
@@ -119,7 +119,12 @@ function Gipperffi() {
             {/* visible on mobile hidden on desktop */}
             <button
               className="block lg:hidden px-[0.6rem] py-[0.3rem] rounded-md bg-primary-light text-s leading-6 font-400 mt-[1.63rem] text-primary-main"
-              onClick={()=>handleGipperfiMobileModal("open")}
+              onClick={()=>{
+                index === 0 ? setType("fund") :
+                index === 1 ? setType("stake") :
+                setType("freeze")
+                handleGipperfiMobileModal("open")
+              }}
             >
               {index === 0 ? "Fund Package" : index === 1 ? "Stake" : "Freeze"}
             </button>
@@ -215,7 +220,7 @@ function Gipperffi() {
         onExitComplete={() => null}
       >
         {showGiperfiModal && <GipperfiModal handleClose={closeModal} />}
-        {showGiperfiMobileModal && <GipperfiMobileModal handleClose={closeModal} />}
+        {showGiperfiMobileModal && <MobileModal type={type} handleClose={handleGipperfiMobileModal} />}
       </AnimatePresence>
     </div>
   );
