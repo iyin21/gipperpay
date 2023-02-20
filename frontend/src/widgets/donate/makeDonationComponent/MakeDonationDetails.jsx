@@ -42,7 +42,7 @@ function MakeDonationDetails({handleSetActive, email, setEmail, active}) {
                 <label htmlFor="" className=" text-secondary-main text-xs leading-5 font-medium mb-[3px]">Enter Email</label>
                 <input type="text" name="" value={email} onChange={(e)=>setEmail(e.target.value)} id="" className="w-[100%] h-[3.1rem] text-xs px-5 py-[15.5px] rounded-[5px] border border-secondary-20 placeholder:text-xs font-regular" placeholder="Enter Email" />
               </div>
-              <button className="flex w-full lg:w-0 mt-5 items-center gap-2 justify-center rounded-[5px]  bg-primary-main py-5 lg:py-2 px-5 rounded-6" onClick={handleSetActive}>
+              <button className="flex w-full lg:w-[10.8rem] mt-5 items-center gap-2 justify-center rounded-[5px]  bg-primary-main py-5 lg:py-2 px-5 rounded-6" onClick={handleSetActive}>
                 <img src={connect} alt="" />
                 <p className=" text-white-Main text-s">Connect Wallet</p>
               </button>
@@ -86,7 +86,7 @@ function MakeDonationDetails({handleSetActive, email, setEmail, active}) {
                 <div className="py-[0.3rem] px-[0.6rem] bg-primary-light text-xs text-primary-main font-regular leading-[18.7px] rounded-md">Max</div>
               </div>
 
-              <button className="bg-primary-main w-full mt-10 lg:mt-0 lg:w-0 text-whiteText py-5 lg:py-[0.69rem] px-20 rounded-[5px]">Donate</button>
+              <button className="bg-primary-main w-full mt-10 lg:mt-0 lg:w-[5.5rem] text-whiteText py-5 lg:py-[0.69rem] px-20 lg:flex justify-center items-center rounded-[5px]">Donate</button>
             </div>
           )
         }

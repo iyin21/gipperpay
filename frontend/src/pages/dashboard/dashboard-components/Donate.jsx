@@ -12,7 +12,7 @@ import { link, linkWhite, USDT } from "../../../icons";
 function Donate() {
   return (
 
-    <div className="flex flex-col-reverse lg:row justify-between  p-5">
+    <div className="flex flex-col-reverse lg:flex-row justify-between  p-5">
       <div className="w-full mt-8 lg:mt-0 lg:w-[31.9rem] p-5 border rounded-[20px]  border-[ #A4A4A4]">
         <div className="w-[99%] flex justify-center items-center relative   h-[14rem] mx-auto rounded-[10px]">
           <img

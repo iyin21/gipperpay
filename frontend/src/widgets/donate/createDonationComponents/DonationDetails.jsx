@@ -226,7 +226,7 @@ function DonationDetails() {
 
               <button
                 type="submit"
-                className="bg-primary-main px-5 py-[11px] text-s text-white-60 font-regular mt-10 rounded-[5px] w-full lg:w-0"
+                className="bg-primary-main px-5 py-[11px] text-s text-white-60 font-regular mt-10 rounded-[5px] w-full lg:w-[6.4rem]"
                 onClick={handleSetActive}
               >
                 Continue
@@ -273,7 +273,7 @@ function DonationDetails() {
               ))}
               <button
                 type="submit"
-                className="w-full lg:w-0 bg-primary-main px-5 py-[11px] text-s text-white-60 font-regular mt-10 rounded-[5px]"
+                className="w-full lg:w-[7.25rem] bg-primary-main px-5 py-[11px] text-s text-white-60 font-regular mt-10 rounded-[5px]"
                 onClick={handleSubmit}
               >
                 Create Link
