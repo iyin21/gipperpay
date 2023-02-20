@@ -4,7 +4,7 @@ import { earn, green, gustCoin } from "../../assets";
 import { ETH, USDT } from "../../icons";
 import StepsModal from "./StepModal";
 
-function Earn({stepsModal, showModal}) {
+function Earn({stepsModal, showModal, handleClose }) {
   return (
     <div className="w-full px-5">
       <div className="flex gap-2 mt-[1.6rem] items-center">
@@ -101,7 +101,7 @@ function Earn({stepsModal, showModal}) {
         mode="wait"
         onExitComplete={() => null}
       >
-        {stepsModal && <StepsModal  />}
+        {stepsModal && <StepsModal handleClose={handleClose}  />}
       </AnimatePresence>
     </div>
   );

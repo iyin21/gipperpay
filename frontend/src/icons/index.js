@@ -5,7 +5,7 @@ import swap1 from "./swap1.png";
 import giperfi from "./giperfi.png";
 import BTC from "./BTC.png";
 import ETH from "./ETH.png";
-import USDT from "./USDT.png";
+import USDT from "./USDT.svg";
 import downIcon from "./chevron-down.png";
 import tron from "./tron.svg";
 import binance from "./binance.svg";
@@ -30,6 +30,9 @@ import google from "./google.svg";
 import rightIcon from "./rightIcon.svg";
 import whatsapp from "./whatsapp.svg";
 import telegram from "./telegram.svg";
+import link from "./link.svg";
+import linkWhite from "./linkWhite.svg";
+import connect from "./connect.svg";
 
 export {
   add,
@@ -64,4 +67,7 @@ export {
   rightIcon,
   whatsapp,
   telegram,
+  link,
+  linkWhite,
+  connect,
 };

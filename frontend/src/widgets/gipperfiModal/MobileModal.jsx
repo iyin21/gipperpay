@@ -10,15 +10,16 @@ function MobileModal({handleClose,type}) {
   const showModal =()=>{
     setStepsModal(true)
   }
+  
   return (
     <GipperfiMobileModal handleClose={handleClose}>
       <div className='w-full mt-2 pb-10'>
         {
           type === "fund" ? (
-            <Earn stepsModal={stepsModal} showModal={showModal}/>
+            <Earn stepsModal={stepsModal} handleClose={handleClose} showModal={showModal}/>
           ) :
           type === "stake" ? (
-            <Stake/>
+            <Stake stepsModal={stepsModal} handleClose={handleClose} showModal={showModal}/>
           ):
           type=== "freeze" ? (
             <Freeze/>

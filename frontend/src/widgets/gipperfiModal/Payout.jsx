@@ -1,7 +1,7 @@
 import React from "react";
 import { USDT } from "../../icons";
 import {MdOutlineSwapHoriz} from "react-icons/md"
-function Payout({ paymentMethod }) {
+function Payout({ paymentMethod, handleClose }) {
   const bank =[
     {
       bankName:"Access bank",
@@ -29,7 +29,41 @@ function Payout({ paymentMethod }) {
             ))
           }
 
-          <p className="text=primary-main mt-[3.8rem] text-s leading-6 font-regular text-center">Add another account</p>
+          <p className="text=primary-main mt-[3.8rem] text-s leading-6 font-regular text-primary-main text-center">Add another account</p>
+          
+          <div className="bg-[#f7f7f7] p-[.6rem] rounded-md mt-7">
+          <div className="w-full mt-3 boder flex justify-between items-center border-black">
+            <p className="text-xs font-medium leading-5 text-white-30">
+              Exchange Rate
+            </p>
+            <div className="flex justify-between items-center w-[50%]">
+              <p className="text-xs font-medium leading-5 text-white-30">
+                1 GU$T
+              </p>
+              <MdOutlineSwapHoriz color="#7B7B7B" />
+              <p className="text-xs font-medium leading-5 text-white-30">
+               1 USD
+              </p>
+            </div>
+          </div>
+
+          <div className="w-full boder flex justify-between items-center border-black">
+            <p className="text-xs font-medium leading-5 text-white-30">Fee</p>
+            <p className="text-xs font-medium leading-5 text-white-30">
+              0 GU$T
+            </p>
+          </div>
+
+          <div className="w-full boder flex justify-between items-center border-black">
+            <p className="text-xs font-medium leading-5 text-white-30">
+              Amount you’ll reeceive
+            </p>
+            <p className="text-xs font-medium leading-5 text-white-30">
+              0.00 GU$T
+            </p>
+          </div>
+        </div>
+        <button className="py-[.7rem] bg-primary-main text-whiteText w-full mt-[3.2rem]" onClick={handleClose}>Complete</button>
         </div>
       ) : (
         <div className="p-5">
@@ -45,7 +79,7 @@ function Payout({ paymentMethod }) {
               <p> USDT</p>
             </div>
             <input
-              className="pl-[1.6rem] w-[90%] text-left h-full placeholder:text-m placeholder:text-secondary-main font-medium leading placeholder:text-right"
+              className="pl-[1.6rem] w-[85%] text-left h-full placeholder:text-m placeholder:text-secondary-main font-medium leading placeholder:text-right"
               type="text"
               placeholder="0.00"
               name=""
@@ -81,11 +115,11 @@ function Payout({ paymentMethod }) {
             </p>
             <div className="flex justify-between items-center w-[50%]">
               <p className="text-xs font-medium leading-5 text-white-30">
-                {/* {from.value} */}
+                1 GU$T
               </p>
               <MdOutlineSwapHoriz color="#7B7B7B" />
               <p className="text-xs font-medium leading-5 text-white-30">
-                {/* ${to.current_price} */}
+                1 USD
               </p>
             </div>
           </div>
@@ -106,6 +140,7 @@ function Payout({ paymentMethod }) {
             </p>
           </div>
         </div>
+        <button className="py-[.7rem] bg-primary-main text-whiteText w-full mt-[3.2rem]" onClick={handleClose}>Complete</button>
         </div>
       )}
     </div>

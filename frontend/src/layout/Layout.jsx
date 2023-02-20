@@ -8,10 +8,10 @@ function Layout({ children }) {
   return (
     <div className="w-full">
       {/* hide nav bar on dashboard page */}
-      {(location.pathname !== ("/waitlist") && location.pathname !== ("/dashboard") )  && <Nav />}
+      {(location.pathname !== ("/waitlist") && location.pathname !== ("/dashboard") && location.pathname !== ("/create-donation") && location.pathname !== ("/make-donation") )  && <Nav />}
       {children}
       {/* hide footer bar on dashboard page */}
-      {location.pathname !== "/dashboard" && <Footer />}
+      {(location.pathname !== "/dashboard" && location.pathname !== ("/create-donation") && location.pathname !== ("/make-donation")) && <Footer />}
     </div>
   );
 }

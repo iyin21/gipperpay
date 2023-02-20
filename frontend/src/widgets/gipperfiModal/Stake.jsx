@@ -1,8 +1,10 @@
+import { AnimatePresence } from "framer-motion";
 import React from "react";
 import {gustCoin, orange,staking } from "../../assets";
 import { ETH, USDT } from "../../icons";
+import StepsModal from "./StepModal";
 
-function Stake() {
+function Stake({stepsModal, showModal, handleClose }) {
   return (
     <div className="w-full px-5">
       <div className="flex gap-2 mt-[1.6rem] items-center">
@@ -85,10 +87,21 @@ function Stake() {
           </button>
         </div>
 
-        <button className="w-full mt-8 rounded-md bg-primary-main text-whiteText text-s leading-6 py-[0.69rem]">
+        <button className="w-full mt-8 rounded-md bg-primary-main text-whiteText text-s leading-6 py-[0.69rem]" onClick={(e)=>{
+          e.preventDefault();
+          showModal()
+          }}>
           Stake
         </button>
       </form>
+      <AnimatePresence
+        initial={false}
+        // exitBeforeEnter={true}
+        mode="wait"
+        onExitComplete={() => null}
+      >
+        {stepsModal && <StepsModal handleClose={handleClose}  />}
+      </AnimatePresence>
     </div>
   );
 }

@@ -13,9 +13,13 @@ import WaitList from "./pages/waitlist/WaitList"
 import { Toaster } from "react-hot-toast";
 import WaitListSuccess from "./pages/waitlist/WaitListSuccess";
 import { useState } from "react";
+import CreateDonation from "./widgets/donate/CreateDonation";
+import MakeDonation from "./widgets/donate/MakeDonation";
 
 function App() {
   const [registered, setIsRegistered] = useState(false);
+  
+  const [activeLink, setActiveLink] = useState(0);
   return (
     <div className="font-Jost overflow-hidden">
       <Router>
@@ -23,7 +27,7 @@ function App() {
         <Layout>
           <Routes>
             <Route path="/" element={<Home />} />
-            <Route path="/dashboard" element={<Dashboard />} />
+          <Route path="/dashboard" element={<Dashboard activeLink={activeLink} setActiveLink={setActiveLink}/>} />
             <Route path="/products/checkout" element={<ProductsCheckout />} />
             <Route path="/products/payroll" element={<ProductsPayroll />} />
             <Route path="/products/donation" element={<ProductsDonation />} />
@@ -32,6 +36,8 @@ function App() {
             <Route path="/pricing" element={<Pricing />} />
             <Route path="/waitlist" element={<WaitList setIsRegistered={setIsRegistered} />} />
             <Route path="/waitlist/community" element={<WaitListSuccess registered={registered} />} />
+            <Route path="/create-donation" element={<CreateDonation setActiveLink={setActiveLink}  />} />
+            <Route path="/make-donation" element={<MakeDonation setActiveLink={setActiveLink}/>} />
           </Routes>
         </Layout>
       </Router>

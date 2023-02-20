@@ -2,7 +2,7 @@ import React, { useRef, useState } from "react";
 import { AiFillCloseCircle } from "react-icons/ai";
 import { motion } from "framer-motion";
 
-function Password({setStep, step}) {
+function Password({setStep,handleClose, step}) {
   // reference to the four input boxes
   const firstInputRef = useRef(null);
   const secondInputRef = useRef(null);
@@ -77,7 +77,7 @@ function Password({setStep, step}) {
           className="absolute top-14 left-16"
           size="2rem"
           color="#7B7B7B"
-        //   onClick={type === "send" ? previousStep : Previous}
+          onClick={handleClose}
         />
         <h2 className="mt-36 text-xs leading-5 font-medium text-secondary-main text-center">
           Transaction PIN
