@@ -10,7 +10,7 @@ import axios from "axios";
 import { toast } from "react-hot-toast";
 import { useNavigate } from "react-router-dom";
 
-function HeroSection({setIsRegistered}) {
+function HeroSection({ setIsRegistered }) {
   const rectangleVariants = {
     hide: { opacity: 0 },
     show: {
@@ -42,15 +42,16 @@ function HeroSection({setIsRegistered}) {
     email: "",
   });
 
-  const navigate = useNavigate()
+  const navigate = useNavigate();
 
   const [loading, setLoading] = useState(false);
 
   const submit = async (e) => {
     e.preventDefault();
     const { name, email } = user;
-    !name || !email ? toast.error("please fill in your name and email address") : 
-    setLoading(true);
+    !name || !email
+      ? toast.error("please fill in your name and email address")
+      : setLoading(true);
     try {
       const response = await axios.post(
         "http://localhost:8000/waitlist/create",
@@ -61,8 +62,8 @@ function HeroSection({setIsRegistered}) {
       );
       if (response.status === 201) {
         toast.success("You've been successfully added to our waitlist");
-        setIsRegistered(true)
-        navigate('/waitlist/community')
+        setIsRegistered(true);
+        navigate("/waitlist/community");
       }
     } catch (error) {
       if (error.response.status === 405) {

@@ -1,13 +1,48 @@
 import React from "react";
 import { questionmark } from "../../../icons";
+import { motion } from "framer-motion";
 
 //assets
-import { handspics } from "../../../assets/index";
+import {
+  gipperpayLeft,
+  gipperpayRight,
+  rectangle,
+} from "../../../assets/index";
+const rectangleVariants = {
+  hide: { x: "40%" },
+  show: {
+    x: "0%",
+    transition: { delay: 0.5, duration: 0.5 },
+  },
+};
+
+const textVariants = {
+  hide: { y: "-10%", opacity: 0 },
+  show: {
+    y: "0%",
+    opacity: 1,
+    transition: { delay: 0.5, duration: 0.5, type: "spring", stiffness: 120 },
+  },
+};
+
+const formVariants = {
+  hide: { y: "20%", opacity: 0 },
+  show: {
+    y: "0%",
+    opacity: 1,
+    transition: { delay: 2, duration: 2, type: "spring", stiffness: 120 },
+  },
+};
 
 function BigHeader() {
   return (
     <div className=" flex flex-col  lg:flex-row py-[0.625rem] px-[1.15625rem] items-center lg:pt-[5.5625rem] relative ">
-      <div className="  lg:m-auto ">
+      <motion.div
+        variants={textVariants}
+        animate="show"
+        initial="hide"
+        className="  lg:m-auto "
+      >
         <h1 className=" font-Jost not-italic font-big text-2xl mr-[2.5rem]  lg:pt-[3.0625rem] lg:w-[44.25rem] lg:text-4xl lg:leading-[5.75rem]  text-secondary-main flex  items-center  ">
           Take control of your business and payment
         </h1>
@@ -30,21 +65,45 @@ function BigHeader() {
             </h1>
           </div>
         </div>
-      </div>
-      <div className=" relative">
-        <img
-          src={handspics}
+      </motion.div>
+      <motion.div className=" relative flex flex-row w-[33.3125rem] h-[26.3125rem] z-10 ">
+        <motion.img
+          animate={{
+            x: [0, -200, 0],
+            transition: { ease: "easeOut", duration: 5 },
+          }}
+          whileTap={{
+            x: [0, -200, 0],
+            transition: { ease: "easeOut", duration: 5 },
+          }}
+          src={gipperpayRight}
           alt=""
-          className="object-contain  relative w-[33.3125rem] h-[26.3125rem] z-10"
         />
-      </div>
-      <div className=" w-[24rem] h-[27rem] bottom-0 lg:h-[32rem]  lg:w-[36rem] absolute  -right-[15rem] lg:right-3 lg:top-[0rem]">
+        <motion.img
+          animate={{
+            x: [0, 200, 0],
+            transition: { ease: "easeOut", duration: 5 },
+          }}
+          whileTap={{
+            x: [0, 200, 0],
+            transition: { ease: "easeOut", duration: 5 },
+          }}
+          src={gipperpayLeft}
+          alt=""
+        />
+      </motion.div>
+      <motion.div
+        variants={rectangleVariants}
+        animate="show"
+        initial="hide"
+        className=" w-[24rem] h-[27rem] bottom-0 lg:h-[32rem]  lg:w-[36rem] absolute  -right-[15rem] lg:right-3 lg:top-[0rem]"
+      >
         <img
           src={rectangle}
           alt=""
           className="w-full h-full object-cover lg:object-cover"
         />
-      </div>
+      </motion.div>
     </div>
   );
 }

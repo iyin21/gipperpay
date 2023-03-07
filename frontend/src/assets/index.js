@@ -4,8 +4,11 @@ import buy from "./buy.png";
 import donation from "./donation.png";
 import donations from "./donations.png";
 import handspics from "./gipperpayhands.png";
+import handspic2 from "./handPic2.png";
 import gipperpaylogo from "./gipperpaylogo.png";
 import gipperpaytext from "./gipperpaytext.png";
+import gipperpayLeft from "./gipperpayLeft.png";
+import gipperpayRight from "./gipperpayRight.png";
 import gipperfi from "./gipperfi.png";
 import gipperfi_1 from "./gipperfi1.png";
 import overview from "./overview.png";
@@ -55,6 +58,9 @@ import iphone12Half from "./iPhone12GraphiteProTopHalfView.png";
 import iphone13RightView from "./iPhone13ProMockupRightView.png";
 import iphoneAndMacbook from "./iphone&Macbook.png";
 import SpaceBlackiPhone14 from "./SpaceBlackiPhone14ProMockup.png";
+import SpaceBlackiPhoneCombo from "./spaceBlackIphoneCombo.png";
+import iphone11Ecommerce from "./iPhone11Ecommerce.png";
+import iphone14Ecommerce from "./iPhone14Ecommerce.png";
 import coinsimage from "./coinsimage.png";
 import Successpic from "./Success.png";
 import pricingImage1 from "./pricingImage1.png";
@@ -101,7 +107,8 @@ import productsGipperfipic4 from "./productsGipperfipic4.png";
 import productsGipperfipic5 from "./productsGipperfipic5.png";
 import productsGipperfipic6 from "./productsGipperfipic6.png";
 import plantPic from "./plantPic.png";
-
+import businessWalletimg1 from "./businessWalletimg1.png";
+import businessWalletimg2 from "./businessWalletimg2.png";
 
 export {
   logo,
@@ -110,8 +117,11 @@ export {
   donation,
   donations,
   handspics,
+  handspic2,
   gipperpaylogo,
   gipperpaytext,
+  gipperpayLeft,
+  gipperpayRight,
   gipperfi,
   gipperfi_1,
   overview,
@@ -161,6 +171,9 @@ export {
   iphone13RightView,
   iphoneAndMacbook,
   SpaceBlackiPhone14,
+  SpaceBlackiPhoneCombo,
+  iphone11Ecommerce,
+  iphone14Ecommerce,
   coinsimage,
   Successpic,
   pricingImage1,
@@ -182,7 +195,6 @@ export {
   green,
   orange,
   blue,
-
   Rectanglewaitlist,
   Rectanglelight,
   contact,
@@ -193,7 +205,6 @@ export {
   checkwhocan,
   finance,
   ecommerce,
-
   productsPayrollPic1,
   productsPayrollPic2,
   productsPayrollPic3,
@@ -207,5 +218,6 @@ export {
   productsGipperfipic5,
   productsGipperfipic6,
   plantPic,
-  
+  businessWalletimg1,
+  businessWalletimg2,
 };

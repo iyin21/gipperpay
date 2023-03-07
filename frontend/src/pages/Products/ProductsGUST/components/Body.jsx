@@ -1,6 +1,6 @@
 import React from "react";
 import Card from "../../ProductsPayroll/components/Card";
-import { gustCoinMed, productsPayrollPic6, plantPic } from "../../../../assets";
+import { productsPayrollPic6, plantPic, gustCoinBig } from "../../../../assets";
 
 const data = [
   {
@@ -17,12 +17,15 @@ const data = [
     text1: "Dollar-cost average",
     text2:
       "Easily save in dollars using the $GUST as it's stable and equal to the dollar",
-    image: gustCoinMed,
+    image: gustCoinBig,
     bg: "bg-white-70",
     border: "border-secondary-10",
     textColor: "text-secondary-main",
     svg: "#F0EFEF",
+    imageStyle: " lg:w-[6.0625rem] lg:h-[5.5625rem] object-contain ",
   },
+];
+const data2 = [
   {
     text1: "Send and receive payment",
     text2:
@@ -40,6 +43,11 @@ function Body() {
     <div className="w-full">
       <div className=" lg:w-[52rem]  lg:my-[6.25rem] lg:m-auto lg:grid lg:grid-cols-2 lg:grid-flow-row-dense ">
         {data.map((item) => (
+          <Card item={item} />
+        ))}
+      </div>
+      <div className=" lg:w-[23.5rem]  lg:my-[6.25rem] lg:m-auto lg:grid lg:grid-cols-1  ">
+        {data2.map((item) => (
           <Card item={item} />
         ))}
       </div>

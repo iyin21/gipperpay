@@ -21,16 +21,16 @@ function Header() {
           We’ll handle your global compliance, payroll in 100+ countries. Focus
           on expansion and business let’s handle the payment processing for you
         </h1>
-        <buton className="flex flex-row bg-primary-main rounded-[0.3125rem] items-center justify-center px-[1.25rem] py-[0.625rem] w-[9rem] h-[2.8125rem] mt-[1.25rem] text-white-60 ">
+        <button className="flex flex-row bg-primary-main rounded-[0.3125rem] items-center justify-center px-[1.25rem] py-[0.625rem] w-[9rem] h-[2.8125rem] mt-[1.25rem] text-white-60 ">
           <h1 className="ml-[0.625rem] ">Get started</h1>
           <BiRightArrowAlt />
-        </buton>
+        </button>
       </div>
-      <div className=" mt-[2.25rem] lg:mt-[0]  relative z-10 lg:h-[30.375rem] lg:w-[54.875rem]">
+      <div className=" mt-[2.25rem] lg:mt-[0]  relative z-10 lg:h-[30.475rem] lg:w-[54.875rem]">
         <img
           src={iphone13RightView}
           alt=""
-          className="w-full lg:mt-[3.5rem] lg:ml-[4rem] object-contain relative z-10  "
+          className="w-full lg:h-[27.475rem] lg:mt-[3.5rem] lg:ml-[4rem] object-contain relative z-10  "
         />
         <img
           src={rectangle}

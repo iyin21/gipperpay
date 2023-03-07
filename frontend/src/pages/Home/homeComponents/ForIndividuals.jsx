@@ -1,4 +1,5 @@
-import React from "react";
+import React, { useRef } from "react";
+import { motion } from "framer-motion";
 
 //assets
 import { forindivualspic } from "../../../assets";
@@ -7,9 +8,39 @@ import { forindivualspic } from "../../../assets";
 import { bookmark, rightarrow } from "../../../icons";
 
 function ForIndividuals() {
+  const scrollRef = useRef(null);
+  const textVariants = {
+    hide: {
+      opacity: 0,
+    },
+    show: {
+      opacity: 1,
+      transition: { delay: 1, duration: 1, type: "spring", stiffness: 120 },
+    },
+  };
+  const imageVariants = {
+    hide: {
+      opacity: 0,
+      x: "-30%",
+    },
+    show: {
+      opacity: 1,
+      x: "0%",
+      transition: { delay: 1.5, duration: 2, type: "spring", stiffness: 120 },
+    },
+  };
+
   return (
     <div className="lg:w-[56.5625rem]  lg:h-[31.25rem] mx-[1.875rem] lg:m-auto p-[0.625rem] lg:flex lg:flex-row  items-center justify-between   ">
-      <div className=" w-[20rem] h-[20rem] lg:w-[30.391875rem] lg:h-[31.25rem] m-auto relative  ">
+      <motion.div
+        viewport={{ once: true }}
+        initial="hide"
+        whileInView="show"
+        exit={{ rotate: -20 }}
+        ref={scrollRef}
+        variants={imageVariants}
+        className=" w-[20rem] h-[20rem] lg:w-[30.391875rem] lg:h-[31.25rem] m-auto relative  "
+      >
         <img
           src={bookmark}
           alt=""
@@ -18,10 +49,17 @@ function ForIndividuals() {
         <img
           src={forindivualspic}
           alt=""
-          className="absolute  top-[4.5625rem]  left-[2.5rem] z-0 w-[15.625rem] h-[15.625rem] lg:w-[23.75rem] lg:h-[23.75rem] "
+          className="absolute border-[0.3125rem] border-primary-main rounded-[4.3125rem] top-[4.5625rem]  left-[2.5rem] z-0 w-[15.625rem] h-[15.625rem] lg:w-[23.75rem] lg:h-[23.75rem] "
         />
-      </div>
-      <div className="lg:w-[22.6875rem]  lg:h-[28.625rem] my-[1.3125rem] ">
+      </motion.div>
+      <motion.div
+        variants={textVariants}
+        viewport={{ once: true }}
+        initial="hide"
+        whileInView="show"
+        ref={scrollRef}
+        className="lg:w-[22.6875rem]  lg:h-[28.625rem] my-[1.3125rem] "
+      >
         <h1 className="lg:w-[7.375rem] lg:h-[1.6875rem] font-Jost not-italic font-regular text-sm leading-[1.6875rem] text-center items-center text-secondary-30 ">
           For Individuals
         </h1>
@@ -51,7 +89,7 @@ function ForIndividuals() {
           </h1>
           <img src={rightarrow} alt="" className="w-[1.5rem] h-[1.5rem] " />
         </div>
-      </div>
+      </motion.div>
     </div>
   );
 }

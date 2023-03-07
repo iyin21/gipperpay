@@ -20,11 +20,14 @@ function Nav() {
   return (
     <div className="w-screen lg:h-[3.75rem] bg-#FCFCFC lg:flex lg:flex-row  items-center lg:justify-around  my-[1.25rem] ">
       <div className=" flex flex-row ml-[1.25rem] mr-[1.875rem] items-center justify-between ">
-        <img
-          src={logo}
-          alt="gipperpaylogo"
-          className=" w-[6.375rem] h-[1.25rem] lg:w-[12.75rem] lg:h-[2.5rem] "
-        />
+        <Link to="/">
+          <img
+            src={logo}
+            alt="gipperpaylogo"
+            className=" w-[6.375rem] h-[1.25rem] lg:w-[12.75rem] lg:h-[2.5rem] "
+          />
+        </Link>
+
         <div className=" lg:hidden " onClick={openMenu}>
           {!isMenuOpen ? (
             <RiMenu5Line className="text-secondary-main " size="1.575rem" />
@@ -44,7 +47,7 @@ function Nav() {
             Sign in
           </h1>
         </div>
-        <Link to="/dashboard">
+        <Link to="/getStarted">
           <div className=" px-[1.5625rem] py-[0.53125rem] items-center bg-primary-main rounded-[0.3125rem]">
             <h1 className=" font-Jost not-italic font-regular text-s text-white-60 text-center items-center leading-[1.4375rem] ">
               Create an account

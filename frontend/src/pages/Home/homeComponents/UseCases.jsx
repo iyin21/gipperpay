@@ -3,6 +3,21 @@ import React from "react";
 //icons
 import { mark } from "../../../icons";
 
+const data1 = [
+  {
+    head: "Startup",
+    text: "High-ranked start-ups use gipperpay API to accept crypto payment, letting users be able to pay with crypto",
+  },
+  {
+    head: "E-commerce",
+    text: "Put your business across borders by using our e-commerce storefront to sell to people around the world with ease.",
+  },
+  {
+    head: "Freelancers",
+    text: "Receive payment in crypto for your International gigs and get settled in your local currency with no delay",
+  },
+];
+
 function UseCases() {
   return (
     <div className=" lg:w-[74.9375rem] lg:m-auto p-[0.9375rem] lg:p-[0]  ">
@@ -13,55 +28,24 @@ function UseCases() {
         Who can use Gipperpay?
       </h1>
 
-      <div className=" lg:grid lg:grid-cols-3 lg:mt-[2.5rem] lg:mx-[7.5rem] p-[0.9375rem] lg:p-[0]  ">
-        <div className="w-[25rem] h-[12.5rem] flex flex-row items-center border-l-[0.125rem] border-primary-main rounded-[0.625rem] my-[1.25rem] ">
-          <img
-            src={mark}
-            alt=""
-            className="w-[2.0625rem] h-[2.0625rem] mr-[1.4375rem] ml-[0.625rem] "
-          />
-          <div className="items-start ">
-            <h1 className="w-[6.4375rem] h-[1.6875rem] font-Jost font-big text-sm leading-[1.6875rem]  text-Rectangle ">
-              Startup
-            </h1>
-            <h1 className="w-[12.875rem] h-[2.375rem] mt-[0.625rem] font-Jost not-italic font-regular text-xs leading-[1.1875rem]  text-secondary-main ">
-              High-ranked start-ups use gipperpay API to accept crypto payment,
-              letting users be able to pay with crypto
-            </h1>
+      <div className=" lg:grid lg:grid-cols-3 lg:w-[74.9375rem] m-auto  lg:mt-[2.5rem]  p-[0.9375rem] lg:p-[0]   ">
+        {data1.map((item) => (
+          <div className="w-[25rem] m-auto lg:m-[0] h-[12.5rem] flex flex-row items-center border-l-[0.125rem] border-primary-main rounded-[0.625rem] my-[1.25rem] ">
+            <img
+              src={mark}
+              alt=""
+              className="w-[2.0625rem] h-[2.0625rem] mr-[1.4375rem] ml-[0.625rem] "
+            />
+            <div className="items-start ">
+              <h1 className="w-[8.4375rem] h-[1.6875rem] font-Jost font-big text-sm leading-[1.6875rem]  text-Rectangle ">
+                {item.head}
+              </h1>
+              <h1 className="w-[12.875rem] h-[2.375rem] mt-[0.625rem] font-Jost not-italic font-regular text-xs leading-[1.1875rem]  text-secondary-main ">
+                {item.text}
+              </h1>
+            </div>
           </div>
-        </div>
-        <div className="w-[25rem] h-[12.5rem] flex flex-row items-center border-l-[0.125rem] border-primary-main rounded-[0.625rem] my-[1.25rem] ">
-          <img
-            src={mark}
-            alt=""
-            className="w-[2.0625rem] h-[2.0625rem] mr-[1.4375rem] ml-[0.625rem] "
-          />
-          <div className="items-start ">
-            <h1 className="w-[6.4375rem] h-[1.6875rem] font-Jost font-big text-sm leading-[1.6875rem]  text-Rectangle ">
-              E-commerce
-            </h1>
-            <h1 className="w-[12.875rem] h-[2.375rem] mt-[0.625rem] font-Jost not-italic font-regular text-xs leading-[1.1875rem]  text-secondary-main ">
-              Put your business across borders by using our e-commerce
-              storefront to sell to people around the world with ease.
-            </h1>
-          </div>
-        </div>
-        <div className="w-[25rem] h-[12.5rem] flex flex-row items-center border-l-[0.125rem] border-primary-main rounded-[0.625rem] my-[1.25rem] ">
-          <img
-            src={mark}
-            alt=""
-            className="w-[2.0625rem] h-[2.0625rem] mr-[1.4375rem] ml-[0.625rem] "
-          />
-          <div className="items-start ">
-            <h1 className="w-[6.4375rem] h-[1.6875rem] font-Jost font-big text-sm leading-[1.6875rem]  text-Rectangle ">
-              Freelancers
-            </h1>
-            <h1 className="w-[12.875rem] h-[2.375rem] mt-[0.625rem] font-Jost not-italic font-regular text-xs leading-[1.1875rem]  text-secondary-main ">
-              Receive payment in crypto for your International gigs and get
-              settled in your local currency with no delay
-            </h1>
-          </div>
-        </div>
+        ))}
       </div>
       <div className=" lg:w-[50.5625rem] lg:m-auto lg:grid lg:grid-cols-2 lg:mt-[2.5rem]  p-[0.9375rem] lg:p-[0]  ">
         <div className="w-[25rem] h-[12.5rem] flex flex-row items-center border-l-[0.125rem] border-primary-main rounded-[0.625rem] my-[1.25rem] ">
