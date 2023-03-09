@@ -64,15 +64,6 @@ function WhatWeOffer() {
     },
   };
 
-  const containerVariants = {
-    hide: {
-      opacity: 0,
-    },
-    show: {
-      opacity: 1,
-      transition: { delay: 0.5, duration: 1.8, type: "spring", stiffness: 120 },
-    },
-  };
   return (
     <div className=" w-full h-full px-[0.625rem] relative ">
       <motion.div

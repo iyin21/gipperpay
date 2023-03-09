@@ -1,4 +1,5 @@
-import React from "react";
+import React, { useRef } from "react";
+import { motion } from "framer-motion";
 
 //icons
 import { mark } from "../../../icons";
@@ -19,8 +20,25 @@ const data1 = [
 ];
 
 function UseCases() {
+  const scrollRef = useRef(null);
+  const textVariants = {
+    hide: {
+      opacity: 0,
+    },
+    show: {
+      opacity: 1,
+      transition: { delay: 2, duration: 2, type: "spring", stiffness: 120 },
+    },
+  };
   return (
-    <div className=" lg:w-[74.9375rem] lg:m-auto p-[0.9375rem] lg:p-[0]  ">
+    <motion.div
+      variants={textVariants}
+      viewport={{ once: true }}
+      initial="hide"
+      whileInView="show"
+      ref={scrollRef}
+      className=" lg:w-[74.9375rem] lg:m-auto p-[0.9375rem] lg:p-[0]  "
+    >
       <h1 className=" font-Jost not-italic font-regular text-sm  leading-[1.6875rem] items-center text-center  lg:mt-[4.8125rem] ">
         Use Cases
       </h1>
@@ -82,7 +100,7 @@ function UseCases() {
           </div>
         </div>
       </div>
-    </div>
+    </motion.div>
   );
 }
 
