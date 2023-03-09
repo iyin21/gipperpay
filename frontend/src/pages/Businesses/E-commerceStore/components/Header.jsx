@@ -1,14 +1,25 @@
-import React from "react";
+import React, { useRef } from "react";
 import { BsDot } from "react-icons/bs";
 import { BiRightArrowAlt } from "react-icons/bi";
 import { iphone11Ecommerce, rectangle } from "../../../../assets/index";
 import { questionmark } from "../../../../icons";
+import { motion } from "framer-motion";
+import {
+  textVariants,
+  rectangleVariants,
+} from "../../../Products/ProductsPayroll/components/Header";
 
 function Header() {
+  const scrollRef = useRef(null);
   return (
     <div className="w-full h-full  lg:flex lg:flex-row lg:px-[3.125rem]  lg:justify-center relative z-10 ">
-      <div className="">
-        <h1 className="lg:w-[18.375rem] flex flex-row items-center font-Jost not-italic font-regular text-sm leading-[1.6875rem] text-secondary-main lg:mt-[8.625rem] lg:justify-around ">
+      <motion.div
+        variants={textVariants}
+        animate="show"
+        initial="hide"
+        className=""
+      >
+        <h1 className="lg:w-[18.375rem] flex flex-row items-center font-Jost not-italic font-regular text-sm leading-[1.6875rem] text-secondary-main lg:mt-[7.5rem] lg:justify-around ">
           Businesses
           <span>
             <BsDot color="text-secondary-main" />
@@ -39,14 +50,22 @@ function Header() {
             </h1>
           </div>
         </div>
-      </div>
+      </motion.div>
       <div className=" mt-[2.25rem]  lg:mt-[0]  relative z-10 lg:h-[30.375rem] lg:w-[54.875rem]">
-        <img
+        <motion.img
+          viewport={{ once: true }}
+          ref={scrollRef}
+          initial={{ opacity: 0, x: "100%" }}
+          whileInView={{ opacity: 1, x: 0 }}
+          transition={{ delay: 2, duration: 2, type: "spring", stiffness: 120 }}
           src={iphone11Ecommerce}
           alt=""
           className="lg:w-[34.1875rem] h-full lg:mt-[1.62rem]  object-contain relative z-10  "
         />
-        <img
+        <motion.img
+          variants={rectangleVariants}
+          animate="show"
+          initial="hide"
           src={rectangle}
           alt=""
           className="absolute top-[0] h-full -right-[15rem]  lg:left-[2.5rem] z-0   "

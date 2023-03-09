@@ -36,7 +36,7 @@ function ForIndividuals() {
         viewport={{ once: true }}
         initial="hide"
         whileInView="show"
-        exit={{ rotate: -20 }}
+        whileHover={{ rotate: 5, scale: 0.8 }}
         ref={scrollRef}
         variants={imageVariants}
         className=" w-[20rem] h-[20rem] lg:w-[30.391875rem] lg:h-[31.25rem] m-auto relative  "

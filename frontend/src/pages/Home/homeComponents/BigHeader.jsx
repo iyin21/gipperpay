@@ -9,8 +9,9 @@ import {
   rectangle,
 } from "../../../assets/index";
 const rectangleVariants = {
-  hide: { x: "40%" },
+  hide: { opacity: 0, x: "40%" },
   show: {
+    opacity: 1,
     x: "0%",
     transition: { delay: 0.5, duration: 0.5 },
   },
@@ -25,14 +26,14 @@ const textVariants = {
   },
 };
 
-const formVariants = {
-  hide: { y: "20%", opacity: 0 },
-  show: {
-    y: "0%",
-    opacity: 1,
-    transition: { delay: 2, duration: 2, type: "spring", stiffness: 120 },
-  },
-};
+// const formVariants = {
+//   hide: { y: "20%", opacity: 0 },
+//   show: {
+//     y: "0%",
+//     opacity: 1,
+//     transition: { delay: 2, duration: 2, type: "spring", stiffness: 120 },
+//   },
+// };
 
 function BigHeader() {
   return (
@@ -72,7 +73,7 @@ function BigHeader() {
             x: [0, -200, 0],
             transition: { ease: "easeOut", duration: 5 },
           }}
-          whileTap={{
+          whileHover={{
             x: [0, -200, 0],
             transition: { ease: "easeOut", duration: 5 },
           }}
@@ -84,7 +85,7 @@ function BigHeader() {
             x: [0, 200, 0],
             transition: { ease: "easeOut", duration: 5 },
           }}
-          whileTap={{
+          whileHover={{
             x: [0, 200, 0],
             transition: { ease: "easeOut", duration: 5 },
           }}
