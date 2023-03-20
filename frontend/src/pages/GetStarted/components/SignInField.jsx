@@ -38,7 +38,6 @@ function SignInField() {
     handleSubmit,
     errors,
     touched,
-    setFieldValue,
     isSubmitting,
   } = useFormik({
     initialValues: {
