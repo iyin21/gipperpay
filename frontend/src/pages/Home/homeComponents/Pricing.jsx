@@ -1,4 +1,5 @@
-import React from "react";
+import React, { useRef } from "react";
+import { motion } from "framer-motion";
 
 //assets
 import { coinsimage } from "../../../assets/index";
@@ -7,14 +8,43 @@ import { coinsimage } from "../../../assets/index";
 import { rightarrow } from "../../../icons";
 
 function Pricing() {
+  const scrollRef = useRef(null);
+  const textVariants = {
+    hide: {
+      opacity: 0,
+    },
+    show: {
+      opacity: 1,
+      transition: { delay: 1, duration: 1, type: "spring", stiffness: 120 },
+    },
+  };
   return (
     <div className=" lg:w-[62.3125rem] lg:m-auto  lg:flex lg:flex-row lg:mt-[6.25rem]  p-[1.25rem] lg:p-[0]  ">
-      <img
+      <motion.img
+        viewport={{ once: true }}
+        ref={scrollRef}
+        initial={{ opacity: 0, x: "-100%" }}
+        whileInView={{
+          opacity: 1,
+          x: 0,
+          transition: {
+            delay: 1,
+            duration: 1,
+            type: "spring",
+            stiffness: 120,
+          },
+        }}
         src={coinsimage}
         alt=""
         className="w-[19.1875rem] h-[12rem] lg:w-[27.5625rem] lg:h-[17.25rem] object-contain "
       />
-      <div>
+      <motion.div
+        variants={textVariants}
+        viewport={{ once: true }}
+        initial="hide"
+        whileInView="show"
+        ref={scrollRef}
+      >
         <h1 className="font-Jost not-italic font-regular text-sm text-secondary-30 leading-[1.6875rem]  items-center">
           Pricing
         </h1>
@@ -31,7 +61,7 @@ function Pricing() {
           </h1>
           <img src={rightarrow} alt="" className="w-[1.5rem] h-[1.5rem] " />
         </div>
-      </div>
+      </motion.div>
     </div>
   );
 }

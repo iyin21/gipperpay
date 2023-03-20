@@ -1,11 +1,29 @@
-import React from "react";
+import React, { useRef } from "react";
+import { motion } from "framer-motion";
 
 //icons
 import { mail } from "../../../icons";
 
 function SignUp() {
+  const scrollRef = useRef(null);
+
   return (
-    <div className="w-[20.9375rem] h-[25.125rem] m-[1.25rem] lg:w-[64.375rem] lg:h-[13.875rem] bg-primary-light lg:my-[5rem] lg:m-auto rounded-[3.125rem] lg:flex lg:flex-row items-center lg:pl-[4.5625rem] p-[1.25rem] lg:p-[0]  ">
+    <motion.div
+      viewport={{ once: true }}
+      ref={scrollRef}
+      initial={{ opacity: 0, y: "100%" }}
+      whileInView={{
+        opacity: 1,
+        y: 0,
+        transition: {
+          delay: 2,
+          duration: 2,
+          type: "spring",
+          stiffness: 120,
+        },
+      }}
+      className="w-[20.9375rem] h-[25.125rem] m-[1.25rem] lg:w-[64.375rem] lg:h-[13.875rem] bg-primary-light lg:my-[5rem] lg:m-auto rounded-[3.125rem] lg:flex lg:flex-row items-center lg:pl-[4.5625rem] p-[1.25rem] lg:p-[0]  "
+    >
       <svg
         width="269"
         height="218"
@@ -56,7 +74,7 @@ function SignUp() {
           </h1>
         </div>
       </div>
-    </div>
+    </motion.div>
   );
 }
 

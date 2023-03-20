@@ -42,12 +42,12 @@ export const BUSINESSES = [
   {
     name: "Business wallet",
     image: walletpic,
-    link: "#/",
+    link: "/businesses/businessWallet",
   },
   {
     name: "E-commerce store",
     image: cart,
-    link: "#/",
+    link: "/businesses/ecommerceStore",
   },
 ];
 

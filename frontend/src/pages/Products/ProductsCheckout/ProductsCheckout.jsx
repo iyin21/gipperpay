@@ -87,10 +87,10 @@ function ProductsCheckout() {
             Your customer's payments are processed as fast as possible, and you
             don't need to worry about dela
           </h1>
-          <buton className="flex flex-row bg-primary-main rounded-[0.3125rem] items-center justify-center px-[1.25rem] py-[0.625rem] w-[9rem] h-[2.8125rem] mt-[5.4375rem] text-white-60 ">
+          <button className="flex flex-row bg-primary-main rounded-[0.3125rem] items-center justify-center px-[1.25rem] py-[0.625rem] w-[9rem] h-[2.8125rem] mt-[5.4375rem] text-white-60 ">
             <h1 className="ml-[0.625rem] ">Get started</h1>
             <BiRightArrowAlt />
-          </buton>
+          </button>
         </div>
         <div className="lg:w-[18.75rem] lg:h-[21.4375rem] mt-[2.5rem] lg:mt-0 ">
           <img src={Successpic} alt="" className="w-full h-full" />

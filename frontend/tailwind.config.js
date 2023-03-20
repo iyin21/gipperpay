@@ -11,6 +11,7 @@ module.exports = {
       sm: "rgba(0, 0, 0, 0.1)",
       md: "10px 8px 10px rgba(0, 0, 0, 0.05)",
       m: "15px 15px 20px rgba(0, 0, 0, 0.05)",
+      s: "5px 10px 10px rgba(0, 0, 0, 0.05)",
     },
     fontSize: {
       xxs: "11px",
