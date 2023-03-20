@@ -30,7 +30,7 @@ import profileSm from "./profileSm.png";
 import profileBg from "./profileBg.png";
 import profileComponent from "./profilecomponent.png";
 import dashboardImg from "./dashboardImg.png";
-import gustCoin from "./gustCoin.png";
+import gustCoin from "./gustCoin.svg";
 import gustCoin1 from "./gustCoin1.png";
 import gustCoinBig from "./gustCoinBig.png";
 import gustCoinMed from "./gustCoinMed.png";
@@ -82,6 +82,10 @@ import payout from "./payout.svg";
 import green from "./green.svg";
 import orange from "./orange.svg";
 import blue from "./blue.svg";
+import tenEur from "./tenEur.svg";
+import donatePeriod from "./donatePeriod.svg";
+import donateGradient from "./donateGradient.svg";
+import metamask from "./metamask.svg";
 
 import Rectanglewaitlist from "./Rectanglewaitlist.svg";
 import Rectanglelight from "./Rectanglelight.svg";
@@ -93,6 +97,7 @@ import Rectanglewhocan from "./Rectanglewhocan.svg";
 import checkwhocan from "./checkwhocan.svg";
 import finance from "./finance.svg";
 import ecommerce from "./ecommerce.svg";
+import cryptoWallet from "./cryptoWallet.svg";
 
 import productsPayrollPic1 from "./productsPayrollPic1.png";
 import productsPayrollPic2 from "./productsPayrollPic2.png";
@@ -205,6 +210,7 @@ export {
   checkwhocan,
   finance,
   ecommerce,
+  cryptoWallet,
   productsPayrollPic1,
   productsPayrollPic2,
   productsPayrollPic3,
@@ -218,6 +224,10 @@ export {
   productsGipperfipic5,
   productsGipperfipic6,
   plantPic,
+  tenEur,
+  donatePeriod,
+  donateGradient,
+  metamask,
   businessWalletimg1,
   businessWalletimg2,
 };

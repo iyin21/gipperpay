@@ -15,11 +15,15 @@ import SignIn from "./pages/GetStarted/SignIn";
 import { Toaster } from "react-hot-toast";
 import WaitListSuccess from "./pages/waitlist/WaitListSuccess";
 import { useState } from "react";
+import CreateDonation from "./widgets/donate/CreateDonation";
+import MakeDonation from "./widgets/donate/MakeDonation";
 import EcommerceStore from "./pages/Businesses/E-commerceStore/EcommerceStore";
 import BusinessWallet from "./pages/Businesses/BusinessWallet/BusinessWallet";
 
 function App() {
   const [registered, setIsRegistered] = useState(false);
+  
+  const [activeLink, setActiveLink] = useState(0);
   return (
     <div className="font-Jost overflow-hidden">
       <Router>
@@ -27,13 +31,17 @@ function App() {
         <Layout>
           <Routes>
             <Route path="/" element={<Home />} />
-            <Route path="/dashboard" element={<Dashboard />} />
+          <Route path="/dashboard" element={<Dashboard activeLink={activeLink} setActiveLink={setActiveLink}/>} />
             <Route path="/products/checkout" element={<ProductsCheckout />} />
             <Route path="/products/payroll" element={<ProductsPayroll />} />
             <Route path="/products/donation" element={<ProductsDonation />} />
             <Route path="/products/gipperfi" element={<ProductsGipperfi />} />
             <Route path="/products/GUST" element={<ProductsGUST />} />
             <Route path="/pricing" element={<Pricing />} />
+            <Route path="/waitlist" element={<WaitList setIsRegistered={setIsRegistered} />} />
+            <Route path="/waitlist/community" element={<WaitListSuccess registered={registered} />} />
+            <Route path="/create-donation" element={<CreateDonation setActiveLink={setActiveLink}  />} />
+            <Route path="/make-donation" element={<MakeDonation setActiveLink={setActiveLink}/>} />
             <Route
               path="/waitlist"
               element={<WaitList setIsRegistered={setIsRegistered} />}

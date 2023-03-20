@@ -92,6 +92,7 @@ function BigHeader() {
           src={gipperpayLeft}
           alt=""
         />
+
       </motion.div>
       <motion.div
         variants={rectangleVariants}

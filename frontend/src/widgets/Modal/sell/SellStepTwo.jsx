@@ -42,7 +42,7 @@ function SellStepTwo({ nextSellStep }) {
       initial="hidden"
       animate="visible"
       exit="exit"
-      className="w-[31rem] px-[6.4rem] py-[6.4rem] lg:py-[3.4rem]  bg-whiteText"
+      className="w-full lg:w-[31rem] px-[.5rem] py-[6.4rem] lg:py-[3.4rem]  bg-whiteText"
     >
       <div>
         <img src={bank} alt="" />
@@ -53,7 +53,7 @@ function SellStepTwo({ nextSellStep }) {
       </p>
 
       <form action="">
-        <div className="w-[18.5rem]">
+        <div className="w-full lg:w-[18.5rem]">
           <label className="text-xs font-medium leading-5">Bank </label>
           <input
             className="w-full text-white-30 border border-secondary-20 py-[0.6rem] px-5 rounded-md"
@@ -65,7 +65,7 @@ function SellStepTwo({ nextSellStep }) {
           />
         </div>
 
-        <div className="w-[18.5rem] mt-5">
+        <div className="w-full lg:w-[18.5rem] mt-5">
           <label className="text-xs font-medium leading-5 ">
             Account Number{" "}
           </label>
@@ -83,7 +83,7 @@ function SellStepTwo({ nextSellStep }) {
         </div>
 
         <button
-          className="py-[0.7rem] px-5 bg-primary-main rounded-md mt-10 text-whiteText"
+          className="w-full lg:w-[30%] py-[0.7rem] px-5 bg-primary-main rounded-md mt-10 text-whiteText"
           onClick={handleSubmit}
         >
           Proceed
