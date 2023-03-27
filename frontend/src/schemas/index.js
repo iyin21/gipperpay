@@ -17,11 +17,6 @@ export const signUpSchema = yup.object().shape({
     .min(2, "Too Short!")
     .max(50, "Too Long!")
     .required("Required"),
-  profileAviUrl: yup
-    .string()
-    .min(2, "Too Short!")
-    .max(50, "Too Long!")
-    .required("Required"),
   email: yup.string().email("Invalid Email").required("Required"),
   phoneNumber: yup
     .string()

@@ -2,6 +2,7 @@ import "./globalStyles.css";
 import Layout from "./layout/Layout";
 import Home from "./pages/Home/Home";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import PrivateRoutes from "./components/PrivateRoutes/PrivateRoutes";
 import Dashboard from "./pages/dashboard/Dashboard";
 import ProductsCheckout from "./pages/Products/ProductsCheckout/ProductsCheckout";
 import ProductsPayroll from "./pages/Products/ProductsPayroll/ProductsPayroll";
@@ -22,7 +23,7 @@ import BusinessWallet from "./pages/Businesses/BusinessWallet/BusinessWallet";
 
 function App() {
   const [registered, setIsRegistered] = useState(false);
-  
+
   const [activeLink, setActiveLink] = useState(0);
   return (
     <div className="font-Jost overflow-hidden">
@@ -31,17 +32,20 @@ function App() {
         <Layout>
           <Routes>
             <Route path="/" element={<Home />} />
-          <Route path="/dashboard" element={<Dashboard activeLink={activeLink} setActiveLink={setActiveLink}/>} />
             <Route path="/products/checkout" element={<ProductsCheckout />} />
             <Route path="/products/payroll" element={<ProductsPayroll />} />
             <Route path="/products/donation" element={<ProductsDonation />} />
             <Route path="/products/gipperfi" element={<ProductsGipperfi />} />
             <Route path="/products/GUST" element={<ProductsGUST />} />
             <Route path="/pricing" element={<Pricing />} />
-            <Route path="/waitlist" element={<WaitList setIsRegistered={setIsRegistered} />} />
-            <Route path="/waitlist/community" element={<WaitListSuccess registered={registered} />} />
-            <Route path="/create-donation" element={<CreateDonation setActiveLink={setActiveLink}  />} />
-            <Route path="/make-donation" element={<MakeDonation setActiveLink={setActiveLink}/>} />
+            <Route
+              path="/waitlist"
+              element={<WaitList setIsRegistered={setIsRegistered} />}
+            />
+            <Route
+              path="/waitlist/community"
+              element={<WaitListSuccess registered={registered} />}
+            />
             <Route
               path="/waitlist"
               element={<WaitList setIsRegistered={setIsRegistered} />}
@@ -60,6 +64,25 @@ function App() {
               path="/businesses/businessWallet"
               element={<BusinessWallet />}
             />
+            <Route element={<PrivateRoutes />}>
+              <Route
+                path="/dashboard"
+                element={
+                  <Dashboard
+                    activeLink={activeLink}
+                    setActiveLink={setActiveLink}
+                  />
+                }
+              />
+              <Route
+                path="/create-donation"
+                element={<CreateDonation setActiveLink={setActiveLink} />}
+              />
+              <Route
+                path="/make-donation"
+                element={<MakeDonation setActiveLink={setActiveLink} />}
+              />
+            </Route>
           </Routes>
         </Layout>
       </Router>

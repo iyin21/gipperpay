@@ -4,11 +4,13 @@ import { mail } from "../../../icons";
 import Button from "./Button";
 import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
+import { motion } from "framer-motion";
 import { toast } from "react-hot-toast";
 import { useFormik } from "formik";
 import { signUpSchema } from "../../../schemas/index";
 import PhoneInput from "react-phone-number-input";
 import "react-phone-number-input/style.css";
+import CustomPasswordInput from "../../../widgets/inputs/CustomPasswordInput";
 
 function SignUpField() {
   const navigate = useNavigate();
@@ -17,7 +19,7 @@ function SignUpField() {
       firstName: values.firstName,
       lastName: values.lastName,
       gipperTag: values.userName,
-      profileAviUrl: values.profileAviUrl,
+      profileAviUrl: "",
       email: values.email,
       phoneNumber: values.phoneNumber,
       password: values.password,
@@ -29,15 +31,19 @@ function SignUpField() {
       console.log("Response is:", response);
       switch (response.data.status) {
         case 201:
-          toast.success("Your account has been sucessfully created");
-          navigate("/dashboard");
+          toast.success(
+            "Your account has been sucessfully created, check your email for futher information"
+          );
+          navigate("/signIn");
           break;
         case 400:
           toast.success("You already have an account pls sign in");
           break;
         case "PENDING":
-          toast.success("Your account has been sucessfully created");
-          navigate("/dashboard");
+          toast.success(
+            "Your account has been sucessfully created, check your email for futher information"
+          );
+          navigate("/signIn");
           break;
         default:
           toast.success("Pls try again");
@@ -59,12 +65,13 @@ function SignUpField() {
     touched,
     setFieldValue,
     isSubmitting,
+    isValid,
+    dirty,
   } = useFormik({
     initialValues: {
       firstName: "",
       lastName: "",
       userName: "",
-      profileAviUrl: "",
       email: "",
       phoneNumber: "",
       password: "",
@@ -75,7 +82,12 @@ function SignUpField() {
   });
 
   return (
-    <div className="lg:w-[30.1875rem] rounded-[1.25rem] p-[2.5rem] shadow-s bg-white-60 ">
+    <motion.div
+      initial={{ opacity: 0, x: "-100%" }}
+      animate={{ opacity: 1, x: 0 }}
+      transition={{ delay: 2, duration: 2, type: "spring", stiffness: 120 }}
+      className="lg:w-[30.1875rem] rounded-[1.25rem] p-[2.5rem] shadow-s bg-white-60 "
+    >
       <img
         src={logo}
         alt=""
@@ -171,33 +183,7 @@ function SignUpField() {
           )}
         </div>
         {/**GIPPERPAYTAG/USERNAME */}
-        {/**PROFILEAVIURL */}
-        <div className="mx-auto w-full lg:w-[21.8rem] mt-[1.25rem] ">
-          <h1 className="lg:w-[3.9375rem] lg:h-[1.1875rem] font-Jost font-medium text-xs leading-[1.1875rem] items-center mb-[0.3125rem] text-secondary-main ">
-            Profilepic
-          </h1>
-          <div
-            className={`flex mt-[0.6rem] items-center bg-[#FCFCFC] w-full lg:w-[21.8rem] shadow-[0px_1px_2px_rgba(16,24,40,0.05)] ${
-              errors.profileAviUrl && touched.profileAviUrl
-                ? "border-red-400"
-                : "border-[#858095]"
-            }  border-[0.0625rem] pl-[1.25rem] rounded-md`}
-          >
-            <input
-              type="text"
-              name="profileAviUrl"
-              value={values.profileAviUrl}
-              onChange={handleChange}
-              onBlur={handleBlur}
-              placeholder="gbvnNgth"
-              className="h-full w-full py-[1.1rem] pl-3 bg-transparent text-white-30 placeholder:text-white-30 "
-            />
-          </div>
-          {errors.profileAviUrl && touched.profileAviUrl && (
-            <p className="text-red-400 ">{errors.profileAviUrl}</p>
-          )}
-        </div>
-        {/**PROFILEAVIURL */}
+
         {/**Email */}
         <div className="mx-auto w-full lg:w-[21.8rem] mt-[1.25rem] ">
           <h1 className="lg:w-[3.9375rem] lg:h-[1.1875rem] font-Jost font-medium text-xs leading-[1.1875rem] items-center mb-[0.3125rem] text-secondary-main ">
@@ -272,19 +258,12 @@ function SignUpField() {
               errors.password && touched.password
                 ? "border-red-400"
                 : "border-[#858095]"
-            } border-[0.0625rem] pl-[1.25rem] rounded-md`}
+            } border-[0.0625rem]  rounded-md`}
           >
-            <div>
-              <img src={mail} alt="" />
-            </div>
-            <input
-              type="password"
-              name="password"
-              value={values.password}
-              onChange={handleChange}
-              onBlur={handleBlur}
-              placeholder="Enter password"
-              className="h-full w-full py-[1.1rem] pl-3 bg-transparent text-white-30 placeholder:text-white-30 "
+            <CustomPasswordInput
+              values={values}
+              handleChange={handleChange}
+              handleBlur={handleBlur}
             />
           </div>
           {errors.password && touched.password && (
@@ -292,7 +271,7 @@ function SignUpField() {
           )}
         </div>
         {/**PASSWORD */}
-        {/**ChECKBOX */}
+        {/**CHECKBOX */}
         <div className=" flex flex-row mx-auto w-full lg:w-[21.8rem] mt-[1.25rem] items-center   ">
           <input
             type="checkbox"
@@ -307,7 +286,7 @@ function SignUpField() {
             Policy.
           </h1>
         </div>
-        {errors.acceptedTos && (
+        {errors.acceptedTos && touched.acceptedTos && (
           <p className="text-red-400 text-center lg:mt-[0.625rem] ">
             {errors.acceptedTos}
           </p>
@@ -315,7 +294,12 @@ function SignUpField() {
         {/**CHECKBOX */}
         {/**BUTTON*/}
         <div className=" lg:mx-auto w-[20.1875rem] my-[2.5rem] ">
-          <Button name="Sign Up" isSubmitting={isSubmitting} />
+          <Button
+            name="Sign Up"
+            isSubmitting={isSubmitting}
+            isValid={isValid}
+            dirty={dirty}
+          />
         </div>
         {/**BUTTON*/}
         <h1 className="w-[11rem] h-[1.4375rem] mx-auto font-Jost font-regular text-s leading-[1.4375rem] items-center text-secondary-main ">
@@ -327,14 +311,8 @@ function SignUpField() {
       </form>
 
       {/**INPUT FIELDS */}
-    </div>
+    </motion.div>
   );
 }
 
 export default SignUpField;
-
-// ${
-//   // errors.phoneNumber && touched.phoneNumber
-//   //   ? "border-red-400"
-//   //   : "border-[#858095]"
-// }

@@ -6,49 +6,74 @@ import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
 import { toast } from "react-hot-toast";
 import { useFormik } from "formik";
+import { motion } from "framer-motion";
+import { useDispatch } from "react-redux";
+import { addUserData } from "../../../redux/userSlice";
+import CustomPasswordInput from "../../../widgets/inputs/CustomPasswordInput";
 
 function SignInField() {
+  const dispatch = useDispatch();
   const navigate = useNavigate();
-  const onSubmit = async (values, actions) => {
+  const onSubmit = async (values) => {
     const data = {
       email: values.email,
       password: values.password,
     };
     try {
-      const response = await axios.post("http://localhost:3000/users", data);
+      const response = await axios.post(
+        "http://localhost:3000/users/login",
+        data
+      );
       console.log("Response is:", response);
+      if (response.data.data.status === 404) {
+        toast.error("Oops user does not exists");
+      }
+      switch (response.data.data) {
+        case true:
+          const userData = await axios.get(
+            `http://localhost:3000/users/email/${values.email}`
+          );
+          console.log("This is the userData:", userData.data);
+          const data = userData.data;
+          dispatch(addUserData({ data }));
+          toast.success("Logged In Successfully");
+          navigate("/dashboard");
 
-      if (response.status === 201) {
-        toast.success("");
-        navigate("");
+          break;
+
+        default:
+          toast.error(" Try again ");
+          break;
       }
     } catch (error) {
       console.log("error:", error);
-      if (error.response.status === 405) {
-        toast.error("");
+      switch (error.response.data.data.status) {
+        case 403:
+          toast.error("Invalid password");
+          break;
+
+        default:
+          toast.error("Pls try again");
+          break;
       }
-    } finally {
-      actions.resetForm();
     }
   };
-  const {
-    values,
-    handleChange,
-    handleBlur,
-    handleSubmit,
-    errors,
-    touched,
-    isSubmitting,
-  } = useFormik({
-    initialValues: {
-      email: "",
-      password: "",
-    },
-    validationSchema: "",
-    onSubmit,
-  });
+  const { values, handleChange, handleBlur, handleSubmit, isSubmitting } =
+    useFormik({
+      initialValues: {
+        email: "",
+        password: "",
+      },
+
+      onSubmit,
+    });
   return (
-    <div className="lg:w-[30.1875rem] rounded-[1.25rem] p-[2.5rem] shadow-s bg-white-60 ">
+    <motion.div
+      initial={{ opacity: 0, x: "-100%" }}
+      animate={{ opacity: 1, x: 0 }}
+      transition={{ delay: 2, duration: 2, type: "spring", stiffness: 120 }}
+      className="lg:w-[30.1875rem] rounded-[1.25rem] p-[2.5rem] shadow-s bg-white-60 "
+    >
       <img
         src={logo}
         alt=""
@@ -68,11 +93,7 @@ function SignInField() {
             Email
           </h1>
           <div
-            className={`flex mt-[0.6rem] items-center bg-[#FCFCFC] w-full lg:w-[21.8rem] shadow-[0px_1px_2px_rgba(16,24,40,0.05)] ${
-              errors.email && touched.email
-                ? "border-red-400"
-                : "border-[#858095]"
-            }  border-[0.0625rem] pl-[1.25rem] rounded-md`}
+            className={`flex mt-[0.6rem] items-center bg-[#FCFCFC] w-full lg:w-[21.8rem] shadow-[0px_1px_2px_rgba(16,24,40,0.05)]  "border-[#858095]"  border-[0.0625rem] pl-[1.25rem] rounded-md`}
           >
             <div>
               <img src={mail} alt="" />
@@ -87,9 +108,6 @@ function SignInField() {
               className="h-full w-full py-[1.1rem] pl-3 bg-transparent text-white-30 placeholder:text-white-30 "
             />
           </div>
-          {errors.email && touched.email && (
-            <p className="text-red-400 ">{errors.email}</p>
-          )}
         </div>
         {/**Email */}
         {/**PASSWORD */}
@@ -98,28 +116,14 @@ function SignInField() {
             Password
           </h1>
           <div
-            className={`flex mt-[0.6rem] items-center bg-[#FCFCFC] w-full lg:w-[21.8rem] shadow-[0px_1px_2px_rgba(16,24,40,0.05)] ${
-              errors.password && touched.password
-                ? "border-red-400"
-                : "border-[#858095]"
-            } border-[0.0625rem] pl-[1.25rem] rounded-md`}
+            className={`flex mt-[0.6rem] items-center bg-[#FCFCFC] w-full lg:w-[21.8rem] shadow-[0px_1px_2px_rgba(16,24,40,0.05)]  "border-[#858095]" border-[0.0625rem]  rounded-md`}
           >
-            <div>
-              <img src={mail} alt="" />
-            </div>
-            <input
-              type="password"
-              name="password"
-              value={values.password}
-              onChange={handleChange}
-              onBlur={handleBlur}
-              placeholder="Enter password"
-              className="h-full w-full py-[1.1rem] pl-3 bg-transparent text-white-30 placeholder:text-white-30 "
+            <CustomPasswordInput
+              values={values}
+              handleChange={handleChange}
+              handleBlur={handleBlur}
             />
           </div>
-          {errors.password && touched.password && (
-            <p className="text-red-400 ">{errors.password}</p>
-          )}
         </div>
         {/**PASSWORD */}
         {/**BUTTON*/}
@@ -135,7 +139,7 @@ function SignInField() {
         </h1>
       </form>
       {/**INPUT FIELDS */}
-    </div>
+    </motion.div>
   );
 }
 

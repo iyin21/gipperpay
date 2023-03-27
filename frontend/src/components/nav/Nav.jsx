@@ -42,11 +42,13 @@ function Nav() {
         <Company />
       </div>
       <div className=" hidden lg:flex flex-row items-start  ">
-        <div className="  px-[1.5625rem] py-[0.5rem] items-center rounded-[0.3125rem] border-[0.0625rem] border-primary-main mr-[0.625rem]">
-          <h1 className=" font-Jost not-italic font-regular text-s text-center items-center text-primary-main leading-[1.4375rem]  ">
-            Sign in
-          </h1>
-        </div>
+        <Link to="/signIn">
+          <div className="  px-[1.5625rem] py-[0.5rem] items-center rounded-[0.3125rem] border-[0.0625rem] border-primary-main mr-[0.625rem]">
+            <h1 className=" font-Jost not-italic font-regular text-s text-center items-center text-primary-main leading-[1.4375rem]  ">
+              Sign in
+            </h1>
+          </div>
+        </Link>
         <Link to="/getStarted">
           <div className=" px-[1.5625rem] py-[0.53125rem] items-center bg-primary-main rounded-[0.3125rem]">
             <h1 className=" font-Jost not-italic font-regular text-s text-white-60 text-center items-center leading-[1.4375rem] ">

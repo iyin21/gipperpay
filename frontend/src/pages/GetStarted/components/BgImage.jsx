@@ -1,9 +1,15 @@
 import React from "react";
+import { motion } from "framer-motion";
 import { handspic2 } from "../../../assets";
 
 const BgImage = () => {
   return (
-    <div className="hidden  lg:flex lg:flex-col lg:ml-[3.125rem]   ">
+    <motion.div
+      initial={{ opacity: 0, x: "100%" }}
+      animate={{ opacity: 1, x: 0 }}
+      transition={{ delay: 2, duration: 2, type: "spring", stiffness: 120 }}
+      className="hidden  lg:flex lg:flex-col lg:ml-[3.125rem]   "
+    >
       <img
         src={handspic2}
         alt=""
@@ -16,7 +22,7 @@ const BgImage = () => {
       <h1 className=" w-[14.5rem] h-[2.875rem] mt-[1.25rem] mx-auto text-center font-Jost font-regular text-s leading-[1.4375rem] items-center text-secondary-30 ">
         Receive your funds direct into your bank account
       </h1>
-    </div>
+    </motion.div>
   );
 };
 
