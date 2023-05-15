@@ -23,6 +23,8 @@ function ModalBackDrop({
   prevModalChild,
   active,
   closeSellModal,
+  stepper,
+  handleModal
 }) {
   const steps = [
     {
@@ -81,7 +83,20 @@ function ModalBackDrop({
         }`}
       >
         <header className="w-full fixed z-10 top-0 left-0 flex justify-start pl-8 items-center gap-3 bg-whiteText h-20 lg:relative">
-          {activeForm === 0 ? (
+          {
+           !stepper && <>
+            <AiFillCloseCircle
+                cursor="pointer"
+                size="2rem"
+                color="#7B7B7B"
+                onClick={handleModal}
+              />
+              <p className="text-s font-medium text-secondary-main leading-6">
+                {text}
+              </p>
+            </>
+          }
+          {activeForm === 0  ? (
             <>
               <AiFillCloseCircle
                 cursor="pointer"
@@ -210,9 +225,10 @@ function ModalBackDrop({
         }`}
       >
         <div className="flex gap-2 items-center w-full mt-0 ml-6 pt-2 lg:block lg:mt-40 lg:pt-0">
-          <p className="font-medium mb-0 text-secondary-main text-s lg:text-sm leading-7 lg:mb-6">
+         {stepper &&  
+         <p className="font-medium mb-0 text-secondary-main text-s lg:text-sm leading-7 lg:mb-6">
             Steps
-          </p>
+          </p>}
           {type === "swap" &&
             steps.map((step, i) => (
               <div

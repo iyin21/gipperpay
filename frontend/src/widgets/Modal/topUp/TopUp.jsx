@@ -62,6 +62,7 @@ function TopUp({ setShowTopUpModal }) {
       previousTopUpStep={previousTopUpStep}
       setTopUpStep={setTopUpStep}
       setBankPay={setBankPay}
+      stepper={true}
     >
       {TopUpStep === 0 ? (
         <TopUPGust

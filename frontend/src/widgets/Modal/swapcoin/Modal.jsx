@@ -21,6 +21,7 @@ function Modal(props) {
       activeForm={activeForm}
       text={props.text}
       type='swap'
+      stepper={true}
     >
       {activeForm === 0 ? (
         <SwapGust

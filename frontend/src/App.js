@@ -20,6 +20,7 @@ import CreateDonation from "./widgets/donate/CreateDonation";
 import MakeDonation from "./widgets/donate/MakeDonation";
 import EcommerceStore from "./pages/Businesses/E-commerceStore/EcommerceStore";
 import BusinessWallet from "./pages/Businesses/BusinessWallet/BusinessWallet";
+import Freelancers from "./pages/dashboard/dashboard-components/payroll/freelance/Freelancers";
 
 function App() {
   const [registered, setIsRegistered] = useState(false);
@@ -82,6 +83,7 @@ function App() {
                 path="/make-donation"
                 element={<MakeDonation setActiveLink={setActiveLink} />}
               />
+              <Route path="/freelancers" element={<Freelancers/>}/>
             </Route>
           </Routes>
         </Layout>

@@ -70,6 +70,7 @@ function SendCoinModal({ setShowSendModal }) {
       type="send"
       step={step}
       previousStep={previous}
+      stepper={true}
     >
       {step === 0 ? (
         <SendGust

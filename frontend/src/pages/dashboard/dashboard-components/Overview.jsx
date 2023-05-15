@@ -212,10 +212,11 @@ function Overview() {
           to={swappingTo}
           setTo={setSwappingTo}
           text="Swap GU$T"
+          
         />
       )}
       {showSendModal && <SendCoinModal setShowSendModal={setShowSendModal} />}
-      {showTopUpModal && <TopUp setShowTopUpModal={setShowTopUpModal} />}
+      {showTopUpModal && <TopUp setShowTopUpModal={setShowTopUpModal}  />}
       <AnimatePresence
         initial={false}
         // exitBeforeEnter={true}

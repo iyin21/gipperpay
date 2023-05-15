@@ -21,7 +21,11 @@ function DonationDetails() {
     endDate: "",
   });
 
-  const { startDate, endDate } = data;
+  const { startDate, endDate, name, desc } = data;
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setData({ ...data, [name]: value });
+  };
 
   const start = new Date(startDate);
   const end = new Date(endDate);
@@ -72,24 +76,24 @@ function DonationDetails() {
       <div className="w-full lg:w-[52.62rem] p-4 lg:p-10 bg-white-60 mx-auto flex flex-col lg:flex-row justify-between">
         <div>
           <div className="flex items-center gap-4">
-          <div className="lg:hidden pt-10 pb-10 flex gap-2">
-            {line.map((line, index) => (
-              <div
-                key={index}
-                className={` ${
-                  line.active ? " border-primary-main" : " border-white-20"
-                } border-b-2 w-5`}
-              ></div>
-            ))}
-          </div>
+            <div className="lg:hidden pt-10 pb-10 flex gap-2">
+              {line.map((line, index) => (
+                <div
+                  key={index}
+                  className={` ${
+                    line.active ? " border-primary-main" : " border-white-20"
+                  } border-b-2 w-5`}
+                ></div>
+              ))}
+            </div>
 
             <h2 className="text-s text-secondary-main leading-6 font-medium pt-10 pb-10">
               Donation Details
             </h2>
           </div>
 
-          <div className="w-full border-2 border-black lg:w-[22rem] relative flex justify-center items-center h-[14.2rem] bg-[#F7F7F7] rounded-[20px]">
-            <>
+          <div className="w-full border-2 border-black lg:w-[20rem] relative flex justify-center items-center h-[14.2rem] bg-[#F7F7F7] rounded-[20px]">
+            <div>
               <Dropzone onDrop={onDrop}>
                 {({ getRootProps, getInputProps }) => (
                   <div {...getRootProps()}>
@@ -109,7 +113,7 @@ function DonationDetails() {
                   />
                 </div>
               ))}
-            </>
+            </div>
           </div>
 
           {active === 1 && (
@@ -140,7 +144,7 @@ function DonationDetails() {
           )}
         </div>
 
-        <div>
+        <div className="w-[52%]">
           <div className="hidden pt-10 pb-12 lg:flex gap-2">
             {line.map((line, index) => (
               <div
@@ -162,9 +166,10 @@ function DonationDetails() {
                   Name this Donation
                 </label>
                 <input
+                  name="name"
                   type="text"
-                  value={data.name}
-                  onChange={(e) => setData({ ...data, name: e.target.value })}
+                  value={name}
+                  onChange={handleChange}
                   className="w-full h-[3.1rem] border border-secondary-20 rounded-[5px] px-5 text-xs text-secondary-30 font-regular leading-5"
                 />
               </div>
@@ -177,11 +182,10 @@ function DonationDetails() {
                   What is this Donation About
                 </label>
                 <textarea
-                  name=""
+                  name="desc"
                   className="w-full !h-[8.4rem] border border-secondary-20 rounded-[5px] px-5 py-[10px] text-xs text-secondary-30 font-regular leading-5"
-                  id=""
-                  value={data.desc}
-                  onChange={(e) => setData({ ...data, desc: e.target.value })}
+                  value={desc}
+                  onChange={handleChange}
                   cols="30"
                   rows="10"
                   placeholder="Enter a description..."
@@ -197,11 +201,10 @@ function DonationDetails() {
                     Start Date
                   </label>
                   <input
+                    name="startDate"
                     type="date"
-                    value={data.startDate}
-                    onChange={(e) =>
-                      setData({ ...data, startDate: e.target.value })
-                    }
+                    value={startDate}
+                    onChange={handleChange}
                     className="border border-secondary-20 p-2 rounded-[5px]"
                   />
                 </div>
@@ -215,10 +218,9 @@ function DonationDetails() {
                   </label>
                   <input
                     type="date"
-                    value={data.endDate}
-                    onChange={(e) =>
-                      setData({ ...data, endDate: e.target.value })
-                    }
+                    name="endDate"
+                    value={endDate}
+                    onChange={handleChange}
                     className="border border-secondary-20 p-2 rounded-[5px]"
                   />
                 </div>

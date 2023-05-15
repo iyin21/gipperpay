@@ -49,6 +49,7 @@ module.exports = {
           50: "#313131",
           60: "#FCFCFC",
           70: "#F7F7F7",
+          80: "#D9E1F2",
         },
         secondary: {
           light: "#CECCD4",
@@ -66,6 +67,7 @@ module.exports = {
         Rectangle: "#FA3C12",
         Rectangle15: "#D3F1F8",
         whiteText: "#FCFCFC",
+        primaryLight:"#FED8D0",
         primary: {
           light: "#FED8D0",
           dark: "#320C04",
@@ -80,7 +82,18 @@ module.exports = {
           80: "#531406",
           90: "#858095",
           mainGreen: "#21BF73",
+          red:"#F11B1B",
+          green:"#31C36C",
+          yellow:"#F2C94C",
+          darkGray:"#2A2728",
+          lightRed:"#FCE0E2",
+          lightGreen:"#D8F9FB",
+          lightYellow:"#FCF1CF"
         },
+        lightBlue:"#D9E1F2",
+        lightGreen:"#EEF7D4",
+        lightWhite:"#7B7B7B"
+
       },
       margin: {
         25: "25%",
