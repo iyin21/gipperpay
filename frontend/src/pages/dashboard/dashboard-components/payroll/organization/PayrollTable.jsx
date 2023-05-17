@@ -3,6 +3,7 @@ import { BsThreeDots } from "react-icons/bs";
 import { MdModeEditOutline } from "react-icons/md";
 import { RiDeleteBin2Fill } from "react-icons/ri";
 import { AiOutlinePause } from "react-icons/ai";
+import { FiEdit } from "react-icons/fi";
 const employeesList = [
   {
     id: 1,
@@ -67,7 +68,7 @@ const PayrollTable = () => {
   };
   return (
     <>
-      <table className=" w-full table-fixed border-separate border-spacing-4">
+      <table className=" w-full hidden lg:table table-fixed border-separate border-spacing-4">
         <thead className="w-full my-[32px]">
           {/* {headerTitle.map((title) => (
           <tr key={title.id} className="flex w-full">
@@ -112,8 +113,8 @@ const PayrollTable = () => {
 
                 {toggle && id === item.id && (
                   <div className=" absolute right-2 top-4 w-[50%] flex h-auto items-center gap-3 bg-whiteText px-3 py-2">
-                    <RiDeleteBin2Fill color="#FA1212"/>
-                    <MdModeEditOutline color="Secondary 40"/>
+                    <RiDeleteBin2Fill color="#FA1212" />
+                    <MdModeEditOutline color="Secondary 40" />
                     <AiOutlinePause onClick={handleToggle} />
                   </div>
                 )}
@@ -122,6 +123,23 @@ const PayrollTable = () => {
           ))}
         </tbody>
       </table>
+      {employeesList.map((employee) => (
+        <div className="block w-full lg:hidden my-8 border border-gray-400 rounded-md px-3 py-4">
+          <div className="flex text-secondary-50 font-medium text-sm justify-between h-auto items-center">
+            <p>{employee.fullName}</p>
+            <p>{employee.salary}</p>
+          </div>
+          <p className="text-x text-white-30 leading-4 my-2">{employee.role}</p>
+          <div className="flex justify-between h-auto items-center">
+            <p className="text-x text-white-30 leading-4">{employee.email}</p>
+            <div className="flex gap-3">
+            <RiDeleteBin2Fill color="#7B7B7B" />
+            <AiOutlinePause color="#7B7B7B"/>
+            <MdModeEditOutline color="#7B7B7B"/>
+            </div>
+          </div>
+        </div>
+      ))}
     </>
   );
 };

@@ -44,7 +44,7 @@ const Payroll = () => {
         className={
           showOrgModal
             ? "hidden"
-            : "lg:flex gap-4 w-full lg:w-[60%] px-3 cursor-pointer"
+            : "lg:flex gap-4 w-full lg:w-[70%] px-3 cursor-pointer"
         }
       >
         {payrollItems.map(({ img, title, desc, checker }, index) => (
@@ -53,12 +53,12 @@ const Payroll = () => {
             onClick={() => handleModal(index)}
             className={
               checker
-                ? "bg-lightBlue px-4 py-6 flex h-auto items-center w-full lg:w-[70%] gap-3 rounded-md"
-                : "bg-lightGreen rounded-md px-4 py-6 flex h-auto gap-4 items-center w-full lg:w-[70%]"
+                ? "bg-lightBlue px-4 py-6 flex h-auto items-center w-full lg:w-[50%] gap-3 rounded-md"
+                : "bg-lightGreen rounded-md px-4 py-6 flex h-auto gap-3 items-center w-full lg:w-[50%]"
             }
           >
-            <div className="w-[50px] h-[50px] rounded-full flex justify-center text-center items-center bg-whiteText">
-              <img src={img} alt={title} className="w-[20px] h-auto" />
+            <div className="w-[60px] h-[60px] rounded-full flex justify-center text-center items-center bg-whiteText">
+              <img src={img} alt={title} className="w-auto h-auto" />
             </div>
 
             <div>

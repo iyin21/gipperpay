@@ -1,7 +1,7 @@
 import React from "react";
 import { AiOutlineArrowLeft } from "react-icons/ai";
 import { FiArrowDownLeft, FiArrowUpRight } from "react-icons/fi";
-import FreelanceForm from "./FreelanceForm";
+import Freelance from "./Freelance";
 import { payrollItems } from "../Payroll";
 import PrimaryButton from "../../../../../widgets/buttons/PrimaryButton";
 import { useDispatch } from "react-redux";
@@ -68,8 +68,8 @@ const Freelancers = () => {
     dispatch(setFreelancePage(false))
   }
   return (
-    <div className="lg:flex gap-3 ">
-      <div className="w-[60%]">
+    <div className="lg:flex gap-12 lg:pl-8 lg:pr-16 pl-4 pr-4" >
+      <div className="w-full lg:w-[60%]">
         <div onClick={handleNavigate} className="w-[50px] bg-white-Main rounded-full h-[50px] flex justify-center items-center cursor-pointer">
           <AiOutlineArrowLeft size="1.2rem" color="#7B7B7B" />
         </div>
@@ -122,8 +122,8 @@ const Freelancers = () => {
           ))}
         </div>
       </div>
-      <div className="w-[40%] rounded-xl bg-white-10 px-5 py-2">
-        <FreelanceForm/>
+      <div className="w-full lg:w-[40%] rounded-xl bg-transparent lg:bg-white-10 lg:px-10 py-8">
+        <Freelance/>
       </div>
     </div>
   );
