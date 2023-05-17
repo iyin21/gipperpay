@@ -24,7 +24,7 @@ function ModalBackDrop({
   active,
   closeSellModal,
   stepper,
-  handleModal
+  setShowOrgModal
 }) {
   const steps = [
     {
@@ -89,7 +89,7 @@ function ModalBackDrop({
                 cursor="pointer"
                 size="2rem"
                 color="#7B7B7B"
-                onClick={handleModal}
+                onClick={() =>setShowOrgModal(false)}
               />
               <p className="text-s font-medium text-secondary-main leading-6">
                 {text}

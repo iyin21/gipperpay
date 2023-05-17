@@ -39,6 +39,9 @@ module.exports = {
       "2xl": "1536px",
     },
     extend: {
+      backgroundImage:{
+        'hero': "url('/src/assets/companyHero.png')",
+      },
       colors: {
         white: {
           Main: "#F9F9F9",

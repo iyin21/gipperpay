@@ -27,9 +27,9 @@ const OrganizationProfile = (props) => {
   const [formValues, setFormValues] = useState(initialState);
   const { employees, company, country, adminName, email, description } =
     formValues;
-  const { showOrgModal, handleModal } = props;
+  const { showOrgModal, setShowOrgModal } = props;
   const dispatch = useDispatch()
-
+ 
   const dropIn = {
     hidden: {
       y: "-100vh",
@@ -82,12 +82,14 @@ const OrganizationProfile = (props) => {
     dispatch(setActivePayrollPage(true))
   };
   console.log(formValues)
- 
+  if(!showOrgModal) return null
+  console.log(showOrgModal)
   return (
     <ModalBackDrop
       showOrgModal={showOrgModal}
-      handleModal={handleModal}
+      setShowOrgModal={setShowOrgModal}
       stepper={false}
+      
       text="Organization"
     >
       <motion.div

@@ -21,7 +21,7 @@ function MainView({ activeLink }) {
       <div className="w-full h-4/5">{activeLink === 1 && <BuyandSell />}</div>
       <div className="w-full h-4/5">{activeLink === 2 && <Gipperffi />}</div>
       <div className="w-full h-4/5">{activeLink === 3 && <Donate />}</div>
-     <div className="w-full h-4/5">{activeLink === 4 && !activePage ? <Payroll/>: activeLink === 4 && activePage ? <EmployeesPayroll/> : <Freelancers/>}</div>
+     <div className="w-full h-4/5">{activeLink === 4 && !activePage && !isFreelance ? <Payroll/>: activeLink === 4 && activePage ? <EmployeesPayroll/> : activeLink === 4 && !activePage && isFreelance ? <Freelancers/>:''}</div>
       <div className="w-full h-4/5">{activeLink === 7 && <Settings />}</div>
     </div>
   );

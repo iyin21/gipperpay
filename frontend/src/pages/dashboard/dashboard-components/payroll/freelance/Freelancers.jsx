@@ -4,6 +4,8 @@ import { FiArrowDownLeft, FiArrowUpRight } from "react-icons/fi";
 import FreelanceForm from "./FreelanceForm";
 import { payrollItems } from "../Payroll";
 import PrimaryButton from "../../../../../widgets/buttons/PrimaryButton";
+import { useDispatch } from "react-redux";
+import {setFreelancePage} from "../../../../../redux/payrollSlice"
 const transactions = [
   {
     label: "Payout processed",
@@ -61,10 +63,14 @@ const transactions = [
   },
 ];
 const Freelancers = () => {
+  const dispatch = useDispatch()
+  const handleNavigate = () =>{
+    dispatch(setFreelancePage(false))
+  }
   return (
     <div className="lg:flex gap-3 ">
       <div className="w-[60%]">
-        <div className="w-[50px] bg-white-Main rounded-full h-[50px] flex justify-center items-center cursor-pointer">
+        <div onClick={handleNavigate} className="w-[50px] bg-white-Main rounded-full h-[50px] flex justify-center items-center cursor-pointer">
           <AiOutlineArrowLeft size="1.2rem" color="#7B7B7B" />
         </div>
         <div className="w-full flex justify-between h-12 my-5 px-2">
