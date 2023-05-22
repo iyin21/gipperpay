@@ -11,24 +11,25 @@ import FrameOne from "../../assets/companyframe1.png";
 import FrameTwo from "../../assets/companyframe2.png";
 import FrameThree from "../../assets/companyframe3.png";
 import Frame from "../../assets/companyBackgroundFrame.png";
-import { logo } from "../../assets";
-import { pricingImage1, pricingImage2 } from "../../assets";
+import global from "../../assets/global.png"
+import {buyActive, payrollActive,gustCoin,pricingImage1, pricingImage2} from "../../assets"
+import {RxArrowTopRight} from "react-icons/rx"
 const services = [
   {
     label: "A Team of qualified People",
-    icon: logo,
+    icon:  payrollActive,
   },
   {
     label: "Seamless crypto transactions",
-    icon: logo,
+    icon: buyActive,
   },
   {
     label: "A New Disruptive Native Token",
-    icon: logo,
+    icon: gustCoin,
   },
   {
     label: "Global Access to our services",
-    icon: logo,
+    icon: global,
   },
 ];
 const iconsList = [
@@ -74,16 +75,16 @@ const Company = () => {
   return (
     <div>
       <div className="w-full h-full relative">
-        <div className="w-full h-full relative z-10">
+        <div className="w-full h-full relative z-[-50]">
           <img src={pricingImage1} alt="" className="w-full h-full" />
         </div>
-        <p className=" bg-transparent absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 m-auto text-center w-full lg:w-[35%] font-big text-l leading-10 text-white-60 px-[1px]">
+        <p className="z-100 bg-transparent absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 m-auto text-center w-full lg:w-[35%] font-big text-l leading-10 text-white-60 px-[1px]">
           Building Lasting solutions for crypto experts, enthusiasts, Newbies
           and Businesses in{" "}
           <span className="bg-Rectangle text-center rounded-md">Africa</span>{" "}
           and <span className="bg-Rectangle rounded-md">Globally</span>
         </p>
-        <div className="w-full h-full absolute top-[0] left-0 z-0 ">
+        <div className="w-full h-full absolute top-[0] left-0 z-[-100] ">
           <img
             src={pricingImage2}
             alt=""
@@ -102,7 +103,7 @@ const Company = () => {
         </p>
       </div> */}
       <div className="lg:max-w-[1200px] m-auto">
-        <div className="flex flex-col lg:flex-row gap-3 h-auto items-center my-10 lg:px-8">
+        <div className="flex flex-col lg:flex-row gap-2 h-auto items-center my-10 lg:px-8">
           <div className="w-1/2">
             <h2 className="text-secondary-30 text-sm font-regular">
               Our vision
@@ -117,17 +118,45 @@ const Company = () => {
               Ullamcorper mi duis eget cras nibh neque tortor sed morbi.
             </p>
           </div>
-          <div className="w-1/2 flex h-auto items-center relative">
+          <div className="w-1/2 flex h-auto gap-2 items-center relative">
+            <div  >
+            <img src={FrameOne} alt="one" />
+            </div>
+           
+            <div >
+              <img src={FrameTwo} alt="one" />
+              <img src={FrameThree} alt="one" />
+            </div>
+            <img src={Frame} alt="frame" className="absolute z-[-50]  left-[200px]" />
+          </div>
+        </div>
+        <div className="flex flex-col w-full lg:flex-row-reverse justify-between h-auto items-center my-10 lg:px-8">
+          <div className="w-full lg:w-[30%] ">
+            <h2 className="text-secondary-30 text-sm font-regular">
+              Our Mission
+            </h2>
+
+            <p className="text-l w-full  leading-10 text-secondary-main font-big my-5">
+              Building Lasting solutions in the crypto space
+            </p>
+            <p className="text-secondary-30 w-full  text-s font-regular leading-6">
+              Posuere pellentesque in dictum faucibus elementum aliquam eget
+              dignissim. Facilisi nibh molestie nunc tincidunt velit.
+              Ullamcorper mi duis eget cras nibh neque tortor sed morbi.
+            </p>
+          </div>
+          <div className="w-full lg:w-[70%] flex h-auto items-center relative gap-4">
+          <img src={Frame} alt="frame" className="absolute left-[-25px] top-[140px] z-[-50] " />
             <img src={FrameOne} alt="one" />
             <div>
               <img src={FrameTwo} alt="one" />
               <img src={FrameThree} alt="one" />
             </div>
-            <img src={Frame} alt="frame" className="absolute left-[200px]" />
+           
           </div>
         </div>
         <div className="flex flex-col lg:flex-row gap-3 h-auto items-center px-8">
-          <div className="w-1/2">
+          <div className="w-full lg:w-1/2">
             <h2 className="text-secondary-30 text-sm font-regular">
               What we offer
             </h2>
@@ -147,7 +176,7 @@ const Company = () => {
                 key={item.label}
               >
                 <div className=" bg-primary-light w-[50px] h-[50px] m-auto rounded-full flex items-center justify-center">
-                  <img src={item.logo} alt={item.label} />
+                  <img src={item.icon} alt={item.label} />
                 </div>
                 <p className="text-sm leading-6 text-secondary-main font-medium mt-3">
                   {item.label}
@@ -158,32 +187,36 @@ const Company = () => {
         </div>
         <div className="relative h-full w-full my-8">
         <img src={Contact} alt="contact" className="m-auto" />
-        <div className="text-white-10 flex justify-between  w-full h-auto items-center md:w-[75%] absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2">
+        <div className="text-white-60 flex justify-between  w-full h-auto items-center md:w-[75%] absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2">
           <p className="lg:w-[65%]">Contact Us</p>
-          <div className="lg:w-[35%]">
-            <p>Address</p>
-            <p>
+          <div className="w-full text-white-60 lg:w-[35%] text-s font-regular">
+            <p className="mt-4">Address</p>
+            <p className="my-4">
               Posuere pellentesque in dictum faucibus elementum aliquam eget
               dignissim. Facilisi nibh molestie nunc tincidunt velit.
               Ullamcorper mi duis eget cras nibh neque tortor sed morbi.
             </p>
-            <p>+234 983475703</p>
-            <div className="flex justify-between" >
+            <p className="mt-4">+234 983475703</p>
+            <div className="flex justify-between mt-4" >
             {iconsList.map(icon =><div className="w-[50px] h-[50px] rounded-full flex items-center justify-center border border-white-60" key={icon.id}>{icon.icon}</div>)}
             </div>
           
           </div>
         </div>
       </div>
-      <div className="shadow-md lg:px-8 my-8 px-4 py-3">
-        <h2>Blog</h2>
-        <p>Whats hapenining in Gipperpay?</p>
+      <div className="shadow-md lg:px-8 mt-8 mb-24 px-4 py-3">
+        <p className="text-white-30 text-sm font-regular text-center">Blog</p>
+        <p className="m-auto text-center font-big text-l leading-10 lg:w-[30%] my-4 text-secondary-main">Whats hapenining in Gipperpay?</p>
         <div className="flex  flex-col gap-10 lg:flex-row">
           {offers.map((offer, index)=><div key={index}>
             <img src ={offer.image} alt={offer.label} className="h-[300px]  rounded-md w-[400px]"/>
-            <p className="my-4">{offer.label}</p>
-            <p>{offer.desc}</p>
-            <p className="mt-4">Learn more</p>
+            <p className="my-4 text-secondary-main font-medium text-m">{offer.label}</p>
+            <p className="text-s text-white-30 font-regular">{offer.desc}</p>
+            <div className=" cursor-pointer flex mt-4 text-Rectangle  h-auto items-center gap-2">
+            <p >Learn more</p>
+            <RxArrowTopRight/>
+            </div>
+          
           </div>)}
         </div>
       </div>
