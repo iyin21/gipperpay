@@ -55,7 +55,7 @@ export const COMPANY = [
   {
     name: "About Gipperpay",
     icon: mark,
-    link: "#/",
+    link: "/company/about",
   },
   {
     name: "Contact Us",

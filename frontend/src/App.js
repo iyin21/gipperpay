@@ -86,7 +86,7 @@ function App() {
                 element={<MakeDonation setActiveLink={setActiveLink} />}
               />
               <Route path="/employeeForm" element={<EmployeeModal/>}/>
-              <Route path="/company" element={<Company/>}/>
+              <Route path="/company/about" element={<Company/>}/>
             </Route>
           </Routes>
         </Layout>

@@ -1,5 +1,6 @@
 import React from "react";
 import { arrowupright } from "../../../icons/index";
+import { Link } from "react-router-dom";
 
 function Item({ Links, title }) {
   return (
@@ -12,7 +13,7 @@ function Item({ Links, title }) {
           className="  flex flex-row items-center lg:pt-[0.9375rem] font-Jost text not-italic font-regular text-xs leading-[1.4375rem] "
           key={link.name}
         >
-          <a href={link.link}>{link.name}</a>
+          <Link to={link.link}>{link.name}</Link>
           <img
             src={arrowupright}
             alt=""
