@@ -10,7 +10,13 @@ import {
   productActive,
 } from "../../../assets/index";
 import { motion } from "framer-motion";
-
+export const rectangleVariants = {
+  hide: { x: "40%" },
+  show: {
+    x: "0%",
+    transition: { delay: 0.5, duration: 0.5 },
+  },
+};
 function WhatWeOffer() {
   const data = [
     {
@@ -46,13 +52,7 @@ function WhatWeOffer() {
   ];
 
   const scrollRef = useRef(null);
-  const rectangleVariants = {
-    hide: { x: "40%" },
-    show: {
-      x: "0%",
-      transition: { delay: 0.5, duration: 0.5 },
-    },
-  };
+  
 
   const textVariants = {
     hide: {
