@@ -8,6 +8,7 @@ import Payroll from "./dashboard-components/payroll/Payroll"
 import { useSelector } from "react-redux";
 import EmployeesPayroll from "./dashboard-components/payroll/organization/EmployeesPayroll";
 import Freelancers from "./dashboard-components/payroll/freelance/Freelancers";
+import Products from "./dashboard-components/products/Products";
 
 function MainView({ activeLink }) {
  const {activePage, isFreelance} = useSelector(state =>state.payroll)
@@ -22,6 +23,7 @@ function MainView({ activeLink }) {
       <div className="w-full h-4/5">{activeLink === 2 && <Gipperffi />}</div>
       <div className="w-full h-4/5">{activeLink === 3 && <Donate />}</div>
      <div className="w-full h-4/5">{activeLink === 4 && !activePage && !isFreelance ? <Payroll/>: activeLink === 4 && activePage ? <EmployeesPayroll/> : activeLink === 4 && !activePage && isFreelance ? <Freelancers/>:''}</div>
+     <div className="w-full h-4/5">{activeLink === 5 && <Products/>}</div>
       <div className="w-full h-4/5">{activeLink === 7 && <Settings />}</div>
     </div>
   );
