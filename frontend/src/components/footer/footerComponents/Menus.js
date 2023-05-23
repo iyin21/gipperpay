@@ -16,7 +16,7 @@ export const USECASES = [
 ];
 
 export const COMPANY = [
-  { name: "About us", link: "#" },
+  { name: "About us", link: "/company/about" },
   { name: "Contact", link: "#" },
   { name: "Blog", link: "#" },
 ];

@@ -17,7 +17,7 @@ const rectangleVariants = {
   },
 };
 
-const textVariants = {
+export const textVariants = {
   hide: { y: "-10%", opacity: 0 },
   show: {
     y: "0%",

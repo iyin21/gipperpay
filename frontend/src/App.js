@@ -22,6 +22,7 @@ import EcommerceStore from "./pages/Businesses/E-commerceStore/EcommerceStore";
 import BusinessWallet from "./pages/Businesses/BusinessWallet/BusinessWallet";
 import Company from "./pages/company/Company";
 import Freelancers from "./pages/dashboard/dashboard-components/payroll/freelance/Freelancers";
+import EmployeeModal from "./pages/dashboard/dashboard-components/payroll/organization/EmployeeModal";
 
 function App() {
   const [registered, setIsRegistered] = useState(false);
@@ -84,8 +85,8 @@ function App() {
                 path="/make-donation"
                 element={<MakeDonation setActiveLink={setActiveLink} />}
               />
-              <Route path="/freelancers" element={<Freelancers/>}/>
-              <Route path="/company" element={<Company/>}/>
+              <Route path="/employeeForm" element={<EmployeeModal/>}/>
+              <Route path="/company/about" element={<Company/>}/>
             </Route>
           </Routes>
         </Layout>
