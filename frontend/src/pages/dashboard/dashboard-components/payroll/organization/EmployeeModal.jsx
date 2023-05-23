@@ -1,6 +1,7 @@
 import React, { useState, useCallback } from "react";
 import { useDropzone } from "react-dropzone";
 import { FiUpload } from "react-icons/fi";
+import { AiFillCloseCircle } from "react-icons/ai"
 import { BsChevronDown } from "react-icons/bs";
 import { useSelector } from "react-redux";
 import PayrollHeader from "../components/PayrollHeader";
@@ -9,8 +10,8 @@ import Card from "../components/Card";
 import CustomButton from "../../../../../components/form/CustomButton";
 import CustomInput from "../../../../../components/form/CustomInput";
 import CustomLabel from "../../../../../components/form/CustomLabel";
-import { AiFillCloseCircle } from "react-icons/ai";
-import useGetCountriesQuery from "../../../../../customhooks/useGetCountries";
+import ConfirmOTP from "./ConfirmOTP";
+;
 const initialState = {
   firstName: "",
   lastName: "",
@@ -26,25 +27,13 @@ const EmployeeModal = (props) => {
   const { showEmployeeModal, setShowEmployeeModal } = props;
   const [formValues, setFormValues] = useState(initialState);
   const { firstName, lastName, email, wallet, country } = formValues;
+  const [showOTPModal, setShowOTPModal] = useState(false)
   const {countries} = useSelector(state =>state.payroll)
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormValues({ ...formValues, [name]: value });
   };
  
-  const onDrop = useCallback((acceptedFiles) => {
-    acceptedFiles.map((file, index) => {
-      const reader = new FileReader();
-      reader.onload = function (e) {
-        setFiles((prevState) => [
-          ...prevState,
-          { id: index, src: e.target.result },
-        ]);
-      };
-      reader.readAsDataURL(file);
-      return file;
-    });
-  }, []);
   const {
     getRootProps,
     getInputProps,
@@ -83,6 +72,11 @@ const EmployeeModal = (props) => {
       </div>
     </div>
   ));
+  const handleSubmit = (e) =>{
+    e.preventDefault()
+    setShowOTPModal(true)
+    
+  }
   return (
     <div>
       <PayrollHeader
@@ -99,7 +93,7 @@ const EmployeeModal = (props) => {
               className="lg:w-1/2 w-full bg-lightGreen"
             />
           </div>
-          <form>
+          <form onSubmit={handleSubmit}>
             <div className=" flex flex-col gap-6 lg:grid lg:grid-cols-2">
               <div className="my-2">
                 <CustomLabel>First Name</CustomLabel>
@@ -221,12 +215,19 @@ const EmployeeModal = (props) => {
 
              
             </div>
-            <div className="my-2">
+            <div className="my-2" >
               <CustomButton>Submit</CustomButton>
             </div>
           </form>
         </div>
       </div>
+      {showOTPModal && (
+        <ConfirmOTP
+          showOTPModal={showOTPModal}
+          setShowOTPModal={setShowOTPModal}
+         
+        />
+      )}
     </div>
   );
 };
