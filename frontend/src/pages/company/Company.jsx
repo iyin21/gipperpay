@@ -104,9 +104,9 @@ const Company = () => {
     <div>
       <div className="w-full h-full relative">
         <div className="w-full h-full relative z-[-50]">
-          <img src={pricingImage1} alt="" className="w-full h-full" />
+          <img src={pricingImage1} alt="" className="w-full h-[300px] lg:h-full" />
         </div>
-        <p className="z-100 bg-transparent absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 m-auto text-center w-full lg:w-[35%] font-big text-l leading-10 text-white-60 px-[1px]">
+        <p className="z-100 bg-transparent absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 m-auto text-center w-full lg:w-[35%] font-big text-sm lg:text-l leading-10 text-white-60 px-[1px]">
           Building Lasting solutions for crypto experts, enthusiasts, Newbies
           and Businesses in{" "}
           <span className="bg-Rectangle text-center rounded-md">Africa</span>{" "}
@@ -122,19 +122,19 @@ const Company = () => {
             variants={imageVariants}
             src={pricingImage2}
             alt=""
-            className="w-full h-full object-cover "
+            className="w-full h-[300px] lg:h-full object-cover "
           />
         </div>
       </div>
-      <div className="lg:max-w-[1200px] m-auto">
-        <div className="flex flex-col lg:flex-row gap-2 h-auto items-center my-10 lg:px-8">
+      <div className=" lg:max-w-[1200px] m-auto">
+        <div className="flex flex-col lg:flex-row gap-2 h-auto items-center my-10 px-8">
           <motion.div
             variants={textVariants}
             viewport={{ once: true }}
             initial="hide"
             whileInView="show"
             ref={scrollRef}
-            className="w-1/2"
+            className="w-full lg:w-1/2"
           >
             <h2 className="text-secondary-30 text-sm font-regular">
               Our vision
@@ -143,7 +143,7 @@ const Company = () => {
             <p className="text-l w-full lg:w-[70%] leading-10 text-secondary-main font-big my-5">
               Building Lasting solutions in the crypto space
             </p>
-            <p className="text-secondary-30 w-full lg:w-[65%] text-s font-regular leading-6">
+            <p className="hidden lg:block text-secondary-30 w-full lg:w-[65%] text-s font-regular leading-6">
               Posuere pellentesque in dictum faucibus elementum aliquam eget
               dignissim. Facilisi nibh molestie nunc tincidunt velit.
               Ullamcorper mi duis eget cras nibh neque tortor sed morbi.
@@ -164,7 +164,7 @@ const Company = () => {
               },
             }}
             ref={rectangleRef}
-            className="w-1/2 flex h-auto gap-2 items-center relative"
+            className="w-full lg:w-1/2 flex h-auto gap-2 items-center relative"
           >
             <div>
               <img src={FrameOne} alt="one" />
@@ -177,11 +177,16 @@ const Company = () => {
             <img
               src={Frame}
               alt="frame"
-              className="absolute z-[-50]  left-[200px]"
+              className="absolute z-[-50]  lg:left-[200px]"
             />
           </motion.div>
+          <p className="block lg:hidden text-secondary-30 w-full lg:w-[65%] text-s font-regular leading-6">
+              Posuere pellentesque in dictum faucibus elementum aliquam eget
+              dignissim. Facilisi nibh molestie nunc tincidunt velit.
+              Ullamcorper mi duis eget cras nibh neque tortor sed morbi.
+            </p>
         </div>
-        <div className="flex flex-col w-full lg:flex-row-reverse justify-between h-auto items-center my-10 lg:px-8">
+        <div className="flex flex-col w-full lg:flex-row-reverse justify-between h-auto items-center my-10 px-8">
           <motion.div
             variants={textVariants}
             animate="show"
@@ -195,7 +200,7 @@ const Company = () => {
             <p className="text-l w-full  leading-10 text-secondary-main font-big my-5">
               Building Lasting solutions in the crypto space
             </p>
-            <p className="text-secondary-30 w-full  text-s font-regular leading-6">
+            <p className=" hidden lg:block text-secondary-30 w-full  text-s font-regular leading-6">
               Posuere pellentesque in dictum faucibus elementum aliquam eget
               dignissim. Facilisi nibh molestie nunc tincidunt velit.
               Ullamcorper mi duis eget cras nibh neque tortor sed morbi.
@@ -216,19 +221,24 @@ const Company = () => {
               },
             }}
             ref={rectangleRef}
-            className="w-full lg:w-[70%] flex h-auto items-center relative gap-4"
+            className="w-full lg:w-[70%] flex h-auto items-center relative gap-4 my-12 lg:my-0"
           >
             <img
               src={Frame}
               alt="frame"
-              className="absolute left-[-25px] top-[140px] z-[-50] "
+              className="absolute lg:left-[-25px] lg:top-[140px] z-[-50] "
             />
-            <img src={FrameOne} alt="one" />
+            <img src={FrameOne} alt="one" className="w-[150px] lg:w-auto" />
             <div>
               <img src={FrameTwo} alt="one" />
               <img src={FrameThree} alt="one" />
             </div>
           </motion.div>
+          <p className="block lg:hidden text-secondary-30 w-full  text-s font-regular leading-6">
+              Posuere pellentesque in dictum faucibus elementum aliquam eget
+              dignissim. Facilisi nibh molestie nunc tincidunt velit.
+              Ullamcorper mi duis eget cras nibh neque tortor sed morbi.
+            </p>
         </div>
         <div className="flex flex-col lg:flex-row gap-3 h-auto items-center px-8">
           <motion.div
@@ -267,7 +277,7 @@ const Company = () => {
           >
             {services.map((item) => (
               <div
-                className="border-[1px] border-secondary-10 lg:w-[90%] py-3 lg:py-12 my-3 px-8 rounded-md text-center"
+                className="border-[1px] border-secondary-10 m-auto  w-[60%] lg:w-[90%] py-8 lg:py-12 my-3 px-8 rounded-md text-center"
                 key={item.label}
               >
                 <div className=" bg-primary-light w-[50px] h-[50px] m-auto rounded-full flex items-center justify-center">
@@ -280,9 +290,9 @@ const Company = () => {
             ))}
           </motion.div>
         </div>
-        <div className="relative h-full w-full my-8">
-          <img src={Contact} alt="contact" className="m-auto" />
-          <div className="text-white-60 flex justify-between  w-full h-auto items-center md:w-[75%] absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2">
+        <div className="relative  lg:h-full lg:py-0 py-4 my-8">
+          <img src={Contact} alt="contact" className="m-auto h-[400px]" />
+          <div className="text-white-60 flex-row px-8 lg:px-0 lg:flex justify-between  w-full h-auto items-center md:w-[75%] absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2">
             <p className="lg:w-[65%]">Contact Us</p>
             <div className="w-full text-white-60 lg:w-[35%] text-s font-regular">
               <p className="mt-4">Address</p>
@@ -305,7 +315,7 @@ const Company = () => {
             </div>
           </div>
         </div>
-        <div className="shadow-md lg:px-8 mt-8 mb-24 px-4 py-3">
+        <div className="shadow-md lg:px-8 mt-8 mb-24 px-8 py-3">
           <p className="text-white-30 text-sm font-regular text-center">Blog</p>
           <p className="m-auto text-center font-big text-l leading-10 lg:w-[30%] my-4 text-secondary-main">
             Whats hapenining in Gipperpay?
@@ -323,7 +333,7 @@ const Company = () => {
                 <img
                   src={offer.image}
                   alt={offer.label}
-                  className="h-[300px]  rounded-md w-[400px]"
+                  className="h-[250px] lg:h-[300px] m-auto  rounded-md w-[400px]"
                 />
                 <p className="my-4 text-secondary-main font-medium text-m">
                   {offer.label}
