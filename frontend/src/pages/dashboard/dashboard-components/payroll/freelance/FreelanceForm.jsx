@@ -31,6 +31,7 @@ const FreelanceForm = () => {
       setError('')
      const {name, value} = e.target
      setFormValues({...formValues, [name]: value})
+     setError('')
     }
     const dispatch = useDispatch()
     const {countryOptions} = useSelector(state =>state.payroll)
@@ -39,10 +40,13 @@ const FreelanceForm = () => {
     e.preventDefault()
     if(!gust || !firstName || !lastName || !jobPayer || !jobType || !email ||!description){
       setError('please submit all details')
-    }
+    }else{
       dispatch(addFreelanceDetails(formValues))
       setShowLinkModal(true)
-    
+      console.log('open link')
+    }
+      
+    console.log(showLinkModal)
     
   }
   return (
@@ -173,7 +177,7 @@ const FreelanceForm = () => {
     <CustomButton>Create Link</CustomButton>
   </div>
 </form>
-{showLinkModal && <PayrollLinkModal showLinkModal={setShowLinkModal} setShowLinkModal={setShowLinkModal} checker={true}/>}
+{showLinkModal && <PayrollLinkModal setShowLinkModal={setShowLinkModal} checker={true}/>}
     </>
   )
 }

@@ -27,12 +27,12 @@ const ConfirmOTP = ({showOTPModal, setShowOTPModal}) => {
         <form onSubmit={handleSubmit}>
           <p className="font-medium text-xs leading-8 text-secondary-main">Secure code</p>
           <div className="flex gap-4 mt-2 mb-8">
-            <CustomInput placeholder="1" className="text-center border-[1px] border-secondary-30 rounded-sm w-[50px] h-[50px]"/>
-            <CustomInput placeholder="2" />
-            <CustomInput placeholder="3" />
-            <CustomInput placeholder="4" />
-            <CustomInput placeholder="5" />
-            <CustomInput placeholder="6" />
+            <CustomInput type="password" placeholder="1" className="text-center border-[1px] border-secondary-30 rounded-sm w-[50px] h-[50px]"/>
+            <CustomInput type="password"  placeholder="2" />
+            <CustomInput type="password"  placeholder="3" />
+            <CustomInput type="password"  placeholder="4" />
+            <CustomInput type="password"  placeholder="5" />
+            <CustomInput type="password"  placeholder="6" />
           </div>
           <p className="text-center mb-8 font-medium text-s leading-5 text-secondary-main">
             Didn't receive code?{" "}

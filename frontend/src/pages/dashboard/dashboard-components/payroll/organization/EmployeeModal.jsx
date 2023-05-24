@@ -1,8 +1,10 @@
-import React, { useState, useCallback } from "react";
+import React, { useState} from "react";
 import { useDropzone } from "react-dropzone";
 import { FiUpload } from "react-icons/fi";
 import { AiFillCloseCircle } from "react-icons/ai"
 import { BsChevronDown } from "react-icons/bs";
+import { motion } from "framer-motion";
+import { dropIn } from "./PayrollLinkModal";
 import { useSelector } from "react-redux";
 import PayrollHeader from "../components/PayrollHeader";
 import OrgLogo from "../../../../../assets/payroll/orgLogo.png";
@@ -78,12 +80,21 @@ const EmployeeModal = (props) => {
     
   }
   return (
-    <div>
+    <div
+   
+        className="fixed overflow-y-auto left-0 top-0 w-full h-[100vh] flex bg-whiteText z-50"
+    >
+      <div className="w-full">
       <PayrollHeader
         setShowEmployeeModal={setShowEmployeeModal}
        
       />
-      <div className="flex justify-center bg-white-Main m-auto w-full h-full lg:pt-4">
+      <motion.div
+       variants={dropIn}
+       initial="hidden"
+       animate="visible"
+       exit="exit"
+       className="flex justify-center bg-white-Main  m-auto w-full h-full lg:pt-4">
         <div className="w-full lg:w-[50%] bg-whiteText rounded-md py-4 px-8">
           <div className="lg:w-full ">
             <Card
@@ -220,6 +231,7 @@ const EmployeeModal = (props) => {
             </div>
           </form>
         </div>
+      </motion.div>
       </div>
       {showOTPModal && (
         <ConfirmOTP

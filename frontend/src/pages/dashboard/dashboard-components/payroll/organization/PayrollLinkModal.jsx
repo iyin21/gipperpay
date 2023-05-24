@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import { useNavigate } from "react-router-dom";
 import { motion } from "framer-motion";
 import { useDispatch } from "react-redux";
 import { MdOutlineAttachment } from "react-icons/md";
@@ -8,7 +7,7 @@ import { RxCopy } from "react-icons/rx";
 import Invoice from "../invoice/Invoice";
 import stakeBackdrop from "../../../../../widgets/Modal/stake/stakeBackdrop";
 import EmployeeModal from "./EmployeeModal"
-import { setActivePayrollPage, setFreelancePage } from "../../../../../redux/payrollSlice";
+import { showActiveModal } from "../../../../../redux/payrollSlice";
 
 
 export const dropIn = {
@@ -26,18 +25,20 @@ export const dropIn = {
     opacity: 0,
   },
 };
-const PayrollLinkModal = ({ openModal, setOpenModal, setShowOpenModal, showLinkModal, setShowLinkModal, checker }) => {
+const PayrollLinkModal = ({ openModal, setOpenModal, setShowOpenModal,  setShowLinkModal, checker }) => {
   const [showEmployee, setShowEmployee] = useState(false);
   const [showInvoice, setShowInvoice] = useState(false)
   const dispatch = useDispatch()
-  const navigate = useNavigate()
   const handleNavigate = () => {
   
     if(checker){
-     setTimeout(()=>{
+     setTimeout(() =>{
       setShowLinkModal(false)
      },2000000)
+    
+     dispatch(showActiveModal(false))
     setShowInvoice(true)
+    setShowEmployee(false)
      
      
     }else {
@@ -48,15 +49,19 @@ const PayrollLinkModal = ({ openModal, setOpenModal, setShowOpenModal, showLinkM
         console.log('Heyy')
        },2000000)
        setShowEmployee(true)
+       setShowInvoice(false)
       
      
     }
    
   };
-  if(!openModal) return
+  
   console.log(showEmployee)
   console.log(openModal)
- 
+ const handleClose = () =>{
+  setOpenModal(false) 
+  setShowLinkModal(false)
+ }
   return (
     <>
       <div className="fixed mt-[100px] flex justify-center w-ful h-full backdrop-blur z-50 top-0 left-0 right-0   md:inset-0 h-modal md:max-h-full">
@@ -77,7 +82,7 @@ const PayrollLinkModal = ({ openModal, setOpenModal, setShowOpenModal, showLinkM
             <img
               src={Close}
               alt="close"
-              onClick={() =>setOpenModal(false)}
+              onClick={handleClose}
               className="w-[20px] h-[20px]"
             />
           </div>
@@ -95,13 +100,13 @@ const PayrollLinkModal = ({ openModal, setOpenModal, setShowOpenModal, showLinkM
           </div>
         </motion.div>
       </div>
-      {showEmployee && (
+      {showEmployee && !showInvoice && (
         <EmployeeModal
           showEmployeeModal={showEmployee}
           setShowEmployeeModal={setShowEmployee}
         />
       )}
-      {showInvoice && <Invoice showInvoice={showInvoice} setShowInvoice={setShowInvoice}/>}
+      {showInvoice && !showEmployee && <Invoice showInvoice={showInvoice} setShowInvoice={setShowInvoice}/>}
     </>
   );
 };
