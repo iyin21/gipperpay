@@ -9,19 +9,19 @@ import {setFreelancePage} from "../../../../../redux/payrollSlice"
 const transactions = [
   {
     label: "Payout processed",
-    desc: "Processes just now",
+    desc: "Processed just now",
     cost: "$ 2,000",
     checker: "processed",
   },
   {
     label: "Payout processed",
-    desc: "Processes just now",
+    desc: "Processed just now",
     cost: "$ 2,000",
     checker: "processed",
   },
   {
     label: "Payout received",
-    desc: "01.10.2022",
+    desc: "Processed 01.10.2022",
     cost: "$ 2,000",
     checker: "received",
   },
@@ -33,13 +33,13 @@ const transactions = [
   },
   {
     label: "Payout received",
-    desc: "01.10.2022",
+    desc: "Processed 01.10.2022",
     cost: "$ 2,000",
     checker: "received",
   },
   {
     label: "Payout received",
-    desc: "01.10.2022",
+    desc: "Processed 01.10.2022",
     cost: "$ 2,000",
     checker: "received",
   },
@@ -51,7 +51,7 @@ const transactions = [
   },
   {
     label: "Payout processed",
-    desc: "Processes just now",
+    desc: "Processed just now",
     cost: "$ 2,000",
     checker: "processed",
   },
@@ -88,11 +88,13 @@ const Freelancers = () => {
             >
               <div className="flex h-auto items-center gap-4">
                 {item.checker === "received" ? (
-                 <div className="w-[30px] h-[30px] rounded-full flex center items-center justify-center bg-primary-lightRed"> 
-                 <FiArrowDownLeft color="#F11B1B"/></div>
+                 <div className="w-[30px] h-[30px] rounded-full flex center items-center justify-center bg-primary-lightGreen"> 
+                 <FiArrowDownLeft color="#31C36C"/>
+                
+                 </div>
                 ) : item.checker === "processed" ? (
-                 <div className="w-[30px] h-[30px] flex center rounded-full items-center justify-center bg-primary-lightGreen">
-                   <FiArrowUpRight color="#31C36C" />
+                 <div className="w-[30px] h-[30px] flex center rounded-full items-center justify-center bg-primary-lightRed">
+                   <FiArrowUpRight color="#F11B1B" />
                  </div>
                 ) : item.checker === "invoice" ? (
                   <div className="w-[30px] h-[30px] rounded-full flex center items-center justify-center bg-primary-lightYellow">

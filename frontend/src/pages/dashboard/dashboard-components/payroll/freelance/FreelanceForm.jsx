@@ -1,5 +1,5 @@
 import React,{useState} from 'react'
-import { useSelector } from 'react-redux'
+import { useSelector, useDispatch } from 'react-redux'
 import {BsChevronDown } from "react-icons/bs"
 import CustomInput from '../../../../../components/form/CustomInput'
 import CustomButton from '../../../../../components/form/CustomButton'
@@ -7,6 +7,8 @@ import CustomTextArea from '../../../../../components/form/CustomTextArea'
 import CustomLabel from '../../../../../components/form/CustomLabel'
 import { gustCoin } from '../../../../../assets'
 import { downIcon } from '../../../../../icons'
+import { addFreelanceDetails } from '../../../../../redux/payrollSlice'
+import PayrollLinkModal from '../organization/PayrollLinkModal'
 const initialState = {
     gust: "",
     firstName:"",
@@ -21,23 +23,40 @@ const initialState = {
   }
 const FreelanceForm = () => {
     const [formValues, setFormValues] = useState(initialState);
-    const { gust, firstName, lastName, jobPayer, jobType, country, email, description } =
+    const [error, setError] = useState('')
+    const[showLinkModal, setShowLinkModal] = useState(false)
+    const { gust, firstName, lastName, jobPayer, jobType, email, description } =
       formValues;
     const handleChange =(e) =>{
+      setError('')
      const {name, value} = e.target
      setFormValues({...formValues, [name]: value})
     }
+    const dispatch = useDispatch()
     const {countryOptions} = useSelector(state =>state.payroll)
     console.log(countryOptions)
+  const handleSubmit = (e) =>{
+    e.preventDefault()
+    if(!gust || !firstName || !lastName || !jobPayer || !jobType || !email ||!description){
+      setError('please submit all details')
+    }
+      dispatch(addFreelanceDetails(formValues))
+      setShowLinkModal(true)
+    
+    
+  }
   return (
-    <form>
+    <>
+    <form onSubmit={handleSubmit}>
+      {error && <p className='text-red-400'>{error}</p>}
     <div className='my-2'>
-    <CustomLabel>Select Gust</CustomLabel>
+    <CustomLabel>Select Coin and Amount to receive</CustomLabel>
        
     <div className="w-full border-[1px] px-5 h-auto bg-white-60 py-[14px] flex flex-row justify-between items-between rounded-[5px] border-primary-90 ">
-     <div className='flex h-auto gap-2 justify-center'>
+     
+     <div className='flex h-auto w-full flex- gap-2 '>
      <img src={gustCoin} alt="gustCoin"  className="w-[20px] h-[20px]" />
-      <h1 className="w-[32px] h-[19px] not-italic font-regular text-xs leading-[19px] text-white-30 mr-[10px] ">
+      <h1 className="w-[32px] h-[19px] not-italic font-regular text-xs leading-[19px] text-white-30 mr-[5px] ">
         GU$T
       </h1>
       <img
@@ -46,7 +65,9 @@ const FreelanceForm = () => {
         className="w-[20px] h-[20px]"
       />
      </div>
-     <p className='text-s font-normal text-white-30'>$0.00</p>
+     
+     <input value={gust} name="gust" onChange={handleChange} className="w-[20%] text-s font-normal text-white-30" placeholder="$0.00"/>
+     {/* <p className='text-s font-normal text-white-30'>$0.00</p> */}
     </div>
   
     </div>
@@ -152,6 +173,8 @@ const FreelanceForm = () => {
     <CustomButton>Create Link</CustomButton>
   </div>
 </form>
+{showLinkModal && <PayrollLinkModal showLinkModal={setShowLinkModal} setShowLinkModal={setShowLinkModal} checker={true}/>}
+    </>
   )
 }
 
