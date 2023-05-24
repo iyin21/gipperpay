@@ -6,7 +6,7 @@ const Card = (props) => {
     <div
       checker={checker}
       className={
-        `px-4 py-2 flex h-auto items-center w-full lg:w-[50%] gap-3 rounded-md` +
+        `px-4 py-2 flex h-auto items-center w-full  gap-3 rounded-md` +
         className
       }
     >

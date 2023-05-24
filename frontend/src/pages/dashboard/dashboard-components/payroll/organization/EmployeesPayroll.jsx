@@ -30,7 +30,7 @@ const EmployeesPayroll = () => {
     setStartDate(e.target.value);
   };
   const handleModal = () => {
-    setOpenModal((prev) => !prev);
+   setOpenModal(true)
   };
   console.log(startDate);
   return (
@@ -163,7 +163,7 @@ const EmployeesPayroll = () => {
       </div>
       <PayrollTable />
       {openModal && (
-        <PayrollLinkModal handleModal={handleModal} openModal={openModal} />
+        <PayrollLinkModal setOpenModal={setOpenModal} openModal={openModal}  checker={false}/>
       )}
     </div>
   );
