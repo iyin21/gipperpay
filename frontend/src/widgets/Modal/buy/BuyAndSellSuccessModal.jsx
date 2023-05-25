@@ -1,15 +1,16 @@
 import React from "react";
-import { useNavigate } from "react-router-dom";
 import { motion } from "framer-motion";
 import { congrats } from "../../../assets";
-function BuyAndSellSuccessModal({ amountToBuy, setAmountToBuy, setActiveBuyAndsellSection }) {
-  const navigate = useNavigate();
-  const handleFinish = () => {
-    setActiveBuyAndsellSection(0);    
-    setAmountToBuy('')
-    navigate("/dashboard");
-  };
+function BuyAndSellSuccessModal({
+  amountToBuy,
 
+  desc,
+
+  firstName,
+}) {
+  const handleFinish = () => {
+    window.location.reload();
+  };
   const dropIn = {
     hidden: {
       y: "-100vh",
@@ -47,10 +48,14 @@ function BuyAndSellSuccessModal({ amountToBuy, setAmountToBuy, setActiveBuyAndse
           Success!
         </p>
         <div className="w-[8rem] h-14 rounded-xl bg-primary-light mx-auto mt-9 mb-3 text-s flex justify-center items-center font-medium text-primary-main leading-6">
-          {amountToBuy.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")} GU$T
+          {amountToBuy
+            ? `${amountToBuy
+                ?.toString()
+                .replace(/\B(?=(\d{3})+(?!\d))/g, ",")} GU$T`
+            : firstName}
         </div>
         <p className="text-xs leading-5 text-center font-medium text-white-30 mt-2 mb-2">
-          Has Been Received
+          {desc}
         </p>
         {/* copy link */}
         <button

@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { motion } from "framer-motion";
 import { useSelector } from "react-redux";
 import { RiWallet2Line } from "react-icons/ri";
+import BuyAndSellSuccessModal from "../../../../../widgets/Modal/buy/BuyAndSellSuccessModal";
 import Card from "../components/Card";
 import CustomLabel from "../../../../../components/form/CustomLabel";
 import CustomInput from "../../../../../components/form/CustomInput";
@@ -14,24 +15,24 @@ import { dropIn } from "../organization/PayrollLinkModal";
 
 export const Connect = () => {
   const {
-    freelance: { firstName, lastName, jobPayer, email },
+    freelance: { firstName, lastName, jobPayer, email, country },
   } = useSelector((state) => state.payroll);
   const data = [
     {
       label: "From",
       name: `${firstName} ${lastName}`,
       email: "MaryStanfield@gmail.com",
-      country: "Nigeria",
+      country
     },
     {
       label: "To",
       name: jobPayer,
-      email: email,
+      email,
 
-      country: "Nigeria",
+      country
     },
   ];
-  
+
   return (
     <div className="w-full lg:w-[55%] pr-0 lg:pr-8 lg:border-r-2 lg:border-white-30">
       <div className="lg:w-full ">
@@ -84,47 +85,44 @@ export const Connect = () => {
   );
 };
 const ConnectWallet = ({ handleNext, stepInvoice }) => {
-  const [showSuccessModal, setShowSuccessModal ] = useState(false)
-  const[formValues, setFormValues] = useState({
-    email:'',
-    gust:''
-  })
-  const {email, gust} = formValues
-  const [error, setError] = useState("")
-  const handleChange = (e) =>{
-    const {name, value} =e.target
-    setFormValues({...formValues,[name]:value})
-    setError('')
-  }
-  const handleSubmit = (e) =>{
-    e.preventDefault()
-    if(!email){
-      setError('Please submit email')
-    }else{
-      handleNext()
+ 
+  const [formValues, setFormValues] = useState({
+    email: "",
+    gust: "",
+  });
+  const { email, gust } = formValues;
+  const [error, setError] = useState("");
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setFormValues({ ...formValues, [name]: value });
+    setError("");
+  };
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    if (!email) {
+      setError("Please submit email");
+    } else {
+      handleNext();
     }
-    
-  
-    
-   
-  }
-  const handleForm = (e) =>{
-    e.preventDefault()
-    if(!gust){
-      setError('Please submit gust')
+  };
+  const handleForm = (e) => {
+    e.preventDefault();
+    if (!gust) {
+      setError("Please submit gust");
     }
-    setShowSuccessModal(true)
-  }
+    handleNext();
+  };
   return (
-    <motion.div 
-    variants={dropIn}
+    <motion.div
+      variants={dropIn}
       initial="hidden"
       animate="visible"
       exit="exit"
-    className="w-full lg:w-[95%] px-4  mx-auto lg:px-2 py-5 justify-center rounded-md flex h-auto items-center bg-[#fcfcfc] flex-col lg:flex-row">
-      <Connect />
-      <div className="w-full lg:w-[40%]  pl-0 lg:pl-8">
-        {stepInvoice === 0 ? (
+      className="w-full lg:w-[95%] px-4  mx-auto lg:px-2 py-5 justify-center rounded-md flex h-auto items-center bg-[#fcfcfc] flex-col lg:flex-row"
+    >
+      {stepInvoice === 0 || stepInvoice === 1 ? <Connect /> : ""}
+      {stepInvoice === 0 ? (
+        <div className="w-full lg:w-[40%]  pl-0 lg:pl-8">
           <form className="w-full" onSubmit={handleSubmit}>
             <p className="text-secondary-main mt-4 font-medium leading-7 text-sm">
               Connect Wallet
@@ -133,7 +131,6 @@ const ConnectWallet = ({ handleNext, stepInvoice }) => {
               Please connect a wallet to make donation
             </p>
             <div className="my-4">
-              
               {error && <p className="text-red-400 mb-2">{error}</p>}
               <CustomLabel>Enter email</CustomLabel>
               <CustomInput
@@ -144,33 +141,44 @@ const ConnectWallet = ({ handleNext, stepInvoice }) => {
               />
             </div>
             <button
-             
               className="py-3 px-5 text-s flex justify-center
     gap-2 item-center w-full lg:w-[50%] text-whiteText rounded bg-Rectangle"
             >
               <RiWallet2Line size="1.5rem" /> Connect Wallet
             </button>
           </form>
-        ) : (
+        </div>
+      ) : stepInvoice === 1 ? (
+        <div className="w-full lg:w-[40%]  pl-0 lg:pl-8">
           <form onSubmit={handleForm}>
-            <p className="text-secondary-main mt-4 font-medium leading-7 text-sm">Make payment</p>
-            <p className="text-secondary-main mt-4 font-regular leading-7 text-s my-4">Connected Wallets</p>
+            <p className="text-secondary-main mt-4 font-medium leading-7 text-sm">
+              Make payment
+            </p>
+            <p className="text-secondary-main mt-4 font-regular leading-7 text-s my-4">
+              Connected Wallets
+            </p>
             <div className="flex my-1 justify-around items-center w-[18.6rem]">
-                <div className="h-[40px] w-[40px]">
-                  <img src={metamask} alt="" />
-                </div>
-
-                <div>
-                  <p className="text-s text-secondary-main font-regular leading-6">Metamask</p>
-                  <p className="text-xs text-white-30 font-regular leading-[18.7px]">Mrehbasvuyed.................Ytegvsafy</p>
-                </div>
-
-                <div>
-                  <RiDeleteBin6Fill color="#0B002A" size="1rem"/>
-                </div>
+              <div className="h-[40px] w-[40px]">
+                <img src={metamask} alt="" />
               </div>
+
+              <div>
+                <p className="text-s text-secondary-main font-regular leading-6">
+                  Metamask
+                </p>
+                <p className="text-xs text-white-30 font-regular leading-[18.7px]">
+                  Mrehbasvuyed.................Ytegvsafy
+                </p>
+              </div>
+
+              <div>
+                <RiDeleteBin6Fill color="#0B002A" size="1rem" />
+              </div>
+            </div>
             {email && <p className="text-white-30">{email}</p>}
-            <p className="text-secondary-main my-4 font-medium leading-7 text-s">Select Payment Method</p>
+            <p className="text-secondary-main my-4 font-medium leading-7 text-s">
+              Select Payment Method
+            </p>
             {error && <p className="text-red-400 mb-2">{error}</p>}
             <CustomLabel>Choose Asset</CustomLabel>
             <div className="mt-[1px] w-full border-[1px] px-5 h-auto bg-white-60 py-[14px] flex flex-row justify-between items-between rounded-[5px] border-primary-90 ">
@@ -199,7 +207,7 @@ const ConnectWallet = ({ handleNext, stepInvoice }) => {
               />
             </div>
             <div className="flex justify-between w-full h-auto items-center mt-2">
-              <p className="w-[90%]">Avaliable Balance: ${gust} GU$T</p>
+              <p className="w-[90%] text-s font-normal text-white-30">Avaliable Balance: ${gust} GU$T</p>
               <div className="w-[10%]">
                 <p className="flex-end bg-primaryLight text-center w-[40px] h-[40px] flex justify-center m-auto items-center rounded-sm text-primary-main">
                   Max
@@ -209,13 +217,18 @@ const ConnectWallet = ({ handleNext, stepInvoice }) => {
             <button
               type="submit"
               className="mt-10 w-full lg:w-[30%] h-12 bg-primary-main rounded-md text-whiteText text-s font-regular leading-6"
-              
             >
               Settle Invoice
             </button>
           </form>
-        )}
-      </div>
+        </div>
+      ) : stepInvoice === 2 ? (
+        <div className="w-full">
+          <BuyAndSellSuccessModal  amountToBuy={gust} desc="Payment received" />
+        </div>
+      ) : (
+        ""
+      )}
     </motion.div>
   );
 };

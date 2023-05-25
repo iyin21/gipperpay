@@ -1,5 +1,6 @@
-import React,{useState} from 'react'
-import { useSelector, useDispatch } from 'react-redux'
+import React,{useState, useEffect} from 'react'
+import { useDispatch } from 'react-redux'
+import axios from 'axios'
 import {BsChevronDown } from "react-icons/bs"
 import CustomInput from '../../../../../components/form/CustomInput'
 import CustomButton from '../../../../../components/form/CustomButton'
@@ -24,8 +25,9 @@ const initialState = {
 const FreelanceForm = () => {
     const [formValues, setFormValues] = useState(initialState);
     const [error, setError] = useState('')
+    const [countries, setCountries] = useState([])
     const[showLinkModal, setShowLinkModal] = useState(false)
-    const { gust, firstName, lastName, jobPayer, jobType, email, description } =
+    const { gust, firstName, lastName, jobPayer, jobType, country, email, description } =
       formValues;
     const handleChange =(e) =>{
       setError('')
@@ -33,9 +35,25 @@ const FreelanceForm = () => {
      setFormValues({...formValues, [name]: value})
      setError('')
     }
+
     const dispatch = useDispatch()
-    const {countryOptions} = useSelector(state =>state.payroll)
-    console.log(countryOptions)
+    useEffect(() => {
+      const fetchCountries = async () => {
+        try {
+          const response = await axios.get("https://restcountries.com/v3.1/all");
+          const countryOptions = response.data.map((country) => ({
+            name: country.name.common,
+            flag: country.flags.png,
+          }));
+         
+          setCountries(countryOptions);
+        } catch (error) {
+          console.error("Error fetching countries:", error);
+        }
+      };
+  
+      fetchCountries();
+    });
   const handleSubmit = (e) =>{
     e.preventDefault()
     if(!gust || !firstName || !lastName || !jobPayer || !jobType || !email ||!description){
@@ -70,29 +88,11 @@ const FreelanceForm = () => {
       />
      </div>
      
-     <input value={gust} name="gust" onChange={handleChange} className="w-[20%] text-s font-normal text-white-30" placeholder="$0.00"/>
+     <input value={gust} name="gust" onChange={handleChange} className="w-[20%] text-left text-s font-normal text-white-30" placeholder="$0.00"/>
      {/* <p className='text-s font-normal text-white-30'>$0.00</p> */}
     </div>
   
     </div>
-    {/* <div className="my-2">
-      <CustomLabel>Country</CustomLabel>
-      <div className="relative lg:inline-block">
-      
-      <select
-        className="appearance-none w-full h-[3.1rem] border border-secondary-20 rounded-[5px] px-5 text-xs text-secondary-30 font-regular leading-5 flex gap-3 items-center"
-        value={country}
-        onChange={handleChange}
-        name="country"
-      >
-       Select
-      </select>
-      <div className="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700">
-      
-        <BsChevronDown size={10} />
-      </div>
-      </div>
-    </div> */}
 <div className="my-2">
       <CustomLabel>First Name</CustomLabel>
       <CustomInput
@@ -122,15 +122,15 @@ const FreelanceForm = () => {
     </div>
     <div className="my-2">
       <CustomLabel>Country</CustomLabel>
-      <div className="relative lg:inline-block">
+      <div className="relative w-full lg:block">
       
-      {/* <select
+      <select
         className="appearance-none w-full h-[3.1rem] border border-secondary-20 rounded-[5px] px-5 text-xs text-secondary-30 font-regular leading-5 flex gap-3 items-center"
         value={country}
         onChange={handleChange}
         name="country"
       >
-        {countryOptions?.map((country) => (
+        {countries?.map((country) => (
           <option
             value={country.name}o0
             key={country.name}
@@ -140,7 +140,7 @@ const FreelanceForm = () => {
             {country.name}
           </option>
         ))}
-      </select> */}
+      </select>
       <div className="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700">
       
         <BsChevronDown size={10} />

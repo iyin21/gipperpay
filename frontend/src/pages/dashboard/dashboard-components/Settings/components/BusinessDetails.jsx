@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import Avatar from "react-avatar";
 import { BsUpload } from "react-icons/bs";
 import { Disclosure } from "@headlessui/react";
@@ -10,7 +10,7 @@ import PhoneInput from "react-phone-number-input";
 import "react-phone-number-input/style.css";
 
 function BusinessDetails() {
-  const onSubmit = () => {};
+ 
 
   return (
     <div className="lg:w-full mt-[1.25rem] ">

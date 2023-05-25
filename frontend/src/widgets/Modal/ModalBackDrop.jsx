@@ -1,6 +1,5 @@
 import React from "react";
 import { AiFillCloseCircle } from "react-icons/ai";
-import { gipperpaylogo } from "../../assets";
 import { IoMdArrowBack } from "react-icons/io";
 import { motion } from "framer-motion";
 import { logo } from "../../assets";

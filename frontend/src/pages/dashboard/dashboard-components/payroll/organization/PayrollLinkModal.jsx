@@ -5,7 +5,6 @@ import { MdOutlineAttachment } from "react-icons/md";
 import Close from "../../../../../assets/closeIcon.png";
 import { RxCopy } from "react-icons/rx";
 import Invoice from "../invoice/Invoice";
-import stakeBackdrop from "../../../../../widgets/Modal/stake/stakeBackdrop";
 import EmployeeModal from "./EmployeeModal"
 import { showActiveModal } from "../../../../../redux/payrollSlice";
 
@@ -60,7 +59,7 @@ const PayrollLinkModal = ({ openModal, setOpenModal, setShowOpenModal,  setShowL
   console.log(openModal)
  const handleClose = () =>{
   setOpenModal(false) 
-  setShowLinkModal(false)
+ // setShowLinkModal(false)
  }
   return (
     <>

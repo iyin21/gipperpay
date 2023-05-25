@@ -7,8 +7,6 @@ import EmployeesLogo from "../../../../../assets/employeesLogo.png";
 import PayrollLogo from "../../../../../assets/payrollLogo.png";
 import { setActivePayrollPage } from "../../../../../redux/payrollSlice";
 import OrgLogo from "../../../../../assets/orgLogo.png";
-import CustomButton from "../../../../../components/form/CustomButton";
-import CustomInput from "../../../../../components/form/CustomInput";
 import PayrollTable from "./PayrollTable";
 import PayrollLinkModal from "./PayrollLinkModal";
 

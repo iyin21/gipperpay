@@ -1,6 +1,5 @@
 import React,{useState} from 'react'
 import ModalBackDrop from '../../../../../widgets/Modal/ModalBackDrop'
-import Payment from './Payment';
 import ConnectWallet from './ConnectWallet';
 const Invoice = ({showInvoice, setShowInvoice}) => {
     const [stepInvoice, setStepInvoice] = useState(0);

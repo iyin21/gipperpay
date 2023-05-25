@@ -2,7 +2,6 @@ import React from "react";
 import { AiOutlineArrowLeft } from "react-icons/ai";
 import { FiArrowDownLeft, FiArrowUpRight } from "react-icons/fi";
 import Freelance from "./Freelance";
-import { payrollItems } from "../Payroll";
 import PrimaryButton from "../../../../../widgets/buttons/PrimaryButton";
 import { useDispatch } from "react-redux";
 import {setFreelancePage} from "../../../../../redux/payrollSlice"

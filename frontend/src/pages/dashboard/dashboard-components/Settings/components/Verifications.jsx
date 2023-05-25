@@ -7,10 +7,10 @@ import { Formik } from "formik";
 
 import PhoneInput from "react-phone-number-input";
 import "react-phone-number-input/style.css";
-import { useSelector } from "react-redux";
+
 
 function Verifications() {
-  const { user } = useSelector((store) => store.user);
+  // const { user } = useSelector((store) => store.user);
   return (
     <div className="lg:w-full mt-[1.25rem] ">
       <div className=" hidden lg:flex lg:flex-col ">
@@ -194,14 +194,14 @@ function Verifications() {
                   ExpiryDate: "",
                 }}
                 onSubmit={(values) => {
-                  const data = {
-                    userId: user.data.userId,
-                    userIdtype: values.IDtype,
-                    idNumber: values.IDNumber,
-                    idCountry: values.Nationality,
-                    issuedDate: values.IssuedDate,
-                    expiryDate: values.ExpiryDate,
-                  };
+                  // const data = {
+                  //   userId: user.data.userId,
+                  //   userIdtype: values.IDtype,
+                  //   idNumber: values.IDNumber,
+                  //   idCountry: values.Nationality,
+                  //   issuedDate: values.IssuedDate,
+                  //   expiryDate: values.ExpiryDate,
+                  // };
                   try {
                   } catch (error) {}
                 }}
