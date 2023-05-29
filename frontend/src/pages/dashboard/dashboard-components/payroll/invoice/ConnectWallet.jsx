@@ -15,7 +15,7 @@ import { dropIn } from "../organization/PayrollLinkModal";
 
 export const Connect = () => {
   const {
-    freelance: { firstName, lastName, jobPayer, email, country },
+    freelance: { firstName, lastName, jobPayer, jobType, description, email, country },
   } = useSelector((state) => state.payroll);
   const data = [
     {
@@ -45,13 +45,10 @@ export const Connect = () => {
       </div>
       <div className="mt-4">
         <p className="text-secondary-main font-regular text-s leading-5">
-          UI design
+         {jobType}
         </p>
         <p className="font-regular text-white-30 text-xs leading-4 font-jost mt-2">
-          Lorem ipsum dolor sit amet consectetur. Praesent habitant lectus
-          commodo est. Scelerisque convallis tempus vitae sem lobortis ultricies
-          viverra lobortis eget. Gravida quam nibh ultricies eget congue. Purus
-          hendrerit mauris orci diam vestibulum vitae suspendisse scelerisque.
+          {description}
         </p>
         <p className="font-regular text-s text-secondary-main leading-5 my-5">
           Date created <span className="text-white-30">11/20/2023</span>

@@ -1,15 +1,21 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
 import { motion } from "framer-motion";
 import { congrats } from "../../../assets";
 function BuyAndSellSuccessModal({
   amountToBuy,
-
   desc,
-
   firstName,
+  checker = true
 }) {
+  const navigate = useNavigate()
   const handleFinish = () => {
-    window.location.reload();
+    if(checker) {
+      window.location.reload()
+    }else {
+      navigate('/dashboard')
+    }
+   
   };
   const dropIn = {
     hidden: {

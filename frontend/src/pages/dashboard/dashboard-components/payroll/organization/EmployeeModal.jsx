@@ -134,7 +134,7 @@ const EmployeeModal = ({  setShowEmployeeModal }) => {
                     />
                   </div>
                   <div className="my-2">
-                    <CustomLabel>Enter the wallet address</CustomLabel>
+                    <CustomLabel>Enter USDT (Erc20) address</CustomLabel>
                     <CustomInput
                       name="wallet"
                       value={wallet}
