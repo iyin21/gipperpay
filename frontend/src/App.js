@@ -21,7 +21,6 @@ import MakeDonation from "./widgets/donate/MakeDonation";
 import EcommerceStore from "./pages/Businesses/E-commerceStore/EcommerceStore";
 import BusinessWallet from "./pages/Businesses/BusinessWallet/BusinessWallet";
 import Company from "./pages/company/Company";
-import Freelancers from "./pages/dashboard/dashboard-components/payroll/freelance/Freelancers";
 import EmployeeModal from "./pages/dashboard/dashboard-components/payroll/organization/EmployeeModal";
 
 function App() {

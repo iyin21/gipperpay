@@ -2,6 +2,7 @@ import React from "react";
 import { AiFillCloseCircle } from "react-icons/ai";
 import { IoMdArrowBack } from "react-icons/io";
 import { motion } from "framer-motion";
+import { logo } from "../../assets";
 function ModalBackDrop({
   children,
   text,
@@ -24,7 +25,11 @@ function ModalBackDrop({
   active,
   closeSellModal,
   stepper,
-  setShowOrgModal
+  setShowOrgModal,
+  handlePrevious,
+  setShowInvoice,
+  showInvoice,
+  stepInvoice
 }) {
   const steps = [
     {
@@ -70,6 +75,20 @@ function ModalBackDrop({
       text: "Confirm Transaction Details",
     },
   ];
+  const invoiceSteps = [
+    {
+      id: 1,
+      text: "Connect a wallet",
+    },
+    {
+      id: 2,
+      text: "Confirm details",
+    },
+    {
+      id: 3,
+      text: "Make payment",
+    }
+  ]
   return (
     <motion.div
       initial={{ opacity: 0 }}
@@ -119,7 +138,26 @@ function ModalBackDrop({
               </p>
             </button>
           ) : null}
-
+          {stepInvoice === 0  ?
+            <div className="flex w-full h-auto items-center justify-between">
+              <AiFillCloseCircle
+                cursor="pointer"
+                size="2rem"
+                color="#7B7B7B"
+                onClick={() =>setShowInvoice(false)}
+               
+              />
+             
+            </div>
+          : stepInvoice === 1 ? <button
+          className="flex items-center justify-start gap-3"
+          onClick={handlePrevious}
+        >
+          <IoMdArrowBack />
+          <p className="text-s font-medium text-secondary-main leading-6">
+            Connect a wallet
+          </p>
+        </button> :"" }
           {step === 0 ? (
             <>
               <AiFillCloseCircle
@@ -224,6 +262,12 @@ function ModalBackDrop({
           type === "buyAndSell" && "hidden"
         }`}
       >
+        {stepInvoice === 0 || stepInvoice === 1 ?
+        <div className=" lg:h-20 hidden lg:flex justify-end px-8 items-center text-left">
+        <img src={logo} alt="logo" className=" w-[6.375rem] h-[1.25rem] lg:w-[12.75rem] lg:h-[2.5rem] "/>
+        </div>
+         :""}
+        
         <div className="flex gap-2 items-center w-full mt-0 ml-6 pt-2 lg:block lg:mt-40 lg:pt-0">
          {stepper &&  
          <p className="font-medium mb-0 text-secondary-main text-s lg:text-sm leading-7 lg:mb-6">
@@ -277,6 +321,25 @@ function ModalBackDrop({
                 <div
                   className={`w-[2rem] h-[2rem]  flex justify-center items-center rounded-lg text-whiteText ${
                     i === TopUpStep ? "bg-secondary-main" : "bg-secondary-light"
+                  }`}
+                >
+                  {step.id}
+                </div>
+                <p className="hidden text-s lg:block">{step.text}</p>
+              </div>
+            ))}
+            {/* invoice */}
+            {type === "invoice" &&
+            invoiceSteps.map((step, i) => (
+              <div
+                key={i}
+                className="w-full flex justify-start gap-2 items-center mb-0 lg:mb-8"
+              >
+                <div
+                  className={`w-[2rem] h-[2rem] flex justify-center items-center rounded-lg text-whiteText ${
+                    i === stepInvoice
+                      ? "bg-secondary-main"
+                      : "bg-secondary-light"
                   }`}
                 >
                   {step.id}

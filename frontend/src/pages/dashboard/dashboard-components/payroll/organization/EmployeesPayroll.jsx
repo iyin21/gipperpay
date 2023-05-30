@@ -7,8 +7,6 @@ import EmployeesLogo from "../../../../../assets/employeesLogo.png";
 import PayrollLogo from "../../../../../assets/payrollLogo.png";
 import { setActivePayrollPage } from "../../../../../redux/payrollSlice";
 import OrgLogo from "../../../../../assets/orgLogo.png";
-import CustomButton from "../../../../../components/form/CustomButton";
-import CustomInput from "../../../../../components/form/CustomInput";
 import PayrollTable from "./PayrollTable";
 import PayrollLinkModal from "./PayrollLinkModal";
 
@@ -30,7 +28,7 @@ const EmployeesPayroll = () => {
     setStartDate(e.target.value);
   };
   const handleModal = () => {
-    setOpenModal((prev) => !prev);
+   setOpenModal(true)
   };
   console.log(startDate);
   return (
@@ -163,7 +161,7 @@ const EmployeesPayroll = () => {
       </div>
       <PayrollTable />
       {openModal && (
-        <PayrollLinkModal handleModal={handleModal} openModal={openModal} />
+        <PayrollLinkModal setOpenModal={setOpenModal} openModal={openModal}  checker={false}/>
       )}
     </div>
   );

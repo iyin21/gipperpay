@@ -1,35 +1,43 @@
-import React from "react";
+import React ,{useState} from "react";
 import { donatePeriod, gustCoin, metamask, tenEur } from "../../../assets";
+import BuyAndSellSuccessModal from "../../Modal/buy/BuyAndSellSuccessModal";
 import { connect } from "../../../icons";
 import {RiDeleteBin6Fill} from 'react-icons/ri'
 import {AiOutlineDown} from 'react-icons/ai'
 function MakeDonationDetails({handleSetActive, email, setEmail, active}) {
+ const [gust, setGust]= useState('')
+ const handleChange =(e) =>{
+  setGust(e.target.value)
+ }
   return (
     <div className="w-full lg:w-[90%] flex flex-col lg:flex-row justify-center gap-8 p-5 bg-[#fcfcfc] mx-auto">
+     {active === 1 || active === 0 ?  
       <div className="w-full lg:w-[60%]">
-        <div className="w-full lg:w-[31.3rem] h-[18.75rem] rounded-[10px]">
-          <img
-            src={tenEur}
-            className="w-full h-full object-cover rounded-[10px]"
-            alt=""
-          />
-        </div>
+      <div className="w-full lg:w-[31.3rem] h-[18.75rem] rounded-[10px]">
+        <img
+          src={tenEur}
+          className="w-full h-full object-cover rounded-[10px]"
+          alt=""
+        />
+      </div>
 
-        <h2 className="mt-10">Mary Stans Foundations</h2>
-        <p className="mt-5 w-full lg:w-[80%] text-xs font-regular leading-[18px] text-white-30">
-          Lorem ipsum dolor sit amet consectetur. Praesent habitant lectus
-          commodo est. Scelerisque convallis tempus vitae sem lobortis ultricies
-          viverra lobortis eget. Gravida quam nibh ultricies eget congue. Purus
-          hendrerit mauris orci diam vestibulum vitae suspendisse scelerisque.
-        </p>
+      <h2 className="mt-10">Mary Stans Foundations</h2>
+      <p className="mt-5 w-full lg:w-[80%] text-xs font-regular leading-[18px] text-white-30">
+        Lorem ipsum dolor sit amet consectetur. Praesent habitant lectus
+        commodo est. Scelerisque convallis tempus vitae sem lobortis ultricies
+        viverra lobortis eget. Gravida quam nibh ultricies eget congue. Purus
+        hendrerit mauris orci diam vestibulum vitae suspendisse scelerisque.
+      </p>
 
-        <div>
-          <p className="mt-5">285 Days Left</p>
-          <div className="mt-[.6rem]">
-            <img src={donatePeriod} alt="" />
-          </div>
+      <div>
+        <p className="mt-5">285 Days Left</p>
+        <div className="mt-[.6rem]">
+          <img src={donatePeriod} alt="" />
         </div>
       </div>
+    </div>
+     :''
+     }
       
       <div className="w-full lg:w-[30%]">
         {
@@ -48,7 +56,8 @@ function MakeDonationDetails({handleSetActive, email, setEmail, active}) {
               </button>
             </form>
           </div>
-          ):(
+          ): active === 1 ?
+          (
             <div className="pb-5">
               <h2 className="text-sm text-secondary-main font-medium leading-5 ">Make A donation</h2>
               <p className="text-xs text-white-30 font-regular leading-[18.7px] mt-[3px]">Enter the amount you want to donate using your available stable coin </p>
@@ -79,18 +88,20 @@ function MakeDonationDetails({handleSetActive, email, setEmail, active}) {
                   <p className="text-s text-secondary-main font-regular leading-6">GU$T</p>
                   <AiOutlineDown/>
                 </div>
-                <input type="text" name="" id="" className="h-full px-2 w-[70%] bg-transparent placeholder:text-end placeholder:text-sm placeholder:text-30 placeholder:font-medium" placeholder="0.00" />
+                <input type="text" onChange ={handleChange} name="gust" value={gust} id="" className="h-full px-2 w-[70%] bg-transparent placeholder:text-end placeholder:text-sm placeholder:text-30 placeholder:font-medium" placeholder="0.00" />
               </div>
               <div className="flex justify-between items-center">
                 <p className="text-xs text-white-30 font-regular leading-[18.7px] my-5">Avaliable Balance: 0 GU$T</p>
                 <div className="py-[0.3rem] px-[0.6rem] bg-primary-light text-xs text-primary-main font-regular leading-[18.7px] rounded-md">Max</div>
               </div>
 
-              <button className="bg-primary-main w-full mt-10 lg:mt-0 lg:w-[5.5rem] text-whiteText py-5 lg:py-[0.69rem] px-20 lg:flex justify-center items-center rounded-[5px]">Donate</button>
+              <button className="bg-primary-main w-full mt-10 lg:mt-0 lg:w-[5.5rem] text-whiteText py-5 lg:py-[0.69rem] px-20 lg:flex justify-center items-center rounded-[5px]" onClick={handleSetActive}>Donate</button>
             </div>
           )
+          : ""
         }
       </div>
+      {active === 2 && <BuyAndSellSuccessModal desc="Donation received" checker={false} amountToBuy={gust}/>}
 
     </div>
   );

@@ -67,7 +67,7 @@ const OrganizationProfile = (props) => {
     };
 
     fetchCountries();
-  }, []);
+  });
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormValues({ ...formValues, [name]: value });
