@@ -1,4 +1,5 @@
 import React,{useState} from "react";
+import { useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
 import DonationModal from "../../../widgets/donate/DonationModal"
 import {
@@ -9,11 +10,15 @@ import {
   tenEur,
 } from "../../../assets";
 import { link, linkWhite, USDT } from "../../../icons";
+import { setActivePayoutPage, setActiveCryptoPage } from "../../../redux/gipperfiSlice";
 
 function Donate() {
   const [showDonationModal, setShowDonationModal] = useState(false)
-  const handleModal = () =>{
-    setShowDonationModal(true)
+  const dispatch = useDispatch()
+  
+  const handlePayout =() =>{
+  dispatch(setActivePayoutPage(true))
+  dispatch(setActiveCryptoPage(false))
   }
   return (
     <>
@@ -45,11 +50,11 @@ function Donate() {
             </div>
           </div>
 
-          <Link to="/make-donation">
-            <button className="flex gap-1 justify-center rounded-md items-center w-[7rem] py-[.68rem] bg-primary-main text-white-60">
+        
+            <button onClick={handlePayout} className="flex gap-1 justify-center rounded-md items-center w-[7rem] py-[.68rem] bg-primary-main text-white-60">
               <img src={payout} alt="" /> <p>Payout</p>
             </button>
-          </Link>
+         
         </div>
 
         <div className="flex justify-between items-center mt-10">
@@ -129,7 +134,7 @@ function Donate() {
           </div>
 
          
-            <button onClick={handleModal} className="flex gap-1 justify-center rounded-md items-center w-[7rem] py-[.68rem] bg-primary-main text-white-60">
+            <button onClick={handlePayout} className="flex gap-1 justify-center rounded-md items-center w-[7rem] py-[.68rem] bg-primary-main text-white-60">
               <img src={payout} alt="" /> <p>Payout</p>
             </button>
           

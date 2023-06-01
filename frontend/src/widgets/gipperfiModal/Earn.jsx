@@ -1,10 +1,33 @@
 import { AnimatePresence } from "framer-motion";
+import { useState } from "react";
+import { useDispatch } from "react-redux";
 import React from "react";
 import { earn, green, gustCoin } from "../../assets";
 import { ETH, USDT } from "../../icons";
 import StepsModal from "./StepModal";
+import SelectAmount from "./SelectAmount";
+import { setAmountToInvest } from "../../redux/gipperfiSlice";
 
 function Earn({stepsModal, showModal, handleClose }) {
+  const [to, setTo] = useState({
+    name: "",
+    image: "",
+    current_price: "",
+  });
+  const dispatch = useDispatch()
+
+  const handleSubmit = (e) =>{
+    e.preventDefault();
+    showModal()
+    dispatch(
+      setAmountToInvest({
+        name: to.name,
+        current_price: to.current_price,
+      })
+    );
+   
+
+  }
   return (
     <div className="w-full px-5">
       <div className="flex gap-2 mt-[1.6rem] items-center">
@@ -56,27 +79,9 @@ function Earn({stepsModal, showModal, handleClose }) {
         </div>
       </div>
 
-      <form action="" className=" mt-5">
+      <form action="" className=" mt-5" onSubmit={handleSubmit}>
         <div>
-          <label
-            htmlFor=""
-            className="text-s font-medium leading-6 text-secondary-main"
-          >
-            Select Asset and Amount to invest
-          </label>
-          <div className="border px-2 border-[#858095] rounded-md flex h-[3.1rem]">
-            <div className="flex items-center gap-2">
-              <img src={USDT} alt="" />
-              <p> USDT</p>
-            </div>
-            <input
-              className="pl-[1.6rem] w-[90%] text-left h-full placeholder:text-m placeholder:text-secondary-main font-medium leading placeholder:text-right"
-              type="text"
-              placeholder="0.00"
-              name=""
-              id=""
-            />
-          </div>
+          <SelectAmount to={to} setTo={setTo}/>
         </div>
         <div className="flex mt-[.6rem] justify-between">
           <p className="text-s font-regular leading-6 text-white-30">
@@ -87,10 +92,8 @@ function Earn({stepsModal, showModal, handleClose }) {
           </button>
         </div>
 
-        <button className="w-full mt-8 rounded-md bg-primary-main text-whiteText text-s leading-6 py-[0.69rem]" onClick={(e)=>{
-          e.preventDefault();
-          showModal()
-          }}>
+        <button className="w-full mt-8 rounded-md bg-primary-main text-whiteText text-s leading-6 py-[0.69rem]" 
+       >
           Fund Package
         </button>
       </form>

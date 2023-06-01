@@ -23,7 +23,7 @@ function SwapGust({ next, from, setFrom, to, setTo }) {
   useEffect(() => {
     const fetchCoins = async () => {
       const response = await axios.get(
-        "https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&order=market_cap_desc&per_page=10&page=1"
+        "https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&order=market_cap_desc&per_page=20&page=1"
       );
       const data = await response.data;
       setCoinList(data);
@@ -39,7 +39,10 @@ function SwapGust({ next, from, setFrom, to, setTo }) {
     }
     return null;
   });
-
+  let filteredCoinsArray = []
+  filteredCoinsArray.push(filteredCoins[2],filteredCoins[1],filteredCoins[4], filteredCoins[17])
+  console.log(filteredCoinsArray)
+console.log(filteredCoins)
   const handleSelect = (coin) => {
     setTo(coin);
     setImg(img);
@@ -140,7 +143,7 @@ function SwapGust({ next, from, setFrom, to, setTo }) {
                   type="text"
                   placeholder="search..."
                 />
-                {filteredCoins.map((coin, i) => (
+                {filteredCoinsArray?.map((coin, i) => (
                   <li
                     key={i}
                     className={`p-1 flex gap-2 w-full hover:bg-white-10 text-xs cursor-pointer`}
