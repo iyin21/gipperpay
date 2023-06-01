@@ -24,7 +24,7 @@ const useGetCountriesQuery = () => {
     };
 
     fetchCountries();
-  });
+  },[]);
  
   return { countries, loading, error};
 };

@@ -13,7 +13,7 @@ function MobileModal({handleClose,type}) {
   
   return (
     <GipperfiMobileModal handleClose={handleClose}>
-      <div className='w-full mt-2 pb-10'>
+      <div className='w-full lg:w-[40%] mt-2 pb-10'>
         {
           type === "fund" ? (
             <Earn stepsModal={stepsModal} handleClose={handleClose} showModal={showModal}/>
@@ -22,7 +22,7 @@ function MobileModal({handleClose,type}) {
             <Stake stepsModal={stepsModal} handleClose={handleClose} showModal={showModal}/>
           ):
           type=== "freeze" ? (
-            <Freeze/>
+            <Freeze stepsModal={stepsModal} handleClose={handleClose} showModal={showModal}/>
           ): null
         }
         </div>
