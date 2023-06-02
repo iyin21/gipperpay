@@ -93,7 +93,7 @@ function WhatWeOffer() {
         <h1 className="lg:w-[11.6875rem] lg:h-[2.5rem] lg:m-auto lg:mb-[1.25rem] mb-[1.25rem] font-Jost not-italic font-big text-l leading-[2.5rem]  items-center text-secondary-main text-center ">
           What we offer
         </h1>
-        <div className="flex flex-wrap justify-center gap-[3.75rem] pb-[12rem]">
+        <div className="flex flex-wrap justify-center gap-[3.75rem]">
           {data.map((data, index) => (
             <div
               key={index}

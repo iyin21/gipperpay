@@ -36,7 +36,7 @@ function Pricing() {
         }}
         src={coinsimage}
         alt=""
-        className="w-[19.1875rem] h-[12rem] lg:w-[27.5625rem] lg:h-[17.25rem] object-contain "
+        className="w-full h-[12rem] lg:w-[27.5625rem] lg:h-[17.25rem] object-contain "
       />
       <motion.div
         variants={textVariants}
@@ -45,13 +45,13 @@ function Pricing() {
         whileInView="show"
         ref={scrollRef}
       >
-        <h1 className="font-Jost not-italic font-regular text-sm text-secondary-30 leading-[1.6875rem]  items-center">
+        <h1 className="font-Jost not-italic font-regular text-sm text-secondary-30 leading-[1.6875rem]  text-center items-center">
           Pricing
         </h1>
         <h1 className="font-Jost not-italic font-big text-l text-secondary-main leading-[2.5rem] my-[0.625rem] items-center">
           A scalable pricing to help you grow
         </h1>
-        <h1 className=" lg:w-[34.75rem] font-Jost not-italic font-medium text-sm text-secondary-30 leading-[1.6875rem]  items-center">
+        <h1 className=" lg:w-[34.75rem] font-Jost not-italic font-medium text-sm text-secondary-30 leading-[1.6875rem] items-center">
           Grow your business with the power of crypto with our unique and simple
           pricing
         </h1>
