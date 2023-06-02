@@ -1,42 +1,42 @@
 import React from "react";
 import { congrats } from "../../../../assets";
-import { useNavigate } from "react-router-dom";
 import { BiCopy } from "react-icons/bi";
 import { motion } from "framer-motion";
-
-function SendCongratsModal({ setShowSendModal, transactionDetails }) {
-  const navigate = useNavigate();
+export const dropInModal = {
+  hidden: {
+    y: "-100vh",
+    opacity: 0,
+  },
+  visible: {
+    y: "0",
+    opacity: 1,
+    transition: {
+      duration: 2,
+      delay: 0.5,
+      type: "spring",
+      damping: 25,
+      stiffness: 500,
+    },
+  },
+  exit: {
+    y: "100vh",
+    opacity: 0,
+  },
+};
+function SendCongratsModal({ nextStep, setShowSendModal, transactionDetails }) {
+  
   const handleFinish = () => {
-    setShowSendModal(false);
-    navigate("/dashboard");
+    
+    nextStep()
+    // setShowSendModal(false);
   };
 
-  const dropIn = {
-    hidden: {
-      y: "-100vh",
-      opacity: 0,
-    },
-    visible: {
-      y: "0",
-      opacity: 1,
-      transition: {
-        duration: 2,
-        delay: 0.5,
-        type: "spring",
-        damping: 25,
-        stiffness: 500,
-      },
-    },
-    exit: {
-      y: "100vh",
-      opacity: 0,
-    },
-  };
+ 
 
   return (
     <div className="w-[100%] fixed top-0 left-0 h-[100vh] flex justify-center backdrop-blur-sm z-20">
       <motion.div
-        variants={dropIn}
+        variants={dropInModal}
         initial="hidden"
         animate="visible"
         exit="exit"

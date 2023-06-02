@@ -1,5 +1,7 @@
 import { AnimatePresence } from "framer-motion";
 import React, { useState } from "react";
+import { useDispatch } from "react-redux";
+import { setActiveCryptoPage, setActivePayoutPage } from "../../../redux/gipperfiSlice";
 import {
   blue,
   earn,
@@ -13,6 +15,7 @@ import {
 import { giperfi, USDT } from "../../../icons";
 import GipperfiModal from "../../../widgets/gipperfiModal/GipperfiModal";
 import MobileModal from '../../../widgets/gipperfiModal/MobileModal'
+
 
 function Gipperffi() {
   const GipperfiData = [
@@ -65,11 +68,36 @@ function Gipperffi() {
   const openModal = () => setShowGiperfiModal(true);
   const closeModal = () => setShowGiperfiModal(false);
   const [type,setType] = useState('')
+  const dispatch = useDispatch()
   const handleGipperfiMobileModal = (type) =>{
     type === "open" ? setShowGiperfiMobileModal(true) : setShowGiperfiMobileModal(false)
   }
+  const handlePayout = () =>{
+    dispatch(setActiveCryptoPage(true))
+    dispatch(setActivePayoutPage(false))
+  }
+  
   return (
     <div className="relative w-full p-[1.25rem]">
+       <div className="w-full mb-5 flex lg:hidden justify-between items-center mt-5">
+          <div>
+            <p className="text-s font-400 text-white-30 leading-6">
+              Total Earned
+            </p>
+            <p className="text-secondary-main text-sm leading-7 font-bold">
+              $0.00
+            </p>
+          </div>
+          
+          <button onClick={handlePayout} className="px-5 py-[0.62rem] rounded-md flex items-center gap-2 bg-primary-main">
+            <img src={payout} alt="" />{" "}
+            <p className="text-s leading-6 text-whiteText">Payout</p>
+          </button>
+          
+         
+         
+         
+        </div>
       {GipperfiData.map((data, index) => (
         <div
           className="lg:w-[33.75rem] w-full px-5 py-7 mb-[2.5rem] bg-[#F7F7F7] rounded-[20px]"
@@ -109,7 +137,7 @@ function Gipperffi() {
           <div className="w-full flex justify-end">
             {/* visible on desktop, hidden on mobile */}
             <button
-              className="hidden lg:block px-[0.6rem] py-[0.3rem] rounded-md bg-primary-light text-s leading-6 font-400 mt-[1.63rem] text-primary-main"
+              className="hidden lg:hidden px-[0.6rem] py-[0.3rem] rounded-md bg-primary-light text-s leading-6 font-400 mt-[1.63rem] text-primary-main"
               onClick={openModal}
             >
               {index === 0 ? "Fund Package" : index === 1 ? "Stake" : "Freeze"}
@@ -118,7 +146,7 @@ function Gipperffi() {
 
             {/* visible on mobile hidden on desktop */}
             <button
-              className="block lg:hidden px-[0.6rem] py-[0.3rem] rounded-md bg-primary-light text-s leading-6 font-400 mt-[1.63rem] text-primary-main"
+              className="block lg:block px-[0.6rem] py-[0.3rem] rounded-md bg-primary-light text-s leading-6 font-400 mt-[1.63rem] text-primary-main"
               onClick={()=>{
                 index === 0 ? setType("fund") :
                 index === 1 ? setType("stake") :
@@ -152,10 +180,13 @@ function Gipperffi() {
               $0.00
             </p>
           </div>
-          <button className="px-5 py-[0.62rem] rounded-md flex items-center gap-2 bg-primary-main">
+         
+          <button onClick={handlePayout} className="px-5 py-[0.62rem] rounded-md flex items-center gap-2 bg-primary-main">
             <img src={payout} alt="" />{" "}
             <p className="text-s leading-6 text-whiteText">Payout</p>
           </button>
+         
+         
         </div>
 
         <div className="mt-[2.5rem]">
