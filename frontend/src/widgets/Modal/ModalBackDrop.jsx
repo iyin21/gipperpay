@@ -28,8 +28,10 @@ function ModalBackDrop({
   setShowOrgModal,
   handlePrevious,
   setShowInvoice,
-  showInvoice,
-  stepInvoice
+   stepInvoice,
+  stepCrypto,
+  handlePrevPage,
+  setShowCryptoModal
 }) {
   const steps = [
     {
@@ -88,6 +90,16 @@ function ModalBackDrop({
       id: 3,
       text: "Make payment",
     }
+  ]
+  const gipperfiSteps = [
+    {
+      id: 1,
+      text: "Select a wallet",
+    },
+    {
+      id: 2,
+      text: "Complete payment",
+    },
   ]
   return (
     <motion.div
@@ -158,6 +170,18 @@ function ModalBackDrop({
             Connect a wallet
           </p>
         </button> :"" }
+        {stepCrypto === 0  &&
+            <div className="flex w-full h-auto items-center justify-between">
+              <AiFillCloseCircle
+                cursor="pointer"
+                size="2rem"
+                color="#7B7B7B"
+                onClick={() =>setShowCryptoModal(false)}
+               
+              />
+             
+            </div>
+           }
           {step === 0 ? (
             <>
               <AiFillCloseCircle
@@ -180,7 +204,22 @@ function ModalBackDrop({
                 Enter Address
               </p>
             </button>
-          ) : null}
+          ) : step === 4 ? 
+          <button
+          className="flex items-center justify-start gap-3"
+          onClick={() => setShowSendModal(false)}
+        >
+           <AiFillCloseCircle
+                cursor="pointer"
+                size="2rem"
+                color="#7B7B7B"
+                onClick={() => setShowTopUpModal(false)}
+              />
+          <p className="text-s font-medium text-secondary-main leading-6">
+            Redeem Asset
+          </p>
+        </button>
+          : null}
 
           {TopUpStep === 0 ? (
             <>
@@ -269,10 +308,26 @@ function ModalBackDrop({
          :""}
         
         <div className="flex gap-2 items-center w-full mt-0 ml-6 pt-2 lg:block lg:mt-40 lg:pt-0">
-         {stepper &&  
+         {stepper && (step!== 4 || step !== 5) ?
          <p className="font-medium mb-0 text-secondary-main text-s lg:text-sm leading-7 lg:mb-6">
             Steps
-          </p>}
+          </p> :""}
+          {type === "gipperfi" &&
+            gipperfiSteps.map((stp, i) => (
+              <div
+                key={i}
+                className="w-full flex justify-start gap-2 items-center mb-0 lg:mb-8"
+              >
+                <div
+                  className={`w-[2rem] h-[2rem] flex justify-center items-center rounded-lg text-whiteText ${
+                    i === stepCrypto ? "bg-secondary-main" : "bg-secondary-light"
+                  }`}
+                >
+                  {stp.id}
+                </div>
+                <p className="hidden lg:block text-s">{stp.text}</p>
+              </div>
+            ))}
           {type === "swap" &&
             steps.map((step, i) => (
               <div
@@ -294,7 +349,7 @@ function ModalBackDrop({
 
           {/* send gust */}
 
-          {type === "send" &&
+          {type === "send" && (step === 0 || step === 1 || step === 2 || step === 3) ?
             sendSteps.map((stp, i) => (
               <div
                 key={i}
@@ -309,7 +364,7 @@ function ModalBackDrop({
                 </div>
                 <p className="hidden lg:block text-s">{stp.text}</p>
               </div>
-            ))}
+            )) :""}
 
           {/* top up */}
           {type === "topUp" &&

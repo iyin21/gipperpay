@@ -1,12 +1,15 @@
 import React, { useState } from 'react'
+import { useSelector } from 'react-redux'
 import Payout from './Payout'
-import Destination from './Destination'
 import Password from './Password'
 import {BiArrowBack} from 'react-icons/bi'
+import BuyAndSellSuccessModal from '../Modal/buy/BuyAndSellSuccessModal'
 
 function StepsModal({handleClose}) {
   const [step,setStep] = useState(0)
   const [paymentMethod, setPaymentMethod] = useState('')
+  const {coins:{name, current_price}} = useSelector(state =>state.gipperfi)
+  console.log(setPaymentMethod)
   return (
     <div className='fixed top-0 left-0 w-full h-full border-2 border-green-900 bg-whiteText z-10'>
       <div className='p-5' onClick={() =>{
@@ -21,10 +24,10 @@ function StepsModal({handleClose}) {
           <Password setStep={setStep} handleClose={handleClose} step={step}/>
         ):
         step === 1 ? (
-          <Destination setPaymentMethod={setPaymentMethod} setStep={setStep} step={step}/>
+          <BuyAndSellSuccessModal desc="Successfully created" firstName={`${current_price} ${name}`}/>
         ):
         step === 2 ? (
-          <Payout handleClose={handleClose} paymentMethod={paymentMethod} setStep={setStep}/>
+          <Payout handleClose={handleClose} paymentMethod={paymentMethod} setStep={setStep} />
         ): null
       }
     </div>
