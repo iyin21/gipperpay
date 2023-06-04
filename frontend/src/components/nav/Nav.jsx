@@ -5,6 +5,9 @@ import Products from "../nav/navComponents/Products";
 import Businesses from "../nav/navComponents/Businesses";
 import Company from "../nav/navComponents/Company";
 import MobileView from "./navComponents/MobileView";
+import Infrastructure from "./navComponents/Infrastructure"
+import Developers from "./navComponents//Developers"
+import Users from "./navComponents/Users"
 import { Link } from "react-router-dom";
 
 //assets
@@ -40,6 +43,9 @@ function Nav() {
         <Products />
         <Businesses />
         <Company />
+        <Infrastructure />
+        <Developers />
+        <Users />
       </div>
       <div className=" hidden lg:flex flex-row items-start  ">
         <Link to="/signIn">

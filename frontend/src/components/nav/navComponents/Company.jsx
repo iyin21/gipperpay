@@ -26,7 +26,7 @@ function Company() {
           leaveFrom="transform opacity-100 scale-100"
           leaveTo="transform opacity-0 scale-95"
         >
-          <Menu.Items className="absolute inset-[5.625rem] left-[15.75rem] shadow-sm w-[58.5rem] h-[7.4375rem] py-[2.625rem] px-[4.125rem] grid grid-cols-3 gap-[2.5rem] bg-whiteText">
+          <Menu.Items className="absolute inset-[5.625rem] left-[25.9375rem] shadow-sm w-[38.625rem] h-fit py-[2.2188rem]  px-[2.75rem]  bg-whiteText grid grid-cols-1 gap-[0.5rem] ">
             {COMPANY.map((item, index) => (
               <Link to={item.link}>
                 <Menu.Item as="div" className="flex  flex-col items-start">
