@@ -62,12 +62,12 @@ const images = [
 
 function BigHeader() {
   return (
-    <div className=" flex flex-col  lg:flex-row py-[0.625rem] px-[1.15625rem] items-center lg:pt-[5.5625rem] relative ">
+    <div className=" flex flex-col xl:flex-row py-[0.625rem] px-[1.15625rem] items-center lg:pt-[1.5625rem] relative ">
       <motion.div
         variants={textVariants}
         animate="show"
         initial="hide"
-        className="  lg:m-auto "
+        className=" flex flex-col lg:m-auto 2xl:mx-[5rem] 2xl:w-[55.254rem]"
       >
         <h1 className=" font-Jost not-italic font-big text-2xl mr-[2.5rem]  lg:pt-[3.0625rem] lg:w-[44.25rem] lg:text-4xl lg:leading-[5.75rem]  text-secondary-main flex  items-center  ">
           Everything you need to build in Web3

@@ -98,7 +98,7 @@ import checkwhocan from "./checkwhocan.svg";
 import finance from "./finance.svg";
 import ecommerce from "./ecommerce.svg";
 import cryptoWallet from "./cryptoWallet.svg";
-
+import mark from "./mark.png"
 import productsPayrollPic1 from "./productsPayrollPic1.png";
 import productsPayrollPic2 from "./productsPayrollPic2.png";
 import productsPayrollPic3 from "./productsPayrollPic3.png";
@@ -263,5 +263,6 @@ export {
   stripe,
   tether,
   uniswap,
-  visa
+  visa,
+  mark
 };

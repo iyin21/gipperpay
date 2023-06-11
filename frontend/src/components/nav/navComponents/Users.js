@@ -1,18 +1,18 @@
 import React, { Fragment } from "react";
-
 import { Menu, Transition } from "@headlessui/react";
 import { BiChevronDown } from "react-icons/bi";
-import { COMPANY } from "../data";
+
+import { USERS } from "../data";
 import { Link } from "react-router-dom";
 
-function Company() {
+function Users() {
   return (
-    <div className="w-[8.625rem] h-[3.125rem] rounded-[6.25rem] pl-[1.25rem] pr-[0.625rem] pt-[0.84375rem] pb-[0.8475rem] mr-[0.3125rem] flex flex-row items-center  z-20 ">
+    <div className=" rounded-[6.25rem] pl-[1.25rem] pr-[0.625rem] py-[0.0625rem] mr-[0.3125rem] flex flex-row items-center  z-20">
       <Menu as="div">
         <div>
           <Menu.Button className="flex flex-row  hover:text-Rectangle items-center ">
             <h1 className=" text-secondary-main  font-Jost font-regular font text-s leading-[1.445rem] text-center mr-[0.3125rem]  hover:text-Rectangle ">
-              Company
+              Users
             </h1>
             <BiChevronDown size="1.25rem" />
           </Menu.Button>
@@ -26,16 +26,22 @@ function Company() {
           leaveFrom="transform opacity-100 scale-100"
           leaveTo="transform opacity-0 scale-95"
         >
-          <Menu.Items className="absolute inset-[5.625rem] mx-auto shadow-sm w-[38.625rem] h-fit py-[2.2188rem]  px-[2.75rem]  bg-whiteText grid grid-cols-1 gap-[0.5rem] ">
-            {COMPANY.map((item, index) => (
-              <Link to={item.link}>
-                <Menu.Item
-                  as="div"
-                  className="flex  flex-col items-start h-fit"
-                >
-                  <div className="w-[15.625rem] h-[3.125rem] flex flex-row items-center ">
-                    <img src={item.image} alt="" className=" mr-[1.25rem] " />
-                    <h1 className="w-[9.6875rem] h-[1.6875rem] font-Jost not-italic font-big text-sm leading-[1.4375rem]  text-secondary-main">
+          <Menu.Items
+            as="div"
+            className="absolute inset-[5.625rem] mx-auto shadow-sm w-[38.625rem] h-fit py-[2.2188rem]  px-[2.75rem]  bg-whiteText grid grid-cols-1 gap-[0.5rem] "
+          >
+            {USERS.map((item, index) => (
+              <Link key={index} to={item.link}>
+                <Menu.Item as="div" className="flex flex-col items-start h-fit">
+                  <div className="w-[22.925rem] h-[3.125rem] flex flex-row items-center">
+                    <img
+                      src={item.image}
+                      alt=""
+                      className={`w-[1.9725rem] h-[1.875rem] mr-[1.25rem]`}
+                    />
+                    <h1
+                      className={`h-[1.6875rem] font-Jost not-italic font-big text-sm leading-[1.6875rem] hover:text-Rectangle`}
+                    >
                       {item.name}
                     </h1>
                   </div>
@@ -49,4 +55,4 @@ function Company() {
   );
 }
 
-export default Company;
+export default Users;

@@ -1,90 +1,152 @@
-import React from "react";
-
-import { PRODUCTS, BUSINESSES, COMPANY } from "../data";
-
-import { questionmark } from "../../../icons";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
+import { questionmark, arrowDown, arrowRight } from "../../../icons";
+import { PRODUCTS, BUSINESSES, COMPANY, INFRASTRUCTURE, DEVELOPERS, USERS } from "../data";
 
 const MobileView = () => {
+  const initialState = {
+    showProducts: false,
+    showBusinesses: false,
+    showCompany: false,
+    showInfrastructure: false,
+    showDevelopers: false,
+    showUsers: false,
+  };
+
+  const [state, setState] = useState(initialState);
+
+  const toggleSection = (section) => {
+    setState((prevState) => ({
+      ...prevState,
+      [section]: !prevState[section],
+    }));
+  };
+
+  const renderSection = (section, items) => {
+    return (
+      <div>
+  {items.map((item, index) => (
+    <Link key={index} to={item.link}>
+      <div className="flex flex-row w-fit h-[2.5rem] px-[2.625rem] items-center mt-[1.25rem]">
+        <img
+          src={item.image}
+          alt=""
+          className="w-[1.6437rem] h-[1.6437rem] mr-[0.9375rem]"
+        />
+        <h1
+          className={`font-Jost font-medium text-s text-secondary-main leading-[1.4375rem] ${
+            item.name.includes('Coming Soon') ? 'text-white-20' : ''
+          }`}
+        >
+          {item.name}
+        </h1>
+      </div>
+    </Link>
+  ))}
+</div>
+    );
+  };
+
   return (
     <>
-      {/**Products */}
-      <h1 className=" font-Jost font-medium text-s text-secondary-main leading-[1.4375rem] ">
-        Products
-      </h1>
-      <div className=" mt-[1.625rem] bg-red-blue items-center grid grid-cols-3 gap-[0.625rem]  ">
-        {PRODUCTS.map((item, index) => (
-          <Link to={item.link}>
-            <div className=" w-[6.25rem] h-[4.3125rem]  items-center   ">
-              <img
-                src={item.image}
-                alt=""
-                className="w-[1.875rem] h-[1.875rem] m-auto "
-              />
-              <h1 className=" font-Jost font-medium text-xs text-center text-secondary-main leading-[1.1875rem] mt-[0.3125rem] ">
-                {item.name}
-              </h1>
-            </div>
-          </Link>
-        ))}
+      {/* Products */}
+      <div className="flex items-center justify-between">
+        <h1 className="font-Jost font-medium text-s text-secondary-main leading-[1.4375rem]">
+          Products
+        </h1>
+        <img
+          src={state.showProducts ? arrowDown : arrowRight}
+          alt=""
+          className="w-[1.25rem] h-[1.25rem] cursor-pointer"
+          onClick={() => toggleSection("showProducts")}
+        />
       </div>
-      {/**Products */}
-      {/**Businesses */}
-      <h1 className=" font-Jost font-medium text-s text-secondary-main leading-[1.4375rem] mt-[1.25rem] ">
-        Businesses
-      </h1>
-      <div className=" mt-[1.625rem] items-center grid grid-cols-2 gap-[0]  ">
-        {BUSINESSES.map((item, index) => (
-          <Link to={item.link}>
-            <div className=" w-[6.25rem] h-[4.3125rem]  items-center   ">
-              <img
-                src={item.image}
-                alt=""
-                className="w-[1.875rem] h-[1.875rem] m-auto "
-              />
-              <h1 className=" font-Jost font-medium text-xs text-center text-secondary-main leading-[1.1875rem] mt-[0.3125rem] ">
-                {item.name}
-              </h1>
-            </div>
-          </Link>
-        ))}
+      {state.showProducts && renderSection("showProducts", PRODUCTS)}
+
+      {/* Businesses */}
+      <div className="flex items-center justify-between mt-[1.25rem]">
+        <h1 className="font-Jost font-medium text-s text-secondary-main leading-[1.4375rem]">
+          Businesses
+        </h1>
+        <img
+          src={state.showBusinesses ? arrowDown : arrowRight}
+          alt=""
+          className="w-[1.25rem] h-[1.25rem] cursor-pointer"
+          onClick={() => toggleSection("showBusinesses")}
+        />
       </div>
-      {/**Businesses */}
-      {/**Company */}
-      <h1 className=" font-Jost font-medium text-s text-secondary-main leading-[1.4375rem] mt-[1.25rem] ">
-        Company
-      </h1>
-      <div>
-        {COMPANY.map((item, index) => (
-          <Link to={item.link}>
-            <div className="flex flex-row w-[15.625rem] h-[2.5rem] px-[0.625rem] items-center mt-[1.25rem] ">
-              <img
-                src={item.icon}
-                alt=""
-                className=" w-[1.0437rem] h-[1.0437rem] mr-[0.9375rem] "
-              />
-              <h1 className=" font-Jost font-medium text-s text-secondary-main leading-[1.4375rem]  ">
-                {item.name}
-              </h1>
-            </div>
-          </Link>
-        ))}
+      {state.showBusinesses && renderSection("showBusinesses", BUSINESSES)}
+
+      {/* Company */}
+      <div className="flex items-center justify-between mt-[1.25rem]">
+        <h1 className="font-Jost font-medium text-s text-secondary-main leading-[1.4375rem]">
+          Company
+        </h1>
+        <img
+          src={state.showCompany ? arrowDown : arrowRight}
+          alt=""
+          className="w-[1.25rem] h-[1.25rem] cursor-pointer"
+          onClick={() => toggleSection("showCompany")}
+        />
       </div>
-      {/**Company */}
-      {/** create a free account */}
-      <div className=" flex flex-row items-center mt-[1.25rem] ">
-        <h1 className=" rounded-[0.3125rem] bg-Rectangle justify-center items-center py-[0.625rem]  px-[1.25rem] font-Jost not-italic font-regular text-s leading-[1.4375rem] text-white-60 ">
+      {state.showCompany && renderSection("showCompany", COMPANY)}
+
+      {/* Infrastructure */}
+      <div className="flex items-center justify-between mt-[1.25rem]">
+        <h1 className="font-Jost font-medium text-s text-secondary-main leading-[1.4375rem]">
+          Infrastructure
+        </h1>
+        <img
+          src={state.showInfrastructure ? arrowDown : arrowRight}
+          alt=""
+          className="w-[1.25rem] h-[1.25rem] cursor-pointer"
+          onClick={() => toggleSection("showInfrastructure")}
+        />
+      </div>
+      {state.showInfrastructure && renderSection("showInfrastructure", INFRASTRUCTURE)}
+
+      {/* Developers */}
+      <div className="flex items-center justify-between mt-[1.25rem]">
+        <h1 className="font-Jost font-medium text-s text-secondary-main leading-[1.4375rem]">
+          Developers
+        </h1>
+        <img
+          src={state.showDevelopers ? arrowDown : arrowRight}
+          alt=""
+          className="w-[1.25rem] h-[1.25rem] cursor-pointer"
+          onClick={() => toggleSection("showDevelopers")}
+        />
+      </div>
+      {state.showDevelopers && renderSection("showDevelopers", DEVELOPERS)}
+
+      {/* Users */}
+      <div className="flex items-center justify-between mt-[1.25rem]">
+        <h1 className="font-Jost font-medium text-s text-secondary-main leading-[1.4375rem]">
+          Users
+        </h1>
+        <img
+          src={state.showUsers ? arrowDown : arrowRight}
+          alt=""
+          className="w-[1.25rem] h-[1.25rem] cursor-pointer"
+          onClick={() => toggleSection("showUsers")}
+        />
+      </div>
+      {state.showUsers && renderSection("showUsers", USERS)}
+
+      {/* Create a free account */}
+      <div className="flex flex-row items-center mt-[1.25rem]">
+        <h1 className="rounded-[0.3125rem] bg-Rectangle justify-center items-center py-[0.625rem] px-[1.25rem] font-Jost not-italic font-regular text-s leading-[1.4375rem] text-white-60">
           Create a free account
         </h1>
-        <div className="  ml-[1.25rem] rounded-[0.3125rem] flex flex-row items-center justify-center ">
-          <img src={questionmark} alt="" className="w-[1.25rem] h-[1.25rem] " />
-          <h1 className="  font-Jost not-italic text-s leading-[1.4375rem] text-center text-Rectangle ml-[0.75rem] ">
+        <div className="ml-[1.25rem] rounded-[0.3125rem] flex flex-row items-center justify-center">
+          <img src={questionmark} alt="" className="w-[1.25rem] h-[1.25rem]" />
+          <h1 className="font-Jost not-italic text-s leading-[1.4375rem] text-center text-Rectangle ml-[0.75rem]">
             Speak to sales
           </h1>
         </div>
       </div>
-      {/**Create a free account */}
     </>
   );
 };
+
 export default MobileView;
