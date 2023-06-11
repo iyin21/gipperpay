@@ -1,16 +1,22 @@
-import React from "react";
+import React, { useState } from "react";
 import Avatar from "react-avatar";
 import { BsUpload } from "react-icons/bs";
 import { Disclosure } from "@headlessui/react";
 import { FiChevronDown } from "react-icons/fi";
 import { FiChevronRight } from "react-icons/fi";
 import { Formik } from "formik";
-
+import Button from "../../../../GetStarted/components/Button";
 import PhoneInput from "react-phone-number-input";
 import "react-phone-number-input/style.css";
+import UploadButton from "./UploadButton";
+import useGetCountriesQuery from "../../../../../customhooks/useGetCountries"
+import { businesslogo } from "../../../../../assets";
+
 
 function BusinessDetails() {
- 
+  const { countries, loading, error } = useGetCountriesQuery();
+
+  const onSubmit = () => {};
 
   return (
     <div className="lg:w-full mt-[1.25rem] ">
@@ -18,22 +24,20 @@ function BusinessDetails() {
         <h1 className=" w-[10.75rem] font-Jost not-italic font-medium text-sm leading-[1.6875rem] text-secondary-main ">
           Business Details
         </h1>
+        <h1 className=" w-[22.625rem]  font-Jost not-italic font-regular text-[0.6875rem]  leading-[1rem] text-white-30 ">
+          Here's what we know about your business. Please do update it if there have been
+          any recent changes.
+        </h1>
       </div>
       <div className=" flex flex-col lg:flex-row lg:mt-[1.25rem] lg:justify-between justify-center items-center  ">
         <div className=" lg:flex lg:flex-row items-center ">
-          <Avatar name="Business Details" round={true} size="80" />
+          <Avatar name="Business Details" round={true} size="80" src={businesslogo}/>
           <h1 className=" hidden lg:flex  ml-[1.25rem] font-Jost not-italic font-medium text-s leading-[1.4375rem] text-secondary-main ">
-            Business Details
+            Business Logo
           </h1>
         </div>
         <div className="lg:w-[14.0625rem] ">
-          <div className=" flex flex-row m-auto mt-[0.625rem] lg:m-0 lg:mt-0  justify-center w-[8rem] h-[2.5rem] lg:ml-[6.25rem] rounded-[6.25rem] border-[0.0625rem] border-primary-main text-primary-main items-center ">
-            <BsUpload />
-            <h1 className="ml-[0.625rem] text-s ">Upload</h1>
-          </div>
-          <h1 className=" lg:w-[14.0625rem] font-Jost not-italic font-regular text-xs leading-[1.1875rem] text-white-30 mt-[0.625rem] items-center ">
-            Png or JPEG not bigger than 500x500px
-          </h1>
+        <UploadButton />
         </div>
       </div>
 
@@ -76,7 +80,7 @@ function BusinessDetails() {
                           type="text"
                           name="BusinessName"
                           {...formik.getFieldProps("BusinessName")}
-                          placeholder="Enter city of residence"
+                          placeholder="Enter you business name"
                           className="h-full w-full py-[1.1rem] pl-3 bg-transparent text-white-30 placeholder:text-white-30 "
                         />
                       </div>
@@ -145,7 +149,7 @@ function BusinessDetails() {
                           type="text"
                           name="BusinessIndustry"
                           {...formik.getFieldProps("BusinessIndustry")}
-                          placeholder="Enter city of residence"
+                          placeholder="Enter your business industry"
                           className="h-full w-full py-[1.1rem] pl-3 bg-transparent text-white-30 placeholder:text-white-30 "
                         />
                       </div>
@@ -175,6 +179,7 @@ function BusinessDetails() {
                     >
                       Update & Save
                     </button>
+                     
                     {/**button */}
                   </form>
                 )}
@@ -210,18 +215,33 @@ function BusinessDetails() {
                     onSubmit={formik.handleSubmit}
                   >
                     {/**Country */}
-                    <div className=" w-full lg:w-[18.75rem] mt-[0.625rem] lg:mt-[0] ">
-                      <h1 className="lg:w-[7.5rem] lg:h-[1.1875rem] font-Jost font-medium text-xs leading-[1.1875rem] items-center mb-[0.3125rem] text-secondary-main ">
-                        Country
-                      </h1>
-                      <div className="flex mt-[0.6rem] items-center bg-[#FCFCFC] w-full  shadow-[0px_1px_2px_rgba(16,24,40,0.05)] border-[#858095] border-[0.0625rem] pl-[1.25rem] rounded-md">
-                        <input
-                          type="text"
-                          name="Country"
-                          {...formik.getFieldProps("Country")}
-                          placeholder="Enter city of residence"
-                          className="h-full w-full py-[1.1rem] pl-3 bg-transparent text-white-30 placeholder:text-white-30 "
-                        />
+                    <div className="w-full lg:w-[18.75rem] mt-[0.625rem] lg:mt-[0]">
+                  <h1 className="lg:w-[9.5rem] lg:h-[1.1875rem] font-Jost font-medium text-xs leading-[1.1875rem] items-center mb-[0.3125rem] text-secondary-main">
+                    Country
+                  </h1>
+                  <div className="flex mt-[0.6rem] items-center bg-[#FCFCFC] w-full shadow-[0px_1px_2px_rgba(16,24,40,0.05)] border-[#858095] border-[0.0625rem] pl-[1.25rem] rounded-md">
+                  <select
+                      name="country"
+                      {...formik.getFieldProps("country")}
+                      defaultValue={formik.values.country || "Nigeria"}
+                      className="h-full w-[95%] py-[1.1rem] bg-transparent text-white-30 placeholder:text-white-30 pl-3"
+                    >
+                      <option value="" disabled className="border">
+                        {loading ? "Loading..." : error ? "Error loading countries" : "Select country of residence"}
+                      </option>
+                      {countries &&
+                        countries.map((country) => (
+                          <option key={country.name} value={country.name}>
+                            {country.name}
+                          </option>
+                        ))}
+                    </select>
+                    {countries &&
+                      countries.map((country) => (
+                        country.name === formik.values.country && (
+                          <img key={country.name} className="inline-block w-[25px] h-[20px] ml-2 absolute left-[3%]" src={country.flag} alt={country.name} />
+                        )
+                      ))}
                       </div>
                     </div>
                     {/**Country */}
@@ -235,7 +255,7 @@ function BusinessDetails() {
                           type="text"
                           name="State"
                           {...formik.getFieldProps("State")}
-                          placeholder="Enter city of residence"
+                          placeholder="Enter state of residence"
                           className="h-full w-full py-[1.1rem] pl-3 bg-transparent text-white-30 placeholder:text-white-30 "
                         />
                       </div>
@@ -248,7 +268,8 @@ function BusinessDetails() {
                     >
                       Update & Save
                     </button>
-                    {/**button */}
+                      
+                  {/**button */}
                   </form>
                 )}
               </Formik>

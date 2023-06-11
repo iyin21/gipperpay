@@ -4,14 +4,18 @@ import Avatar from "react-avatar";
 import { BsUpload } from "react-icons/bs";
 import PhoneInput from "react-phone-number-input";
 import "react-phone-number-input/style.css";
+import { mail } from "../../../../../assets/index";
 import Button from "../../../../GetStarted/components/Button";
 import { useSelector } from "react-redux";
+import { Link, useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import axios from "axios";
+import { motion } from "framer-motion";
 import { toast } from "react-hot-toast";
 import { addUserData } from "../../../../../redux/userSlice";
 import CustomPasswordInput from "../../../../../widgets/inputs/CustomPasswordInput";
-
+import UploadButton from "./UploadButton";
+ 
 function EditProfile() {
   const { user } = useSelector((store) => store.user);
   const dispatch = useDispatch();
@@ -39,6 +43,7 @@ function EditProfile() {
       password: "",
       country: "",
       dob: "",
+      email: ""
     },
     onSubmit: async (values, actions) => {
       const data = {
@@ -88,38 +93,18 @@ function EditProfile() {
       <div className=" flex flex-col lg:flex-row lg:mt-[1.25rem] lg:justify-between justify-center items-center  ">
         <div className=" lg:flex lg:flex-row items-center ">
           <Avatar
-            name={`${user.data.firstName}  ${user.data.lastName}`}
+            name={`${values.firstName}  ${values.lastName}`}
             round={true}
             size="80"
+            src=""
           />
 
           <h1 className=" hidden lg:flex  ml-[1.25rem] font-Jost not-italic font-medium text-s leading-[1.4375rem] text-secondary-main ">
-            {user.data.firstName}
+            {values.firstName} {values.lastName}
           </h1>
         </div>
         <div className="lg:w-[14.0625rem] ">
-          <button onClick={handleUploadClick}>
-            <div className=" flex flex-row m-auto mt-[0.625rem] lg:m-0 lg:mt-0  justify-center w-[8rem] h-[2.5rem] lg:ml-[6.25rem] rounded-[6.25rem] border-[0.0625rem] border-primary-main text-primary-main items-center ">
-              <BsUpload />
-              <h1 className="ml-[0.625rem] text-s ">Upload</h1>
-            </div>
-          </button>
-
-          {/* 👇 Notice the `display: hidden` on the input */}
-          <input
-            type="file"
-            ref={inputRef}
-            name="imageUploader"
-            value={values.image}
-            onChange={(e) =>
-              setFieldValue("imageUploader", e.target.files[0], false)
-            }
-            className="hidden"
-          />
-          {values.imageUploader ? `${values.imageUploader.name}` : null}
-          <h1 className=" lg:w-[14.0625rem] font-Jost not-italic font-regular text-xs leading-[1.1875rem] text-white-30 mt-[0.625rem] items-center ">
-            Png or JPEG not bigger than 500x500px
-          </h1>
+        <UploadButton />
         </div>
       </div>
       {/**Inputform */}
@@ -128,7 +113,7 @@ function EditProfile() {
         onSubmit={handleSubmit}
       >
         {/**GipperTag */}
-        <div className="mx-auto mt-[1.25rem] lg:mt-0 w-full lg:w-[21.8rem] ">
+        {/* <div className="mx-auto mt-[1.25rem] lg:mt-0 w-full lg:w-[21.8rem] ">
           <h1 className="lg:w-[3.9375rem] lg:h-[1.1875rem] font-Jost font-medium text-xs leading-[1.1875rem] items-center mb-[0.3125rem] text-secondary-main ">
             Username
           </h1>
@@ -139,11 +124,11 @@ function EditProfile() {
               value={values.gipperTag}
               onChange={handleChange}
               onBlur={handleBlur}
-              placeholder={`${user.data.gipperTag}`}
+              placeholder={`${values.gipperTag}`}
               className="h-full w-full py-[1.1rem] pl-3 bg-transparent text-white-30 placeholder:text-white-30 "
             />
           </div>
-        </div>
+        </div> */}
         {/**GipperTag */}
         {/**FIRST NAME */}
         <div className="mx-auto mt-[1.25rem] lg:mt-0 w-full lg:w-[21.8rem] ">
@@ -157,7 +142,8 @@ function EditProfile() {
               value={values.firstName}
               onChange={handleChange}
               onBlur={handleBlur}
-              placeholder={`${user.data.firstName}`}
+              placeholder={`${values.firstName}`}
+              maxLength={20} 
               className="h-full w-full py-[1.1rem] pl-3 bg-transparent text-white-30 placeholder:text-white-30 "
             />
           </div>
@@ -175,13 +161,31 @@ function EditProfile() {
               value={values.lastName}
               onChange={handleChange}
               onBlur={handleBlur}
-              placeholder={`${user.data.lastName}`}
+              placeholder={`${values.lastName}`}
+              maxLength={20} 
               className="h-full w-full py-[1.1rem] pl-3 bg-transparent text-white-30 placeholder:text-white-30 "
             />
           </div>
         </div>
         {/**LAST NAME */}
-
+{/**EMAIL */}
+<div className="mx-auto mt-[1.25rem] lg:mt-0 w-full lg:w-[21.8rem] ">
+          <h1 className="lg:w-[3.9375rem] lg:h-[1.1875rem] font-Jost font-medium text-xs leading-[1.1875rem] items-center mb-[0.3125rem] text-secondary-main ">
+            Email
+          </h1>
+          <div className="flex mt-[0.6rem] items-center bg-white-70 w-full lg:w-[21.8rem] shadow-[0px_1px_2px_rgba(16,24,40,0.05)]  pl-[1.25rem] rounded-md">
+            <input
+              type="email"
+              name="email"
+              value={values.email}
+              onChange={handleChange}
+              onBlur={handleBlur}
+              placeholder="example@mail.com"
+              className="h-full w-full py-[1.1rem] pl-3 bg-transparent text-white-30 placeholder:text-white-30 "
+            />
+          </div>
+        </div>
+{/**EMAIL */}
         {/**PHONE NUMBER  */}
         <div className="mx-auto mt-[1.25rem] lg:mt-0 w-full lg:w-[21.8rem] ">
           <h1 className="lg:w-[5.9375rem] lg:h-[1.1875rem] font-Jost font-medium text-xs leading-[1.1875rem] items-center mb-[0.3125rem] text-secondary-main ">
@@ -195,14 +199,14 @@ function EditProfile() {
               value={values.phoneNumber}
               onChange={(e) => setFieldValue("phoneNumber", e, false)}
               //onBlur={handleBlur("phoneNumber")}
-              placeholder={`${user.data.phoneNumber}`}
+              placeholder={`${values.phoneNumber}`}
               className=" bg-transparent text-white-30 placeholder:text-white-30 py-[1.1rem] pl-3 w-full h-full "
             />
           </div>
         </div>
         {/**PHONE NUMBER */}
         {/**PASSWORD */}
-        <div className="mx-auto mt-[1.25rem] lg:mt-0 w-full lg:w-[21.8rem] ">
+        {/* <div className="mx-auto mt-[1.25rem] lg:mt-0 w-full lg:w-[21.8rem] ">
           <h1 className="lg:w-[3.9375rem] lg:h-[1.1875rem] font-Jost font-medium text-xs leading-[1.1875rem] items-center mb-[0.3125rem] text-secondary-main ">
             Password
           </h1>
@@ -213,10 +217,10 @@ function EditProfile() {
               handleBlur={handleBlur}
             />
           </div>
-        </div>
+        </div> */}
         {/**PASSWORD */}
         {/**DOB */}
-        <div className="mx-auto mt-[1.25rem] lg:mt-0 w-full lg:w-[21.8rem] ">
+        {/* <div className="mx-auto mt-[1.25rem] lg:mt-0 w-full lg:w-[21.8rem] ">
           <h1 className="lg:w-[5.1875rem] lg:h-[1.1875rem] font-Jost font-medium text-xs leading-[1.1875rem] items-center mb-[0.3125rem] text-secondary-main ">
             Date of Birth
           </h1>
@@ -231,10 +235,10 @@ function EditProfile() {
               className="h-full w-full py-[1.1rem] pl-3 bg-transparent text-white-30 placeholder:text-white-30 "
             />
           </div>
-        </div>
+        </div> */}
         {/**DOB */}
         {/**Country */}
-        <div className="mx-auto mt-[1.25rem] lg:mt-0 w-full lg:w-[21.8rem] ">
+        {/* <div className="mx-auto mt-[1.25rem] lg:mt-0 w-full lg:w-[21.8rem] ">
           <h1 className="lg:w-[3.9375rem] lg:h-[1.1875rem] font-Jost font-medium text-xs leading-[1.1875rem] items-center mb-[0.3125rem] text-secondary-main ">
             Country
           </h1>
@@ -249,10 +253,10 @@ function EditProfile() {
               className="h-full w-full py-[1.1rem] pl-3 bg-transparent text-white-30 placeholder:text-white-30 "
             />
           </div>
-        </div>
+        </div> */}
         {/**Country */}
         {/**BUTTON*/}
-        <div className=" w-[20.1875rem] mx-auto mt-[2.5rem] lg:mx-0  ">
+        <div className=" w-[20.1875rem] mx-auto mt-[2.5rem] lg:mx-0 xs:w-full">
           <Button
             name="Update"
             isSubmitting={isSubmitting}

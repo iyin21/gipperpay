@@ -98,7 +98,7 @@ import checkwhocan from "./checkwhocan.svg";
 import finance from "./finance.svg";
 import ecommerce from "./ecommerce.svg";
 import cryptoWallet from "./cryptoWallet.svg";
-
+import mark from "./mark.png"
 import productsPayrollPic1 from "./productsPayrollPic1.png";
 import productsPayrollPic2 from "./productsPayrollPic2.png";
 import productsPayrollPic3 from "./productsPayrollPic3.png";
@@ -114,6 +114,23 @@ import productsGipperfipic6 from "./productsGipperfipic6.png";
 import plantPic from "./plantPic.png";
 import businessWalletimg1 from "./businessWalletimg1.png";
 import businessWalletimg2 from "./businessWalletimg2.png";
+import complete from './complete.png'
+import incomplete from "./incomplete.png"
+import upload from "./upload.png"
+import triangle from "./tri.png"
+import exclamation from "./excl.png"
+import businesslogo from "./businesslogo.png"
+import visa from "./associates/visa-svgrepo-com.svg" 
+import circle from "./associates/circle.png"
+import ethereum from "./associates/ethereum.svg"
+import maker from "./associates/maker.png"
+import mastercard from "./associates/mastercard.svg"
+import paxo from "./associates/paxo.png"
+import polygon from "./associates/polygon.png"
+import stripe from "./associates/stripe.svg"
+import tether from "./associates/tether.png"
+import uniswap from "./associates/uniswap.png"
+import meta from "./associates/metamask.png"
 
 export {
   logo,
@@ -230,4 +247,22 @@ export {
   metamask,
   businessWalletimg1,
   businessWalletimg2,
+  complete,
+  incomplete,
+  upload,
+  triangle,
+  exclamation,
+  businesslogo,
+  circle,
+  ethereum,
+  maker,
+  mastercard,
+  meta,
+  paxo,
+  polygon,
+  stripe,
+  tether,
+  uniswap,
+  visa,
+  mark
 };

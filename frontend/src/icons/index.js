@@ -33,6 +33,8 @@ import telegram from "./telegram.svg";
 import link from "./link.svg";
 import linkWhite from "./linkWhite.svg";
 import connect from "./connect.svg";
+import arrowDown from './arrowDown.svg';
+import arrowRight from "./arrowRight.svg"
 
 export {
   add,
@@ -70,4 +72,6 @@ export {
   link,
   linkWhite,
   connect,
+  arrowDown,
+  arrowRight
 };
