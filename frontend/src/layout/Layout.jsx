@@ -8,10 +8,10 @@ function Layout({ children }) {
   return (
     <div className="w-full">
       {/* hide nav bar on dashboard page */}
-      {(location.pathname !== ("/waitlist") && location.pathname !== ("/dashboard") && location.pathname !== ("/create-donation") && location.pathname !== ("/make-donation") )  && <Nav />}
+      {(location.pathname !== ("/waitlist") && location.pathname !== ("/dashboard") && location.pathname !== ("/create-donation") && location.pathname !== ("/make-donation")&&location.pathname !== ("/payment-link") &&location.pathname !== ("/store")&&location.pathname !== ("/connect-wallet")&&location.pathname !== ("/make-payment"))  && <Nav />}
       {children}
       {/* hide footer bar on dashboard page */}
-      {(location.pathname !== "/dashboard" && location.pathname !== ("/create-donation") && location.pathname !== ("/make-donation")) && <Footer />}
+      {(location.pathname !== "/dashboard" && location.pathname !== ("/create-donation") && location.pathname !== ("/make-donation")&&location.pathname !== ("/payment-link")&&location.pathname !== ("/store")&&location.pathname !== ("/connect-wallet")&&location.pathname !== ("/make-payment")) && <Footer />}
     </div>
   );
 }

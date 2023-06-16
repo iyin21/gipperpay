@@ -78,9 +78,9 @@ function SelectNetwork({ next, from, to }) {
       <div>
         <div className="flex px-5 lg:px-0 w-[full] justify-between mt-5 mb-7">
           <div className="flex items-center justify-start gap-3">
-            <img src={tron} alt="" />
+            <img src="https://assets.coingecko.com/coins/images/279/large/ethereum.png?1595348880" className="w-[30px] h-[30px]"alt="" />
             <p className="text-s font-regular leading-6 text-white-30">
-              Tron Network (TRC20)
+            Ethereum network ( ERC20)
             </p>{" "}
           </div>
           <input
@@ -91,7 +91,7 @@ function SelectNetwork({ next, from, to }) {
             id=""
           />
         </div>
-        <div className="flex px-5 lg:px-0 w-[full] justify-between">
+        {/* <div className="flex px-5 lg:px-0 w-[full] justify-between">
           <div className="flex items-center justify-start gap-3">
             <img src={binance} alt="" />
             <p className="text-s font-regular leading-6 text-white-30">
@@ -105,7 +105,7 @@ function SelectNetwork({ next, from, to }) {
             name="network"
             id=""
           />
-        </div>
+        </div> */}
       </div>
 
       <div className="lg:hidden border-t-2 mx-5 bg-white-10 p-2 rounded-md mt-7">

@@ -1,36 +1,52 @@
 import React from 'react'
 import {FaWallet} from "react-icons/fa"
 import PrimaryButton from '../../../../widgets/buttons/PrimaryButton'
-import CustomButton from '../../../../components/form/CustomButton'
+import EmptyState from "./components/emptyState";
+import { useNavigate } from 'react-router-dom'
+import ProductCard from "./components/productCard";
+import {GucciBag, Naira} from "../../../../assets"
 
 const Products = () => {
+    const navigate=useNavigate();
+    const products= [
+        {image:GucciBag, name:"Gucci Bag", price:"$4000.00", itemsLeft:0, description:"the description of the product would be Displayed Here"},
+        {image:Naira, name:"Product Name", price:"$0.00", itemsLeft:0, description:"the description of the product would be Displayed Here"}
+    ]
   return (
-    <div className='flex-row lg:flex pl-8 min-h-screen'>
-        <div className='w-full lg:w-[60%]'>
-         <p className='font-medium text-l leading-10'>My Products</p>
-         <div className='flex justify-center m-auto mt-64 items-center'>
-            <div className='m-auto text-center'>
-                <p className='text-white-30 text-s font-regular leading-5 mb-1'>You Have no Products yet Get a <br/> payment link to create product</p>
-                <CustomButton>Create link</CustomButton>
+      <div>
+        <div className='flex-col-reverse lg:flex-row flex pl-8 min-h-screen'>
+            <div className='w-full lg:w-[65%] '>
+            <p className='font-medium text-l leading-10'>My Products</p>
+            
+            {products.length>0 ?(
+                <div className="grid gap-10 md:grid-cols-2 lg:mr-10 mt-4 mr-8">
+                    {products.map((item, index)=>(
+                        <ProductCard key={index} image={item.image} name={item.name} price={item.price} itemsLeft={item.itemsLeft} description={item.description} handleClick={()=>navigate("/store")}/>
+                        )
+                    )}
+                </div>
+                ):(
+                <EmptyState/>
+            )}
+            
             </div>
-         </div>
-        </div>
-        <div className='w-full lg:w-[40%] bg-white-60 rounded-sm pt-4 pl-8 pr-16'>
-            <div className='flex gap-4 h-auto items-center'>
-                <div>
-                <div className='w-[30px] h-[30px] flex items-center m-auto rounded-full justify-center bg-primaryLight'>
-                    <FaWallet color="#FA3C12"/>
+            <div className='w-full lg:w-[35%] lg:bg-white-60 rounded-sm pt-4 pr-8 '>
+                <div className='flex gap-4 h-auto items-center'>
+                    <div>
+                    <div className='w-[30px] h-[30px] flex items-center m-auto rounded-full justify-center bg-primaryLight'>
+                        <FaWallet color="#FA3C12"/>
+                    </div>
+                    </div>
+                    <p  className='font-medium text-secondary-main text-s leading-4'>Wallet</p>
                 </div>
-                </div>
-                <p  className='font-medium text-secondary-main text-s leading-4'>Wallet</p>
-            </div>
-            <div className='flex justify-between '>
-                <div>
-                    <p className='text-white-30 text-s font-regular leading-5'>Amount received</p>
-                    <p className='font-big text-secondary-main text-sm leading-6'>$0.00</p>
-                </div>
-                <div>
-                <PrimaryButton content="Payout" />
+                <div className='flex justify-between mt-5'>
+                    <div>
+                        <p className='text-white-30 text-s font-regular leading-5'>Amount received</p>
+                        <p className='font-big text-secondary-main text-sm leading-6'>$0.00</p>
+                    </div>
+                    <div>
+                    <PrimaryButton content="Payout" />
+                    </div>
                 </div>
             </div>
         </div>

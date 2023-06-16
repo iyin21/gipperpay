@@ -1,7 +1,6 @@
 import { Divider } from "antd";
 import React from "react";
 import { bank, gustCoin } from "../../../assets";
-import BuyButton from "../../../widgets/buttons/BuyButton";
 import { motion } from "framer-motion";
 import { swap1 } from "../../../icons";
 function SellStepThree({ nextSellStep, amountToSell, setAmountToSell }) {
@@ -104,7 +103,8 @@ function SellStepThree({ nextSellStep, amountToSell, setAmountToSell }) {
             .replace(/\B(?=(\d{3})+(?!\d))/g, ",")}
         </h1>
       </div>
-      <BuyButton content="Confirm Transaction" nextSellStep={nextSellStep} />
+      <button  className="w-full lg:w-[200px] h-[45] pt-[11px] pb-[11px]  bg-Rectangle rounded-[5px] flex flex-row items-center justify-center font-Jost not-italic font-regular text-s leading-[23px] text-white-60  " onClick={nextSellStep}>Confirm Transaction</button>
+      {/* <button content="Confirm Transaction" nextSellStep={nextSellStep}  /> */}
     </motion.div>
   );
 }

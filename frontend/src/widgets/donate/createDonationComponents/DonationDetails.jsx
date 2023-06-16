@@ -6,6 +6,8 @@ import Dropzone from "react-dropzone";
 import { useDispatch } from "react-redux";
 import { toast } from "react-hot-toast";
 import { addDonation } from "../../../redux/donateSlice";
+import DonationModal from "../DonationModal";
+
 
 function DonationDetails() {
   const [line, setLine] = useState([{ active: true }, { active: false }]);
@@ -13,6 +15,7 @@ function DonationDetails() {
   const [active, setActive] = useState(0);
   const [active2, setActive2] = useState(0);
   const [paths, setPaths] = useState([]);
+  const [showDonationModal, setShowDonationModal] = useState(false)
 
   const [data, setData] = useState({
     name: "",
@@ -70,91 +73,99 @@ function DonationDetails() {
 
   const handleSubmit = () => {
     dispatch(addDonation(data));
+  setShowDonationModal(true)
   };
   return (
     <div className="w-full min-h-[100vh]">
       <div className="w-full lg:w-[52.62rem] p-4 lg:p-10 bg-white-60 mx-auto flex flex-col lg:flex-row justify-between">
-        <div>
-          <div className="flex items-center gap-4">
-            <div className="lg:hidden pt-10 pb-10 flex gap-2">
-              {line.map((line, index) => (
-                <div
-                  key={index}
-                  className={` ${
-                    line.active ? " border-primary-main" : " border-white-20"
-                  } border-b-2 w-5`}
-                ></div>
-              ))}
-            </div>
+       {
+       active  === 0 || active === 1 ?
+       <div>
+       <div className="flex items-center gap-4">
+         <div className="lg:hidden pt-10 pb-10 flex gap-2">
+           {line.map((line, index) => (
+             <div
+               key={index}
+               className={` ${
+                 line.active ? " border-primary-main" : " border-white-20"
+               } border-b-2 w-5`}
+             ></div>
+           ))}
+         </div>
 
-            <h2 className="text-s text-secondary-main leading-6 font-medium pt-10 pb-10">
-              Donation Details
-            </h2>
-          </div>
+         <h2 className="text-s text-secondary-main leading-6 font-medium pt-10 pb-10">
+           Donation Details
+         </h2>
+       </div>
 
-          <div className="w-full border-2 border-black lg:w-[20rem] relative flex justify-center items-center h-[14.2rem] bg-[#F7F7F7] rounded-[20px]">
-            <div>
-              <Dropzone onDrop={onDrop}>
-                {({ getRootProps, getInputProps }) => (
-                  <div {...getRootProps()}>
-                    <input {...getInputProps()} />
-                    <button className="rounded-[100px] p-2 text-s relative z-10 text-white-30 border border-white-30">
-                      change image
-                    </button>
-                  </div>
-                )}
-              </Dropzone>
-              {paths.map((file) => (
-                <div key={file.name}>
-                  <img
-                    src={URL.createObjectURL(file)}
-                    alt={file.name}
-                    className="absolute left-0 top-0 w-full h-full object-contain"
-                  />
-                </div>
-              ))}
-            </div>
-          </div>
+       <div className="w-full border-2 border-black lg:w-[20rem] relative flex justify-center items-center h-[14.2rem] bg-[#F7F7F7] rounded-[20px]">
+         <div>
+           <Dropzone onDrop={onDrop}>
+             {({ getRootProps, getInputProps }) => (
+               <div {...getRootProps()}>
+                 <input {...getInputProps()} />
+                 <button className="rounded-[100px] p-2 text-s relative z-10 text-white-30 border border-white-30">
+                   change image
+                 </button>
+               </div>
+             )}
+           </Dropzone>
+           {paths.map((file) => (
+             <div key={file.name}>
+               <img
+                 src={URL.createObjectURL(file)}
+                 alt={file.name}
+                 className="absolute left-0 top-0 w-full h-full object-contain"
+               />
+             </div>
+           ))}
+         </div>
+       </div>
 
-          {active === 1 && (
-            <>
-              <h2 className="mt-10 text-s font-medium text-secondary-main leading-6">
-                {data.name}
-              </h2>
-              <p className="mt-5 text-xs text-white-30 leading-[18px] w-full lg:w-[70%]">
-                {data.desc}
-              </p>
+       {active === 1 && (
+         <>
+           <h2 className="mt-10 text-s font-medium text-secondary-main leading-6">
+             {data.name}
+           </h2>
+           <p className="mt-5 text-xs text-white-30 leading-[18px] w-full lg:w-[70%]">
+             {data.desc}
+           </p>
 
-              <div className="flex mt-5 gap-2 items-center">
-                <MdOutlineDateRange color="#7B7B7B" />
-                <p className="text-white-30 text-xs">
-                  {data.startDate} - {data.endDate}
-                </p>
-              </div>
+           <div className="flex mt-5 gap-2 items-center">
+             <MdOutlineDateRange color="#7B7B7B" />
+             <p className="text-white-30 text-xs">
+               {data.startDate} - {data.endDate}
+             </p>
+           </div>
 
-              <div className="mt-5">
-                <p className="text-s font-medium text-secondary-main leading-6 mb-[10px]">
-                  {differenceInDays} days left
-                </p>
-                <div>
-                  <img src={donatePeriod} alt="" />
-                </div>
-              </div>
-            </>
-          )}
-        </div>
+           <div className="mt-5">
+             <p className="text-s font-medium text-secondary-main leading-6 mb-[10px]">
+               {differenceInDays} days left
+             </p>
+             <div>
+               <img src={donatePeriod} alt="" />
+             </div>
+           </div>
+         </>
+       )}
+     </div> : ""
+       }
+        
 
         <div className="w-[52%]">
+          {active === 1 || active === 2 ? 
           <div className="hidden pt-10 pb-12 lg:flex gap-2">
-            {line.map((line, index) => (
-              <div
-                key={index}
-                className={` ${
-                  line.active ? " border-primary-main" : " border-white-20"
-                } border-b-2 w-5`}
-              ></div>
-            ))}
-          </div>
+          {line.map((line, index) => (
+            <div
+              key={index}
+              className={` ${
+                line.active ? " border-primary-main" : " border-white-20"
+              } border-b-2 w-5`}
+            ></div>
+          ))}
+        </div> :""
+          }
+          
 
           {active === 0 ? (
             <form action="">
@@ -234,7 +245,8 @@ function DonationDetails() {
                 Continue
               </button>
             </form>
-          ) : (
+          ) : 
+          (
             <div>
               <p className="text-xs text-secondary-main mt-[1.87rem]">
                 Receive With
@@ -281,9 +293,12 @@ function DonationDetails() {
                 Create Link
               </button>
             </div>
-          )}
+          ) }
         </div>
       </div>
+     { showDonationModal && <DonationModal showDonationModal={showDonationModal} setShowDonationModal={setShowDonationModal
+    }/>}
+      
     </div>
   );
 }

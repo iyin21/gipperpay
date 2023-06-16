@@ -33,6 +33,11 @@ import telegram from "./telegram.svg";
 import link from "./link.svg";
 import linkWhite from "./linkWhite.svg";
 import connect from "./connect.svg";
+import PaymentLinkIcon from "./paymentLinkIcon.svg";
+import GustLogo from "./gustLogo.svg";
+import USDTLogo from "./usdtLogo.svg";
+import arrowDown from './arrowDown.svg';
+import arrowRight from "./arrowRight.svg"
 
 export {
   add,
@@ -70,4 +75,9 @@ export {
   link,
   linkWhite,
   connect,
+  PaymentLinkIcon,
+  GustLogo,
+  USDTLogo,
+  arrowDown,
+  arrowRight
 };

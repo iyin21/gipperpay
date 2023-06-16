@@ -26,7 +26,7 @@ function GlobalPayout() {
     },
   ];
   return (
-    <div className="  lg:flex lg:flex-row-reverse my-[4.125rem] mx-[3.125rem] lg:mt-[6.25rem] items-center justify-center ">
+    <div className="  lg:flex lg:flex-row-reverse my-[4.125rem] mx-[3.125rem] lg:mt-[6.25rem] flex flex-col items-center justify-center">
       <div>
         <motion.div
           viewport={{ once: true }}
@@ -100,7 +100,7 @@ function GlobalPayout() {
         whileHover={{ rotate: 5, scale: 0.8 }}
         src={iphone12}
         alt=""
-        className=" w-[14.074375rem] h-[30.25rem] lg:mr-[1.375rem] "
+        className=" w-[14.074375rem] h-[30.25rem] lg:mr-[1.375rem]"
       />
     </div>
   );

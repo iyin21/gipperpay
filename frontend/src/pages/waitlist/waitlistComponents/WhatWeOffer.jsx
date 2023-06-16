@@ -78,7 +78,7 @@ function WhatWeOffer() {
         What we offer
       </motion.p>
 
-      <div className="flex flex-wrap justify-center gap-[3.75rem] pb-[12rem]">
+      <div className="flex flex-wrap justify-center gap-[3.75rem]">
         {data.map((data, index) => (
           <motion.div
             viewport={{ once: true }}

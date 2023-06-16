@@ -32,6 +32,7 @@ module.exports = {
       bold: "800",
     },
     screens: {
+      xs: {"max": "511px"},
       sm: "512px",
       md: "768px",
       lg: "1024px",
@@ -53,6 +54,7 @@ module.exports = {
           60: "#FCFCFC",
           70: "#F7F7F7",
           80: "#D9E1F2",
+          90: "#FFFFFF"
         },
         secondary: {
           light: "#CECCD4",

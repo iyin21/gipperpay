@@ -1,8 +1,10 @@
-import React, { useState } from "react";
+import React, { useState} from "react";
 import ModalBackDrop from "../ModalBackDrop";
 import SellStepOne from "./SellStepOne";
 import SellStepThree from "./SellStepThree";
 import SellStepTwo from "./SellStepTwo";
+import BuyAndSellSuccessModal from "../buy/BuyAndSellSuccessModal";
+
 function SellModal({ active, closeSellModal, amountToSell, setAmountToSell }) {
   const [sellStep, setSellStep] = useState(0);
   const nextSellStep = () => {
@@ -32,7 +34,7 @@ function SellModal({ active, closeSellModal, amountToSell, setAmountToSell }) {
             setAmountToSell={setAmountToSell}
             prevSellStep={prevSellStep}
           />
-        ) : null}
+        ) : sellStep === 3 ? <BuyAndSellSuccessModal  desc='GUST has been sold' amountToBuy={amountToSell}/> :''}
       </div>
     </ModalBackDrop>
   );

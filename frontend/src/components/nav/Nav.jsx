@@ -5,6 +5,9 @@ import Products from "../nav/navComponents/Products";
 import Businesses from "../nav/navComponents/Businesses";
 import Company from "../nav/navComponents/Company";
 import MobileView from "./navComponents/MobileView";
+import Infrastructure from "./navComponents/Infrastructure"
+import Developers from "./navComponents//Developers"
+import Users from "./navComponents/Users"
 import { Link } from "react-router-dom";
 
 //assets
@@ -40,19 +43,22 @@ function Nav() {
         <Products />
         <Businesses />
         <Company />
+        <Infrastructure />
+        <Developers />
+        <Users />
       </div>
-      <div className=" hidden lg:flex flex-row items-start  ">
+      <div className=" hidden lg:flex flex-row items-center  ">
         <Link to="/signIn">
-          <div className="  px-[1.5625rem] py-[0.5rem] items-center rounded-[0.3125rem] border-[0.0625rem] border-primary-main mr-[0.625rem]">
-            <h1 className=" font-Jost not-italic font-regular text-s text-center items-center text-primary-main leading-[1.4375rem]  ">
+          <div className="px-[0.9625rem] py-[0.5rem] items-center rounded-[0.3125rem] border-[0.0625rem] border-primary-main mr-[0.625rem]">
+            <h1 className=" font-Jost not-italic font-regular text-s text-center items-center text-primary-main leading-[1.4375rem] whitespace-nowrap">
               Sign in
             </h1>
           </div>
         </Link>
         <Link to="/getStarted">
-          <div className=" px-[1.5625rem] py-[0.53125rem] items-center bg-primary-main rounded-[0.3125rem]">
-            <h1 className=" font-Jost not-italic font-regular text-s text-white-60 text-center items-center leading-[1.4375rem] ">
-              Create an account
+          <div className=" px-[1.5625rem] py-[0.23125rem] items-center bg-primary-main rounded-[0.3125rem] max-w-[6rem]">
+            <h1 className=" font-Jost not-italic font-regular text-s text-white-60 text-center items-center leading-[1.1375rem] ">
+              Create account
             </h1>
           </div>
         </Link>

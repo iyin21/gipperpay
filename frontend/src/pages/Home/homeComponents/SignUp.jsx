@@ -22,7 +22,7 @@ function SignUp() {
           stiffness: 120,
         },
       }}
-      className="w-[20.9375rem] h-[25.125rem] m-[1.25rem] lg:w-[64.375rem] lg:h-[13.875rem] bg-primary-light lg:my-[5rem] lg:m-auto rounded-[3.125rem] lg:flex lg:flex-row items-center lg:pl-[4.5625rem] p-[1.25rem] lg:p-[0]  "
+      className="h-[25.125rem] m-[1.25rem] lg:w-[64.375rem] lg:h-[13.875rem] bg-primary-light lg:my-[5rem] lg:m-auto rounded-[3.125rem] lg:flex lg:flex-row items-center lg:pl-[4.5625rem] p-[1.25rem] lg:p-[0]  "
     >
       <svg
         width="269"
@@ -53,9 +53,8 @@ function SignUp() {
         />
       </svg>
       <div className="relative ">
-        <h1 className="lg:w-[21.625rem] lg:h-[3.6875rem] w-[16.6875rem] h-[7.5rem] font-Jost not-italic font-big  text-l leading-[2.5rem] text-secondary-main  ">
-          Sign up for Free <br />
-          Boost your Crypto Journey
+        <h1 className="lg:w-[21.625rem] lg:h-[3.6875rem] w-[16.6875rem] h-[7.5rem] font-Jost not-italic font-big  text-l leading-[2.5rem] text-secondary-main ">
+          Sign up for Free Boost your Crypto Journey
         </h1>
       </div>
 
@@ -74,6 +73,7 @@ function SignUp() {
           </h1>
         </div>
       </div>
+
     </motion.div>
   );
 }

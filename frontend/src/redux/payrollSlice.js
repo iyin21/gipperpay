@@ -9,7 +9,9 @@ const initialState = {
         name:'',
         flag:''
     },
-    isFreelance: false
+    isFreelance: false,
+    freelance:{},
+    isModalActive: false
 }
 
 export const payrollSlice = createSlice({
@@ -32,10 +34,16 @@ export const payrollSlice = createSlice({
         },
         setCountryOptions :(state, action) =>{
             state.countryOptions = action.payload
+        },
+        addFreelanceDetails:(state, action) =>{
+            state.freelance = action.payload
+        },
+        showActiveModal :(state, action) =>{
+            state.isModalActive = action.payload
         }
     }
 })
 
-export const {addOrganizationProfile, setActivePayrollPage, setCountryOptions, setFreelancePage} = payrollSlice.actions
+export const {addOrganizationProfile, setActivePayrollPage, setCountryOptions, setFreelancePage, addFreelanceDetails, showActiveModal} = payrollSlice.actions
 export default payrollSlice.reducer
 
