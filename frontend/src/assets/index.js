@@ -114,6 +114,11 @@ import productsGipperfipic6 from "./productsGipperfipic6.png";
 import plantPic from "./plantPic.png";
 import businessWalletimg1 from "./businessWalletimg1.png";
 import businessWalletimg2 from "./businessWalletimg2.png";
+import GucciBag from "./gucciBag.png";
+import Progress from "./progress.svg";
+import Naira from "./nairaImage.png";
+import Shoe from "./shoe.png";
+import Cat from "./cat.png";
 
 export {
   logo,
@@ -230,4 +235,9 @@ export {
   metamask,
   businessWalletimg1,
   businessWalletimg2,
+  GucciBag,
+  Progress,
+  Naira,
+  Shoe,
+  Cat
 };

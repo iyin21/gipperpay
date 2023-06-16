@@ -23,6 +23,10 @@ import BusinessWallet from "./pages/Businesses/BusinessWallet/BusinessWallet";
 import Company from "./pages/company/Company";
 import Freelancers from "./pages/dashboard/dashboard-components/payroll/freelance/Freelancers";
 import EmployeeModal from "./pages/dashboard/dashboard-components/payroll/organization/EmployeeModal";
+import PaymentLink from "./widgets/products/PaymentLink";
+import Store from "./widgets/products/Store";
+import MobileConnectWallet from "./widgets/products/Store/mobileConnectWallet"
+import MakePayment from "./widgets/products/Store/makePayment"
 
 function App() {
   const [registered, setIsRegistered] = useState(false);
@@ -87,6 +91,10 @@ function App() {
               />
               <Route path="/employeeForm" element={<EmployeeModal/>}/>
               <Route path="/company/about" element={<Company/>}/>
+              <Route path="/payment-link" element={<PaymentLink setActiveLink={setActiveLink}/>}/>
+              <Route path="/store" element={<Store setActiveLink={setActiveLink}/>} />
+              <Route path="/connect-wallet" element={<MobileConnectWallet/>}/>
+              <Route path="/make-payment" element={<MakePayment/>}/>
             </Route>
           </Routes>
         </Layout>

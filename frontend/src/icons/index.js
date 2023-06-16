@@ -33,7 +33,9 @@ import telegram from "./telegram.svg";
 import link from "./link.svg";
 import linkWhite from "./linkWhite.svg";
 import connect from "./connect.svg";
-
+import PaymentLinkIcon from "./paymentLinkIcon.svg";
+import GustLogo from "./gustLogo.svg";
+import USDTLogo from "./usdtLogo.svg";
 export {
   add,
   send,
@@ -70,4 +72,7 @@ export {
   link,
   linkWhite,
   connect,
+  PaymentLinkIcon,
+  GustLogo,
+  USDTLogo
 };
