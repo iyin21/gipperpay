@@ -13,7 +13,7 @@ function CustomPasswordInput({ values, handleChange, handleBlur }) {
         value={values.password}
         onChange={handleChange}
         onBlur={handleBlur}
-        placeholder="Enter password"
+        placeholder="**********"
         className="h-full w-full py-[1.1rem] pl-3 bg-transparent text-white-30 placeholder:text-white-30 "
       />
       <div onClick={() => setShowPassword(!showpassword)}>

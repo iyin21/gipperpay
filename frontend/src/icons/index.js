@@ -36,6 +36,9 @@ import connect from "./connect.svg";
 import PaymentLinkIcon from "./paymentLinkIcon.svg";
 import GustLogo from "./gustLogo.svg";
 import USDTLogo from "./usdtLogo.svg";
+import arrowDown from './arrowDown.svg';
+import arrowRight from "./arrowRight.svg"
+
 export {
   add,
   send,
@@ -74,5 +77,7 @@ export {
   connect,
   PaymentLinkIcon,
   GustLogo,
-  USDTLogo
+  USDTLogo,
+  arrowDown,
+  arrowRight
 };

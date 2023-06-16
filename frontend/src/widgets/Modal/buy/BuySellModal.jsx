@@ -15,6 +15,7 @@ function BuySellModal({
 }) {
   const [cardDetails, setCardDetails] = useState("");
   const [activeModalChild, setActiveModalchild] = useState(0);
+ 
   const nextModalChild = () => {
     setActiveModalchild(activeModalChild + 1);
   };
@@ -22,7 +23,7 @@ function BuySellModal({
   const prevModalChild = () => {
     setActiveModalchild(activeModalChild - 1);
   };
-
+  
   return (
     <ModalBackDrop
       handlePrev={handlePrev}
@@ -52,6 +53,8 @@ function BuySellModal({
             setAmountToBuy={setAmountToBuy}
             amountToBuy={amountToBuy}
             setActiveBuyAndsellSection={setActiveBuyAndsellSection}
+            desc="Has been received"
+            
           />
         ) : buyWithBank ? (
           <BuyWithBank

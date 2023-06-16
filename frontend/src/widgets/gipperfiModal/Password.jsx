@@ -17,6 +17,7 @@ function Password({setStep,handleClose, step}) {
     three: "",
     four: "",
   });
+ 
 
   // const [hidePassword, setHidePassword] = useState(false)
 

@@ -66,7 +66,7 @@ function UseCases() {
         ))}
       </div>
       <div className=" lg:w-[50.5625rem] lg:m-auto lg:grid lg:grid-cols-2 lg:mt-[2.5rem]  p-[0.9375rem] lg:p-[0]  ">
-        <div className="w-[25rem] h-[12.5rem] flex flex-row items-center border-l-[0.125rem] border-primary-main rounded-[0.625rem] my-[1.25rem] ">
+        <div className=" m-auto w-[25rem] h-[12.5rem] flex flex-row items-center border-l-[0.125rem] border-primary-main rounded-[0.625rem] my-[1.25rem] ">
           <img
             src={mark}
             alt=""
@@ -82,7 +82,7 @@ function UseCases() {
             </h1>
           </div>
         </div>
-        <div className="w-[25rem] h-[12.5rem] flex flex-row items-center border-l-[0.125rem] border-primary-main rounded-[0.625rem] my-[1.25rem] ">
+        <div className="m-auto w-[25rem] h-[12.5rem] flex flex-row items-center border-l-[0.125rem] border-primary-main rounded-[0.625rem] my-[1.25rem] ">
           <img
             src={mark}
             alt=""

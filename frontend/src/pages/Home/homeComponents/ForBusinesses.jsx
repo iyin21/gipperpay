@@ -44,11 +44,11 @@ function ForBusinesses() {
         initial="hide"
         whileInView="show"
         ref={scrollRef}
-        className=" lg:mt-[6.25rem]   font-Jost not-italic font-regular text-sm leading-[1.6875rem]  items-center text-secondary-30 "
+        className=" lg:mt-[6.25rem] flex justify-center  font-Jost not-italic font-regular text-sm leading-[1.6875rem]  items-center text-secondary-30 "
       >
-        For Businesses
+         For Businesses
       </motion.h1>
-      <div className="  lg:w-[60rem]  lg:mt-[3rem] lg:flex lg:flex-row ">
+      <div className="  lg:w-[60rem]  lg:mt-[3rem] lg:flex lg:flex-row justify-center">
         <motion.div
           variants={textVariants}
           viewport={{ once: true }}
@@ -102,7 +102,7 @@ function ForBusinesses() {
           variants={imageVariants}
           src={iphone11}
           alt=""
-          className="w-[14.1875rem] h-[26.6875rem] mt-[3.375rem] ml-[5.125rem] lg:mt-[0] object-contain "
+          className="w-full h-[26.6875rem] mt-[3.375rem] lg:mt-[0] object-contain"
         />
       </div>
     </div>

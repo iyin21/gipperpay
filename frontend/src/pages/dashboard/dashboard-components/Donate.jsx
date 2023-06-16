@@ -1,5 +1,7 @@
-import React from "react";
+import React,{useState} from "react";
+import { useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
+import DonationModal from "../../../widgets/donate/DonationModal"
 import {
   donateGradient,
   donatePeriod,
@@ -8,10 +10,18 @@ import {
   tenEur,
 } from "../../../assets";
 import { link, linkWhite, USDT } from "../../../icons";
+import { setActivePayoutPage, setActiveCryptoPage } from "../../../redux/gipperfiSlice";
 
 function Donate() {
+  const [showDonationModal, setShowDonationModal] = useState(false)
+  const dispatch = useDispatch()
+  
+  const handlePayout =() =>{
+  dispatch(setActivePayoutPage(true))
+  dispatch(setActiveCryptoPage(false))
+  }
   return (
-
+    <>
     <div className="flex flex-col-reverse lg:flex-row justify-between  p-5">
       <div className="w-full mt-8 lg:mt-0 lg:w-[31.9rem] p-5 border rounded-[20px]  border-[ #A4A4A4]">
         <div className="w-[99%] flex justify-center items-center relative   h-[14rem] mx-auto rounded-[10px]">
@@ -40,11 +50,11 @@ function Donate() {
             </div>
           </div>
 
-          <Link to="/make-donation">
-            <button className="flex gap-1 justify-center rounded-md items-center w-[7rem] py-[.68rem] bg-primary-main text-white-60">
+        
+            <button onClick={handlePayout} className="flex gap-1 justify-center rounded-md items-center w-[7rem] py-[.68rem] bg-primary-main text-white-60">
               <img src={payout} alt="" /> <p>Payout</p>
             </button>
-          </Link>
+         
         </div>
 
         <div className="flex justify-between items-center mt-10">
@@ -92,12 +102,14 @@ function Donate() {
           </div>
         </div>
 
-        <Link to="/create-donation">
-          <button className="mt-11 w-[9.25rem] flex gap-2 justify-center items-center rounded-[5px] relative z-10 text-s text-white-60 py-[0.6rem] bg-primary-main">
+         <Link to="/create-donation">
+         <button  className="mt-11 w-[9.25rem] flex gap-2 justify-center items-center rounded-[5px] relative z-10 text-s text-white-60 py-[0.6rem] bg-primary-main">
             <img src={linkWhite} alt="" />
             <p>Create link</p>
           </button>
-        </Link>
+         </Link>
+         
+       
 
         <img
           src={donateGradient}
@@ -121,13 +133,16 @@ function Donate() {
             </div>
           </div>
 
-          <Link to="/make-donation">
-            <button className="flex gap-1 justify-center rounded-md items-center w-[7rem] py-[.68rem] bg-primary-main text-white-60">
+         
+            <button onClick={handlePayout} className="flex gap-1 justify-center rounded-md items-center w-[7rem] py-[.68rem] bg-primary-main text-white-60">
               <img src={payout} alt="" /> <p>Payout</p>
             </button>
-          </Link>
+          
         </div>
     </div>
+    {showDonationModal && <DonationModal setShowDonationModal={setShowDonationModal} showDonationModal={showDonationModal}/>}
+    </>
+    
   );
 }
 

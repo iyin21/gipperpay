@@ -14,6 +14,7 @@ function Overview() {
   // getting the values for btc usdt and eth
   const [coins, setCoins] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
+  const [error, setError] = useState('')
   // coin to swap from
   const [swappingFrom, setSwappingFrom] = useState({
     label: "Gu$t",
@@ -29,12 +30,19 @@ function Overview() {
   // make API call
   useEffect(() => {
     const getCoin = async () => {
+     try{
       const response = await axios.get(
-        "https://api.coingecko.com/api/v3/coins/markets?ids=bitcoin,ethereum,tether&vs_currency=usd"
+        "https://api.coingecko.com/api/v3/coins/markets?ids=bitcoin,ethereum,dai,usd-coin,tether&vs_currency=usd"
       );
       const data = await response.data;
       setCoins(data);
       setIsLoading(false);
+      setError('')
+     }
+     catch(error){
+      setIsLoading(false)
+      setError(error.message)
+     }
     };
     getCoin();
   }, []);

@@ -16,7 +16,7 @@ export const datas = [
   },
 ];
 function Tab({ activeLink, setActiveLink }) {
-  console.log("Current settings tab active link is: ", activeLink);
+  // console.log("Current settings tab active link is: ", activeLink);
   const handleActiveLink = (i) => {
     setActiveLink(i);
   };

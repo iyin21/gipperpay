@@ -21,7 +21,6 @@ import MakeDonation from "./widgets/donate/MakeDonation";
 import EcommerceStore from "./pages/Businesses/E-commerceStore/EcommerceStore";
 import BusinessWallet from "./pages/Businesses/BusinessWallet/BusinessWallet";
 import Company from "./pages/company/Company";
-import Freelancers from "./pages/dashboard/dashboard-components/payroll/freelance/Freelancers";
 import EmployeeModal from "./pages/dashboard/dashboard-components/payroll/organization/EmployeeModal";
 import PaymentLink from "./widgets/products/PaymentLink";
 import Store from "./widgets/products/Store";
@@ -95,7 +94,10 @@ function App() {
               <Route path="/store" element={<Store setActiveLink={setActiveLink}/>} />
               <Route path="/connect-wallet" element={<MobileConnectWallet/>}/>
               <Route path="/make-payment" element={<MakePayment/>}/>
+              
             </Route>
+            <Route path="/employeeForm" element={<EmployeeModal/>}/>
+              <Route path="/company/about" element={<Company/>}/>
           </Routes>
         </Layout>
       </Router>

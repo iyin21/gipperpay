@@ -3,7 +3,7 @@ import { BsThreeDots } from "react-icons/bs";
 import { MdModeEditOutline } from "react-icons/md";
 import { RiDeleteBin2Fill } from "react-icons/ri";
 import { AiOutlinePause } from "react-icons/ai";
-import { FiEdit } from "react-icons/fi";
+
 const employeesList = [
   {
     id: 1,
@@ -41,24 +41,7 @@ const employeesList = [
     salary: "$1,200",
   },
 ];
-const headerTitle = [
-  {
-    id: 1,
-    title: "FullName",
-  },
-  {
-    id: 2,
-    title: "Email",
-  },
-  {
-    id: 3,
-    title: "Role",
-  },
-  {
-    id: 3,
-    title: "Salary",
-  },
-];
+
 const PayrollTable = () => {
   const [toggle, setToggle] = useState(false);
   const [id, setId] = useState("");

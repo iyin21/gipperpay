@@ -1,10 +1,12 @@
 import React, { useState } from "react";
+import BuyAndSellSuccessModal from "../buy/BuyAndSellSuccessModal"
 import ModalBackDrop from "../ModalBackDrop";
 import PasswordModal from "../swapcoin/modalforms/PasswordModal";
 import EnterAddress from "./sendGustFlow/EnterAddress";
 import PayViaSocial from "./sendGustFlow/PayViaSocial";
 import SendGust from "./sendGustFlow/SendGust";
 import { gustCoin } from "../../../assets";
+import RedeemModal from "./sendGustFlow/RedeemModal";
 import {
   Facebook,
   instagram,
@@ -17,6 +19,7 @@ import SendCongratsModal from "./sendGustFlow/SendCongratsModal";
 function SendCoinModal({ setShowSendModal }) {
   const [step, setStep] = useState(0);
   const [socialPay, setSocialPay] = useState(false);
+  
   const next = () => {
     setStep(step + 1);
   };
@@ -59,7 +62,7 @@ function SendCoinModal({ setShowSendModal }) {
     reciversUserName: "",
     gustAmount: "",
   });
-
+ const {gustAmount} = transactionDetails
   console.log(transactionDetails);
 
   const [method, setMethod] = useState(sendMethods[0]);
@@ -88,12 +91,19 @@ function SendCoinModal({ setShowSendModal }) {
         />
       ) : step === 2 ? (
         <PasswordModal nextStep={next} previousStep={previous} type="send" />
-      ) : step === 3 ? (
+      ) : step === 3 ? 
+      (
         <SendCongratsModal
           setShowSendModal={setShowSendModal}
           transactionDetails={transactionDetails}
-        />
-      ) : socialPay ? (
+          nextStep={next}
+          
+        /> 
+      ) : step === 4 ? (
+        <RedeemModal gustAmount={gustAmount} handleNext={next}/>
+      )
+      : step === 5 ? <BuyAndSellSuccessModal amountToBuy={gustAmount} desc="Has been redeemed"/> :
+      socialPay ? (
         <PayViaSocial
           transactionDetails={transactionDetails}
           setTransactionDetails={setTransactionDetails}

@@ -32,6 +32,7 @@ module.exports = {
       bold: "800",
     },
     screens: {
+      xs: {"max": "511px"},
       sm: "512px",
       md: "768px",
       lg: "1024px",
