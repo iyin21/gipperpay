@@ -1,7 +1,7 @@
 import React from "react";
 import { BsChevronDown } from "react-icons/bs";
 const CustomSelect = (props) => {
-  const { value, handleChange, arrayItems } = props;
+  const { value, handleChange, arrayItems = [] } = props;
   return (
     <div className="relative lg:inline-block">
       <select
