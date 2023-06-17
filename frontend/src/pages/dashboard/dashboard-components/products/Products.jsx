@@ -19,7 +19,7 @@ const Products = () => {
             <p className='font-medium text-l leading-10'>My Products</p>
             
             {products.length>0 ?(
-                <div className="grid gap-10 md:grid-cols-2 lg:mr-10 mt-4 mr-8">
+                <div className="grid gap-10 md:grid-cols-2 lg:mr-10 my-4 mr-8">
                     {products.map((item, index)=>(
                         <ProductCard key={index} image={item.image} name={item.name} price={item.price} itemsLeft={item.itemsLeft} description={item.description} handleClick={()=>navigate("/store")}/>
                         )
