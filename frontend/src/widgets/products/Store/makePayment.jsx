@@ -69,7 +69,7 @@ const MakePayment=()=>{
                                 name="price"
                                 type="text"
                                 placeholder="0.00"
-                                prefixIcon={<select className="bg-[#F7F7F7]">
+                                prefixIcon={<select className="bg-[#F7F7F7] mr-2">
                                     <option>USDT</option> 
                                 </select>}
                                 />

@@ -28,7 +28,7 @@ const MobileConnectWallet=()=>{
                 
         
             <div className="flex justify-between mt-8">
-                <img src={GucciBag}  alt=""/>
+                <img src={GucciBag} className="w-[155px]" alt=""/>
                 <div>
                     <div className="flex items-center">
                         <AiFillMinusCircle size={24} color="#7B7B7B"/>

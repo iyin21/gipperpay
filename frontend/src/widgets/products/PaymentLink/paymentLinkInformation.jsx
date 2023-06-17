@@ -146,7 +146,7 @@ const PaymentLinkInformation=()=>{
                                         
                                         <div className="w-full">
                                             <label htmlFor="coin" >Select Coin to Receive With</label>
-                                            <div className={`flex justify-between w-full border border-black-10 h-12 md:h-14 mt-4 rounded p-2 pr-4 items-center`}>
+                                            <div className={`flex justify-between w-full border border-black-10 h-12 md:h-14 mt-4 rounded p-2 md:p-4 items-center`}>
                                                 <div className="bg-[#F7F7F7] flex items-center p-2 rounded-[5px]">
                                                    <img src={GustLogo} alt=""/>
                                                     <p className="pl-1">GU$T</p>   
@@ -175,7 +175,7 @@ const PaymentLinkInformation=()=>{
                                             name="price"
                                             type="text"
                                             placeholder="0.00"
-                                            prefixIcon={<select className="bg-[#F7F7F7]">
+                                            prefixIcon={<select className="bg-[#F7F7F7] mr-2">
                                                 <option>USD</option> 
                                             </select>}
                                             />
