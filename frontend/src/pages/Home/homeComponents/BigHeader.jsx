@@ -69,7 +69,7 @@ function BigHeader() {
         initial="hide"
         className=" flex flex-col lg:m-auto 2xl:mx-[5rem] 2xl:w-[55.254rem]"
       >
-        <h1 className=" font-Jost not-italic font-big text-2xl mr-[2.5rem] lg:pt-[3.0625rem] lg:w-[44.25rem] lg:text-4xl lg:leading-[5.75rem]  text-secondary-main flex  items-center  ">
+        <h1 className=" font-Jost not-italic font-big text-2xl mr-[2.5rem]  lg:pt-[3.0625rem] lg:w-[44.25rem] lg:text-4xl lg:leading-[5.75rem]  text-secondary-main flex  items-center  ">
           Everything you need to build in Web3
         </h1>
         <h1 className=" font-Jost not-italic font-regular text-sm leading-[1.6875rem] lg:w-[41.3125rem]  text-white-30 mt-[1.25rem] items-center ">
@@ -93,20 +93,18 @@ function BigHeader() {
           </div>
         </div>
       </motion.div>
-      <div className="2xl:mx-[5em]">
-        <h1 className="font-Jost not-italic text-center font-bold sm:my-[3rem] xs:my-[2rem]">
-          Our Associates
-        </h1>
-        <motion.div className="grid grid-cols-4 xs:grid-cols-3 gap-8 lg:w-[100%] 2xl:w-[100%] h-[26.3125rem] z-10 p-2">
-          {images.map((src, index) => (
-            <img
-              src={src}
-              alt=""
-              className="w-[8em] xs:w-[5rem] xs:h-[5em] aspect-auto object-contain  h-[6em] shadow-md rounded transform transition-transform duration-300 hover:scale-[1.05] p-2"
-            />
-          ))}
-        </motion.div>
-      </div>
+        <div className="">
+          <h1 className="font-Jost not-italic text-center font-bold sm:my-[3rem] xs:my-[2rem]">Our Associates</h1>
+                <motion.div className="relative flex flex-row lg:w-[47.3125rem] mx-[1.455rem] sm:mt-[2rem] sm-w:full h-[26.3125rem] z-10 items-center overflow-hidden justify-between flex-wrap p-2 xs:w-full xs:px-[1.8rem] xs:mx-1 ">
+              {images.map((src, index) => (
+                <img 
+                src={src} 
+                alt=""
+                className="w-[8em] xs:w-[5rem] xs:h-[5em]  aspect-auto object-contain mix-blend-color-burn h-[6em] shadow-md rounded transform transition-transform duration-300 hover:scale-[1.05] p-2"      
+                />
+              ))}
+            </motion.div>
+        </div>
     </div>
   );
 }
