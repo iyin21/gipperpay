@@ -10,6 +10,7 @@ import EmployeesPayroll from "./dashboard-components/payroll/organization/Employ
 import Freelancers from "./dashboard-components/payroll/freelance/Freelancers";
 import Products from "./dashboard-components/products/Products";
 import Destination from "../../widgets/gipperfiModal/Destination";
+import Transactions from "./dashboard-components/transactions/Transactions";
 
 function MainView({ activeLink }) {
  const {activePage, isFreelance} = useSelector(state =>state.payroll)
@@ -26,6 +27,7 @@ function MainView({ activeLink }) {
       <div className="w-full h-4/5">{activeLink === 3 && !isPayout ? <Donate /> : activeLink === 3 && isPayout && !isCrypto ? <Destination/>:""}</div>
      <div className="w-full h-4/5">{activeLink === 4 && !activePage && !isFreelance ? <Payroll/>: activeLink === 4 && activePage ? <EmployeesPayroll/> : activeLink === 4 && !activePage && isFreelance ? <Freelancers/>:''}</div>
      <div className="w-full h-4/5">{activeLink === 5 && <Products/>}</div>
+     <div className="w-full h-4/5">{activeLink === 6 && <Transactions />}</div>
       <div className="w-full h-4/5">{activeLink === 7 && <Settings />}</div>
     </div>
   );

@@ -38,8 +38,14 @@ import GustLogo from "./gustLogo.svg";
 import USDTLogo from "./usdtLogo.svg";
 import arrowDown from './arrowDown.svg';
 import arrowRight from "./arrowRight.svg"
+import arrowDown from "./arrowDown.svg";
+import arrowRight from "./arrowRight.svg";
+import IC_DepositDark from "./ic-deposit-dark.svg";
+import IC_DepositLight from "./ic-deposit-light.svg";
 
 export {
+  IC_DepositDark,
+  IC_DepositLight,
   add,
   send,
   swap,
@@ -79,5 +85,5 @@ export {
   GustLogo,
   USDTLogo,
   arrowDown,
-  arrowRight
+  arrowRight,
 };
