@@ -136,6 +136,7 @@ import stripe from "./associates/stripe.svg"
 import tether from "./associates/tether.png"
 import uniswap from "./associates/uniswap.png"
 import meta from "./associates/metamask.png"
+import link from './link.png'
 
 export {
   logo,
@@ -274,5 +275,6 @@ export {
   tether,
   uniswap,
   visa,
-  mark
+  mark,
+  link
 };

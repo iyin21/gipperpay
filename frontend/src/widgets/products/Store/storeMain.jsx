@@ -4,10 +4,14 @@ import ProductCard from "../../../pages/dashboard/dashboard-components/products/
 import { useNavigate } from 'react-router-dom'
 import MakePayment from "./makePayment";
 import ConnectWallet from "./connectWallet";
-import {useState} from "react";
+import {useEffect, useState} from "react";
 
 const StoreMain=()=>{
     const navigate=useNavigate();
+
+    useEffect(()=>{
+        window.scrollTo(0, 0);
+    },[])
 
     const [stage, setStage]=useState("connectWallet")
     const products= [
@@ -21,7 +25,7 @@ const StoreMain=()=>{
                     <div className="md:w-[60%] md:pr-20 ">
                         <img src={GucciBag} className="w-full" alt=""/>
                         <CustomButton type="submit" className="w-full items-center mt-8 md:hidden" onClick={()=>{console.log("rrr");navigate("/connect-wallet")}}>
-                          Buy now              
+                          Buy now     
                         </CustomButton>
                         <p className="text-secondary-main font-medium text-sm mt-16">Gucci Bag</p>
                     

@@ -75,7 +75,7 @@ const MakePayment=()=>{
                                 />
                                     
                         </div>
-                        <CustomButton type="submit" className="lg:w-44 items-center  text-center">
+                        <CustomButton type="submit" className="lg:w-44 items-center  text-center" onClick={()=> navigate("/payment-successful")}>
                             Pay
                         </CustomButton>
                     </Form>

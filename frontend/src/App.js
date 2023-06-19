@@ -26,6 +26,9 @@ import PaymentLink from "./widgets/products/PaymentLink";
 import Store from "./widgets/products/Store";
 import MobileConnectWallet from "./widgets/products/Store/mobileConnectWallet"
 import MakePayment from "./widgets/products/Store/makePayment"
+import LinkCreated from "./widgets/products/PaymentLink/ProductLinkCreated.jsx"
+import StoreMain from "./widgets/products/Store/storeMain"
+import PaymentSuccess from "./widgets/products/PaymentLink/PaymentSuccessful.jsx"
 
 function App() {
   const [registered, setIsRegistered] = useState(false);
@@ -94,6 +97,10 @@ function App() {
               <Route path="/store" element={<Store setActiveLink={setActiveLink}/>} />
               <Route path="/connect-wallet" element={<MobileConnectWallet/>}/>
               <Route path="/make-payment" element={<MakePayment/>}/>
+              <Route path="/link-created" element={<LinkCreated/>}/>
+              <Route path ="/store-main" element={<StoreMain />}/>
+              <Route path = "/payment-successful" element ={<PaymentSuccess />} />
+
               
             </Route>
             <Route path="/employeeForm" element={<EmployeeModal/>}/>

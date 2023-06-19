@@ -5,6 +5,7 @@ import {PaymentLinkIcon, GustLogo, USDTLogo} from "../../../icons"
 import { FiUpload } from "react-icons/fi";
 import CustomButton from '../../../components/form/CustomButton';
 import { MdCancel, MdRadioButtonChecked } from "react-icons/md";
+import { useNavigate } from "react-router-dom";
 
 
 const PaymentLinkInformation=()=>{
@@ -19,8 +20,9 @@ const PaymentLinkInformation=()=>{
         const newFiles = files.filter((_item, index) => index !== e)
         setFiles(newFiles)
     }
+  const navigate = useNavigate();
     
-    return(
+  return(
         <div className="bg-whiteText w-full pt-4 pb-10">
             <div className="bg-white-90  lg:mx-40 p-6">
             <div className="flex mb-8">
@@ -46,7 +48,7 @@ const PaymentLinkInformation=()=>{
             >
                 {({ values }) => (
                     <Form>
-                        <div className="grid sm:grid-cols-2  justify-between gap-8 mb-4 w-full">
+                        <div className="grid sm:grid-cols-2 xs:grid-cols-1  justify-between gap-8 mb-4 w-full">
                             <div className="w-full">
                                 <label htmlFor="firstName" >First Name</label>
                             
@@ -203,7 +205,7 @@ const PaymentLinkInformation=()=>{
                                             placeholder="0"/>
                                         </div>
                             </div>
-                            <CustomButton type="submit" className="lg:w-40">Create Product</CustomButton>
+                            <CustomButton type="submit" className="lg:w-40" onClick={() => navigate("/link-created")}>Create Product</CustomButton>
                          </Form>
                          )}
                      </Formik>
