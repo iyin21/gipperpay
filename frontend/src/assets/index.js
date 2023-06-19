@@ -114,6 +114,11 @@ import productsGipperfipic6 from "./productsGipperfipic6.png";
 import plantPic from "./plantPic.png";
 import businessWalletimg1 from "./businessWalletimg1.png";
 import businessWalletimg2 from "./businessWalletimg2.png";
+import GucciBag from "./gucciBag.png";
+import Progress from "./progress.svg";
+import Naira from "./nairaImage.png";
+import Shoe from "./shoe.png";
+import Cat from "./cat.png";
 import complete from './complete.png'
 import incomplete from "./incomplete.png"
 import upload from "./upload.png"
@@ -131,6 +136,7 @@ import stripe from "./associates/stripe.svg"
 import tether from "./associates/tether.png"
 import uniswap from "./associates/uniswap.png"
 import meta from "./associates/metamask.png"
+import link from './link.png'
 
 export {
   logo,
@@ -247,6 +253,11 @@ export {
   metamask,
   businessWalletimg1,
   businessWalletimg2,
+  GucciBag,
+  Progress,
+  Naira,
+  Shoe,
+  Cat,
   complete,
   incomplete,
   upload,
@@ -264,5 +275,6 @@ export {
   tether,
   uniswap,
   visa,
-  mark
+  mark,
+  link
 };

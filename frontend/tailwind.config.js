@@ -54,6 +54,7 @@ module.exports = {
           60: "#FCFCFC",
           70: "#F7F7F7",
           80: "#D9E1F2",
+          90: "#FFFFFF"
         },
         secondary: {
           light: "#CECCD4",

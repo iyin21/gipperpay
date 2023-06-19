@@ -22,6 +22,13 @@ import EcommerceStore from "./pages/Businesses/E-commerceStore/EcommerceStore";
 import BusinessWallet from "./pages/Businesses/BusinessWallet/BusinessWallet";
 import Company from "./pages/company/Company";
 import EmployeeModal from "./pages/dashboard/dashboard-components/payroll/organization/EmployeeModal";
+import PaymentLink from "./widgets/products/PaymentLink";
+import Store from "./widgets/products/Store";
+import MobileConnectWallet from "./widgets/products/Store/mobileConnectWallet"
+import MakePayment from "./widgets/products/Store/makePayment"
+import LinkCreated from "./widgets/products/PaymentLink/ProductLinkCreated.jsx"
+import StoreMain from "./widgets/products/Store/storeMain"
+import PaymentSuccess from "./widgets/products/PaymentLink/PaymentSuccessful.jsx"
 
 function App() {
   const [registered, setIsRegistered] = useState(false);
@@ -84,6 +91,16 @@ function App() {
                 path="/make-donation"
                 element={<MakeDonation setActiveLink={setActiveLink} />}
               />
+              <Route path="/employeeForm" element={<EmployeeModal/>}/>
+              <Route path="/company/about" element={<Company/>}/>
+              <Route path="/payment-link" element={<PaymentLink setActiveLink={setActiveLink}/>}/>
+              <Route path="/store" element={<Store setActiveLink={setActiveLink}/>} />
+              <Route path="/connect-wallet" element={<MobileConnectWallet/>}/>
+              <Route path="/make-payment" element={<MakePayment/>}/>
+              <Route path="/link-created" element={<LinkCreated/>}/>
+              <Route path ="/store-main" element={<StoreMain />}/>
+              <Route path = "/payment-successful" element ={<PaymentSuccess />} />
+
               
             </Route>
             <Route path="/employeeForm" element={<EmployeeModal/>}/>
