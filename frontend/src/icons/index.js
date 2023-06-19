@@ -33,10 +33,14 @@ import telegram from "./telegram.svg";
 import link from "./link.svg";
 import linkWhite from "./linkWhite.svg";
 import connect from "./connect.svg";
-import arrowDown from './arrowDown.svg';
-import arrowRight from "./arrowRight.svg"
+import arrowDown from "./arrowDown.svg";
+import arrowRight from "./arrowRight.svg";
+import IC_DepositDark from "./ic-deposit-dark.svg";
+import IC_DepositLight from "./ic-deposit-light.svg";
 
 export {
+  IC_DepositDark,
+  IC_DepositLight,
   add,
   send,
   swap,
@@ -73,5 +77,5 @@ export {
   linkWhite,
   connect,
   arrowDown,
-  arrowRight
+  arrowRight,
 };
