@@ -1,9 +1,15 @@
 import React from "react";
 import { UIL_Exchange } from "../../../icons";
+import { motion } from "framer-motion";
 
 export const ChooseNetwork = ({ setIsConfirmPinModalOpen, selectedCoin, setCurrentStep }) => {
     return (
-        <>
+        <motion.div
+            initial={{ opacity: 0.3 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0.3 }}
+            transition={{ duration: 0.7, type: "tween", ease: "easeOut" }}
+        >
             {" "}
             <div>
                 <h3 className="text-[16px] font-medium font-Jost text-secondary-main">Choose Network</h3>
@@ -67,6 +73,6 @@ export const ChooseNetwork = ({ setIsConfirmPinModalOpen, selectedCoin, setCurre
                     Confirm
                 </button>
             </div>
-        </>
+        </motion.div>
     );
 };

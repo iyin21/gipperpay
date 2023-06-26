@@ -1,12 +1,18 @@
 import React, { useState } from "react";
 import { UIL_Exchange, downIcon } from "../../../icons";
 import { coins } from "./index";
+import { motion } from "framer-motion";
 
 export const SendCoin = ({ setCurrentStep, selectedCoin, setSelectedCoinState }) => {
     const [coinDropDownActive, setCoinDropDownActive] = useState(false);
 
     return (
-        <>
+        <motion.div
+            initial={{ opacity: 0.7 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0.3 }}
+            transition={{ duration: 0.4, type: "tween", ease: "easeOut" }}
+        >
             <div className="flex flex-col items-start mt-[40px] w-full  md:w-[300px] md:max-w-[300px]">
                 <span className="text-[16px] font-medium font-Jost text-secondary-main">Send and recieve coins</span>
                 <div className="flex mt-[5px] justify-between items-center p-[10px] w-full h-[50px] gap-[10px] rounded-[5px] border border-secondary-20 bg-[#fcfcfc]  ">
@@ -22,8 +28,12 @@ export const SendCoin = ({ setCurrentStep, selectedCoin, setSelectedCoinState })
                             <img src={downIcon} alt="" className="w-[20px] h-[20px] cursor-pointer" />
                         </div>
                         {coinDropDownActive && (
-                            <div
-                                className="flex flex-col absolute top-[45px] bg-[#fcfcfc] z-[5] shadow-md rounded-b-[5px] items-start w-full"
+                            <motion.div
+                                initial={{ opacity: 0.3 }}
+                                animate={{ opacity: 1 }}
+                                exit={{ opacity: 0.3 }}
+                                transition={{ duration: 0.7, type: "spring" }}
+                                className="flex flex-col absolute top-[45px] bg-[#fcfcfc] z-[5] shadow-md rounded-b-[5px] items-start w-full h-[250px] overflow-auto"
                                 onClick={(e) => {
                                     setSelectedCoinState(e.target.textContent);
                                     setCoinDropDownActive(false);
@@ -36,7 +46,7 @@ export const SendCoin = ({ setCurrentStep, selectedCoin, setSelectedCoinState })
                                         </p>
                                     );
                                 })}
-                            </div>
+                            </motion.div>
                         )}
                     </div>
                     <input
@@ -86,6 +96,6 @@ export const SendCoin = ({ setCurrentStep, selectedCoin, setSelectedCoinState })
                     Proceed
                 </button>
             </div>
-        </>
+        </motion.div>
     );
 };

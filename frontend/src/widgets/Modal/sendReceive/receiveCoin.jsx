@@ -1,10 +1,16 @@
 import React from "react";
 import { BarCode, CopyIcon } from "../../../icons";
 import { gipperpaylogo } from "../../../assets";
+import { motion } from "framer-motion";
 
 export const ReceiveCoin = () => {
     return (
-        <>
+        <motion.div
+            initial={{ opacity: 0.3 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0.3 }}
+            transition={{ duration: 0.7, type: "tween", ease: "easeOut" }}
+        >
             {" "}
             <div className="mt-[40px] w-full  md:w-[300px] md:max-w-[300px]">
                 <h3 className="text-[16px] font-medium font-Jost text-secondary-main">
@@ -32,6 +38,6 @@ export const ReceiveCoin = () => {
                     <span className=" text-[16px] font-Jost text-white-30">Ethereum network (ERC20)</span>
                 </div>
             </div>
-        </>
+        </motion.div>
     );
 };

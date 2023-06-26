@@ -1,22 +1,13 @@
-import { ethereum} from "../../../assets";
-import {
-    BTC,
-    BackRounded,
-   
-    Dai,
-    IC_SharpCancel,
+import { ethereum } from "../../../assets";
+import { BTC, BackRounded, Dai, IC_SharpCancel, USDC, USDT } from "../../../icons";
 
-    USDC,
-    USDT,
- 
-} from "../../../icons";
-
-import {  useState } from "react";
+import { useState } from "react";
 import { ConfirmPinMOdal } from "./confirmPinModal";
 import { Tab } from "@headlessui/react";
 import { SendCoin } from "./sendCoin";
 import { ReceiveCoin } from "./receiveCoin";
 import { ChooseNetwork } from "./chooseNetwork";
+import { AnimatePresence, motion } from "framer-motion";
 
 export const coins = [
     {
@@ -151,59 +142,71 @@ const SendAndRecieveCoin = ({ setSendAndReceiveModal }) => {
                 <main className="md:w-[75%] flex justify-center items-center w-full">
                     <div className="w-[94%] max-w-[350px] mx-auto md:mx-0 md:max-w-[576px] md:w-[576px] mt-0 md:mt-[95px] bg-[#fcfcfc] py-[24px] md:py-[95px] md:px-[128px]">
                         {currentStep === 1 && (
-                            <Tab.Group selectedIndex={selectedIndex} onChange={setSelectedIndex}>
-                                <Tab.List>
-                                    <div className="flex items-center gap-[20px] w-full justify-between">
-                                        <Tab
-                                            className={` md:w-[150px] w-[175px] h-[45px]  rounded-[5px] focus-visible:border-transparent  ${
-                                                selectedIndex === 0
-                                                    ? "bg-primary-light text-primary-main"
-                                                    : "bg-[#F7F7F7] text-white-30"
-                                            }`}
-                                        >
-                                            Send
-                                        </Tab>
-                                        <Tab
-                                            className={`bg md:w-[150px] w-[175px] h-[45px] rounded-[5px]  focus-visible:border-transparent  ${
-                                                selectedIndex === 1
-                                                    ? "bg-primary-light text-primary-main"
-                                                    : "bg-[#F7F7F7] text-white-30"
-                                            }`}
-                                        >
-                                            Recieve
-                                        </Tab>
-                                    </div>
-                                </Tab.List>
+                            <motion.div
+                                initial={{ opacity: 0.3 }}
+                                animate={{ opacity: 1 }}
+                                exit={{ opacity: 0.3 }}
+                                transition={{ duration: 0.7, type: "tween", ease: "easeOut" }}
+                            >
+                                {" "}
+                                <Tab.Group selectedIndex={selectedIndex} onChange={setSelectedIndex}>
+                                    <Tab.List>
+                                        <div className="flex items-center gap-[20px] w-full justify-between">
+                                            <Tab
+                                                className={` md:w-[150px] w-[175px] h-[45px]  rounded-[5px] focus-visible:border-transparent  ${
+                                                    selectedIndex === 0
+                                                        ? "bg-primary-light text-primary-main"
+                                                        : "bg-[#F7F7F7] text-white-30"
+                                                }`}
+                                            >
+                                                Send
+                                            </Tab>
+                                            <Tab
+                                                className={`bg md:w-[150px] w-[175px] h-[45px] rounded-[5px]  focus-visible:border-transparent  ${
+                                                    selectedIndex === 1
+                                                        ? "bg-primary-light text-primary-main"
+                                                        : "bg-[#F7F7F7] text-white-30"
+                                                }`}
+                                            >
+                                                Recieve
+                                            </Tab>
+                                        </div>
+                                    </Tab.List>
 
-                                <Tab.Panels>
-                                    <Tab.Panel>
-                                        <SendCoin
-                                            setCurrentStep={setCurrentStep}
-                                            selectedCoin={selectedCoin}
-                                            setSelectedCoinState={setSelectedCoinState}
-                                        />
-                                    </Tab.Panel>
-                                    <Tab.Panel>
-                                        <ReceiveCoin />
-                                    </Tab.Panel>
-                                </Tab.Panels>
-                            </Tab.Group>
+                                    <Tab.Panels>
+                                        <Tab.Panel>
+                                            <SendCoin
+                                                setCurrentStep={setCurrentStep}
+                                                selectedCoin={selectedCoin}
+                                                setSelectedCoinState={setSelectedCoinState}
+                                            />
+                                        </Tab.Panel>
+                                        <Tab.Panel>
+                                            <ReceiveCoin />
+                                        </Tab.Panel>
+                                    </Tab.Panels>
+                                </Tab.Group>
+                            </motion.div>
                         )}
 
-                        {currentStep === 2 && (
-                            <ChooseNetwork
-                                setIsConfirmPinModalOpen={setIsConfirmPinModalOpen}
-                                selectedCoin={selectedCoin}
-                                setCurrentStep={setCurrentStep}
-                            />
-                        )}
-                        {isConfirmPinModalOpen && currentStep === 3 && (
-                            <ConfirmPinMOdal
-                                setIsConfirmPinModalOpen={setIsConfirmPinModalOpen}
-                                setPin={setPin}
-                                setCurrentStep={setCurrentStep}
-                            />
-                        )}
+                        <AnimatePresence>
+                            {currentStep === 2 && (
+                                <ChooseNetwork
+                                    setIsConfirmPinModalOpen={setIsConfirmPinModalOpen}
+                                    selectedCoin={selectedCoin}
+                                    setCurrentStep={setCurrentStep}
+                                />
+                            )}
+                        </AnimatePresence>
+                        <AnimatePresence>
+                            {isConfirmPinModalOpen && currentStep === 3 && (
+                                <ConfirmPinMOdal
+                                    setIsConfirmPinModalOpen={setIsConfirmPinModalOpen}
+                                    setPin={setPin}
+                                    setCurrentStep={setCurrentStep}
+                                />
+                            )}
+                        </AnimatePresence>
                     </div>
                 </main>
             </div>

@@ -1,5 +1,6 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import { IC_SharpCancel } from "../../../icons";
+import { motion } from "framer-motion";
 
 export const ConfirmPinMOdal = ({ setIsConfirmPinModalOpen, setPin, setCurrentStep }) => {
     const inputs = ["input1", "input2", "input3", "input4"];
@@ -46,8 +47,14 @@ export const ConfirmPinMOdal = ({ setIsConfirmPinModalOpen, setPin, setCurrentSt
         });
     }
     return (
-        <div className="md:fixed overflow-y-auto left-0 top-0 w-full md:h-[100vh]  md:bg-[rgba(11,0,42,0.2)] md:backdrop-blur-[5px] z-[100] static backdrop-blur-0 h-full bg-[#fcfcfc] ">
-            <div className="w-full flex justify-center">
+        <motion.div className="md:fixed overflow-y-auto left-0 top-0 w-full md:h-[100vh]  md:bg-[rgba(11,0,42,0.2)] md:backdrop-blur-[5px] z-[100] static backdrop-blur-0 h-full bg-[#fcfcfc] ">
+            <motion.div
+                initial={{ opacity: 0.3 }}
+                animate={{ opacity: 1 }}
+                exit={{ opacity: 0.3 }}
+                transition={{ duration: 0.4, type: "tween", ease: "easeOut" }}
+                className="w-full flex justify-center"
+            >
                 <div className="w-[350px] md:w-[359px] md:h-[432px] bg-[#fcfcfc]  md:mt-[114px] md:pt-[50px] md:pb-[40px] h-auto">
                     <img
                         src={IC_SharpCancel}
@@ -105,7 +112,7 @@ export const ConfirmPinMOdal = ({ setIsConfirmPinModalOpen, setPin, setCurrentSt
                         </button>
                     </div>
                 </div>
-            </div>
-        </div>
+            </motion.div>
+        </motion.div>
     );
 };
