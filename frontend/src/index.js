@@ -8,11 +8,11 @@ import { ConfigProvider } from "react-avatar";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
-  <React.StrictMode>
-    <Provider store={store}>
-      <ConfigProvider colors={["red", "green", "blue"]}>
-        <App />
-      </ConfigProvider>
-    </Provider>
-  </React.StrictMode>
+    <React.StrictMode>
+        <Provider store={store}>
+            <ConfigProvider colors={["red", "green", "blue"]}>
+                <App />
+            </ConfigProvider>
+        </Provider>
+    </React.StrictMode>
 );
