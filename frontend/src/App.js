@@ -24,92 +24,63 @@ import Company from "./pages/company/Company";
 import EmployeeModal from "./pages/dashboard/dashboard-components/payroll/organization/EmployeeModal";
 import PaymentLink from "./widgets/products/PaymentLink";
 import Store from "./widgets/products/Store";
-import MobileConnectWallet from "./widgets/products/Store/mobileConnectWallet"
-import MakePayment from "./widgets/products/Store/makePayment"
-import LinkCreated from "./widgets/products/PaymentLink/ProductLinkCreated.jsx"
-import StoreMain from "./widgets/products/Store/storeMain"
-import PaymentSuccess from "./widgets/products/PaymentLink/PaymentSuccessful.jsx"
+import MobileConnectWallet from "./widgets/products/Store/mobileConnectWallet";
+import MakePayment from "./widgets/products/Store/makePayment";
+import LinkCreated from "./widgets/products/PaymentLink/ProductLinkCreated.jsx";
+import StoreMain from "./widgets/products/Store/storeMain";
+import PaymentSuccess from "./widgets/products/PaymentLink/PaymentSuccessful.jsx";
+import SendAndReceiveCoinPage from "./pages/Products/SendAndRecieveCoin";
 
 function App() {
-  const [registered, setIsRegistered] = useState(false);
+    const [registered, setIsRegistered] = useState(false);
 
-  const [activeLink, setActiveLink] = useState(0);
-  return (
-    <div className="font-Jost overflow-hidden">
-      <Router>
-        <Toaster />
-        <Layout>
-          <Routes>
-            <Route path="/" element={<Home />} />
-            <Route path="/products/checkout" element={<ProductsCheckout />} />
-            <Route path="/products/payroll" element={<ProductsPayroll />} />
-            <Route path="/products/donation" element={<ProductsDonation />} />
-            <Route path="/products/gipperfi" element={<ProductsGipperfi />} />
-            <Route path="/products/GUST" element={<ProductsGUST />} />
-            <Route path="/pricing" element={<Pricing />} />
-            <Route
-              path="/waitlist"
-              element={<WaitList setIsRegistered={setIsRegistered} />}
-            />
-            <Route
-              path="/waitlist/community"
-              element={<WaitListSuccess registered={registered} />}
-            />
-            <Route
-              path="/waitlist"
-              element={<WaitList setIsRegistered={setIsRegistered} />}
-            />
-            <Route
-              path="/waitlist/community"
-              element={<WaitListSuccess registered={registered} />}
-            />
-            <Route path="/getStarted" element={<GetStarted />} />
-            <Route path="/signIn" element={<SignIn />} />
-            <Route
-              path="/businesses/ecommerceStore"
-              element={<EcommerceStore />}
-            />
-            <Route
-              path="/businesses/businessWallet"
-              element={<BusinessWallet />}
-            />
-            <Route element={<PrivateRoutes />}>
-              <Route
-                path="/dashboard"
-                element={
-                  <Dashboard
-                    activeLink={activeLink}
-                    setActiveLink={setActiveLink}
-                  />
-                }
-              />
-              <Route
-                path="/create-donation"
-                element={<CreateDonation setActiveLink={setActiveLink} />}
-              />
-              <Route
-                path="/make-donation"
-                element={<MakeDonation setActiveLink={setActiveLink} />}
-              />
-              <Route path="/employeeForm" element={<EmployeeModal/>}/>
-              <Route path="/company/about" element={<Company/>}/>
-              <Route path="/payment-link" element={<PaymentLink setActiveLink={setActiveLink}/>}/>
-              <Route path="/store" element={<Store setActiveLink={setActiveLink}/>} />
-              <Route path="/connect-wallet" element={<MobileConnectWallet/>}/>
-              <Route path="/make-payment" element={<MakePayment/>}/>
-              <Route path="/link-created" element={<LinkCreated/>}/>
-              <Route path ="/store-main" element={<StoreMain />}/>
-              <Route path = "/payment-successful" element ={<PaymentSuccess />} />
-
-              
-            </Route>
-            <Route path="/employeeForm" element={<EmployeeModal/>}/>
-              <Route path="/company/about" element={<Company/>}/>
-          </Routes>
-        </Layout>
-      </Router>
-    </div>
-  );
+    const [activeLink, setActiveLink] = useState(0);
+    return (
+        <div className="font-Jost overflow-hidden">
+            <Router>
+                <Toaster />
+                <Layout>
+                    <Routes>
+                        <Route path="/" element={<Home />} />
+                        <Route path="/products/checkout" element={<ProductsCheckout />} />
+                        <Route path="/products/payroll" element={<ProductsPayroll />} />
+                        <Route path="/products/donation" element={<ProductsDonation />} />
+                        <Route path="/products/gipperfi" element={<ProductsGipperfi />} />
+                        <Route path="/products/GUST" element={<ProductsGUST />} />
+                        <Route path="/sendReceive" element={<SendAndReceiveCoinPage />} />
+                        <Route path="/pricing" element={<Pricing />} />
+                        <Route path="/waitlist" element={<WaitList setIsRegistered={setIsRegistered} />} />
+                        <Route path="/waitlist/community" element={<WaitListSuccess registered={registered} />} />
+                        <Route path="/waitlist" element={<WaitList setIsRegistered={setIsRegistered} />} />
+                        <Route path="/waitlist/community" element={<WaitListSuccess registered={registered} />} />
+                        <Route path="/getStarted" element={<GetStarted />} />
+                        <Route path="/signIn" element={<SignIn />} />
+                        <Route path="/businesses/ecommerceStore" element={<EcommerceStore />} />
+                        <Route path="/businesses/businessWallet" element={<BusinessWallet />} />
+                        <Route element={<PrivateRoutes />}>
+                            <Route
+                                path="/dashboard"
+                                element={<Dashboard activeLink={activeLink} setActiveLink={setActiveLink} />}
+                            />
+                            <Route path="/create-donation" element={<CreateDonation setActiveLink={setActiveLink} />} />
+                            <Route path="/make-donation" element={<MakeDonation setActiveLink={setActiveLink} />} />
+                            <Route path="/employeeForm" element={<EmployeeModal />} />
+                            <Route path="/company/about" element={<Company />} />
+                            <Route path="/payment-link" element={<PaymentLink setActiveLink={setActiveLink} />} />
+                            <Route path="/store" element={<Store setActiveLink={setActiveLink} />} />
+                            <Route path="/connect-wallet" element={<MobileConnectWallet />} />
+                            <Route path="/make-payment" element={<MakePayment />} />
+                            <Route path="/link-created" element={<LinkCreated />} />
+                            <Route path="/store-main" element={<StoreMain />} />
+                            <Route path="/payment-successful" element={<PaymentSuccess />} />
+                        </Route>
+                        <Route path="/employeeForm" element={<EmployeeModal />} />
+                        <Route path="/company/about" element={<Company />} />
+                    </Routes>
+                </Layout>
+            </Router>
+        </div>
+    );
 }
 
 export default App;
