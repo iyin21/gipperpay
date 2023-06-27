@@ -1,7 +1,7 @@
 import React, { useRef } from "react";
 import { BsDot } from "react-icons/bs";
 import { BiRightArrowAlt } from "react-icons/bi";
-import { iphone11Ecommerce, rectangle } from "../../../../assets/index";
+import { iphone11Ecommerce, rectangle, MacbookPro, PurpleRectangle, IPhone11ProMax2 } from "../../../../assets/index";
 import { questionmark } from "../../../../icons";
 import { motion } from "framer-motion";
 import {
@@ -12,7 +12,7 @@ import {
 function Header() {
   const scrollRef = useRef(null);
   return (
-    <div className="w-full h-full  lg:flex lg:flex-row lg:px-[3.125rem]  lg:justify-center relative z-10 ">
+    <div className="w-full h-full  lg:flex lg:flex-row lg:pl-[3.125rem] pl-6 pt-8 lg:pt-0 relative z-10 bg-white-70">
       <motion.div
         variants={textVariants}
         animate="show"
@@ -26,18 +26,16 @@ function Header() {
           </span>
           <span>E-commerce store</span>
         </h1>
-        <h1 className=" lg:w-[38.25rem] lg:h-[7.625rem] mt-[1.25rem] font-Jost font-big text-3xl leading-[4.3125rem] items-center text-secondary-main ">
-          Start selling anything online
+        <h1 className="w-[80%]  mt-[1.25rem] font-Jost font-big md:text-3xl text-[36px] leading-[3rem] items-center text-secondary-main ">
+        Unleash Your Sales Potential, Create Link and Sell Anywhere
         </h1>
-        <h1 className="lg:w-[41.3125rem] lg:h-[3.375rem] mt-[1.25rem] font-Jost font-regular text-sm leading-[1.6875rem] text-white-30 ">
-          The e-commerce store features which are also called PAYMENT LINK on
-          gipperpay help you create a free online store, accept payment, and
-          grow your revenue
+        <h1 className="lg:w-[90%] lg:h-[3.375rem] mt-[1.25rem] font-Jost font-regular text-sm leading-[1.6875rem] text-white-30 ">
+        Sell online easily with payment links .create a complete payment page effortlessly and share the link with your customers for seamless transactions-no coding needed
         </h1>
-        <div className=" lg:mt-[2.5rem] mt-[1.25rem] flex flex-row ">
-          <button className="flex flex-row bg-primary-main rounded-[0.3125rem] items-center justify-center px-[1.25rem] py-[0.625rem] w-[9rem] h-[2.8125rem]  text-white-60 ">
-            <h1 className="ml-[0.625rem] ">Get started</h1>
-            <BiRightArrowAlt />
+        <div className=" lg:mt-[3rem] mt-[1.25rem] flex flex-row ">
+          <button className="flex flex-row bg-primary-main rounded-[0.3125rem] items-center justify-center px-[1.25rem] py-[0.625rem] w-[10rem] h-[2.8125rem]  text-white-60 ">
+            <h1 className="ml-[0.625rem] text-s">Get started</h1>
+            <BiRightArrowAlt size="26px"/>
           </button>
           <div className="  ml-[1.25rem] rounded-[0.3125rem] flex flex-row items-center justify-center ">
             <img
@@ -51,24 +49,37 @@ function Header() {
           </div>
         </div>
       </motion.div>
-      <div className=" mt-[2.25rem]  lg:mt-[0]  relative z-10 lg:h-[30.375rem] lg:w-[54.875rem]">
+      <div className=" mt-[2.25rem]  lg:mt-[0] w-full  relative z-10 ">
         <motion.img
           viewport={{ once: true }}
           ref={scrollRef}
           initial={{ opacity: 0, x: "100%" }}
           whileInView={{ opacity: 1, x: 0 }}
           transition={{ delay: 2, duration: 2, type: "spring", stiffness: 120 }}
-          src={iphone11Ecommerce}
+          src={MacbookPro}
           alt=""
-          className="lg:w-[34.1875rem] h-full lg:mt-[1.62rem]  object-contain relative z-10  "
+          className=" h-full lg:mt-[1.62rem] object-contain hidden lg:block  relative z-10  "
         />
+        <div className="flex justify-center ">
+        <motion.img
+        viewport={{ once: true }}
+        ref={scrollRef}
+        initial={{ opacity: 0, x: "100%" }}
+        whileInView={{ opacity: 1, x: 0 }}
+        transition={{ delay: 2, duration: 2, type: "spring", stiffness: 120 }}
+        src={IPhone11ProMax2}
+        alt=""
+        className=" h-full lg:mt-[1.62rem] lg:hidden object-top  relative z-10 "
+      />
+        </div>
+        
         <motion.img
           variants={rectangleVariants}
           animate="show"
           initial="hide"
-          src={rectangle}
+          src={PurpleRectangle}
           alt=""
-          className="absolute top-[0] h-full -right-[15rem]  lg:left-[2.5rem] z-0   "
+          className="absolute top-[0] h-full lg:-right-[15rem] -right-[20rem] md:-right-[30rem] sm:-right-[20rem]  lg:left-[2.5rem] z-0   "
         />
       </div>
     </div>

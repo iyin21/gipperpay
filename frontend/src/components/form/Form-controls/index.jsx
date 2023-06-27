@@ -8,8 +8,7 @@ import Input from "./input";
 function InputProp(props) {
     const {
         suffixIcon,
-        prefixIcon,
-        
+        prefixIcon,       
         name,
         type,
         enablereinitialize,

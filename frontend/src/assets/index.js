@@ -137,6 +137,23 @@ import tether from "./associates/tether.png"
 import uniswap from "./associates/uniswap.png"
 import meta from "./associates/metamask.png"
 import link from './link.png'
+import BoxOfCoins from "./boxOfCoins.png"
+import Etherum from "./etherum.png"
+import Crypto from "./crypto.png";
+import Stick from "./stick.png";
+import Line from "./line.png";
+import Ipad from "./ipad.png"
+import FastSetupImage from "./fastSetupImage.png"
+import ImproveOnboardingImage from "./improveOnboardingImage.png"
+import GipperPaymentImage from "./gipperPaymentImage.png"
+import IPhone11Pro from "./iPhone11Pro.png"
+import IPhone12Graphite from "./iPhone12Graphite.png";
+import MacbookPro from "./MacbookPro.png";
+import PurpleRectangle from "./purpleRectangle.png";
+import SilverIMac from "./SilverIMac.png";
+import Gold from "./gold.png";
+import IPhone11ProMax2 from "./iPhone11ProMax2.png"
+import IPhone13Pro from "./iPhone13Pro.png"
 
 export {
   logo,
@@ -276,5 +293,22 @@ export {
   uniswap,
   visa,
   mark,
-  link
+  link,
+  BoxOfCoins,
+  Etherum,
+  Crypto,
+  Stick,
+  Line, 
+  Ipad,
+  FastSetupImage,
+  ImproveOnboardingImage,
+  GipperPaymentImage,
+  IPhone11Pro,
+  IPhone12Graphite, 
+  MacbookPro,
+  PurpleRectangle,
+  SilverIMac,
+  Gold,
+  IPhone11ProMax2,
+  IPhone13Pro
 };

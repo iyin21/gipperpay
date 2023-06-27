@@ -38,10 +38,17 @@ import GustLogo from "./gustLogo.svg";
 import USDTLogo from "./usdtLogo.svg";
 import arrowDown from './arrowDown.svg';
 import arrowRight from "./arrowRight.svg"
-import arrowDown from "./arrowDown.svg";
-import arrowRight from "./arrowRight.svg";
 import IC_DepositDark from "./ic-deposit-dark.svg";
 import IC_DepositLight from "./ic-deposit-light.svg";
+import Coins from "./coins.svg";
+import Logo from "./logo.svg";
+import Sol from "./sol.svg";
+import SmallCoin from "./smallCoin.svg";
+import SkullIcon from "./skull.svg"; 
+import TetherIcon from "./tether.svg";
+import ItcLogo from "./itcLogo.svg";
+import CryptoCurrency from "./cryptocurrency.svg";
+import Bitcoin from "./bitcoin.svg";
 
 export {
   IC_DepositDark,
@@ -86,4 +93,13 @@ export {
   USDTLogo,
   arrowDown,
   arrowRight,
+  Coins,
+  Logo,
+  Sol,
+  SmallCoin,
+  SkullIcon,
+  TetherIcon,
+  ItcLogo,
+  CryptoCurrency,
+  Bitcoin
 };
