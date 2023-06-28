@@ -147,7 +147,7 @@ import FastSetupImage from "./fastSetupImage.png"
 import ImproveOnboardingImage from "./improveOnboardingImage.png"
 import GipperPaymentImage from "./gipperPaymentImage.png"
 import IPhone11Pro from "./iPhone11Pro.png"
-import IPhone12Graphite from "./iPhone12Graphite.png";
+import IPhone12Graphite from "./iPhone12GraphitePro.svg";
 import MacbookPro from "./MacbookPro.png";
 import PurpleRectangle from "./purpleRectangle.png";
 import SilverIMac from "./SilverIMac.png";

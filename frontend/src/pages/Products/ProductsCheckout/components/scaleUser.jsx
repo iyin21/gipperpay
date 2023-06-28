@@ -29,7 +29,7 @@ const ScaleUser=()=>{
                 <img src={Crypto} alt="" className="sm:-mt-10"/>
                 <div>
                     {desc.map((item, index)=>(
-                        <div key={index} className="bg-white-90 h-fit xl:w-[370px] lg:w-[70%] md:w-[60%] w-[80%] mx-auto py-4 mt-24 rounded lg:hidden block ">
+                        <div key={index} className="bg-white-90 h-fit xl:w-[370px] lg:w-[70%] md:w-[60%] w-[80%] mx-auto py-4 mt-10 lg:hidden block mb-10 rounded-[40px]">
                         <div className="flex justify-end">
                             <img src={Stick}  alt=""/>
                         </div>
@@ -40,7 +40,7 @@ const ScaleUser=()=>{
                     </div>
                     ))}
                     
-                 <div className="bg-white-90 h-fit xl:w-[370px] lg:w-[70%] md:w-[60%] w-[80%] mx-auto py-4 mt-24 rounded hidden lg:block">
+                 <div className="bg-white-90 h-fit xl:w-[370px] lg:w-[70%] md:w-[60%] w-[80%] mx-auto py-4 mt-24 rounded-[40px] hidden lg:block">
                         <div className="flex justify-end">
                             <img src={Stick}  alt=""/>
                         </div>
